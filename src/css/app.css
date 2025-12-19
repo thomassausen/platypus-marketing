@@ -1,1 +1,191 @@
 @import "tailwindcss";
+
+* {
+    font-family: 'Open Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+    --font-family-sans: 'Open Sans', ui-sans-serif, system-ui;
+
+    --color-brand-primary: #5162AA;
+    --color-brand-secondary: #f89c48;
+    --color-brand-accent: #feebde;
+    --color-brand-neutral1: #d6d1c4;
+    --color-brand-neutral2: #b5a899;
+
+    --color-background-soft: #EFEDE6;
+    --color-background-light: #ffffff;
+
+    --shadow-soft: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 15px 40px -20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Footer Link Hover - Barrierefreiheit */
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #f89c48;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-link:focus {
+    outline: 2px solid #f89c48;
+    outline-offset: 4px;
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Navigation Link Hover - Desktop */
+.nav-link {
+    color: rgb(75, 85, 99); /* text-gray-600 */
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #f89c48;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #5162AA;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:focus {
+    outline: 2px solid #f89c48;
+    outline-offset: 4px;
+    color: #5162AA;
+}
+
+/* Mobile Menu Link Styles */
+.mobile-menu-link {
+    color: #5162AA;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.mobile-menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f89c48;
+    transition: width 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+    color: #f89c48;
+    transform: translateY(-2px);
+}
+
+.mobile-menu-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-link:focus {
+    outline: 2px solid #f89c48;
+    outline-offset: 4px;
+    color: #f89c48;
+}
+
+/* Content Styles für TextSection und ImageTextSection */
+.content-styles h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #5162AA !important;
+    margin-bottom: 1rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.content-styles ul {
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+}
+
+.content-styles ol {
+    list-style-type: decimal !important;
+    list-style-position: outside !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+}
+
+.content-styles li {
+    margin-bottom: 0.5rem !important;
+    display: list-item !important;
+}
+
+.content-styles strong {
+    font-weight: 700;
+}
+
+.content-styles em {
+    font-style: italic;
+}
+
+.content-styles a {
+    color: #5162AA;
+    text-decoration: underline;
+    text-decoration-color: #f89c48;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.content-styles a:hover {
+    color: #f89c48;
+}
+
+/* Dark Mode Overrides für Content Styles */
+.bg-brand-primary .content-styles h3 {
+    color: #ffffff !important;
+}
+
+.bg-brand-primary .content-styles a {
+    color: #ffffff;
+    text-decoration-color: #f89c48;
+}
+
+.bg-brand-primary .content-styles a:hover {
+    color: #f89c48;
+}

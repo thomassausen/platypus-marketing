@@ -1,0 +1,37 @@
+{# Text Content Partial - DRY component for subtitle, title, description, text, button #}
+
+{# Subtitle #}
+{% if subtitle %}
+    <div class="inline-block mb-4">
+        <span class="px-4 py-2 {{ subtitleBgClass }} rounded-full text-sm font-semibold tracking-wide">
+            {{ subtitle }}
+        </span>
+    </div>
+{% endif %}
+
+{# Title #}
+{% if title %}
+    <h2 class="text-4xl font-bold {{ titleColorClass }} mb-6">{{ title }}</h2>
+{% endif %}
+
+{# Description #}
+{% if description %}
+    <div class="text-xl {{ textColorClass }} mb-8">{{ description }}</div>
+{% endif %}
+
+{# Text Content #}
+{% if text %}
+    <div class="text-lg {{ textColorClass }} mb-8 space-y-4 content-styles">
+        {{ text }}
+    </div>
+{% endif %}
+
+{# Button #}
+{% if button %}
+    <div class="flex {{ buttonAlign|default('') }} space-x-4">
+        <a href="{{ button.value }}" class="group relative {{ buttonClass|default('bg-brand-primary hover:bg-brand-secondary') }} {{ buttonTextClass|default('text-white') }} px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
+            <span class="relative z-10">{{ button.label }}</span>
+            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+    </div>
+{% endif %}

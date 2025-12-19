@@ -1,0 +1,210 @@
+{% set mainNav = craft.entries.section('mainNavigation').level(1).all() %}
+
+
+<header id="header" class="sticky top-0 z-50 bg-background-soft py-8 px-4 lg:px-8 transition-all duration-300">
+    <div class="max-w-7xl mx-auto">
+        <nav class="flex justify-between items-center">
+            <a href="{{ siteUrl }}" class="flex items-center transition-transform duration-300 hover:scale-105 relative z-50" id="logo">
+                <svg width="300" height="90" viewBox="0 0 1772 1182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" class="transition-all duration-300">
+                    <g transform="matrix(4.16667,0,0,4.16667,106.764,930.67)">
+                        <path d="M0,27.652L9.45,3.195L9.602,3.195C9.425,5.589 9.337,7.806 9.337,9.848L9.337,27.652L12.55,27.652L12.55,0.019L7.749,0.019L-1.077,22.813L-1.229,22.813L-9.98,0.019L-14.818,0.019L-14.818,27.652L-11.851,27.652L-11.851,10.074C-11.851,7.403 -11.939,5.097 -12.115,3.157L-11.964,3.157L-2.589,27.652L0,27.652ZM64.825,27.652L53.957,-0.094L51.254,-0.094L40.329,27.652L43.58,27.652L46.982,18.863L58.058,18.863L61.498,27.652L64.825,27.652ZM48.116,15.971L51.367,7.409C51.884,5.961 52.281,4.631 52.558,3.421C52.999,4.997 53.428,6.326 53.843,7.409L57.056,15.971L48.116,15.971ZM101.601,16.16L108.292,27.652L112.091,27.652L104.587,15.234C108.292,13.949 110.144,11.48 110.144,7.825C110.144,5.217 109.334,3.264 107.715,1.966C106.096,0.668 103.591,0.019 100.202,0.019L92.623,0.019L92.623,27.652L95.836,27.652L95.836,16.16L101.601,16.16ZM95.836,2.835L100.013,2.835C102.395,2.835 104.124,3.239 105.201,4.045C106.279,4.852 106.817,6.168 106.817,7.995C106.817,9.797 106.288,11.149 105.23,12.05C104.171,12.951 102.508,13.401 100.24,13.401L95.836,13.401L95.836,2.835ZM148.98,12.021L160.094,0.019L156.295,0.019L143.763,13.722L143.763,0.019L140.55,0.019L140.55,27.652L143.763,27.652L143.763,16.822L146.655,14.251L156.729,27.652L160.509,27.652L148.98,12.021ZM203.712,24.779L191.521,24.779L191.521,14.611L202.975,14.611L202.975,11.775L191.521,11.775L191.521,2.873L203.712,2.873L203.712,0.019L188.308,0.019L188.308,27.652L203.712,27.652L203.712,24.779ZM242.34,2.873L251.091,2.873L251.091,0.019L230.376,0.019L230.376,2.873L239.127,2.873L239.127,27.652L242.34,27.652L242.34,2.873ZM282.461,0.019L279.248,0.019L279.248,27.652L282.461,27.652L282.461,0.019ZM335.624,0.019L332.619,0.019L332.619,15.877C332.594,16.671 332.625,17.991 332.714,19.837C332.802,21.683 332.858,22.776 332.884,23.116L332.733,23.116L317.669,0.019L314.04,0.019L314.04,27.652L317.007,27.652L317.007,11.946C317.007,9.677 316.906,7.183 316.705,4.461L316.856,4.461L331.958,27.652L335.624,27.652L335.624,0.019ZM379.375,16.047L385.555,16.047L385.555,24.552C383.728,24.994 381.857,25.214 379.942,25.214C376.414,25.214 373.739,24.25 371.918,22.322C370.098,20.394 369.187,17.566 369.187,13.836C369.187,10.282 370.132,7.504 372.022,5.5C373.912,3.497 376.54,2.495 379.904,2.495C382.21,2.495 384.61,3.024 387.105,4.083L388.353,1.248C385.807,0.164 383.06,-0.378 380.112,-0.378C377.201,-0.378 374.662,0.193 372.495,1.333C370.328,2.473 368.668,4.124 367.515,6.285C366.362,8.446 365.785,10.963 365.785,13.836C365.785,18.322 366.951,21.809 369.282,24.297C371.613,26.786 374.87,28.03 379.053,28.03C381.044,28.03 382.796,27.91 384.308,27.671C385.82,27.432 387.307,27.079 388.768,26.612L388.768,13.174L379.375,13.174L379.375,16.047Z" style="fill:rgb(81,97,170);fill-rule:nonzero;"/>
+                    </g>
+                    <g transform="matrix(4.16667,0,0,4.16667,93.7737,832.905)">
+                        <path d="M0,-35.969L5.322,-35.969C8.517,-35.969 10.864,-35.314 12.361,-34.006C13.858,-32.698 14.607,-30.672 14.607,-27.93C14.607,-25.212 13.713,-23.142 11.927,-21.721C10.14,-20.299 7.448,-19.588 3.85,-19.588L0,-19.588L0,-35.969ZM21.193,-41.234C17.708,-44.115 12.619,-45.556 5.926,-45.556L-11.701,-45.556L-11.701,9.625L0,9.625L0,-10.001L5.02,-10.001C11.864,-10.001 17.142,-11.574 20.853,-14.719C24.565,-17.864 26.421,-22.406 26.421,-28.345C26.421,-34.056 24.678,-38.353 21.193,-41.234M71.693,9.625L71.693,-0.037L49.311,-0.037L49.311,-45.556L37.611,-45.556L37.611,9.625L71.693,9.625ZM133.078,9.625L113.527,-45.782L99.222,-45.782L79.746,9.625L92.353,9.625L96.353,-3.509L116.471,-3.509L120.472,9.625L133.078,9.625ZM99.297,-13.323C103.223,-26.029 105.601,-33.993 106.431,-37.215C106.632,-36.309 106.965,-35.076 107.431,-33.516C107.896,-31.955 109.979,-25.224 113.678,-13.323L99.297,-13.323ZM165.175,-35.818L180.159,-35.818L180.159,-45.556L138.49,-45.556L138.49,-35.818L153.475,-35.818L153.475,9.625L165.175,9.625L165.175,-35.818ZM198.254,-45.556L185.572,-45.556L203.877,-11.473L203.877,9.625L215.502,9.625L215.502,-11.851L233.808,-45.556L221.202,-45.556L209.69,-22.834L198.254,-45.556ZM256.318,-35.969L261.64,-35.969C264.835,-35.969 267.182,-35.314 268.679,-34.006C270.176,-32.698 270.925,-30.672 270.925,-27.93C270.925,-25.212 270.032,-23.142 268.245,-21.721C266.458,-20.299 263.766,-19.588 260.168,-19.588L256.318,-19.588L256.318,-35.969ZM277.511,-41.234C274.026,-44.115 268.937,-45.556 262.244,-45.556L244.618,-45.556L244.618,9.625L256.318,9.625L256.318,-10.001L261.338,-10.001C268.182,-10.001 273.46,-11.574 277.172,-14.719C280.883,-17.864 282.739,-22.406 282.739,-28.345C282.739,-34.056 280.996,-38.353 277.511,-41.234M330.273,-45.556L330.273,-11.851C330.273,-7.573 329.411,-4.434 327.688,-2.434C325.964,-0.433 323.19,0.567 319.365,0.567C315.415,0.567 312.584,-0.427 310.873,-2.415C309.162,-4.402 308.306,-7.523 308.306,-11.775L308.306,-45.556L296.644,-45.556L296.644,-10.001C296.644,-3.685 298.606,1.29 302.532,4.926C306.457,8.563 311.968,10.38 319.063,10.38C323.768,10.38 327.845,9.563 331.292,7.927C334.739,6.291 337.375,3.939 339.2,0.869C341.024,-2.201 341.936,-5.774 341.936,-9.85L341.936,-45.556L330.273,-45.556ZM389.017,-14.814C387.105,-17.292 383.569,-19.764 378.411,-22.23C374.511,-24.092 372.039,-25.382 370.995,-26.099C369.95,-26.816 369.189,-27.558 368.711,-28.326C368.233,-29.093 367.994,-29.993 367.994,-31.025C367.994,-32.685 368.585,-34.031 369.768,-35.063C370.951,-36.095 372.649,-36.611 374.864,-36.611C376.725,-36.611 378.619,-36.371 380.544,-35.894C382.469,-35.415 384.903,-34.573 387.847,-33.365L391.622,-42.461C388.778,-43.693 386.055,-44.65 383.45,-45.329C380.846,-46.009 378.109,-46.349 375.241,-46.349C369.403,-46.349 364.83,-44.952 361.521,-42.159C358.212,-39.366 356.558,-35.528 356.558,-30.647C356.558,-28.055 357.061,-25.791 358.068,-23.853C359.074,-21.915 360.42,-20.217 362.106,-18.758C363.792,-17.298 366.32,-15.776 369.693,-14.191C373.291,-12.479 375.675,-11.234 376.845,-10.454C378.015,-9.674 378.902,-8.863 379.506,-8.02C380.11,-7.177 380.412,-6.214 380.412,-5.132C380.412,-3.195 379.726,-1.736 378.355,-0.754C376.983,0.227 375.015,0.718 372.448,0.718C370.309,0.718 367.95,0.378 365.371,-0.301C362.791,-0.981 359.64,-2.151 355.916,-3.811L355.916,7.059C360.445,9.273 365.654,10.38 371.542,10.38C377.933,10.38 382.922,8.946 386.507,6.077C390.093,3.209 391.886,-0.716 391.886,-5.699C391.886,-9.297 390.929,-12.335 389.017,-14.814" style="fill:rgb(81,97,170);fill-rule:nonzero;"/>
+                    </g>
+                    <g transform="matrix(4.16667,0,0,4.16667,512.78,570.527)">
+                        <path d="M0,-104.852C0,-104.852 11.936,-92.312 23.418,-88.233C23.418,-88.233 33.994,-88.535 40.642,-84.154C40.642,-84.154 51.52,-80.83 56.052,-70.858L58.318,-65.721C58.318,-65.721 58.62,-64.21 64.362,-64.21C64.362,-64.21 74.333,-62.418 82.643,-58.318C82.643,-58.318 93.672,-58.881 114.824,-54.218C114.824,-54.218 130.99,-47.742 134.464,-48.196C134.464,-48.196 139.299,-47.742 152.534,-49.918C152.534,-49.918 171.027,-48.498 176.164,-46.08C176.164,-46.08 185.984,-43.059 184.624,-34.145C184.624,-34.145 182.962,-23.569 169.214,-24.475L149.573,-29.159C149.573,-29.159 140.024,-33.964 128.24,-26.047L130.838,-18.13C130.838,-18.13 132.561,-14.957 135.431,-14.806C135.431,-14.806 135.975,-14.655 135.673,-11.331C135.673,-11.331 133.316,-14.806 133.135,-7.131C133.135,-7.131 132.47,-8.642 128.482,-2.296L127.877,-3.142L124.251,-2.478L123.435,0L122.227,-2.266L119.507,-2.417C119.507,-2.417 119.054,0 117.996,0C117.996,0 117.09,-2.87 117.845,-3.022C117.845,-3.022 117.271,-5.167 118.329,-7.433C118.329,-7.433 119.417,-9.186 114.038,-7.796C114.038,-7.796 114.975,-6.043 114.521,-5.137C114.521,-5.137 112.557,-7.403 112.406,-7.705C112.255,-8.007 108.78,-8.007 108.78,-8.007C108.78,-8.007 109.203,-5.983 108.478,-5.499C108.478,-5.499 107.058,-7.554 107.209,-9.065C107.209,-9.065 105.759,-8.461 106.514,-15.259C106.514,-15.259 103.764,-16.861 90.65,-12.238C90.65,-12.238 74.152,-8.702 60.887,-15.108C60.887,-15.108 46.896,-21.152 44.6,-26.047L45.567,-21.756C45.567,-21.756 49.253,-14.564 42.847,-14.625C40.761,-14.644 39.584,-14.806 38.013,-13.658C36.633,-12.649 34.387,-14.323 33.359,-14.927C32.578,-15.387 29.22,-13.9 27.86,-15.41C26.5,-16.921 25.05,-20.064 23.388,-20.064C21.726,-20.064 18.674,-20.185 18.916,-24.173C19.035,-26.134 13.525,-24.323 19.641,-29.008C26.742,-34.447 29.31,-35.958 31.728,-37.166L26.289,-47.591L21.152,-63.757C21.152,-63.757 17.526,-75.844 11.331,-79.923L-2.871,-94.729C-3.324,-97.147 -8.914,-103.794 0,-104.852" style="fill:rgb(81,97,170);fill-rule:nonzero;"/>
+                    </g>
+                </svg>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex space-x-6 text-gray-600 items-center">
+                {% for item in mainNav %}
+                    {% if item.children|length %}
+                        {# Level 1: Item with Children (Dropdown) #}
+                        <div class="relative group">
+                            <a
+                                href="{{ item.customLink.value }}"
+                                class="nav-link !flex !items-center !gap-2 !whitespace-nowrap"
+                                aria-haspopup="true"
+                                aria-label="{{ item.customLink.label }}"
+                                {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}
+                            >
+                                <span>{{ item.customLink.label }}</span>
+                                <svg class="w-4 h-4 transition-transform group-hover:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                            <div
+                                class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2"
+                                role="menu"
+                                aria-label="{{ item.customLink.label }} Untermenü"
+                            >
+                                <div class="py-2">
+                                    {% for child in item.children %}
+                                        {# Level 2: Child Items #}
+                                        <a href="{{ child.customLink.value }}" class="block px-4 py-2 hover:bg-gray-100 transition-colors" role="menuitem" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        {# Level 1: Item ohne Children (normaler Link) #}
+                        <a href="{{ item.customLink.value }}" class="nav-link" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                    id="mobileMenuButton"
+                    class="lg:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center group"
+                    aria-label="Menü öffnen"
+                    aria-expanded="false"
+            >
+                <span class="hamburger-line w-6 h-0.5 bg-brand-primary transition-all duration-300 mb-1.5"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-brand-primary transition-all duration-300 mb-1.5"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-brand-primary transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div
+                id="mobileMenu"
+                class="fixed inset-0 bg-background-soft transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40"
+        >
+            <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                {% for item in mainNav %}
+                    {% if item.children|length %}
+                        {# Level 1: Item mit Children (Mobile Dropdown) #}
+                        <div class="w-full text-center">
+                            <button
+                                class="mobile-dropdown-toggle mobile-menu-link inline-flex items-center gap-2 justify-center"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-label="{{ item.customLink.label }} Menü"
+                            >
+                                {{ item.customLink.label }}
+                                <svg class="w-5 h-5 transition-transform inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="mobile-dropdown-menu hidden mt-4 space-y-4" role="menu" aria-label="{{ item.customLink.label }} Untermenü">
+                                {% for child in item.children %}
+                                    {# Level 2: Child Items #}
+                                    <a href="{{ child.customLink.value }}" class="block text-xl text-gray-600 hover:text-brand-primary transition-colors" role="menuitem" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        {# Level 1: Item ohne Children (normaler Link) #}
+                        <a href="{{ item.customLink.value }}" class="mobile-menu-link" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Sticky Header Scroll-Effekt
+    const header = document.getElementById('header');
+    const logo = document.querySelector('#logo svg');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 50) {
+            header?.classList.add('py-4', 'shadow-md');
+            header?.classList.remove('py-8');
+
+            if (logo) {
+                logo.style.width = '200px';
+                logo.style.height = '60px';
+            }
+        } else {
+            header?.classList.remove('py-4', 'shadow-md');
+            header?.classList.add('py-8');
+
+            if (logo) {
+                logo.style.width = '300px';
+                logo.style.height = '90px';
+            }
+        }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburgerLines = document.querySelectorAll('.hamburger-line');
+    let isMenuOpen = false;
+
+    mobileMenuButton?.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            // Menü öffnen
+            mobileMenu?.classList.remove('translate-x-full');
+            mobileMenu?.classList.add('translate-x-0');
+            document.body.style.overflow = 'hidden';
+
+            // Burger zu X animieren
+            hamburgerLines[0]?.classList.add('rotate-45', 'translate-y-2');
+            hamburgerLines[1]?.classList.add('opacity-0');
+            hamburgerLines[2]?.classList.add('-rotate-45', '-translate-y-2');
+
+            mobileMenuButton?.setAttribute('aria-expanded', 'true');
+            mobileMenuButton?.setAttribute('aria-label', 'Menü schließen');
+        } else {
+            // Menü schließen
+            mobileMenu?.classList.add('translate-x-full');
+            mobileMenu?.classList.remove('translate-x-0');
+            document.body.style.overflow = '';
+
+            // X zu Burger animieren
+            hamburgerLines[0]?.classList.remove('rotate-45', 'translate-y-2');
+            hamburgerLines[1]?.classList.remove('opacity-0');
+            hamburgerLines[2]?.classList.remove('-rotate-45', '-translate-y-2');
+
+            mobileMenuButton?.setAttribute('aria-expanded', 'false');
+            mobileMenuButton?.setAttribute('aria-label', 'Menü öffnen');
+        }
+    });
+
+    // Menü schließen bei Link-Klick (nicht bei Dropdown-Toggle-Buttons)
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-toggle)');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuButton?.click();
+        });
+    });
+
+    // Menü auch bei Child-Link-Klick schließen
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.mobile-dropdown-menu a')) {
+            mobileMenuButton?.click();
+        }
+    });
+
+    // Mobile Dropdown Toggle für alle Dropdowns
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const dropdownMenu = toggle.nextElementSibling;
+            const toggleIcon = toggle.querySelector('svg');
+            const isOpen = !dropdownMenu?.classList.contains('hidden');
+
+            if (isOpen) {
+                dropdownMenu?.classList.add('hidden');
+                toggleIcon?.classList.remove('rotate-180');
+                toggle.setAttribute('aria-expanded', 'false');
+            } else {
+                dropdownMenu?.classList.remove('hidden');
+                toggleIcon?.classList.add('rotate-180');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+</script>

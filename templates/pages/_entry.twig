@@ -1,0 +1,12 @@
+{% extends "_layouts/default" %}
+
+{% block content %}
+    <div class="">
+        {% for block in entry.contentBuilder.all() %}
+            <div class="block">
+                {{ block.render }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

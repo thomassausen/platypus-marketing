@@ -1,13 +1,57 @@
-dateModified: 1766152514
+dateModified: 1766161997
+elementSources:
+  craft\elements\Entry:
+    -
+      key: '*'
+      type: native
+    -
+      heading: Inhalt
+      key: 'heading:f5588eec-6305-4e52-b765-84658742b58d'
+      type: heading
+    -
+      key: 'section:71b74abe-4015-4367-a552-c9e1667e1cec' # Seiten
+      type: native
+    -
+      heading: Navigation
+      key: 'heading:930f4d4a-538a-4c45-a952-0dfd7dd057d4'
+      type: heading
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:f33a4e83-1f1c-494a-8868-e03c49695831' # Haupt-Navigation
+      tableAttributes:
+        - status
+        - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
+      type: native
 email:
   fromEmail: hi@thomassausen.com
   fromName: Platypus-Marketing
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: Hintergrundfarbe # Hintergrundfarbe
+    11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
+    46dc81ec-70cb-496a-98e9-65e6ca50b3d5: Link # Link
+    71b74abe-4015-4367-a552-c9e1667e1cec: Seiten # Seiten
+    73fc6da3-d133-4a74-affd-c06ae2ca7c3c: 'Content Builder' # Content Builder
+    983f3c7c-a082-4298-bd61-06d175c7cba8: Text # Text
+    7987c3dc-bd17-4987-a298-02c6dceaf17e: Seiten # Seiten
+    394137d7-b17b-4bf5-9bc2-62dcc5d06808: 'Plain Text' # Plain Text
+    6599081e-7b55-4c7f-8101-8048954a235a: Simple # Simple
+    54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
+    c032286b-2d69-4f53-986d-bf92576ecc87: Text # Text
     c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: Platypus-Marketing # Platypus-Marketing
+    f33a4e83-1f1c-494a-8868-e03c49695831: Haupt-Navigation # Haupt-Navigation
+    f81747ee-8440-434b-9779-936716066903: Text-Layout # Text-Layout
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   vite:
     edition: standard
     enabled: true
