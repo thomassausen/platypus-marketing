@@ -1,4 +1,4 @@
-dateModified: 1766151394
+dateModified: 1766152514
 email:
   fromEmail: hi@thomassausen.com
   fromName: Platypus-Marketing
@@ -7,6 +7,11 @@ meta:
   __names__:
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
     c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: Platypus-Marketing # Platypus-Marketing
+plugins:
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
