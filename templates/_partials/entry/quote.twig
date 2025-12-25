@@ -1,0 +1,77 @@
+{# Quote Section Component #}
+
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
+{% set layout = entry.textLayout ?? 'one-column' %}
+{% set svgVariant = entry.svgVariant ?? 1 %}
+
+{# Default-Werte #}
+{% set backgroundClass = '' %}
+{% set textColorClass = 'text-gray-600' %}
+{% set titleColorClass = 'text-brand-primary' %}
+{% set subtitleBgClass = 'bg-brand-primary/10 text-brand-primary' %}
+{% set buttonClass = 'bg-brand-primary hover:bg-brand-secondary' %}
+{% set buttonTextClass = 'text-white' %}
+{% set svgColor1 = 'text-brand-secondary/8' %}
+{% set svgColor2 = 'text-brand-accent/10' %}
+{% set svgColor3 = 'text-brand-primary/12' %}
+{% set svgColor4 = 'text-brand-accent/15' %}
+
+{# Background-spezifische Überschreibungen #}
+{% if background == 'soft' %}
+    {% set backgroundClass = 'bg-background-soft' %}
+{% elseif background == 'white' %}
+    {% set backgroundClass = 'bg-white' %}
+{% elseif background == 'accent' %}
+    {% set backgroundClass = 'bg-brand-accent' %}
+{% elseif background in ['blue', 'orange'] %}
+    {% set backgroundClass = background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary' %}
+    {% set textColorClass = 'text-white' %}
+    {% set titleColorClass = 'text-white' %}
+    {% set subtitleBgClass = 'bg-white/20 text-white' %}
+    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
+    {% set buttonTextClass = 'text-brand-primary' %}
+    {% set svgColor1 = 'text-white/8' %}
+    {% set svgColor2 = 'text-white/10' %}
+    {% set svgColor3 = 'text-white/12' %}
+    {% set svgColor4 = 'text-white/15' %}
+{% endif %}
+
+<section class="py-16 relative {{ backgroundClass }}">
+    {# SVG Background Shapes #}
+    {% include '_partials/svg-shapes.twig' with {
+        variant: svgVariant,
+        color1: svgColor1,
+        color2: svgColor2,
+        color3: svgColor3,
+        color4: svgColor4
+    } %}
+
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+        {# Centered Quote Layout #}
+        <div class="max-w-4xl mx-auto text-center">
+            {# Quote Icon #}
+            <div class="mb-8">
+                <svg class="w-16 h-16 mx-auto {{ titleColorClass }}" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+            </div>
+
+            {# Quote Text #}
+            {% if entry.text %}
+                <blockquote class="text-2xl md:text-3xl font-medium {{ textColorClass }} mb-8 italic leading-relaxed">
+                    {{ entry.text }}
+                </blockquote>
+            {% endif %}
+
+            {# Author #}
+            {% if entry.creator %}
+                <cite class="block not-italic">
+                    <span class="font-bold {{ titleColorClass }} text-lg">{{ entry.creator }}</span>
+                    {% if entry.supplement %}
+                        <span class="block {{ textColorClass }} text-sm mt-2">{{ entry.supplement }}</span>
+                    {% endif %}
+                </cite>
+            {% endif %}
+        </div>
+    </div>
+</section>

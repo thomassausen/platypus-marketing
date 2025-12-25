@@ -1,0 +1,44 @@
+{#
+ImageDivider Component
+
+Parameters:
+- src: string (required) - Image source URL
+- alt: string (required) - Alt text for the image
+- height: string (optional) - 'small' | 'medium' | 'large' | 'full', default: 'medium'
+- objectPosition: string (optional) - CSS object-position value, default: 'center'
+#}
+
+{% set image = entry.image.one() ?? null %}
+{% set imageHeight = entry.imageHeight ?? 'medium' %}
+{% set objectPosition = objectPosition ?? 'center' %}
+
+{% set heightClass = imageHeight == 'small' ? 'h-48 md:h-64'
+    : imageHeight == 'medium' ? 'h-80 md:h-96'
+    : imageHeight == 'large' ? 'h-96 md:h-[32rem]'
+    : 'h-screen' %}
+
+{% set imageWidth = 1920 %}
+{% set ratio = 16/9 %}
+{% set imageHeightPx = (imageWidth / ratio)|round %}
+
+{% set transform = {
+    format: 'webp',
+    quality: 85,
+    width: imageWidth,
+    height: imageHeightPx,
+    mode: 'crop'
+} %}
+
+<section class="relative overflow-hidden">
+    <div class="w-full {{ heightClass }}">
+
+        {{ tag('img', {
+            class: 'w-full h-full object-cover',
+            width: imageWidth,
+            height: imageHeightPx,
+            src: image.getUrl(transform),
+            alt: image.title,
+            style: "object-position: #{objectPosition};"
+        }) }}
+    </div>
+</section>

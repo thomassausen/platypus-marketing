@@ -1,0 +1,11 @@
+{
+  "src/js/app.js": {
+    "file": "assets/app-lLAj_SXE.js",
+    "name": "app",
+    "src": "src/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-CpAB_PpF.css"
+    ]
+  }
+}

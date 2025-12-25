@@ -6,24 +6,21 @@
 
 @theme {
     --font-family-sans: 'Open Sans', ui-sans-serif, system-ui;
-
     --color-brand-primary: #5162AA;
     --color-brand-secondary: #f89c48;
     --color-brand-accent: #feebde;
     --color-brand-neutral1: #d6d1c4;
     --color-brand-neutral2: #b5a899;
-
     --color-background-soft: #EFEDE6;
-    --color-background-light: #ffffff;
-
-    --shadow-soft: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
-    --shadow-elevated: 0 15px 40px -20px rgba(0, 0, 0, 0.15);
+    --color-background-light: #fff;
+    --shadow-soft: 0 10px 30px -15px rgb(0 0 0 / 10%);
+    --shadow-elevated: 0 15px 40px -20px rgb(0 0 0 / 15%);
 }
 
 
 /* Footer Link Hover - Barrierefreiheit */
 .footer-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255 255 255 / 80%);
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -42,7 +39,7 @@
 }
 
 .footer-link:hover {
-    color: rgba(255, 255, 255, 1);
+    color: rgb(255 255 255 / 100%);
 }
 
 .footer-link:hover::after {
@@ -52,12 +49,12 @@
 .footer-link:focus {
     outline: 2px solid #f89c48;
     outline-offset: 4px;
-    color: rgba(255, 255, 255, 1);
+    color: rgb(255 255 255 / 100%);
 }
 
 /* Navigation Link Hover - Desktop */
 .nav-link {
-    color: rgb(75, 85, 99); /* text-gray-600 */
+    color: rgb(75 85 99); /* text-gray-600 */
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -178,11 +175,11 @@
 
 /* Dark Mode Overrides für Content Styles */
 .bg-brand-primary .content-styles h3 {
-    color: #ffffff !important;
+    color: #fff !important;
 }
 
 .bg-brand-primary .content-styles a {
-    color: #ffffff;
+    color: #fff;
     text-decoration-color: #f89c48;
 }
 

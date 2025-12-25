@@ -1,0 +1,63 @@
+color: null
+description: null
+fieldLayouts:
+  5676ac8d-3a08-469b-b3bb-03439741155f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-25T18:37:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 26728521-cdd2-4f01-9e79-1ae24763ebce
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 4952e5c2-a061-4af0-8ca0-5691eb99d34d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-25T18:37:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c71043b1-95b7-40c8-9c63-5b63ff1d47f2 # Bildhöhe
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 791cc1f5-5898-4a7e-b288-3ee4c7394654
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: 1c2dad69-a3b9-44c6-a0f3-60556fb51c61
+        userCondition: null
+handle: imageDivider
+hasTitleField: false
+icon: image-landscape
+name: 'Image Divider'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{image.one.title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

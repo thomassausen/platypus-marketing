@@ -15,7 +15,31 @@ settings:
           - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
         -
           - group
-          - Allgemein
+          - Texte
+    -
+      __assoc__:
+        -
+          - uid
+          - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
+        -
+          - group
+          - Texte
+    -
+      __assoc__:
+        -
+          - uid
+          - 546a1aba-9733-4f5d-917b-567daf653235 # Image Divider
+        -
+          - group
+          - Medien
+    -
+      __assoc__:
+        -
+          - uid
+          - e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
+        -
+          - group
+          - Medien
   includeTableView: false
   maxEntries: null
   minEntries: null
