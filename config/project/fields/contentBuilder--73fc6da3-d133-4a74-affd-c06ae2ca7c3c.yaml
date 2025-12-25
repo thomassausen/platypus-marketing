@@ -36,6 +36,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 2c827773-a1a5-4eec-a293-bbf49f578c99 # Preise-Sektion
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
           - 546a1aba-9733-4f5d-917b-567daf653235 # Image Divider
         -
           - group

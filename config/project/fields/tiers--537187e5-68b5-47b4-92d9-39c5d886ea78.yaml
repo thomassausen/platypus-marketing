@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: tiers
+instructions: null
+name: Tiers
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - bb7b9081-dc2c-4665-880e-9668439f22a5 # Preis
+        -
+          - group
+          - Allgemein
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

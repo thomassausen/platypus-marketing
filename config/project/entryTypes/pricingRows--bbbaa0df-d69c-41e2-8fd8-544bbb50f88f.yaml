@@ -1,0 +1,99 @@
+color: null
+description: null
+fieldLayouts:
+  29664031-39dc-4cd9-971d-49bd3ec4f5db:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-12-25T20:37:17+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: Name
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7ca30093-cf73-4809-a2a3-0419d4f658b4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T20:43:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a7b9b6cf-354d-49e6-995c-14005abaa032 # Art des Inhalts
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 132cfabe-c13a-4818-976f-05d3379c6536
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T21:07:43+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: a7b9b6cf-354d-49e6-995c-14005abaa032 # Art des Inhalts
+                  layoutElementUid: 132cfabe-c13a-4818-976f-05d3379c6536
+                  operator: in
+                  uid: 6e54d616-06a4-4784-8adb-74103c33154c
+                  values:
+                    - text
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: text
+            includeInCards: false
+            instructions: null
+            label: Text
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46f7a9f6-2f16-42db-a777-d7850ef6b0c3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: abedaa92-8761-4c33-b6b7-e8eb0a70b4e9
+        userCondition: null
+handle: pricingRows
+hasTitleField: true
+icon: money-bill-1
+name: Preise-Reihen
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

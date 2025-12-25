@@ -1,0 +1,137 @@
+{#
+PricingSection Component
+
+Uses entry fields:
+- title: string (optional) - default: 'Unsere Pakete'
+- subtitle: string (optional)
+- tiers: array (required) - Array of pricing tier objects with name, price, features, highlighted
+- backgroundColor: Color field, default: 'soft'
+- disclaimer: string (optional)
+- svgVariant: number 1-9 or 'none', default: 1
+#}
+
+{% set title = entry.title  %}
+{% set subtitle = entry.subtitle ?? null %}
+{% set tiers = entry.tiers ?? [] %}
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
+{% set disclaimer = entry.disclaimer ?? null %}
+{% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
+
+{# Default-Werte #}
+{% set backgroundClass = '' %}
+{% set textColorClass = 'text-gray-600' %}
+{% set titleColorClass = 'text-brand-primary' %}
+{% set subtitleBgClass = 'bg-brand-primary/10 text-brand-primary' %}
+{% set buttonClass = 'bg-brand-primary hover:bg-brand-secondary' %}
+{% set buttonTextClass = 'text-white' %}
+{% set svgColor1 = 'text-brand-secondary/8' %}
+{% set svgColor2 = 'text-brand-accent/10' %}
+{% set svgColor3 = 'text-brand-primary/12' %}
+{% set svgColor4 = 'text-brand-accent/15' %}
+
+{# Background-spezifische Überschreibungen #}
+{% if background == 'soft' %}
+    {% set backgroundClass = 'bg-background-soft' %}
+{% elseif background == 'white' %}
+    {% set backgroundClass = 'bg-white' %}
+{% elseif background == 'accent' %}
+    {% set backgroundClass = 'bg-brand-accent' %}
+{% elseif background in ['blue', 'orange'] %}
+    {% set backgroundClass = background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary' %}
+    {% set textColorClass = 'text-white' %}
+    {% set titleColorClass = 'text-white' %}
+    {% set subtitleBgClass = 'bg-white/20 text-white' %}
+    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
+    {% set buttonTextClass = 'text-brand-primary' %}
+    {% set svgColor1 = 'text-white/8' %}
+    {% set svgColor2 = 'text-white/10' %}
+    {% set svgColor3 = 'text-white/12' %}
+    {% set svgColor4 = 'text-white/15' %}
+{% endif %}
+
+<section class="py-16 relative {{ backgroundClass }}">
+    {# SVG Background Shapes #}
+    {% include '_partials/svg-shapes.twig' with {
+        variant: svgVariant,
+        color1: svgColor1,
+        color2: svgColor2,
+        color3: svgColor3,
+        color4: svgColor4
+    } %}
+
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+        <div class="text-center mb-12">
+            {% if subtitle %}
+                <div class="inline-block mb-4">
+                    <span class="px-4 py-2 rounded-full text-sm font-semibold tracking-wide {{ subtitleBgClass }}">
+                        {{ subtitle }}
+                    </span>
+                </div>
+            {% endif %}
+            <h2 class="text-4xl font-bold mb-6 {{ titleColorClass }}">
+                {{ title }}
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for tier in tiers %}
+                <div class="bg-white rounded-2xl shadow-elevated overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl {{ tier.highlighted ?? false ? 'ring-4 ring-brand-secondary' : '' }}">
+                    {# Header #}
+                    <div class="p-8 text-center {{ tier.highlighted ?? false ? 'bg-brand-secondary' : 'bg-brand-primary' }}">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            {{ tier.title }}
+                        </h3>
+                    </div>
+
+                    {# Features #}
+                    <div class="p-8">
+                        <div class="space-y-4 mb-8">
+                            {% for feature in tier.features %}
+                                <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                                    <span class="text-gray-700 font-medium">{{ feature.title }}</span>
+                                    <span class="font-semibold">
+                                        {% if feature.contentType.value == "true" %}
+                                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        {% elseif feature.contentType.value == "false" %}
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        {% else %}
+                                            <span class="text-brand-primary">{{ feature.text }}</span>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        {# Price #}
+                        <div class="text-center pt-6 border-t-2 border-gray-200">
+                            <div class="text-4xl font-bold text-brand-primary mb-2">
+                                {{ tier.price }}
+                            </div>
+                            <p class="text-gray-600 text-sm">{{ tier.billingModel }}</p>
+                        </div>
+                    </div>
+
+                    {# CTA Button #}
+                    <div class="px-8 pb-8">
+                        <a href="/kontakt" class="group relative block w-full text-center py-4 rounded-full font-semibold transition-all duration-300 {{ tier.highlighted ?? false ? 'bg-brand-secondary text-white hover:bg-brand-primary hover:scale-105' : 'bg-brand-primary text-white hover:bg-brand-secondary hover:scale-105' }}">
+                            <span class="relative z-10">Paket anfragen</span>
+                            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if disclaimer %}
+            <div class="text-center mt-16">
+                <p class="text-sm {{ textColorClass }}">
+                    {{ disclaimer }}
+                </p>
+            </div>
+        {% endif %}
+    </div>
+</section>

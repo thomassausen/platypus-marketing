@@ -1,0 +1,144 @@
+color: null
+description: null
+fieldLayouts:
+  719345f4-34d8-44ec-8b45-641e1eec2979:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-12-25T20:34:38+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 47d8aa8f-8776-4747-9851-76ce29bede16
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T20:46:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            includeInCards: false
+            instructions: null
+            label: Unterüberschrift
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0534146-0a38-4d8d-b420-d7bbb6da89ab
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T20:46:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: disclaimer
+            includeInCards: false
+            instructions: null
+            label: Disclaimer
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e03f6e09-dc18-4986-98e8-ec0b171acee9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T20:59:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 537187e5-68b5-47b4-92d9-39c5d886ea78 # Tiers
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Preis-Spalte
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 661903e3-2928-410a-acd2-6d24c5d5e034
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 91ce645f-ceb8-410c-8370-05fb0eb91dfb
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-25T20:46:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 93265404-e3d2-4570-8fd6-7f137d713823
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-25T20:46:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ebdff087-575e-40c1-bf4e-d602d2aceb4c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: c5ed889a-45c3-4c75-8d6d-ea8a58ae5b75
+        userCondition: null
+handle: pricingSection
+hasTitleField: true
+icon: money-bill-1
+name: Preise-Sektion
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
