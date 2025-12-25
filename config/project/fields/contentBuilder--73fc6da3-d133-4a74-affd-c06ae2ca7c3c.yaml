@@ -15,7 +15,15 @@ settings:
           - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
         -
           - group
-          - Texte
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
+          - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
+        -
+          - group
+          - Inhalte
     -
       __assoc__:
         -
@@ -23,7 +31,7 @@ settings:
           - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
         -
           - group
-          - Texte
+          - Inhalte
     -
       __assoc__:
         -
