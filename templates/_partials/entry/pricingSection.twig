@@ -28,17 +28,25 @@ Uses entry fields:
 {% set svgColor2 = 'text-brand-accent/10' %}
 {% set svgColor3 = 'text-brand-primary/12' %}
 {% set svgColor4 = 'text-brand-accent/15' %}
+{% set cardHeaderDefault = 'bg-brand-primary' %}
+{% set cardHeaderHighlighted = 'bg-brand-secondary' %}
 
 {# Background-spezifische Überschreibungen #}
 {% if background == 'soft' %}
     {% set backgroundClass = 'bg-background-soft' %}
+    {% set cardHeaderDefault = 'bg-brand-primary' %}
+    {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
 {% elseif background == 'white' %}
     {% set backgroundClass = 'bg-white' %}
+    {% set cardHeaderDefault = 'bg-brand-primary' %}
+    {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
 {% elseif background == 'accent' %}
     {% set backgroundClass = 'bg-brand-accent' %}
-{% elseif background in ['blue', 'orange'] %}
-    {% set backgroundClass = background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary' %}
-    {% set textColorClass = 'text-white' %}
+    {% set cardHeaderDefault = 'bg-brand-primary' %}
+    {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
+{% elseif background == 'blue' %}
+    {% set backgroundClass = 'bg-brand-primary' %}
+    {% set textColorClass = 'text-white/90' %}
     {% set titleColorClass = 'text-white' %}
     {% set subtitleBgClass = 'bg-white/20 text-white' %}
     {% set buttonClass = 'bg-white hover:bg-gray-100' %}
@@ -47,6 +55,21 @@ Uses entry fields:
     {% set svgColor2 = 'text-white/10' %}
     {% set svgColor3 = 'text-white/12' %}
     {% set svgColor4 = 'text-white/15' %}
+    {% set cardHeaderDefault = 'bg-background-soft' %}
+    {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
+{% elseif background == 'orange' %}
+    {% set backgroundClass = 'bg-brand-secondary' %}
+    {% set textColorClass = 'text-white/90' %}
+    {% set titleColorClass = 'text-white' %}
+    {% set subtitleBgClass = 'bg-white/20 text-white' %}
+    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
+    {% set buttonTextClass = 'text-brand-secondary' %}
+    {% set svgColor1 = 'text-white/8' %}
+    {% set svgColor2 = 'text-white/10' %}
+    {% set svgColor3 = 'text-white/12' %}
+    {% set svgColor4 = 'text-white/15' %}
+    {% set cardHeaderDefault = 'bg-background-soft' %}
+    {% set cardHeaderHighlighted = 'bg-brand-primary' %}
 {% endif %}
 
 <section class="py-16 relative {{ backgroundClass }}">
@@ -77,8 +100,8 @@ Uses entry fields:
             {% for tier in tiers %}
                 <div class="bg-white rounded-2xl shadow-elevated overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl {{ tier.highlighted ?? false ? 'ring-4 ring-brand-secondary' : '' }}">
                     {# Header #}
-                    <div class="p-8 text-center {{ tier.highlighted ?? false ? 'bg-brand-secondary' : 'bg-brand-primary' }}">
-                        <h3 class="text-2xl font-bold text-white mb-2">
+                    <div class="p-8 text-center {{ tier.highlighted ?? false ? cardHeaderHighlighted : cardHeaderDefault }}">
+                        <h3 class="text-2xl font-bold mb-2 {{ background in ['blue', 'orange'] and not (tier.highlighted ?? false) ? 'text-gray-900' : 'text-white' }}">
                             {{ tier.title }}
                         </h3>
                     </div>
@@ -87,19 +110,19 @@ Uses entry fields:
                     <div class="p-8">
                         <div class="space-y-4 mb-8">
                             {% for feature in tier.features %}
-                                <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                                <div class="flex items-center justify-between py-3 border-b border-gray-100">
                                     <span class="text-gray-700 font-medium">{{ feature.title }}</span>
                                     <span class="font-semibold">
                                         {% if feature.contentType.value == "true" %}
-                                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                                             </svg>
                                         {% elseif feature.contentType.value == "false" %}
-                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
                                             </svg>
                                         {% else %}
-                                            <span class="text-brand-primary">{{ feature.text }}</span>
+                                            <span class="text-gray-900">{{ feature.text }}</span>
                                         {% endif %}
                                     </span>
                                 </div>
@@ -107,8 +130,8 @@ Uses entry fields:
                         </div>
 
                         {# Price #}
-                        <div class="text-center pt-6 border-t-2 border-gray-200">
-                            <div class="text-4xl font-bold text-brand-primary mb-2">
+                        <div class="text-center pt-6 border-t-2 border-gray-100">
+                            <div class="text-4xl font-bold text-gray-900 mb-2">
                                 {{ tier.price }}
                             </div>
                             <p class="text-gray-600 text-sm">{{ tier.billingModel }}</p>
@@ -127,10 +150,12 @@ Uses entry fields:
         </div>
 
         {% if disclaimer %}
-            <div class="text-center mt-16">
-                <p class="text-sm {{ textColorClass }}">
-                    {{ disclaimer }}
-                </p>
+            <div class="text-center mt-16 max-w-3xl mx-auto">
+                <div class="inline-block px-6 py-3 rounded-xl {{ background in ['blue', 'orange'] ? 'bg-white/10 backdrop-blur-sm' : 'bg-gray-100' }}">
+                    <p class="text-sm {{ textColorClass }}">
+                        {{ disclaimer }}
+                    </p>
+                </div>
             </div>
         {% endif %}
     </div>
