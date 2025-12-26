@@ -20,7 +20,7 @@ fieldLayouts:
             instructions: null
             label: Überschrift
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: f6a7b8c9-d0e1-2345-f678-90123456789a

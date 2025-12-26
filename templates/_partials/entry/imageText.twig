@@ -14,12 +14,16 @@ Uses entry fields:
 - imageRounding: 'none' | 'all' | 'topLeft-bottomRight' | 'topRight-bottomLeft', default: 'topLeft-bottomRight'
 #}
 
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
 {% set image = entry.image.one() ?? null %}
 {% set imagePosition = entry.imagePosition.value ?? entry.imagePosition ?? 'left' %}
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
 {% set imageOverhang = entry.imageOverhang ?? true %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
 {% set imageRounding = entry.imageRounding.value ?? entry.imageRounding ?? 'topLeft-bottomRight' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
 
 {# Rounding-Klassen #}
 {% set roundingClass = imageRounding == 'none' ? ''
@@ -40,55 +44,9 @@ Uses entry fields:
     mode: 'crop'
 } %}
 
-{# Default-Werte #}
-{% set backgroundClass = '' %}
-{% set textColorClass = 'text-gray-600' %}
-{% set titleColorClass = 'text-brand-primary' %}
-{% set buttonClass = 'bg-brand-primary hover:bg-brand-secondary' %}
-{% set buttonTextClass = 'text-white' %}
-{% set svgColor1 = 'text-brand-secondary/8' %}
-{% set svgColor2 = 'text-brand-accent/10' %}
-{% set svgColor3 = 'text-brand-primary/12' %}
-{% set svgColor4 = 'text-brand-accent/15' %}
-
-{# Background-spezifische Überschreibungen #}
-{% if background == 'gradient' %}
-    {% set backgroundClass = 'bg-gradient-to-br from-brand-primary to-brand-secondary' %}
-    {% set textColorClass = 'text-white' %}
-    {% set titleColorClass = 'text-white' %}
-    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
-    {% set buttonTextClass = 'text-brand-primary' %}
-    {% set svgColor1 = 'text-white/8' %}
-    {% set svgColor2 = 'text-white/10' %}
-    {% set svgColor3 = 'text-white/12' %}
-    {% set svgColor4 = 'text-white/15' %}
-{% elseif background == 'soft' %}
-    {% set backgroundClass = 'bg-background-soft' %}
-{% elseif background == 'white' %}
-    {% set backgroundClass = 'bg-white' %}
-{% elseif background == 'accent' %}
-    {% set backgroundClass = 'bg-brand-accent' %}
-{% elseif background in ['blue', 'orange'] %}
-    {% set backgroundClass = background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary' %}
-    {% set textColorClass = 'text-white' %}
-    {% set titleColorClass = 'text-white' %}
-    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
-    {% set buttonTextClass = 'text-brand-primary' %}
-    {% set svgColor1 = 'text-white/8' %}
-    {% set svgColor2 = 'text-white/10' %}
-    {% set svgColor3 = 'text-white/12' %}
-    {% set svgColor4 = 'text-white/15' %}
-{% endif %}
-
-<section class="py-16 relative overflow-hidden {{ backgroundClass }}">
+<section class="py-16 relative overflow-hidden {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
-    {% include '_partials/svg-shapes.twig' with {
-        variant: svgVariant,
-        color1: svgColor1,
-        color2: svgColor2,
-        color3: svgColor3,
-        color4: svgColor4
-    } %}
+    {{ ui.svgShapes(svgVariant, vars) }}
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 {{ imageOverhang ? 'overflow-visible' : '' }}">
         <div class="grid md:grid-cols-2 gap-12 items-center {{ imagePosition == 'right' ? 'md:flex-row-reverse' : '' }} {{ imageOverhang ? 'overflow-visible' : '' }}">
@@ -109,43 +67,29 @@ Uses entry fields:
                     </div>
                 </div>
                 <div class="{{ imageOverhang ? 'pl-12' : '' }}">
-                    <h2 class="text-4xl font-bold {{ titleColorClass }} mb-6">{{ entry.title }}</h2>
+                    <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">{{ entry.title }}</h2>
                     {% if entry.description %}
-                        <p class="text-lg {{ textColorClass }} mb-8">{{ entry.description }}</p>
+                        <p class="text-lg {{ vars.textColorClass }} mb-8">{{ entry.description }}</p>
                     {% endif %}
                     {% if entry.text %}
-                        <div class="text-lg {{ textColorClass }} mb-8 space-y-4 content-styles">
+                        <div class="text-lg {{ vars.textColorClass }} mb-8 space-y-4 content-styles">
                             {{ entry.text }}
                         </div>
                     {% endif %}
-                    {% if entry.button %}
-                        <div class="flex space-x-4">
-                            <a href="{{ entry.button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
-                                <span class="relative z-10">{{ entry.button.label }}</span>
-                                <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
-                        </div>
-                    {% endif %}
+                    {{ ui.buttonPrimary(entry.button, vars.buttonClass, vars.buttonTextClass) }}
                 </div>
             {% else %}
                 <div class="{{ imageOverhang ? 'pr-12' : '' }}">
-                    <h2 class="text-4xl font-bold {{ titleColorClass }} mb-6">{{ entry.title }}</h2>
+                    <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">{{ entry.title }}</h2>
                     {% if entry.description %}
-                        <p class="text-lg {{ textColorClass }} mb-8">{{ entry.description }}</p>
+                        <p class="text-lg {{ vars.textColorClass }} mb-8">{{ entry.description }}</p>
                     {% endif %}
                     {% if entry.text %}
-                        <div class="text-lg {{ textColorClass }} mb-8 space-y-4 content-styles">
+                        <div class="text-lg {{ vars.textColorClass }} mb-8 space-y-4 content-styles">
                             {{ entry.text }}
                         </div>
                     {% endif %}
-                    {% if entry.button %}
-                        <div class="flex space-x-4">
-                            <a href="{{ entry.button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
-                                <span class="relative z-10">{{ entry.button.label }}</span>
-                                <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
-                        </div>
-                    {% endif %}
+                    {{ ui.buttonPrimary(entry.button, vars.buttonClass, vars.buttonTextClass) }}
                 </div>
                 <div class="relative {{ imageOverhang ? 'md:-mr-24 lg:-mr-40 xl:-mr-56' : '' }}">
                     <div class="bg-gradient-to-br from-brand-primary to-brand-secondary {{ roundingClass }} shadow-elevated">

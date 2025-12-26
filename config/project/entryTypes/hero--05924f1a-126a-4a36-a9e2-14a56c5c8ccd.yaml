@@ -1,4 +1,4 @@
-color: null
+color: emerald
 description: null
 fieldLayouts:
   ee43369a-a6c6-4da3-9a9d-f2356250d5e8:
@@ -173,7 +173,19 @@ fieldLayouts:
           -
             dateAdded: '2025-12-26T01:26:22+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 6eb230e1-4b05-4189-afed-31ce409f3009 # Hero-Variante
+                  layoutElementUid: 5ee3cdaa-58dc-4955-8a01-03c9972c2df6
+                  operator: in
+                  uid: e8895ee7-a046-478c-b7d0-a30106a78d75
+                  values:
+                    - default
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
             handle: null
             includeInCards: false
@@ -190,7 +202,19 @@ fieldLayouts:
           -
             dateAdded: '2025-12-26T01:26:22+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 6eb230e1-4b05-4189-afed-31ce409f3009 # Hero-Variante
+                  layoutElementUid: 5ee3cdaa-58dc-4955-8a01-03c9972c2df6
+                  operator: in
+                  uid: 03b022b4-dea6-487d-9257-5a86ce3a1dd1
+                  values:
+                    - default
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
             handle: null
             includeInCards: false

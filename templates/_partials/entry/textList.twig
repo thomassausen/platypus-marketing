@@ -13,97 +13,44 @@ Uses entry fields:
 - svgVariant: number 1-9 or 'none', default: 1
 #}
 
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
 
-{# Default-Werte #}
-{% set backgroundClass = '' %}
-{% set textColorClass = 'text-gray-600' %}
-{% set titleColorClass = 'text-brand-primary' %}
-{% set cardBgClass = 'bg-white' %}
-{% set cardTextClass = 'text-gray-700' %}
-{% set cardTitleClass = 'text-brand-primary' %}
-{% set checkmarkClass = 'text-brand-secondary' %}
-{% set svgColor1 = 'text-brand-secondary/8' %}
-{% set svgColor2 = 'text-brand-accent/10' %}
-{% set svgColor3 = 'text-brand-primary/12' %}
-{% set svgColor4 = 'text-brand-accent/15' %}
-
-{# Background-spezifische Überschreibungen #}
-{% if background == 'gradient' %}
-    {% set backgroundClass = 'bg-gradient-to-br from-brand-primary to-brand-secondary' %}
-    {% set textColorClass = 'text-white' %}
-    {% set titleColorClass = 'text-white' %}
-    {% set cardBgClass = 'bg-white/10 backdrop-blur-sm' %}
-    {% set cardTextClass = 'text-white' %}
-    {% set cardTitleClass = 'text-white' %}
-    {% set checkmarkClass = 'text-white' %}
-    {% set svgColor1 = 'text-white/8' %}
-    {% set svgColor2 = 'text-white/10' %}
-    {% set svgColor3 = 'text-white/12' %}
-    {% set svgColor4 = 'text-white/15' %}
-{% elseif background == 'soft' %}
-    {% set backgroundClass = 'bg-background-soft' %}
-{% elseif background == 'white' %}
-    {% set backgroundClass = 'bg-white' %}
-{% elseif background == 'accent' %}
-    {% set backgroundClass = 'bg-brand-accent' %}
-{% elseif background in ['blue', 'orange'] %}
-    {% set backgroundClass = background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary' %}
-    {% set textColorClass = 'text-white' %}
-    {% set titleColorClass = 'text-white' %}
-    {% set cardBgClass = 'bg-white/10 backdrop-blur-sm' %}
-    {% set cardTextClass = 'text-white' %}
-    {% set cardTitleClass = 'text-white' %}
-    {% set checkmarkClass = 'text-white' %}
-    {% set svgColor1 = 'text-white/8' %}
-    {% set svgColor2 = 'text-white/10' %}
-    {% set svgColor3 = 'text-white/12' %}
-    {% set svgColor4 = 'text-white/15' %}
-{% endif %}
-
-<section class="py-20 relative overflow-hidden {{ backgroundClass }}">
+<section class="py-20 relative overflow-hidden {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
-    {% include '_partials/svg-shapes.twig' with {
-        variant: svgVariant,
-        color1: svgColor1,
-        color2: svgColor2,
-        color3: svgColor3,
-        color4: svgColor4
-    } %}
+    {{ ui.svgShapes(svgVariant, vars) }}
+
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16">
             <div>
-                {% if entry.subtitle %}
-                    <div class="inline-block mb-6">
-                        <span class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold tracking-wide">
-                            {{ entry.subtitle }}
-                        </span>
-                    </div>
-                {% endif %}
+                {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
 
-                <h2 class="text-4xl font-bold {{ titleColorClass }} mb-6">
+                <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">
                     {{ entry.title }}
                 </h2>
                 {% if entry.description %}
-                    <div class="text-lg {{ textColorClass }} leading-relaxed mb-6">
+                    <div class="text-lg {{ vars.textColorClass }} leading-relaxed mb-6">
                         {{ entry.description }}
                     </div>
                 {% endif %}
                 {% if entry.text %}
-                    <div class="text-lg {{ textColorClass }} leading-relaxed space-y-4 content-styles">
+                    <div class="text-lg {{ vars.textColorClass }} leading-relaxed space-y-4 content-styles">
                         {{ entry.text }}
                     </div>
                 {% endif %}
             </div>
 
-            <div class="{{ cardBgClass }} p-8 rounded-2xl shadow-lg">
-                <h3 class="text-2xl font-bold {{ cardTitleClass }} mb-6">
+            <div class="{{ vars.cardBgClass }} p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold {{ vars.cardTitleClass }} mb-6">
                     {{ entry.featuresTitle }}
                 </h3>
 
                 {% if entry.featuresIntro %}
-                    <div class="{{ cardTextClass }} leading-relaxed mb-6 content-styles">
+                    <div class="{{ vars.cardTextClass }} leading-relaxed mb-6 content-styles">
                         {{ entry.featuresIntro }}
                     </div>
                 {% endif %}
@@ -111,11 +58,11 @@ Uses entry fields:
                 <ul class="space-y-4">
                     {% for feature in entry.featuresTable %}
                         <li class="flex items-start">
-                            <span class="{{ checkmarkClass }} text-2xl mr-3 flex-shrink-0">✓</span>
+                            <span class="{{ vars.checkmarkClass }} text-2xl mr-3 flex-shrink-0">✓</span>
                             <div>
-                                <div class="{{ cardTextClass }} font-semibold mb-1">{{ feature.title }}</div>
+                                <div class="{{ vars.cardTextClass }} font-semibold mb-1">{{ feature.title }}</div>
                                 {% if feature.description %}
-                                    <div class="{{ cardTextClass }} opacity-80 text-sm">{{ feature.description }}</div>
+                                    <div class="{{ vars.cardTextClass }} opacity-80 text-sm">{{ feature.description }}</div>
                                 {% endif %}
                             </div>
                         </li>
@@ -123,7 +70,7 @@ Uses entry fields:
                 </ul>
 
                 {% if entry.featuresFooter %}
-                    <div class="{{ cardTextClass }} leading-relaxed mt-6 content-styles">
+                    <div class="{{ vars.cardTextClass }} leading-relaxed mt-6 content-styles">
                         {{ entry.featuresFooter }}
                     </div>
                 {% endif %}

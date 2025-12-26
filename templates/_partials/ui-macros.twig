@@ -1,0 +1,98 @@
+{#
+UI Macros for reusable UI components
+
+Usage:
+{% import '_partials/ui-macros.twig' as ui %}
+{{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+#}
+
+{# Subtitle Badge #}
+{% macro subtitle(text, bgClass) %}
+    {% if text %}
+        <div class="inline-block mb-6">
+            <span class="px-4 py-2 {{ bgClass }} backdrop-blur-sm rounded-full text-sm font-semibold tracking-wide">
+                {{ text }}
+            </span>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{# Primary Button #}
+{% macro buttonPrimary(button, buttonClass, buttonTextClass) %}
+    {% if button %}
+        <a href="{{ button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
+            <span class="relative z-10">{{ button.label }}</span>
+            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+    {% endif %}
+{% endmacro %}
+
+{# Secondary Button #}
+{% macro buttonSecondary(button, secondaryClass, hoverClass, borderClass) %}
+    {% if button %}
+        <a href="{{ button.value }}" class="group {{ secondaryClass }} border-2 {{ borderClass }} px-8 py-4 text-lg rounded-full {{ hoverClass }} hover:scale-105 transition-all duration-300 text-center font-semibold">
+            <span class="relative z-10">{{ button.label }}</span>
+            <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+    {% endif %}
+{% endmacro %}
+
+{# Button Group with Primary/Secondary styles #}
+{% macro buttonGroup(buttons, vars) %}
+    {% if buttons %}
+        <div class="flex justify-center flex-col sm:flex-row gap-4">
+            {% for item in buttons %}
+                {% if item.buttonStyle == 'primary' %}
+                    <a href="{{ item.button.value }}" class="group relative {{ vars.buttonClass }} {{ vars.buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
+                        <span class="relative z-10">{{ item.button.label }}</span>
+                        <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                {% elseif item.buttonStyle == 'secondary' %}
+                    <a href="{{ item.button.value }}" class="group {{ vars.buttonSecondaryClass }} border-2 {{ vars.buttonBorderClass }} px-8 py-4 text-lg rounded-full {{ vars.buttonSecondaryHoverClass }} hover:scale-105 transition-all duration-300 text-center font-semibold">
+                        <span class="relative z-10">{{ item.button.label }}</span>
+                        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{# SVG Background Shapes Include #}
+{% macro svgShapes(svgVariant, vars) %}
+    {% if svgVariant != 'none' %}
+        {% include '_partials/svg-shapes.twig' with {
+            variant: svgVariant,
+            color1: vars.svgColor1,
+            color2: vars.svgColor2,
+            color3: vars.svgColor3,
+            color4: vars.svgColor4
+        } %}
+    {% endif %}
+{% endmacro %}
+
+{# Section Header (Subtitle + Title + Description/Text) #}
+{% macro sectionHeader(subtitle, title, description, text, vars, alignment) %}
+    {% set alignment = alignment ?? 'left' %}
+    {% set alignmentClass = alignment == 'center' ? 'text-center' : '' %}
+
+    <div class="{{ alignmentClass }}">
+        {{ _self.subtitle(subtitle, vars.subtitleBgClass) }}
+
+        <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">
+            {{ title }}
+        </h2>
+
+        {% if description %}
+            <div class="text-lg {{ vars.textColorClass }} leading-relaxed mb-6">
+                {{ description }}
+            </div>
+        {% endif %}
+
+        {% if text %}
+            <div class="text-lg {{ vars.textColorClass }} leading-relaxed space-y-4 content-styles">
+                {{ text }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
