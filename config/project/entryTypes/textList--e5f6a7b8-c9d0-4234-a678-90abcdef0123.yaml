@@ -15,6 +15,23 @@ fieldLayouts:
             uid: ad388030-4664-4f7a-a2d9-237d845dabc3
             userCondition: null
           -
+            dateAdded: '2025-12-26T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            includeInCards: false
+            instructions: null
+            label: Untertitel
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8c9d0e1-f2a3-4567-a90a-bcdef0123457
+            userCondition: null
+            warning: null
+            width: 100
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true
@@ -41,23 +58,6 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: a7b8c9d0-e1f2-4456-a89a-bcdef0123456
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-12-26T12:00:00+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
-            handle: subtitle
-            includeInCards: false
-            instructions: null
-            label: Untertitel
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b8c9d0e1-f2a3-4567-a90a-bcdef0123457
             userCondition: null
             warning: null
             width: 100

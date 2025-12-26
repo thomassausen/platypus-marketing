@@ -15,6 +15,9 @@
 {% set svgColor2 = 'text-brand-accent/10' %}
 {% set svgColor3 = 'text-brand-primary/12' %}
 {% set svgColor4 = 'text-brand-accent/15' %}
+{% set quoteBoxClass = 'bg-white/10 backdrop-blur-sm' %}
+{% set quoteTextColor = 'text-white' %}
+{% set quoteSvgColor = 'text-white/80' %}
 
 {# Background-spezifische Überschreibungen #}
 {% if background == 'gradient' %}
@@ -30,8 +33,14 @@
     {% set svgColor4 = 'text-white/15' %}
 {% elseif background == 'soft' %}
     {% set backgroundClass = 'bg-background-soft' %}
+    {% set quoteBoxClass = 'bg-white' %}
+    {% set quoteTextColor = 'text-brand-primary' %}
+    {% set quoteSvgColor = 'text-brand-primary/80' %}
 {% elseif background == 'white' %}
     {% set backgroundClass = 'bg-white' %}
+    {% set quoteBoxClass = 'bg-background-soft' %}
+    {% set quoteTextColor = 'text-brand-primary' %}
+    {% set quoteSvgColor = 'text-brand-primary/80' %}
 {% elseif background == 'accent' %}
     {% set backgroundClass = 'bg-brand-accent' %}
 {% elseif background in ['blue', 'orange'] %}
@@ -58,31 +67,28 @@
     } %}
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
-        {# Centered Quote Layout #}
-        <div class="max-w-4xl mx-auto text-center">
-            {# Quote Icon #}
-            <div class="mb-8">
-                <svg class="w-16 h-16 mx-auto {{ titleColorClass }}" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        {# Centered Quote Layout with backdrop blur box #}
+        <div class="{{ quoteBoxClass }} rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl">
+            <div class="max-w-4xl mx-auto text-center">
+                {# Quote Icon #}
+                <svg class="w-16 h-16 {{ quoteSvgColor }} mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-9.983 10.609l-.995-1.265c2.135-1.718 3.408-4.431 3.408-7.841v-8.894h7.57zm14.017 0v7.391c0 5.704-3.731 9.57-9.983 10.609l-.995-1.265c2.135-1.718 3.408-4.431 3.408-7.841v-8.894h7.57z"/>
                 </svg>
+
+                {# Quote Text #}
+                {% if entry.text %}
+                    <blockquote class="text-2xl md:text-3xl font-bold {{ quoteTextColor }} mb-6">
+                        {{ entry.text }}
+                    </blockquote>
+                {% endif %}
+
+                {# Author #}
+                {% if entry.creator %}
+                    <cite class="text-lg {{ quoteSvgColor }} font-medium">
+                        - {{ entry.creator }}
+                    </cite>
+                {% endif %}
             </div>
-
-            {# Quote Text #}
-            {% if entry.text %}
-                <blockquote class="text-2xl md:text-3xl font-medium {{ textColorClass }} mb-8 italic leading-relaxed">
-                    {{ entry.text }}
-                </blockquote>
-            {% endif %}
-
-            {# Author #}
-            {% if entry.creator %}
-                <cite class="block not-italic">
-                    <span class="font-bold {{ titleColorClass }} text-lg">{{ entry.creator }}</span>
-                    {% if entry.supplement %}
-                        <span class="block {{ textColorClass }} text-sm mt-2">{{ entry.supplement }}</span>
-                    {% endif %}
-                </cite>
-            {% endif %}
         </div>
     </div>
 </section>

@@ -10,23 +10,6 @@ settings:
       __assoc__:
         -
           - label
-          - Transparent
-        -
-          - value
-          - transparent
-        -
-          - icon
-          - ''
-        -
-          - color
-          - ''
-        -
-          - default
-          - '1'
-    -
-      __assoc__:
-        -
-          - label
           - 'Verlauf (Blau-Orange)'
         -
           - value
@@ -90,7 +73,7 @@ settings:
           - ''
         -
           - default
-          - ''
+          - '1'
     -
       __assoc__:
         -

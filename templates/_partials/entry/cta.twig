@@ -8,6 +8,7 @@ Uses entry fields:
 - buttons: Matrix field with button entries (button field with label/value, buttonStyle: 'primary'|'secondary')
 - backgroundColor: Color field, default: 'gradient'
 - svgVariant: number 1-9 or 'none', default: 1
+- textAlignment: Dropdown field, options: 'center'|'left', default: 'left'
 #}
 
 {% import '_partials/theme-macros.twig' as theme %}
@@ -15,6 +16,7 @@ Uses entry fields:
 
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'gradient' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
+{% set textAlignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
 {# CTA-Box ist immer weiß, daher immer Standard-Button-Styles verwenden #}
@@ -31,17 +33,17 @@ Uses entry fields:
     {{ ui.svgShapes(svgVariant, vars) }}
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
-        <div class="rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 text-center shadow-2xl bg-white">
+        <div class="rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl bg-white {{ textAlignment == 'center' ? 'text-center' : '' }}">
             <h2 class="text-4xl font-bold text-brand-primary mb-6">
                 {{ entry.title }}
             </h2>
             {% if entry.description %}
-                <div class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                <div class="text-lg text-gray-600 mb-8 {{ textAlignment == 'center' ? 'max-w-2xl mx-auto' : '' }}">
                     {{ entry.description }}
                 </div>
             {% endif %}
             {% if entry.text %}
-                <div class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto content-styles">
+                <div class="text-lg text-gray-600 mb-8 content-styles {{ textAlignment == 'center' ? 'max-w-2xl mx-auto' : '' }}">
                     {{ entry.text }}
                 </div>
             {% endif %}

@@ -18,7 +18,7 @@ Parameters:
 {% import '_partials/ui-macros.twig' as ui %}
 
 {% set variant = entry.heroVariant ?? 'default' %}
-{% set background = entry.backgroundColor ?? 'gradient' %}
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'gradient' %}
 {% set svgVariant = entry.svgVariant ?? 1 %}
 {% set image = entry.image.one() ?? null %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
@@ -54,7 +54,7 @@ Parameters:
     </section>
 
 {% elseif variant == 'large' %}
-    <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-brand-primary">
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden {{ vars.backgroundClass }}">
         <!-- Animated Background -->
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-brand-accent/20"></div>
 

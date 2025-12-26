@@ -1,4 +1,4 @@
-dateModified: 1766723931
+dateModified: 1766751863
 elementSources:
   craft\elements\Entry:
     -
@@ -9,7 +9,15 @@ elementSources:
       key: 'heading:f5588eec-6305-4e52-b765-84658742b58d'
       type: heading
     -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
       key: 'section:71b74abe-4015-4367-a552-c9e1667e1cec' # Seiten
+      tableAttributes:
+        - status
+        - link
       type: native
     -
       heading: Navigation
@@ -58,6 +66,7 @@ meta:
     70ed1bce-64d0-4fdd-86e7-ced980b47160: 'Bild und Text' # Bild und Text
     71b74abe-4015-4367-a552-c9e1667e1cec: Seiten # Seiten
     73fc6da3-d133-4a74-affd-c06ae2ca7c3c: 'Content Builder' # Content Builder
+    89d9744a-dbc1-4b8a-ac14-bcb5f9ca1d9b: Textausrichtung # Textausrichtung
     176fe785-6697-4da6-be7b-4e8981ee6e8d: 'Features Tabelle' # Features Tabelle
     381f340a-2f22-4412-b9d1-63971c6a5da9: Service-Farbe # Service-Farbe
     546a1aba-9733-4f5d-917b-567daf653235: 'Image Divider' # Image Divider

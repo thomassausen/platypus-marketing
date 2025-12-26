@@ -83,7 +83,8 @@ Usage:
     {# White background #}
     {% elseif background == 'white' %}
         {% set vars = vars|merge({
-            backgroundClass: 'bg-white'
+            backgroundClass: 'bg-white',
+            cardBgClass: 'bg-background-soft'
         }) %}
 
     {# Accent background #}
