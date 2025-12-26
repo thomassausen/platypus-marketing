@@ -1,0 +1,32 @@
+{% header "Content-Type: application/xml" %}<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {# Homepage #}
+    <url>
+        <loc>{{ siteUrl }}</loc>
+        <lastmod>{{ now|date('c') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    {# All Pages #}
+    {% set pages = craft.entries.section('pages').all() %}
+    {% for page in pages %}
+    <url>
+        <loc>{{ page.url }}</loc>
+        <lastmod>{{ page.dateUpdated|date('c') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% endfor %}
+
+    {# Blog Posts #}
+    {% set posts = craft.entries.section('blog').all() %}
+    {% for post in posts %}
+    <url>
+        <loc>{{ post.url }}</loc>
+        <lastmod>{{ post.dateUpdated|date('c') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+</urlset>

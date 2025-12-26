@@ -77,6 +77,79 @@ email:
   fromName: Platypus-Marketing
   transportType: craft\mail\transportadapters\Sendmail
 fields:
+  9f454419-a68a-4271-afa9-c4b736016383: # SEO Title
+    columnSuffix: null
+    handle: seoTitle
+    instructions: 'Optimal: 50-60 Zeichen. Falls leer, wird der normale Titel verwendet.'
+    name: 'SEO Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: 60
+      code: false
+      columnType: null
+      initialRows: 1
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  203d08b2-04c9-4069-910c-6def1a3c9f7f: # SEO Description
+    columnSuffix: null
+    handle: seoDescription
+    instructions: 'Optimal: 150-160 Zeichen. Wird in Suchmaschinen angezeigt.'
+    name: 'SEO Description'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: 160
+      code: false
+      columnType: text
+      initialRows: 3
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52: # SEO Image
+    columnSuffix: null
+    handle: seoImage
+    instructions: 'Bild für Social Media (Open Graph, Twitter). Empfohlen: 1200x630px'
+    name: 'SEO Image'
+    searchable: false
+    settings:
+      allowedKinds: null
+      allowSelfRelations: false
+      allowSubfolders: true
+      allowUploads: true
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Images volume
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545'
+      restrictedLocationSubpath: null
+      restrictFiles: false
+      restrictLocation: false
+      selectionLabel: null
+      showCardsInGrid: false
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources:
+        - 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
   00e38bc0-ae91-4cf8-aa18-0003e2a08d96: # Bild-Position
     columnSuffix: null
     handle: imagePosition
