@@ -1,104 +1,92 @@
 color: null
 description: null
 fieldLayouts:
-  719345f4-34d8-44ec-8b45-641e1eec2979:
+  17f3fd21-d01f-4928-85df-b98e973ae2db:
     cardThumbAlignment: end
     cardView:
-      - 'layoutElement:c0534146-0a38-4d8d-b420-d7bbb6da89ab'
-      - 'layoutElement:e03f6e09-dc18-4986-98e8-ec0b171acee9'
+      - 'layoutElement:f7ef4cdd-0fa6-4d24-ac73-328519ac6f75'
+      - 'layoutElement:50c9a3ad-fbe8-4f9b-b5f3-9bb14e3ebbb2'
+      - 'layoutElement:658ed751-1752-4be6-ba3d-cadc987d47db'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
-            dateAdded: '2025-12-25T20:34:38+00:00'
-            disabled: false
+            dateAdded: '2025-12-26T00:36:26+00:00'
+            editCondition: null
             elementCondition: null
-            id: null
-            includeInCards: false
-            inputType: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            includeInCards: true
             instructions: null
-            label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
+            label: Überschrift
             providesThumbs: false
-            readonly: false
-            required: true
-            size: null
-            step: null
+            required: false
             tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 47d8aa8f-8776-4747-9851-76ce29bede16
+            type: craft\fieldlayoutelements\CustomField
+            uid: f7ef4cdd-0fa6-4d24-ac73-328519ac6f75
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-25T20:46:35+00:00'
+            dateAdded: '2025-12-26T00:57:24+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: subtitle
             includeInCards: true
             instructions: null
-            label: Unterüberschrift
+            label: Untertitel
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c0534146-0a38-4d8d-b420-d7bbb6da89ab
+            uid: 50c9a3ad-fbe8-4f9b-b5f3-9bb14e3ebbb2
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-25T20:46:35+00:00'
+            dateAdded: '2025-12-26T00:57:24+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
-            handle: disclaimer
+            handle: null
             includeInCards: true
             instructions: null
-            label: Disclaimer
+            label: null
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e03f6e09-dc18-4986-98e8-ec0b171acee9
+            uid: 658ed751-1752-4be6-ba3d-cadc987d47db
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-25T20:59:27+00:00'
+            dateAdded: '2025-12-26T00:36:26+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 537187e5-68b5-47b4-92d9-39c5d886ea78 # Tiers
+            fieldUid: f76a2dd2-e718-4293-9d3a-13b3db2e26f8 # Team-Mitglied
             handle: null
             includeInCards: false
             instructions: null
-            label: Preis-Spalte
+            label: null
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 661903e3-2928-410a-acd2-6d24c5d5e034
+            uid: 7bef6e52-a5de-49b7-bdfb-33a0047c14a5
             userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        uid: 91ce645f-ceb8-410c-8370-05fb0eb91dfb
+        uid: eab9ec23-6461-41e4-892f-30fde7167438
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-25T20:46:35+00:00'
+            dateAdded: '2025-12-26T00:36:26+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
@@ -110,12 +98,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 93265404-e3d2-4570-8fd6-7f137d713823
+            uid: a51f6052-0061-40a5-a075-e3a8c9dec111
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-25T20:46:35+00:00'
+            dateAdded: '2025-12-26T00:36:26+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
@@ -127,17 +115,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ebdff087-575e-40c1-bf4e-d602d2aceb4c
+            uid: b1ddb3c0-8fab-40ac-a3c7-a07b14cad186
             userCondition: null
             warning: null
             width: 100
         name: Einstellungen
-        uid: c5ed889a-45c3-4c75-8d6d-ea8a58ae5b75
+        uid: 713db6d0-e46a-42b1-ae21-60bf2d5f6a97
         userCondition: null
-handle: pricingSection
-hasTitleField: true
-icon: money-bill-1
-name: Preise-Sektion
+handle: teamSection
+hasTitleField: false
+icon: users
+name: Team-Sektion
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

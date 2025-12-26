@@ -44,6 +44,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 6994b292-6925-411a-962d-317554f02c28 # Team-Sektion
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
           - 546a1aba-9733-4f5d-917b-567daf653235 # Image Divider
         -
           - group

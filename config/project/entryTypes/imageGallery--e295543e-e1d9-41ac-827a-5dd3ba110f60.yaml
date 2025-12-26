@@ -3,6 +3,8 @@ description: null
 fieldLayouts:
   f9704c19-a5d2-4cd1-85a9-684b34e886be:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:ce1daa1e-8e92-4aef-ae11-35f5d696c3bd'
     tabs:
       -
         elementCondition: null
@@ -13,7 +15,7 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 23ab57f9-640e-4064-8333-458692667dec # Bilder
             handle: null
-            includeInCards: false
+            includeInCards: true
             instructions: null
             label: null
             providesThumbs: false

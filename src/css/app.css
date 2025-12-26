@@ -186,3 +186,17 @@
 .bg-brand-primary .content-styles a:hover {
     color: #f89c48;
 }
+
+/* White Background Overrides - Ensure blue headings */
+.bg-white .content-styles h3 {
+    color: #5162AA !important;
+}
+
+.bg-white .content-styles a {
+    color: #5162AA;
+    text-decoration-color: #f89c48;
+}
+
+.bg-white .content-styles a:hover {
+    color: #f89c48;
+}
