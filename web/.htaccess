@@ -1,3 +1,7 @@
+# BEGIN Hoster
+AddType application/x-httpd-php83 .php
+# END Hoster
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
