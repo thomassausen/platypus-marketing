@@ -99,14 +99,15 @@ Parameters:
                     <div class="relative">
                         <!-- Main Image Container -->
                         <div class="relative shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
-                            {{ tag('img', {
-                                class: 'w-full h-[500px] object-cover rounded-tl-[3rem] rounded-br-[3rem]',
-                                width: imageWidth,
-                                height: imageHeightPx,
-                                src: image.getUrl(transform),
-                                alt: image.title
-                            }) }}
-d
+                            {% if image %}
+                                {{ tag('img', {
+                                    class: 'w-full h-[500px] object-cover rounded-tl-[3rem] rounded-br-[3rem]',
+                                    width: imageWidth,
+                                    height: imageHeightPx,
+                                    src: image.getUrl(transform),
+                                    alt: image.title
+                                }) }}
+                            {% endif %}
                             <!-- Floating Card -->
                             {% set floatingCard = entry.floatingCard.one() ?? null %}
                             {% if floatingCard %}

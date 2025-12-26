@@ -30,15 +30,16 @@ Parameters:
 } %}
 
 <section class="relative overflow-hidden">
-    <div class="w-full {{ heightClass }}">
-
-        {{ tag('img', {
-            class: 'w-full h-full object-cover',
-            width: imageWidth,
-            height: imageHeightPx,
-            src: image.getUrl(transform),
-            alt: image.title,
-            style: "object-position: #{objectPosition};"
-        }) }}
-    </div>
+    {% if image %}
+        <div class="w-full {{ heightClass }}">
+            {{ tag('img', {
+                class: 'w-full h-full object-cover',
+                width: imageWidth,
+                height: imageHeightPx,
+                src: image.getUrl(transform),
+                alt: image.title,
+                style: "object-position: #{objectPosition};"
+            }) }}
+        </div>
+    {% endif %}
 </section>

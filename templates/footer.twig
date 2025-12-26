@@ -24,7 +24,7 @@
             <nav aria-label="Social Media">
                 <h2 class="font-semibold mb-3 text-white">Folgen Sie uns</h2>
                 <ul class="flex gap-4">
-                    {% if footer and footer.socialFacebook %}
+                    {% if footer and footer.socialFacebook and footer.socialFacebook.getUrl() %}
                         <li>
                             <a href="{{ footer.socialFacebook.getUrl() }}" class="footer-link text-white hover:text-white/80 transition-colors" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -33,7 +33,7 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% if footer and footer.socialInstagram %}
+                    {% if footer and footer.socialInstagram and footer.socialInstagram.getUrl() %}
                         <li>
                             <a href="{{ footer.socialInstagram.getUrl() }}" class="footer-link text-white hover:text-white/80 transition-colors" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% if footer and footer.socialLinkedin %}
+                    {% if footer and footer.socialLinkedin and footer.socialLinkedin.getUrl() %}
                         <li>
                             <a href="{{ footer.socialLinkedin.getUrl() }}" class="footer-link text-white hover:text-white/80 transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -51,7 +51,7 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% if footer and footer.socialTwitter %}
+                    {% if footer and footer.socialTwitter and footer.socialTwitter.getUrl() %}
                         <li>
                             <a href="{{ footer.socialTwitter.getUrl() }}" class="footer-link text-white hover:text-white/80 transition-colors" aria-label="Twitter/X" target="_blank" rel="noopener noreferrer">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
