@@ -1,0 +1,107 @@
+color: null
+description: null
+fieldLayouts:
+  a3b4c5d6-e7f8-9012-cdef-123456789012:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:c4d5e6f7-8901-2345-def0-123456789abc'
+      - 'layoutElement:d5e6f7a8-9012-3456-ef01-23456789abcd'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e6f7a8b9-0123-4567-f012-3456789abcde
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: Beschreibung
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c4d5e6f7-8901-2345-def0-123456789abc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 381f340a-2f22-4412-b9d1-63971c6a5da9 # Service-Farbe
+            handle: color
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d5e6f7a8-9012-3456-ef01-23456789abcd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: link
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7f8a9b0-1234-5678-0123-456789abcdef
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: f8a9b0c1-2345-6789-1234-56789abcdef0
+        userCondition: null
+handle: service
+hasTitleField: true
+icon: briefcase
+name: Service
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

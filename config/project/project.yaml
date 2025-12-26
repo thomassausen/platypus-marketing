@@ -1,4 +1,4 @@
-dateModified: 1766716684
+dateModified: 1766719849
 elementSources:
   craft\elements\Entry:
     -
@@ -47,11 +47,13 @@ meta:
     6eb230e1-4b05-4189-afed-31ce409f3009: Hero-Variante # Hero-Variante
     11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
     23ab57f9-640e-4064-8333-458692667dec: Bilder # Bilder
+    27c7e471-18ee-45b7-9b10-b046b53ff4c4: Service # Service
     46dc81ec-70cb-496a-98e9-65e6ca50b3d5: Link # Link
     69e761d0-4b16-45a6-92c3-b605c43e4545: Bilder # Bilder
     70ed1bce-64d0-4fdd-86e7-ced980b47160: 'Bild und Text' # Bild und Text
     71b74abe-4015-4367-a552-c9e1667e1cec: Seiten # Seiten
     73fc6da3-d133-4a74-affd-c06ae2ca7c3c: 'Content Builder' # Content Builder
+    381f340a-2f22-4412-b9d1-63971c6a5da9: Service-Farbe # Service-Farbe
     546a1aba-9733-4f5d-917b-567daf653235: 'Image Divider' # Image Divider
     983f3c7c-a082-4298-bd61-06d175c7cba8: Text # Text
     1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5: Spalten # Spalten

@@ -1,0 +1,79 @@
+columnSuffix: null
+handle: serviceColor
+instructions: 'Wähle eine Farbe für die Service-Karte'
+name: Service-Farbe
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Blau
+        -
+          - value
+          - '#5162AA'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Orange
+        -
+          - value
+          - '#f89c48'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Lila
+        -
+          - value
+          - '#9d7db5'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Petrol
+        -
+          - value
+          - '#3f5e5a'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

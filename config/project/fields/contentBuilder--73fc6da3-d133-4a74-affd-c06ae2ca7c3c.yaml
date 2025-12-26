@@ -60,7 +60,15 @@ settings:
       __assoc__:
         -
           - uid
-          - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+          - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
+          - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6
         -
           - group
           - Inhalte

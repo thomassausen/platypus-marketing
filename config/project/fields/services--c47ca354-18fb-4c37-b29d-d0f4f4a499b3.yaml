@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: services
+instructions: null
+name: Services
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 27c7e471-18ee-45b7-9b10-b046b53ff4c4 # Service
+        -
+          - group
+          - Allgemein
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
