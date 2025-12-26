@@ -1,4 +1,4 @@
-dateModified: 1766751863
+dateModified: 1766753167
 elementSources:
   craft\elements\Entry:
     -
@@ -38,6 +38,1935 @@ email:
   fromEmail: hi@thomassausen.com
   fromName: Platypus-Marketing
   transportType: craft\mail\transportadapters\Sendmail
+fields:
+  00e38bc0-ae91-4cf8-aa18-0003e2a08d96: # Bild-Position
+    columnSuffix: null
+    handle: imagePosition
+    instructions: null
+    name: Bild-Position
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Rechts
+            -
+              - value
+              - right
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: # Hintergrundfarbe
+    columnSuffix: null
+    handle: backgroundColor
+    instructions: null
+    name: Hintergrundfarbe
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Verlauf (Blau-Orange)'
+            -
+              - value
+              - gradient
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Blau
+            -
+              - value
+              - blue
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Orange
+            -
+              - value
+              - orange
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Weiß
+            -
+              - value
+              - white
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Soft
+            -
+              - value
+              - soft
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6eb230e1-4b05-4189-afed-31ce409f3009: # Hero-Variante
+    columnSuffix: null
+    handle: heroVariant
+    instructions: null
+    name: Hero-Variante
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Standard
+            -
+              - value
+              - default
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Groß
+            -
+              - value
+              - large
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  11f840b0-e02b-470d-8a12-11e80446b819: # SVG Variante
+    columnSuffix: null
+    handle: svgVariant
+    instructions: null
+    name: 'SVG Variante'
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '0'
+            -
+              - value
+              - '0'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - '1'
+            -
+              - value
+              - '1'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '2'
+            -
+              - value
+              - '2'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '3'
+            -
+              - value
+              - '3'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '4'
+            -
+              - value
+              - '4'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '5'
+            -
+              - value
+              - '5'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '6'
+            -
+              - value
+              - '6'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '7'
+            -
+              - value
+              - '7'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '8'
+            -
+              - value
+              - '8'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '9'
+            -
+              - value
+              - '9'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  23ab57f9-640e-4064-8333-458692667dec: # Bilder
+    columnSuffix: null
+    handle: images
+    instructions: null
+    name: Bilder
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      branchLimit: null
+      defaultPlacement: end
+      defaultUploadLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      defaultUploadLocationSubpath: null
+      maintainHierarchy: false
+      maxRelations: null
+      minRelations: null
+      previewMode: thumbs
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      restrictedLocationSubpath: null
+      selectionLabel: null
+      showCardsInGrid: false
+      showSearchInput: true
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources:
+        - 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Assets
+  46dc81ec-70cb-496a-98e9-65e6ca50b3d5: # Link
+    columnSuffix: null
+    handle: customLink
+    instructions: null
+    name: Link
+    searchable: false
+    settings:
+      advancedFields:
+        - target
+        - ariaLabel
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: true
+      typeSettings:
+        __assoc__:
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - showUnpermittedSections
+                  - ''
+                -
+                  - showUnpermittedEntries
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - allowRootRelativeUrls
+                  - ''
+                -
+                  - allowAnchors
+                  - '1'
+                -
+                  - allowCustomSchemes
+                  - ''
+      types:
+        - entry
+        - url
+        - email
+        - tel
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Link
+  73fc6da3-d133-4a74-affd-c06ae2ca7c3c: # Content Builder
+    columnSuffix: null
+    handle: contentBuilder
+    instructions: null
+    name: 'Content Builder'
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 05924f1a-126a-4a36-a9e2-14a56c5c8ccd # Hero
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 2c827773-a1a5-4eec-a293-bbf49f578c99 # Preise-Sektion
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 6994b292-6925-411a-962d-317554f02c28 # Team-Sektion
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520 # Services-Sektion
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - e5f6a7b8-c9d0-4234-a678-90abcdef0123 # Text-Liste
+            -
+              - group
+              - Inhalte
+        -
+          __assoc__:
+            -
+              - uid
+              - 546a1aba-9733-4f5d-917b-567daf653235 # Image Divider
+            -
+              - group
+              - Medien
+        -
+          __assoc__:
+            -
+              - uid
+              - e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
+            -
+              - group
+              - Medien
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  89d9744a-dbc1-4b8a-ac14-bcb5f9ca1d9b: # Textausrichtung
+    columnSuffix: null
+    handle: textAlignment
+    instructions: null
+    name: Textausrichtung
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Zentriert
+            -
+              - value
+              - center
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  176fe785-6697-4da6-be7b-4e8981ee6e8d: # Features Tabelle
+    columnSuffix: null
+    handle: featuresTable
+    instructions: null
+    name: 'Features Tabelle'
+    searchable: false
+    settings:
+      addRowLabel: 'Zeile hinzufügen'
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Titel
+                -
+                  - handle
+                  - title
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Beschreibung
+                -
+                  - handle
+                  - description
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - multiline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: null
+      minRows: null
+      staticRows: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  381f340a-2f22-4412-b9d1-63971c6a5da9: # Service-Farbe
+    columnSuffix: null
+    handle: serviceColor
+    instructions: 'Wähle eine Farbe für die Service-Karte'
+    name: Service-Farbe
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Blau
+            -
+              - value
+              - '#5162AA'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Orange
+            -
+              - value
+              - '#f89c48'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Lila
+            -
+              - value
+              - '#9d7db5'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Petrol
+            -
+              - value
+              - '#3f5e5a'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  983f3c7c-a082-4298-bd61-06d175c7cba8: # Text
+    columnSuffix: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: false
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      characterLimit: null
+      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
+      createButtonLabel: null
+      defaultTransform: null
+      expandEntryButtons: false
+      fullGraphqlData: true
+      parseEmbeds: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\ckeditor\Field
+  1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5: # Spalten
+    columnSuffix: null
+    handle: columns
+    instructions: null
+    name: Spalten
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '2'
+            -
+              - value
+              - '2'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '3'
+            -
+              - value
+              - '3'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - '4'
+            -
+              - value
+              - '4'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6707f2a7-b016-4641-aa2d-165292b7dfb1: # Lücke
+    columnSuffix: null
+    handle: gap
+    instructions: null
+    name: Lücke
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Klein
+            -
+              - value
+              - small
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mittel
+            -
+              - value
+              - medium
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Groß
+            -
+              - value
+              - large
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  74210a0e-fd21-4d35-ad82-89fd1c871a69: # Layout
+    columnSuffix: null
+    handle: layout
+    instructions: null
+    name: Layout
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Grid
+            -
+              - value
+              - grid
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Masonry
+            -
+              - value
+              - masonry
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Horizontal
+            -
+              - value
+              - horizontal
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mixed
+            -
+              - value
+              - mixed
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  394137d7-b17b-4bf5-9bc2-62dcc5d06808: # Plain Text
+    columnSuffix: null
+    handle: plainText
+    instructions: null
+    name: 'Plain Text'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  537187e5-68b5-47b4-92d9-39c5d886ea78: # Tiers
+    columnSuffix: null
+    handle: tiers
+    instructions: null
+    name: Tiers
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - bb7b9081-dc2c-4665-880e-9668439f22a5 # Preis
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  02042204-6864-49bf-9cde-1cb1aa18da80: # Highlighted?
+    columnSuffix: null
+    handle: highlighted
+    instructions: null
+    name: 'Highlighted?'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a1b2c3d4-e5f6-4789-a012-3456789abcde:
+    columnSuffix: null
+    handle: footerHeadline
+    instructions: 'Überschrift für den Footer-Bereich'
+    name: 'Footer Überschrift'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  a1b2c3d4-e5f6-4890-a234-567890abcdef: # Features Titel
+    columnSuffix: null
+    handle: featuresTitle
+    instructions: null
+    name: 'Features Titel'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: 255
+      code: false
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  a7b9b6cf-354d-49e6-995c-14005abaa032: # Art des Inhalts
+    columnSuffix: null
+    handle: contentType
+    instructions: null
+    name: 'Art des Inhalts'
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Grünes Häckchen'
+            -
+              - value
+              - 'true'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Rotes Kreuz'
+            -
+              - value
+              - 'false'
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Text
+            -
+              - value
+              - text
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  acd5ae4b-736e-42bb-b318-c52282d61a09: # Bild-Rundungen
+    columnSuffix: null
+    handle: imageRounding
+    instructions: null
+    name: Bild-Rundungen
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Keine
+            -
+              - value
+              - none
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Alle
+            -
+              - value
+              - all
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Oben links und unten rechts'
+            -
+              - value
+              - topLeft-bottomRight
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Oben rechts und unten links'
+            -
+              - value
+              - topRight-bottomLeft
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  b2c3d4e5-f6a7-4890-b123-456789abcdef: # Footer Text
+    columnSuffix: null
+    handle: footerText
+    instructions: 'Beschreibungstext für den Footer-Bereich'
+    name: 'Footer Text'
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: '*'
+      characterLimit: null
+      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
+      createButtonLabel: null
+      defaultTransform: null
+      expandEntryButtons: false
+      fullGraphqlData: true
+      parseEmbeds: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\ckeditor\Field
+  b591db6f-b83f-4160-ad47-bdfe5b2688e1: # Buttons
+    columnSuffix: null
+    handle: buttons
+    instructions: null
+    name: Buttons
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - d9b8121b-ff46-4eb9-bcb7-e0fecf6fdcdc # Button
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  be9e472f-6557-47cc-8402-06b4027d587b: # Abgerundet?
+    columnSuffix: null
+    handle: rounded
+    instructions: null
+    name: 'Abgerundet?'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  c3d4e5f6-a7b8-4012-a456-7890abcdef01: # Features Intro
+    columnSuffix: null
+    handle: featuresIntro
+    instructions: null
+    name: 'Features Intro'
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      characterLimit: null
+      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
+      createButtonLabel: null
+      defaultTransform: null
+      expandEntryButtons: false
+      fullGraphqlData: true
+      parseEmbeds: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\ckeditor\Field
+  c3d4e5f6-a7b8-4901-c234-56789abcdef0:
+    columnSuffix: null
+    handle: contactPhone
+    instructions: 'Telefonnummer für den Kontaktbereich'
+    name: 'Kontakt Telefon'
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: true
+      types:
+        - tel
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Link
+  c7fd23e2-6f38-4cf9-a791-e8c6719878a7: # Telefon-Nummer
+    columnSuffix: null
+    handle: phone
+    instructions: null
+    name: Telefon-Nummer
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: false
+      types:
+        - tel
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Link
+  c47ca354-18fb-4c37-b29d-d0f4f4a499b3: # Services
+    columnSuffix: null
+    handle: services
+    instructions: null
+    name: Services
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 27c7e471-18ee-45b7-9b10-b046b53ff4c4 # Service
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  c1696d61-467a-45b3-8386-ec628a918f32: # Bild
+    columnSuffix: null
+    handle: image
+    instructions: null
+    name: Bild
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      branchLimit: null
+      defaultPlacement: end
+      defaultUploadLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      defaultUploadLocationSubpath: null
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: thumbs
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      restrictedLocationSubpath: null
+      selectionLabel: null
+      showCardsInGrid: false
+      showSearchInput: true
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources:
+        - 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Assets
+  c71043b1-95b7-40c8-9c63-5b63ff1d47f2: # Bildhöhe
+    columnSuffix: null
+    handle: imageHeight
+    instructions: null
+    name: Bildhöhe
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Klein
+            -
+              - value
+              - small
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mittel
+            -
+              - value
+              - medium
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Groß
+            -
+              - value
+              - large
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c748359f-b917-4760-be70-9ce67ca6ce7f: # Features
+    columnSuffix: null
+    handle: features
+    instructions: null
+    name: Features
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - bbbaa0df-d69c-41e2-8fd8-544bbb50f88f # Preise-Reihen
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  d09b4710-bec0-4a9c-8b18-65fa1b3a880a: # E-Mail
+    columnSuffix: null
+    handle: email
+    instructions: null
+    name: E-Mail
+    searchable: false
+    settings:
+      placeholder: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Email
+  d4e5f6a7-b8c9-4012-d345-6789abcdef01:
+    columnSuffix: null
+    handle: contactEmail
+    instructions: 'E-Mail-Adresse für den Kontaktbereich'
+    name: 'Kontakt E-Mail'
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: true
+      types:
+        - email
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Link
+  d4e5f6a7-b8c9-4123-a567-890abcdef012: # Features Footer
+    columnSuffix: null
+    handle: featuresFooter
+    instructions: null
+    name: 'Features Footer'
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      characterLimit: null
+      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
+      createButtonLabel: null
+      defaultTransform: null
+      expandEntryButtons: false
+      fullGraphqlData: true
+      parseEmbeds: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\ckeditor\Field
+  d97974b4-1470-4bd7-9ea6-771b4541f465: # Bild-Überhang?
+    columnSuffix: null
+    handle: imageOverhang
+    instructions: null
+    name: 'Bild-Überhang?'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  e5f6a7b8-c9d0-4123-e456-789abcdef012:
+    columnSuffix: null
+    handle: contactAddress
+    instructions: 'Adresse für den Kontaktbereich'
+    name: 'Kontakt Adresse'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      initialRows: 4
+      multiline: true
+      placeholder: 'Straße\nPLZ Stadt'
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  f6a7b8c9-d0e1-4234-f567-89abcdef0123:
+    columnSuffix: null
+    handle: copyrightText
+    instructions: 'Copyright-Text für den Footer'
+    name: 'Copyright Text'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      initialRows: 2
+      multiline: false
+      placeholder: '© 2025 Firmenname. Alle Rechte vorbehalten.'
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
+  f76a2dd2-e718-4293-9d3a-13b3db2e26f8: # Team-Mitglied
+    columnSuffix: null
+    handle: teamMembers
+    instructions: null
+    name: Team-Mitglied
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 3b1d2716-73ff-403e-ac9d-af5e6dda7832 # Team-Mitglieder
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  f81747ee-8440-434b-9779-936716066903: # Text-Layout
+    columnSuffix: null
+    handle: textLayout
+    instructions: null
+    name: Text-Layout
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Zwei-Spalten
+            -
+              - value
+              - two-column
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Eine Spalte'
+            -
+              - value
+              - one-column
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f4296180-a3a3-470e-a6c5-af1f0185be6c: # Button-Stil
+    columnSuffix: null
+    handle: buttonStyle
+    instructions: null
+    name: Button-Stil
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Primär
+            -
+              - value
+              - primary
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Sekundär
+            -
+              - value
+              - secondary
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  fc9288d8-5d14-4d35-b4be-c9cfe19a18bc: # Floating Card
+    columnSuffix: null
+    handle: floatingCard
+    instructions: null
+    name: 'Floating Card'
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - fc9288d9-5d14-4d35-b4be-c9cfe19a18bd # Floating Card
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: 1
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  fc9288e1-5d14-4d35-b4be-c9cfe19a18c5: # Icon-Typ
+    columnSuffix: null
+    handle: iconType
+    instructions: null
+    name: Icon-Typ
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Häkchen
+            -
+              - value
+              - check
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Stern
+            -
+              - value
+              - star
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Herz
+            -
+              - value
+              - heart
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Blitz
+            -
+              - value
+              - lightning
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Pokal
+            -
+              - value
+              - trophy
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Rakete
+            -
+              - value
+              - rocket
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Benutzer
+            -
+              - value
+              - users
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Daumen hoch'
+            -
+              - value
+              - thumb-up
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
 fs:
   images:
     hasUrls: true
@@ -84,9 +2013,12 @@ meta:
     10581733-0aaf-43ac-b04a-9de940b7cf8e: Zitat # Zitat
     54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
     a1b2c3d4-e5f6-4890-a234-567890abcdef: 'Features Titel' # Features Titel
+    a7b8c9d0-e1f2-4345-a678-9abcdef01234: Footer # Footer
     a7b9b6cf-354d-49e6-995c-14005abaa032: 'Art des Inhalts' # Art des Inhalts
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
     acd5ae4b-736e-42bb-b318-c52282d61a09: Bild-Rundungen # Bild-Rundungen
+    b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
+    b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
     bb7b9081-dc2c-4665-880e-9668439f22a5: Preis # Preis
     bbbaa0df-d69c-41e2-8fd8-544bbb50f88f: Preise-Reihen # Preise-Reihen

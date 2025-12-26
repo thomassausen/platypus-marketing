@@ -1,14 +1,14 @@
 columnSuffix: null
-handle: phone
-instructions: null
-name: Telefon-Nummer
+handle: socialLinkedin
+instructions: 'LinkedIn URL'
+name: 'LinkedIn'
 searchable: false
 settings:
   fullGraphqlData: true
   maxLength: 255
   showLabelField: false
   types:
-    - tel
+    - url
 translationKeyFormat: null
-translationMethod: none
+translationMethod: site
 type: craft\fields\Link

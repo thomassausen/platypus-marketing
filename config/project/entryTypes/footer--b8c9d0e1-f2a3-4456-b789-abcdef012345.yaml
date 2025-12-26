@@ -1,0 +1,147 @@
+fieldLayouts:
+  c9d0e1f2-a3b4-4567-c890-abcdef012345:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            fieldUid: a1b2c3d4-e5f6-4789-a012-3456789abcde
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0e1f2a3-b4c5-4678-d901-bcdef0123456
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            fieldUid: b2c3d4e5-f6a7-4890-b123-456789abcdef # Footer Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e1f2a3b4-c5d6-4789-e012-cdef01234567
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: f2a3b4c5-d6e7-4890-f123-def012345678
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            fieldUid: c3d4e5f6-a7b8-4901-c234-56789abcdef0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a3b4c5d6-e7f8-4901-a234-ef0123456789
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            fieldUid: d4e5f6a7-b8c9-4012-d345-6789abcdef01
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4c5d6e7-f8a9-4012-b345-f01234567890
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            fieldUid: e5f6a7b8-c9d0-4123-e456-789abcdef012
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5d6e7f8-a9b0-4123-c456-012345678901
+            userCondition: null
+            warning: null
+            width: 100
+        name: Kontakt
+        uid: d6e7f8a9-b0c1-4234-d567-123456789012
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            fieldUid: a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f # Facebook
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aaa1a1a1-b1b1-4c1c-8d1d-1e1e1f1f1f1f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            fieldUid: b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a # Instagram
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bbb2b2b2-c2c2-4d2d-8e2e-2f2f2a2a2a2a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            fieldUid: c3c4c5c6-d7d8-4e9f-0a1b-2c3d4e5f6a7b # LinkedIn
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ccc3c3c3-d3d3-4e3e-8f3f-3a3a3b3b3b3b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            fieldUid: d4d5d6d7-e8e9-4f0a-1b2c-3d4e5f6a7b8c # Twitter/X
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ddd4d4d4-e4e4-4f4f-8a4a-4b4b4c4c4c4c
+            userCondition: null
+            warning: null
+            width: 50
+        name: 'Social Media'
+        uid: aaa0a0a0-b0b0-4c0c-8d0d-0e0e0f0f0f0f
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            fieldUid: f6a7b8c9-d0e1-4234-f567-89abcdef0123
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7f8a9b0-c1d2-4345-e678-234567890123
+            userCondition: null
+            warning: null
+            width: 100
+        name: Sonstiges
+        uid: f8a9b0c1-d2e3-4456-f789-345678901234
+        userCondition: null
+handle: footer
+hasTitleField: false
+name: Footer
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Footer
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
