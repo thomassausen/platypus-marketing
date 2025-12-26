@@ -60,7 +60,7 @@ settings:
       __assoc__:
         -
           - uid
-          - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520
+          - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520 # Services-Sektion
         -
           - group
           - Inhalte
@@ -68,7 +68,15 @@ settings:
       __assoc__:
         -
           - uid
-          - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6
+          - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
+          - e5f6a7b8-c9d0-4234-a678-90abcdef0123 # Text-Liste
         -
           - group
           - Inhalte

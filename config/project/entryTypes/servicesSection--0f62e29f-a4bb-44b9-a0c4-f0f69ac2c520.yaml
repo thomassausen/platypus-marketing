@@ -82,7 +82,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: c47ca354-18fb-4c37-b29d-d0f4f4a499b3
+            fieldUid: c47ca354-18fb-4c37-b29d-d0f4f4a499b3 # Services
             handle: null
             includeInCards: false
             instructions: null

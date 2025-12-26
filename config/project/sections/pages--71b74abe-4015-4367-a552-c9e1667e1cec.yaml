@@ -13,7 +13,7 @@ previewTargets:
     urlFormat: '{url}'
 propagationMethod: all
 siteSettings:
-  c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: # Platypus-Marketing
+  c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: # Platypus
     enabledByDefault: true
     hasUrls: true
     template: pages/_entry.twig

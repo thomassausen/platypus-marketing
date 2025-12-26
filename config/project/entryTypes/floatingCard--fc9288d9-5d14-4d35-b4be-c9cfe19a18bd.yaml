@@ -11,7 +11,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: fc9288e1-5d14-4d35-b4be-c9cfe19a18c5
+            fieldUid: fc9288e1-5d14-4d35-b4be-c9cfe19a18c5 # Icon-Typ
             handle: null
             includeInCards: false
             instructions: null

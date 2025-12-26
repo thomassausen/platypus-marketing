@@ -1,8 +1,9 @@
 baseUrl: $PRIMARY_SITE_URL
+enabled: true
 handle: default
 hasUrls: true
 language: de
-name: Platypus-Marketing
+name: Platypus
 primary: true
 siteGroup: a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca # Platypus-Marketing
 sortOrder: 1
