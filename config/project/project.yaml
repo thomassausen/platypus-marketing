@@ -1,8 +1,19 @@
-dateModified: 1766753167
+dateModified: 1766763492
 elementSources:
   craft\elements\Entry:
     -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
       key: '*'
+      tableAttributes:
+        - status
+        - section
+        - postDate
+        - expiryDate
+        - link
       type: native
     -
       heading: Inhalt
@@ -20,6 +31,18 @@ elementSources:
         - link
       type: native
     -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7' # Blog
+      tableAttributes:
+        - status
+        - postDate
+        - link
+      type: native
+    -
       heading: Navigation
       key: 'heading:930f4d4a-538a-4c45-a952-0dfd7dd057d4'
       type: heading
@@ -33,6 +56,21 @@ elementSources:
       tableAttributes:
         - status
         - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
+      type: native
+    -
+      heading: Optionen
+      key: 'heading:1664f019-4b12-49f0-b187-b9017b5a1398'
+      type: heading
+    -
+      defaultSort:
+        - title
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: singles
+      tableAttributes:
+        - status
+        - link
       type: native
 email:
   fromEmail: hi@thomassausen.com
@@ -483,7 +521,7 @@ fields:
               __assoc__:
                 -
                   - allowRootRelativeUrls
-                  - ''
+                  - '1'
                 -
                   - allowAnchors
                   - '1'
@@ -1101,7 +1139,22 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  a1b2c3d4-e5f6-4789-a012-3456789abcde:
+  a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f: # Facebook
+    columnSuffix: null
+    handle: socialFacebook
+    instructions: 'Facebook URL'
+    name: Facebook
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: false
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Link
+  a1b2c3d4-e5f6-4789-a012-3456789abcde: # Footer Überschrift
     columnSuffix: null
     handle: footerHeadline
     instructions: 'Überschrift für den Footer-Bereich'
@@ -1135,6 +1188,44 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
+  a3b4c5d6-e7f8-49a0-b1c2-d3e4f5a6b7c8: # Blog Featured Image
+    columnSuffix: null
+    handle: blogFeaturedImage
+    instructions: null
+    name: 'Blog Featured Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      branchLimit: null
+      defaultPlacement: end
+      defaultUploadLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      defaultUploadLocationSubpath: null
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:69e761d0-4b16-45a6-92c3-b605c43e4545' # Bilder
+      restrictedLocationSubpath: null
+      selectionLabel: null
+      showCardsInGrid: false
+      showSearchInput: true
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Assets
   a7b9b6cf-354d-49e6-995c-14005abaa032: # Art des Inhalts
     columnSuffix: null
     handle: contentType
@@ -1278,6 +1369,21 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: # Instagram
+    columnSuffix: null
+    handle: socialInstagram
+    instructions: 'Instagram URL'
+    name: Instagram
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: false
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Link
   b2c3d4e5-f6a7-4890-b123-456789abcdef: # Footer Text
     columnSuffix: null
     handle: footerText
@@ -1348,6 +1454,21 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
+  c3c4c5c6-d7d8-4e9f-0a1b-2c3d4e5f6a7b:
+    columnSuffix: null
+    handle: socialLinkedin
+    instructions: 'LinkedIn URL'
+    name: LinkedIn
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: false
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Link
   c3d4e5f6-a7b8-4012-a456-7890abcdef01: # Features Intro
     columnSuffix: null
     handle: featuresIntro
@@ -1390,6 +1511,23 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Link
+  c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9f:
+    columnSuffix: null
+    handle: blogSummary
+    instructions: 'Kurze Zusammenfassung des Blog-Beitrags'
+    name: 'Blog Summary'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\PlainText
   c7fd23e2-6f38-4cf9-a791-e8c6719878a7: # Telefon-Nummer
     columnSuffix: null
     handle: phone
@@ -1578,6 +1716,21 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Email
+  d4d5d6d7-e8e9-4f0a-1b2c-3d4e5f6a7b8c:
+    columnSuffix: null
+    handle: socialTwitter
+    instructions: 'Twitter/X URL'
+    name: Twitter/X
+    searchable: false
+    settings:
+      fullGraphqlData: true
+      maxLength: 255
+      showLabelField: false
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Link
   d4e5f6a7-b8c9-4012-d345-6789abcdef01:
     columnSuffix: null
     handle: contactEmail
@@ -1650,6 +1803,54 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
+  f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c: # Blog-Inhalt
+    columnSuffix: null
+    handle: blogContent
+    instructions: 'Hauptinhalt des Blog-Beitrags'
+    name: Blog-Inhalt
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: '*'
+      characterLimit: null
+      ckeConfig: c14b8e65-2507-46d1-b976-40e9777424e2 # Blog Longform
+      createButtonLabel: null
+      defaultTransform: null
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
+        -
+          __assoc__:
+            -
+              - uid
+              - e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
+        -
+          __assoc__:
+            -
+              - uid
+              - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
+        -
+          __assoc__:
+            -
+              - uid
+              - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+      expandEntryButtons: false
+      fullGraphqlData: false
+      parseEmbeds: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\ckeditor\Field
   f6a7b8c9-d0e1-4234-f567-89abcdef0123:
     columnSuffix: null
     handle: copyrightText
@@ -2012,11 +2213,17 @@ meta:
     6599081e-7b55-4c7f-8101-8048954a235a: Simple # Simple
     10581733-0aaf-43ac-b04a-9de940b7cf8e: Zitat # Zitat
     54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
+    a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f: Facebook # Facebook
+    a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7: Blog # Blog
+    a1b2c3d4-e5f6-4789-a012-3456789abcde: 'Footer Überschrift' # Footer Überschrift
     a1b2c3d4-e5f6-4890-a234-567890abcdef: 'Features Titel' # Features Titel
+    a3b4c5d6-e7f8-49a0-b1c2-d3e4f5a6b7c8: 'Blog Featured Image' # Blog Featured Image
     a7b8c9d0-e1f2-4345-a678-9abcdef01234: Footer # Footer
     a7b9b6cf-354d-49e6-995c-14005abaa032: 'Art des Inhalts' # Art des Inhalts
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
     acd5ae4b-736e-42bb-b318-c52282d61a09: Bild-Rundungen # Bild-Rundungen
+    b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: Instagram # Instagram
+    b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog
     b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
     b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
@@ -2026,6 +2233,7 @@ meta:
     c032286b-2d69-4f53-986d-bf92576ecc87: Text # Text
     c3d4e5f6-a7b8-4012-a456-7890abcdef01: 'Features Intro' # Features Intro
     c7fd23e2-6f38-4cf9-a791-e8c6719878a7: Telefon-Nummer # Telefon-Nummer
+    c14b8e65-2507-46d1-b976-40e9777424e2: 'Blog Longform' # Blog Longform
     c47ca354-18fb-4c37-b29d-d0f4f4a499b3: Services # Services
     c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: Platypus # Platypus
     c1696d61-467a-45b3-8386-ec628a918f32: Bild # Bild
@@ -2037,6 +2245,7 @@ meta:
     d97974b4-1470-4bd7-9ea6-771b4541f465: 'Bild-Überhang?' # Bild-Überhang?
     e5f6a7b8-c9d0-4234-a678-90abcdef0123: Text-Liste # Text-Liste
     e295543e-e1d9-41ac-827a-5dd3ba110f60: Bilder # Bilder
+    f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c: Blog-Inhalt # Blog-Inhalt
     f33a4e83-1f1c-494a-8868-e03c49695831: Haupt-Navigation # Haupt-Navigation
     f76a2dd2-e718-4293-9d3a-13b3db2e26f8: Team-Mitglied # Team-Mitglied
     f81747ee-8440-434b-9779-936716066903: Text-Layout # Text-Layout

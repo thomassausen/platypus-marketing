@@ -1,0 +1,139 @@
+{% extends "_layouts/default" %}
+
+{% block content %}
+<div class="bg-white min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {# Hero Section #}
+        <div class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary mb-4">Blog</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Neuigkeiten, Einblicke und Expertenwissen aus unserer Welt
+            </p>
+        </div>
+
+    {# Blog Entries Grid #}
+    {% set blogEntries = craft.entries()
+        .section('blog')
+        .orderBy('postDate DESC')
+        .limit(9) %}
+
+    {% paginate blogEntries as pageInfo, entries %}
+
+    {% if entries|length %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for entry in entries %}
+                <article class="bg-background-soft rounded-lg overflow-hidden transition-all duration-300 hover:shadow-elevated">
+                    {# Featured Image #}
+                    {% set featuredImage = entry.blogFeaturedImage.one() %}
+                    <a href="{{ entry.url }}" class="block aspect-video bg-brand-accent overflow-hidden">
+                        {% if featuredImage %}
+                            <img
+                                src="{{ featuredImage.url }}"
+                                alt="{{ featuredImage.title }}"
+                                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            >
+                        {% else %}
+                            <div class="w-full h-full flex items-center justify-center text-brand-primary">
+                                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        {% endif %}
+                    </a>
+
+                    {# Content #}
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">
+                            {{ entry.postDate|date('d.m.Y') }}
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-brand-primary mb-3">
+                            <a href="{{ entry.url }}" class="hover:text-brand-secondary transition-colors">
+                                {{ entry.title }}
+                            </a>
+                        </h2>
+
+                        {% if entry.blogSummary %}
+                            <p class="text-gray-600 mb-4 line-clamp-3">
+                                {{ entry.blogSummary }}
+                            </p>
+                        {% endif %}
+
+                        <a href="{{ entry.url }}" class="inline-flex items-center text-brand-secondary font-semibold hover:text-brand-primary transition-colors">
+                            Weiterlesen
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        {# Pagination #}
+        {% if pageInfo.totalPages > 1 %}
+            <nav class="flex justify-center items-center space-x-2" aria-label="Pagination">
+                {# Previous Button #}
+                {% if pageInfo.prevUrl %}
+                    <a href="{{ pageInfo.prevUrl }}"
+                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
+                        <span class="sr-only">Vorherige Seite</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                {% else %}
+                    <span class="px-4 py-2 bg-gray-100 text-gray-400 border border-gray-300 rounded-lg cursor-not-allowed">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </span>
+                {% endif %}
+
+                {# Page Numbers #}
+                {% for page, url in pageInfo.getPrevUrls(2) %}
+                    <a href="{{ url }}"
+                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
+                        {{ page }}
+                    </a>
+                {% endfor %}
+
+                {# Current Page #}
+                <span class="px-4 py-2 bg-brand-primary text-white border border-brand-primary rounded-lg font-semibold">
+                    {{ pageInfo.currentPage }}
+                </span>
+
+                {% for page, url in pageInfo.getNextUrls(2) %}
+                    <a href="{{ url }}"
+                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
+                        {{ page }}
+                    </a>
+                {% endfor %}
+
+                {# Next Button #}
+                {% if pageInfo.nextUrl %}
+                    <a href="{{ pageInfo.nextUrl }}"
+                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
+                        <span class="sr-only">Nächste Seite</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                {% else %}
+                    <span class="px-4 py-2 bg-gray-100 text-gray-400 border border-gray-300 rounded-lg cursor-not-allowed">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </span>
+                {% endif %}
+            </nav>
+        {% endif %}
+
+    {% else %}
+        <div class="text-center py-16">
+            <p class="text-xl text-gray-500">Noch keine Blog-Beiträge verfügbar.</p>
+        </div>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
