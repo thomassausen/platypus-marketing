@@ -1,0 +1,146 @@
+color: null
+description: null
+fieldLayouts:
+  fc9288e3-5d14-4d35-b4be-c9cfe19a18c7:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:fc9288e4-5d14-4d35-b4be-c9cfe19a18c8'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: Überschrift
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: fc9288e4-5d14-4d35-b4be-c9cfe19a18c8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: description
+            includeInCards: false
+            instructions: null
+            label: Einleitung
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288e5-5d14-4d35-b4be-c9cfe19a18c9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288e6-5d14-4d35-b4be-c9cfe19a18ca
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b591db6f-b83f-4160-ad47-bdfe5b2688e1 # Buttons
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288e7-5d14-4d35-b4be-c9cfe19a18cb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: fc9288e8-5d14-4d35-b4be-c9cfe19a18cc
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288e9-5d14-4d35-b4be-c9cfe19a18cd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T11:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288ea-5d14-4d35-b4be-c9cfe19a18ce
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: fc9288eb-5d14-4d35-b4be-c9cfe19a18cf
+        userCondition: null
+handle: cta
+hasTitleField: true
+icon: megaphone
+name: CTA
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

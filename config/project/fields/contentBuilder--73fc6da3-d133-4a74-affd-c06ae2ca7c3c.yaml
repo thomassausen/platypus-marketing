@@ -60,6 +60,14 @@ settings:
       __assoc__:
         -
           - uid
+          - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
           - 546a1aba-9733-4f5d-917b-567daf653235 # Image Divider
         -
           - group
