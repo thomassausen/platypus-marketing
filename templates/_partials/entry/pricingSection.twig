@@ -32,7 +32,20 @@ Uses entry fields:
 {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
 
 {# Background-spezifische Überschreibungen #}
-{% if background == 'soft' %}
+{% if background == 'gradient' %}
+    {% set backgroundClass = 'bg-gradient-to-br from-brand-primary to-brand-secondary' %}
+    {% set textColorClass = 'text-white/90' %}
+    {% set titleColorClass = 'text-white' %}
+    {% set subtitleBgClass = 'bg-white/20 text-white' %}
+    {% set buttonClass = 'bg-white hover:bg-gray-100' %}
+    {% set buttonTextClass = 'text-brand-primary' %}
+    {% set svgColor1 = 'text-white/8' %}
+    {% set svgColor2 = 'text-white/10' %}
+    {% set svgColor3 = 'text-white/12' %}
+    {% set svgColor4 = 'text-white/15' %}
+    {% set cardHeaderDefault = 'bg-background-soft' %}
+    {% set cardHeaderHighlighted = 'bg-brand-secondary' %}
+{% elseif background == 'soft' %}
     {% set backgroundClass = 'bg-background-soft' %}
     {% set cardHeaderDefault = 'bg-brand-primary' %}
     {% set cardHeaderHighlighted = 'bg-brand-secondary' %}

@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: floatingCard
+instructions: null
+name: 'Floating Card'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - fc9288d9-5d14-4d35-b4be-c9cfe19a18bd
+        -
+          - group
+          - Allgemein
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

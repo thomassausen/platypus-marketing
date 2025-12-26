@@ -1,0 +1,60 @@
+color: null
+description: null
+fieldLayouts:
+  c969f7d3-f561-411c-8097-6d7e49851e94:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:752bef9d-ffc6-43dd-8175-da9dad95f007'
+      - 'layoutElement:e4669132-8a0e-49b4-a84f-fada45407e92'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-26T01:59:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: button
+            includeInCards: true
+            instructions: null
+            label: Button
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 752bef9d-ffc6-43dd-8175-da9dad95f007
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T02:03:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4296180-a3a3-470e-a6c5-af1f0185be6c # Button-Stil
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e4669132-8a0e-49b4-a84f-fada45407e92
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: fc250e19-7b22-4e26-8ba7-7a8403198a46
+        userCondition: null
+handle: button
+hasTitleField: false
+icon: play
+name: Button
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

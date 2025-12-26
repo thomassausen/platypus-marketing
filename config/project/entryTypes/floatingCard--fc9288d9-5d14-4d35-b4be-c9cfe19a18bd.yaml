@@ -1,0 +1,74 @@
+color: null
+description: null
+fieldLayouts:
+  fc9288da-5d14-4d35-b4be-c9cfe19a18be:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: fc9288e1-5d14-4d35-b4be-c9cfe19a18c5
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288db-5d14-4d35-b4be-c9cfe19a18bf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: cardTitle
+            includeInCards: false
+            instructions: null
+            label: Titel
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288dc-5d14-4d35-b4be-c9cfe19a18c0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-12-26T10:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: cardSubtitle
+            includeInCards: false
+            instructions: null
+            label: Untertitel
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc9288dd-5d14-4d35-b4be-c9cfe19a18c1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: fc9288de-5d14-4d35-b4be-c9cfe19a18c2
+        userCondition: null
+handle: floatingCard
+hasTitleField: false
+icon: tag
+name: 'Floating Card'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{iconType} - {cardTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

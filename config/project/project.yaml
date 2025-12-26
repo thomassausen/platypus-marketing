@@ -1,4 +1,4 @@
-dateModified: 1766710782
+dateModified: 1766716684
 elementSources:
   craft\elements\Entry:
     -
@@ -44,6 +44,7 @@ meta:
     2c827773-a1a5-4eec-a293-bbf49f578c99: Preise-Sektion # Preise-Sektion
     3b1d2716-73ff-403e-ac9d-af5e6dda7832: Team-Mitglieder # Team-Mitglieder
     6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: Hintergrundfarbe # Hintergrundfarbe
+    6eb230e1-4b05-4189-afed-31ce409f3009: Hero-Variante # Hero-Variante
     11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
     23ab57f9-640e-4064-8333-458692667dec: Bilder # Bilder
     46dc81ec-70cb-496a-98e9-65e6ca50b3d5: Link # Link
@@ -54,6 +55,7 @@ meta:
     546a1aba-9733-4f5d-917b-567daf653235: 'Image Divider' # Image Divider
     983f3c7c-a082-4298-bd61-06d175c7cba8: Text # Text
     1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5: Spalten # Spalten
+    05924f1a-126a-4a36-a9e2-14a56c5c8ccd: Hero # Hero
     6707f2a7-b016-4641-aa2d-165292b7dfb1: Lücke # Lücke
     6994b292-6925-411a-962d-317554f02c28: Team-Sektion # Team-Sektion
     7987c3dc-bd17-4987-a298-02c6dceaf17e: Seiten # Seiten
@@ -67,6 +69,7 @@ meta:
     a7b9b6cf-354d-49e6-995c-14005abaa032: 'Art des Inhalts' # Art des Inhalts
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
     acd5ae4b-736e-42bb-b318-c52282d61a09: Bild-Rundungen # Bild-Rundungen
+    b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
     bb7b9081-dc2c-4665-880e-9668439f22a5: Preis # Preis
     bbbaa0df-d69c-41e2-8fd8-544bbb50f88f: Preise-Reihen # Preise-Reihen
     be9e472f-6557-47cc-8402-06b4027d587b: 'Abgerundet?' # Abgerundet?
@@ -77,11 +80,13 @@ meta:
     c71043b1-95b7-40c8-9c63-5b63ff1d47f2: Bildhöhe # Bildhöhe
     c748359f-b917-4760-be70-9ce67ca6ce7f: Features # Features
     d09b4710-bec0-4a9c-8b18-65fa1b3a880a: E-Mail # E-Mail
+    d9b8121b-ff46-4eb9-bcb7-e0fecf6fdcdc: Button # Button
     d97974b4-1470-4bd7-9ea6-771b4541f465: 'Bild-Überhang?' # Bild-Überhang?
     e295543e-e1d9-41ac-827a-5dd3ba110f60: Bilder # Bilder
     f33a4e83-1f1c-494a-8868-e03c49695831: Haupt-Navigation # Haupt-Navigation
     f76a2dd2-e718-4293-9d3a-13b3db2e26f8: Team-Mitglied # Team-Mitglied
     f81747ee-8440-434b-9779-936716066903: Text-Layout # Text-Layout
+    f4296180-a3a3-470e-a6c5-af1f0185be6c: Button-Stil # Button-Stil
 plugins:
   ckeditor:
     edition: standard

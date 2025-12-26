@@ -12,6 +12,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 05924f1a-126a-4a36-a9e2-14a56c5c8ccd # Hero
+        -
+          - group
+          - Inhalte
+    -
+      __assoc__:
+        -
+          - uid
           - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
         -
           - group
