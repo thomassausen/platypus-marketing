@@ -97,7 +97,7 @@ fieldLayouts:
           -
             dateAdded: '2025-12-26T18:05:00+00:00'
             elementCondition: null
-            heading: 'Suchmaschinen-Optimierung'
+            heading: Suchmaschinen-Optimierung
             type: craft\fieldlayoutelements\Heading
             uid: 44e9dc5f-b1cc-43c2-ad71-c3ee2f0535c5
             userCondition: null
@@ -105,7 +105,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T18:05:00+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 9f454419-a68a-4271-afa9-c4b736016383 # SEO Title
+            fieldUid: 9f454419-a68a-4271-afa9-c4b736016383
             handle: null
             includeInCards: false
             instructions: null
@@ -122,7 +122,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T18:05:00+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 203d08b2-04c9-4069-910c-6def1a3c9f7f # SEO Description
+            fieldUid: 203d08b2-04c9-4069-910c-6def1a3c9f7f
             handle: null
             includeInCards: false
             instructions: null
