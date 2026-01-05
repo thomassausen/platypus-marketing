@@ -9,6 +9,7 @@ Uses entry fields:
 - services: Matrix field with service entries
 - backgroundColor: Color field, default: 'soft'
 - svgVariant: number 1-9 or 'none', default: 1
+- columns: number (2, 3, or 4), default: 2
 #}
 
 {% import '_partials/theme-macros.twig' as theme %}
@@ -16,6 +17,7 @@ Uses entry fields:
 
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
+{% set columns = entry.columns.value ?? entry.columns ?? 2 %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
 <section class="py-16 relative overflow-hidden {{ vars.backgroundClass }}">
@@ -41,7 +43,15 @@ Uses entry fields:
             {% endif %}
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        {% if columns == 3 %}
+            {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' %}
+        {% elseif columns == 4 %}
+            {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6' %}
+        {% else %}
+            {% set gridClass = 'grid md:grid-cols-2 gap-8' %}
+        {% endif %}
+
+        <div class="{{ gridClass }}">
             {% if entry.services %}
                 {% for service in entry.services %}
                     <div class="p-6 hover:shadow-soft transition-all text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">

@@ -135,6 +135,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-01-05T16:54:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5 # Spalten
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9264b04b-15f0-44e7-bb83-c2af4cc49a2c
+            userCondition: null
+            warning: null
+            width: 100
         name: Einstellungen
         uid: b4c5d6e7-f8a9-0123-4567-89abcdef0123
         userCondition: null
