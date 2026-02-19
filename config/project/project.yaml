@@ -1,4 +1,4 @@
-dateModified: 1767632060
+dateModified: 1771452189
 elementSources:
   craft\elements\Entry:
     -
@@ -8,6 +8,7 @@ elementSources:
       defaultViewMode: ''
       disabled: false
       key: '*'
+      page: Inhalte
       tableAttributes:
         - status
         - section
@@ -18,6 +19,7 @@ elementSources:
     -
       heading: Inhalt
       key: 'heading:f5588eec-6305-4e52-b765-84658742b58d'
+      page: Inhalte
       type: heading
     -
       defaultSort:
@@ -26,6 +28,7 @@ elementSources:
       defaultViewMode: ''
       disabled: false
       key: 'section:71b74abe-4015-4367-a552-c9e1667e1cec' # Seiten
+      page: Inhalte
       tableAttributes:
         - status
         - link
@@ -37,29 +40,16 @@ elementSources:
       defaultViewMode: ''
       disabled: false
       key: 'section:a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7' # Blog
+      page: Inhalte
       tableAttributes:
         - status
         - postDate
         - link
       type: native
     -
-      heading: Navigation
-      key: 'heading:930f4d4a-538a-4c45-a952-0dfd7dd057d4'
-      type: heading
-    -
-      defaultSort:
-        - structure
-        - asc
-      defaultViewMode: ''
-      disabled: false
-      key: 'section:f33a4e83-1f1c-494a-8868-e03c49695831' # Haupt-Navigation
-      tableAttributes:
-        - status
-        - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
-      type: native
-    -
       heading: Optionen
       key: 'heading:1664f019-4b12-49f0-b187-b9017b5a1398'
+      page: Inhalte
       type: heading
     -
       defaultSort:
@@ -68,10 +58,29 @@ elementSources:
       defaultViewMode: ''
       disabled: false
       key: singles
+      page: Inhalte
       tableAttributes:
         - status
         - link
       type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:f33a4e83-1f1c-494a-8868-e03c49695831' # Haupt-Navigation
+      page: Navigation
+      tableAttributes:
+        - status
+        - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
+      type: native
+elementSourcesPages:
+  craft\elements\Entry:
+    Inhalte:
+      icon: file-lines
+    Navigation:
+      icon: circle-location-arrow
 email:
   fromEmail: hi@thomassausen.com
   fromName: Platypus-Marketing
@@ -609,31 +618,7 @@ fields:
               - 05924f1a-126a-4a36-a9e2-14a56c5c8ccd # Hero
             -
               - group
-              - Inhalte
-        -
-          __assoc__:
-            -
-              - uid
-              - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
-            -
-              - group
-              - Inhalte
-        -
-          __assoc__:
-            -
-              - uid
-              - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
-            -
-              - group
-              - Inhalte
-        -
-          __assoc__:
-            -
-              - uid
-              - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
-            -
-              - group
-              - Inhalte
+              - Allgemein
         -
           __assoc__:
             -
@@ -641,7 +626,7 @@ fields:
               - 2c827773-a1a5-4eec-a293-bbf49f578c99 # Preise-Sektion
             -
               - group
-              - Inhalte
+              - Allgemein
         -
           __assoc__:
             -
@@ -649,7 +634,7 @@ fields:
               - 6994b292-6925-411a-962d-317554f02c28 # Team-Sektion
             -
               - group
-              - Inhalte
+              - Allgemein
         -
           __assoc__:
             -
@@ -657,7 +642,7 @@ fields:
               - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520 # Services-Sektion
             -
               - group
-              - Inhalte
+              - Allgemein
         -
           __assoc__:
             -
@@ -665,7 +650,15 @@ fields:
               - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
             -
               - group
-              - Inhalte
+              - Allgemein
+        -
+          __assoc__:
+            -
+              - uid
+              - c032286b-2d69-4f53-986d-bf92576ecc87 # Text
+            -
+              - group
+              - Texte
         -
           __assoc__:
             -
@@ -673,7 +666,23 @@ fields:
               - e5f6a7b8-c9d0-4234-a678-90abcdef0123 # Text-Liste
             -
               - group
-              - Inhalte
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
+            -
+              - group
+              - Texte
         -
           __assoc__:
             -
@@ -693,11 +702,11 @@ fields:
       includeTableView: false
       maxEntries: null
       minEntries: null
-      pageSize: null
+      pageSize: 50
       propagationKeyFormat: null
       propagationMethod: all
       showCardsInGrid: false
-      viewMode: blocks
+      viewMode: cards
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
@@ -1162,8 +1171,8 @@ fields:
       byteLimit: null
       charLimit: null
       code: false
-      initialRows: 4
-      multiline: false
+      initialRows: 1
+      multiline: true
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
@@ -2341,7 +2350,7 @@ system:
   edition: solo
   live: true
   name: Platypus-Marketing
-  schemaVersion: 5.8.0.3
+  schemaVersion: 5.9.0.8
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

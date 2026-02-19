@@ -56,7 +56,7 @@ Uses entry fields:
                 {% for service in entry.services %}
                     <div class="p-6 hover:shadow-soft transition-all text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">
                         <h3 class="text-2xl font-semibold mb-3">{{ service.title }}</h3>
-                        <p class="mb-4 flex-grow">{{ service.text }}</p>
+                        {% if service.text %}<div class="mb-4 flex-grow content-styles">{{ service.text }}</div>{% endif %}
                         {% if service.link %}
                             <a
                                 href="{{ service.link.value }}"

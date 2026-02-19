@@ -28,8 +28,10 @@ Uses entry fields:
             <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">
                 {{ entry.heading }}
             </h2>
+        </div>
+        <div class="mb-12">
             {% if entry.text %}
-                <div class="text-xl {{ vars.textColorClass }}  max-w-3xl mx-auto">
+                <div class="text-xl {{ vars.textColorClass }}  max-w-3xl mx-auto content-styles">
                     {{ entry.text }}
                 </div>
             {% endif %}

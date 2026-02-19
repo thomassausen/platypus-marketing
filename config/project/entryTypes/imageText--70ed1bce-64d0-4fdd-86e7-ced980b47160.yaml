@@ -1,11 +1,11 @@
-color: null
+allowLineBreaksInTitles: false
+color: sky
 description: null
 fieldLayouts:
   c986497e-3f9f-46ee-b5e4-55958ebfe2b0:
     cardThumbAlignment: end
     cardView:
       - 'layoutElement:9fa026e0-208a-4e14-ae1e-4a7b9ef8e0f5'
-      - 'layoutElement:7ad06255-2580-4fef-b680-62c9365c180e'
     tabs:
       -
         elementCondition: null
@@ -19,7 +19,6 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -28,7 +27,6 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
-            providesThumbs: false
             readonly: false
             required: true
             size: null
@@ -41,15 +39,30 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-02-18T22:03:09+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Untertitel
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 61410ca8-012a-45ab-b58b-bd3395586599
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-12-25T20:04:20+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -61,12 +74,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:04:20+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -84,12 +96,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:04:20+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -101,12 +112,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:04:20+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -118,12 +128,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:06:22+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 00e38bc0-ae91-4cf8-aa18-0003e2a08d96 # Bild-Position
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -135,12 +144,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:20:14+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: acd5ae4b-736e-42bb-b318-c52282d61a09 # Bild-Rundungen
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -152,12 +160,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:07:27+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: d97974b4-1470-4bd7-9ea6-771b4541f465 # Bild-Überhang?
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -168,6 +175,7 @@ fieldLayouts:
         name: Einstellungen
         uid: 6f3f0e0a-3744-4c7e-a4d1-1a40ddc422e0
         userCondition: null
+    thumbFieldKey: 'layoutElement:7ad06255-2580-4fef-b680-62c9365c180e'
 handle: imageText
 hasTitleField: true
 icon: address-card
@@ -179,3 +187,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

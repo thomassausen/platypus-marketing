@@ -1,10 +1,9 @@
-color: null
+allowLineBreaksInTitles: false
+color: indigo
 description: null
 fieldLayouts:
   5676ac8d-3a08-469b-b3bb-03439741155f:
     cardThumbAlignment: end
-    cardView:
-      - 'layoutElement:26728521-cdd2-4f01-9e79-1ae24763ebce'
     tabs:
       -
         elementCondition: null
@@ -13,12 +12,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T18:37:55+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -36,12 +34,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T18:37:55+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c71043b1-95b7-40c8-9c63-5b63ff1d47f2 # Bildhöhe
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -52,6 +49,7 @@ fieldLayouts:
         name: Einstellungen
         uid: 1c2dad69-a3b9-44c6-a0f3-60556fb51c61
         userCondition: null
+    thumbFieldKey: 'layoutElement:26728521-cdd2-4f01-9e79-1ae24763ebce'
 handle: imageDivider
 hasTitleField: false
 icon: image-landscape
@@ -63,3 +61,4 @@ slugTranslationMethod: site
 titleFormat: '{image.one.title}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

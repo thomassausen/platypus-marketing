@@ -45,11 +45,23 @@ Parameters:
             {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
 
             <h1 class="text-5xl md:text-6xl font-bold {{ vars.titleColorClass }} mb-6">
-                {{ entry.heading }}
+                {{ entry.heading | nl2br | raw }}
             </h1>
             <div class="text-xl {{ vars.textColorClass }} max-w-4xl  content-styles">
                 {{ entry.text }}
             </div>
+
+            {% if entry.buttons %}
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    {{ ui.buttonGroup(entry.buttons, {
+                        buttonClass: 'bg-white hover:bg-brand-secondary hover:text-white',
+                        buttonTextClass: 'text-brand-primary',
+                        buttonSecondaryClass: 'bg-white/10 backdrop-blur-sm text-white',
+                        buttonBorderClass: 'border-white/30',
+                        buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white hover:shadow-xl'
+                    }) }}
+                </div>
+            {% endif %}
         </div>
     </section>
 
@@ -70,10 +82,10 @@ Parameters:
                     {{ ui.subtitle(entry.subtitle, 'bg-white/20 text-white') }}
 
                     <h1 class="text-6xl lg:text-5xl font-bold leading-tight text-white">
-                        {{ entry.heading }}
+                        {{ entry.heading | nl2br | raw }}
                     </h1>
 
-                    <div class="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-4xl content-styles">
+                    <div class="text-xl lg:text-2xl text-white leading-relaxed max-w-4xl content-styles">
                         {{ entry.text }}
                     </div>
 

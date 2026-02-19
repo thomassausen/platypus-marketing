@@ -1,4 +1,5 @@
-color: null
+allowLineBreaksInTitles: false
+color: orange
 description: null
 fieldLayouts:
   e5f6a7b8-c9d0-1234-ef56-789012345678:
@@ -6,6 +7,8 @@ fieldLayouts:
     cardView:
       - 'layoutElement:f6a7b8c9-d0e1-2345-f678-90123456789a'
       - 'layoutElement:a7b8c9d0-e1f2-3456-7890-123456789abc'
+      - 'layoutElement:b8c9d0e1-f2a3-4567-8901-23456789abcd'
+      - section
     tabs:
       -
         elementCondition: null
@@ -14,12 +17,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: heading
-            includeInCards: true
             instructions: null
             label: Überschrift
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -31,12 +33,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: subtitle
-            includeInCards: true
             instructions: null
             label: Untertitel
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -48,12 +49,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: description
-            includeInCards: false
             instructions: null
             label: Beschreibung
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -65,12 +65,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -82,12 +81,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c47ca354-18fb-4c37-b29d-d0f4f4a499b3 # Services
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -105,12 +103,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -122,12 +119,11 @@ fieldLayouts:
             dateAdded: '2025-12-26T10:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -139,12 +135,11 @@ fieldLayouts:
             dateAdded: '2026-01-05T16:54:20+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5 # Spalten
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -155,6 +150,7 @@ fieldLayouts:
         name: Einstellungen
         uid: b4c5d6e7-f8a9-0123-4567-89abcdef0123
         userCondition: null
+    thumbFieldKey: null
 handle: servicesSection
 hasTitleField: false
 icon: briefcase
@@ -166,3 +162,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

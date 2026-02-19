@@ -1,4 +1,5 @@
-color: null
+allowLineBreaksInTitles: false
+color: orange
 description: null
 fieldLayouts:
   719345f4-34d8-44ec-8b45-641e1eec2979:
@@ -14,12 +15,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:46:35+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: subtitle
-            includeInCards: true
             instructions: null
             label: Unterüberschrift
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -36,7 +36,6 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -45,7 +44,6 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
-            providesThumbs: false
             readonly: false
             required: true
             size: null
@@ -61,12 +59,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:46:35+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
             handle: disclaimer
-            includeInCards: true
             instructions: null
             label: Disclaimer
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -78,12 +75,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:59:27+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 537187e5-68b5-47b4-92d9-39c5d886ea78 # Tiers
             handle: null
-            includeInCards: false
             instructions: null
             label: Preis-Spalte
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -101,12 +97,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:46:35+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -118,12 +113,11 @@ fieldLayouts:
             dateAdded: '2025-12-25T20:46:35+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -134,6 +128,7 @@ fieldLayouts:
         name: Einstellungen
         uid: c5ed889a-45c3-4c75-8d6d-ea8a58ae5b75
         userCondition: null
+    thumbFieldKey: null
 handle: pricingSection
 hasTitleField: true
 icon: money-bill-1
@@ -145,3 +140,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

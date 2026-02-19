@@ -13,10 +13,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: fc9288e1-5d14-4d35-b4be-c9cfe19a18c5 # Icon-Typ
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -30,10 +28,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: cardTitle
-            includeInCards: false
             instructions: null
             label: Titel
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -47,10 +43,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: cardSubtitle
-            includeInCards: false
             instructions: null
             label: Untertitel
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
