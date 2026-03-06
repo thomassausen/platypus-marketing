@@ -55,7 +55,7 @@ Uses entry fields:
         <div class="grid md:grid-cols-2 gap-12 items-center {{ imagePosition == 'right' ? 'md:flex-row-reverse' : '' }} {{ imageOverhang ? 'overflow-visible' : '' }}">
             {% if imagePosition == 'left' %}
                 <div class="relative {{ imageOverhang ? 'md:-ml-24 lg:-ml-40 xl:-ml-56' : '' }}">
-                    <div class="bg-gradient-to-br from-brand-primary to-brand-secondary {{ roundingClass }} shadow-elevated">
+                    <div class="{{ isSvg ? '' : 'bg-gradient-to-br from-brand-primary to-brand-secondary' }} {{ roundingClass }} {{ isSvg ? '' : 'shadow-elevated' }}">
                         <div class="h-[500px] w-full overflow-hidden">
                             {% if image %}
                                 {{ tag('img', {
@@ -109,7 +109,7 @@ Uses entry fields:
                     {{ ui.buttonPrimary(entry.button, vars.buttonClass, vars.buttonTextClass) }}
                 </div>
                 <div class="relative {{ imageOverhang ? 'md:-mr-24 lg:-mr-40 xl:-mr-56' : '' }}">
-                    <div class="bg-gradient-to-br from-brand-primary to-brand-secondary {{ roundingClass }} shadow-elevated">
+                    <div class="{{ isSvg ? '' : 'bg-gradient-to-br from-brand-primary to-brand-secondary' }} {{ roundingClass }} {{ isSvg ? '' : 'shadow-elevated' }}">
                         <div class="h-[500px] w-full overflow-hidden">
                             {% if image %}
                                 {{ tag('img', {
