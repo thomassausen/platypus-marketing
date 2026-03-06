@@ -37,6 +37,8 @@ Uses entry fields:
 {% set ratio = 4/3 %}
 {% set imageHeightPx = (imageWidth / ratio)|round %}
 
+{% set isSvg = image ? image.extension == 'svg' : false %}
+
 {% set transform = {
     format: 'webp',
     quality: 85,
@@ -60,7 +62,7 @@ Uses entry fields:
                                     class: 'w-full h-full object-cover ' ~ roundingClass,
                                     width: imageWidth,
                                     height: imageHeightPx,
-                                    src: image.getUrl(transform),
+                                    src: isSvg ? image.url : image.getUrl(transform),
                                     alt: image.title
                                 }) }}
                             {% endif %}
@@ -114,7 +116,7 @@ Uses entry fields:
                                     class: 'w-full h-full object-cover ' ~ roundingClass,
                                     width: imageWidth,
                                     height: imageHeightPx,
-                                    src: image.getUrl(transform),
+                                    src: isSvg ? image.url : image.getUrl(transform),
                                     alt: image.title
                                 }) }}
                             {% endif %}
