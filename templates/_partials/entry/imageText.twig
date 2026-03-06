@@ -18,6 +18,7 @@ Uses entry fields:
 {% import '_partials/ui-macros.twig' as ui %}
 
 {% set image = entry.image.one() ?? null %}
+{% set isSvg = image and image.extension == 'svg' ? true : false %}
 {% set imagePosition = entry.imagePosition.value ?? entry.imagePosition ?? 'left' %}
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
 {% set imageOverhang = entry.imageOverhang ?? true %}
@@ -36,8 +37,6 @@ Uses entry fields:
 {% set imageWidth = 1200 %}
 {% set ratio = 4/3 %}
 {% set imageHeightPx = (imageWidth / ratio)|round %}
-
-{% set isSvg = image ? image.extension == 'svg' : false %}
 
 {% set transform = {
     format: 'webp',
