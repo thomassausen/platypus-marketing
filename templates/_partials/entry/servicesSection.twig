@@ -18,6 +18,7 @@ Uses entry fields:
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
 {% set columns = entry.columns.value ?? entry.columns ?? 2 %}
+{% set firstFullWidth = entry.firstFullWidth ?? false %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
 <section class="py-16 relative overflow-hidden {{ vars.backgroundClass }}">
@@ -51,9 +52,30 @@ Uses entry fields:
             {% set gridClass = 'grid md:grid-cols-2 gap-8' %}
         {% endif %}
 
-        <div class="{{ gridClass }}">
-            {% if entry.services %}
-                {% for service in entry.services %}
+        {% if firstFullWidth and entry.services|length >= 4 %}
+            {# First service full width #}
+            {% set firstService = entry.services[0] %}
+            <div class="mb-6">
+                <div class="p-8 hover:shadow-soft transition-all text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ firstService.color }}">
+                    <h3 class="text-3xl font-semibold mb-4">{{ firstService.title }}</h3>
+                    {% if firstService.text %}<div class="mb-4 flex-grow content-styles text-lg">{{ firstService.text }}</div>{% endif %}
+                    {% if firstService.link %}
+                        <a
+                            href="{{ firstService.link.value }}"
+                            class="inline-flex items-center text-white hover:text-white/80 transition-colors font-semibold group"
+                        >
+                            {{ firstService.link.label }}
+                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            {# Remaining services in 3-column grid #}
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for service in entry.services|slice(1) %}
                     <div class="p-6 hover:shadow-soft transition-all text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">
                         <h3 class="text-2xl font-semibold mb-3">{{ service.title }}</h3>
                         {% if service.text %}<div class="mb-4 flex-grow content-styles">{{ service.text }}</div>{% endif %}
@@ -70,7 +92,30 @@ Uses entry fields:
                         {% endif %}
                     </div>
                 {% endfor %}
-            {% endif %}
-        </div>
+            </div>
+        {% else %}
+            {# Regular grid layout #}
+            <div class="{{ gridClass }}">
+                {% if entry.services %}
+                    {% for service in entry.services %}
+                        <div class="p-6 hover:shadow-soft transition-all text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">
+                            <h3 class="text-2xl font-semibold mb-3">{{ service.title }}</h3>
+                            {% if service.text %}<div class="mb-4 flex-grow content-styles">{{ service.text }}</div>{% endif %}
+                            {% if service.link %}
+                                <a
+                                    href="{{ service.link.value }}"
+                                    class="inline-flex items-center text-white hover:text-white/80 transition-colors font-semibold group"
+                                >
+                                    {{ service.link.label }}
+                                    <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 </section>
