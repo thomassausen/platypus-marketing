@@ -10,7 +10,7 @@ Usage:
 {% macro subtitle(text, bgClass) %}
     {% if text %}
         <div class="inline-block mb-6">
-            <span class="px-4 py-2 {{ bgClass }} backdrop-blur-sm rounded-full text-sm font-semibold tracking-wide">
+            <span class="px-4 py-2 {{ bgClass }} rounded-full text-sm font-semibold tracking-wide">
                 {{ text }}
             </span>
         </div>
@@ -20,9 +20,9 @@ Usage:
 {# Primary Button #}
 {% macro buttonPrimary(button, buttonClass, buttonTextClass) %}
     {% if button %}
-        <a href="{{ button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
+        <a href="{{ button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
             <span class="relative z-10">{{ button.label }}</span>
-            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
         </a>
     {% endif %}
 {% endmacro %}
@@ -30,9 +30,9 @@ Usage:
 {# Secondary Button #}
 {% macro buttonSecondary(button, secondaryClass, hoverClass, borderClass) %}
     {% if button %}
-        <a href="{{ button.value }}" class="group {{ secondaryClass }} border-2 {{ borderClass }} px-8 py-4 text-lg rounded-full {{ hoverClass }} hover:scale-105 transition-all duration-300 text-center font-semibold">
+        <a href="{{ button.value }}" class="group {{ secondaryClass }} border-2 {{ borderClass }} px-8 py-4 text-lg rounded-full {{ hoverClass }} hover:scale-105 hover:shadow-lg active:scale-95 transition-all duration-200 text-center font-semibold">
             <span class="relative z-10">{{ button.label }}</span>
-            <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
         </a>
     {% endif %}
 {% endmacro %}
@@ -43,14 +43,14 @@ Usage:
         <div class="flex justify-center flex-col sm:flex-row gap-4">
             {% for item in buttons %}
                 {% if item.buttonStyle == 'primary' %}
-                    <a href="{{ item.button.value }}" class="group relative {{ vars.buttonClass }} {{ vars.buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 transition-all duration-300 text-center font-semibold overflow-hidden">
+                    <a href="{{ item.button.value }}" class="group relative {{ vars.buttonClass }} {{ vars.buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
                         <span class="relative z-10">{{ item.button.label }}</span>
-                        <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                        <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
                     </a>
                 {% elseif item.buttonStyle == 'secondary' %}
-                    <a href="{{ item.button.value }}" class="group {{ vars.buttonSecondaryClass }} border-2 {{ vars.buttonBorderClass }} px-8 py-4 text-lg rounded-full {{ vars.buttonSecondaryHoverClass }} hover:scale-105 transition-all duration-300 text-center font-semibold">
+                    <a href="{{ item.button.value }}" class="group {{ vars.buttonSecondaryClass }} border-2 {{ vars.buttonBorderClass }} px-8 py-4 text-lg rounded-full {{ vars.buttonSecondaryHoverClass }} hover:scale-105 hover:shadow-lg active:scale-95 transition-all duration-200 text-center font-semibold">
                         <span class="relative z-10">{{ item.button.label }}</span>
-                        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
                     </a>
                 {% endif %}
             {% endfor %}
@@ -79,18 +79,18 @@ Usage:
     <div class="{{ alignmentClass }}">
         {{ _self.subtitle(subtitle, vars.subtitleBgClass) }}
 
-        <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">
+        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
             {{ title }}
         </h2>
 
         {% if description %}
-            <div class="text-lg {{ vars.textColorClass }} leading-relaxed mb-6">
+            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-6">
                 {{ description }}
             </div>
         {% endif %}
 
         {% if text %}
-            <div class="text-lg {{ vars.textColorClass }} leading-relaxed space-y-4 content-styles">
+            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed space-y-4 content-styles">
                 {{ text }}
             </div>
         {% endif %}

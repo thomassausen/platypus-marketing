@@ -28,13 +28,13 @@ Uses entry fields:
     buttonSecondaryHoverClass: 'hover:bg-brand-secondary hover:text-white hover:border-brand-secondary'
 } %}
 
-<section class="py-16 relative overflow-hidden {{ vars.backgroundClass }}">
+<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
     {{ ui.svgShapes(svgVariant, vars) }}
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <div class="rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl bg-white {{ textAlignment == 'center' ? 'text-center' : '' }}">
-            <h2 class="text-4xl font-bold text-brand-primary mb-6">
+            <h2 class="text-3xl lg:text-5xl font-bold text-brand-primary mb-6">
                 {{ entry.title }}
             </h2>
             {% if entry.description %}

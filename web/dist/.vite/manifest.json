@@ -1,11 +1,53 @@
 {
+  "src/fonts/open-sans-v44-latin-300.woff2": {
+    "file": "assets/open-sans-v44-latin-300-D5gIFPXQ.woff2",
+    "src": "src/fonts/open-sans-v44-latin-300.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-300italic.woff2": {
+    "file": "assets/open-sans-v44-latin-300italic-BGZKUWQW.woff2",
+    "src": "src/fonts/open-sans-v44-latin-300italic.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-500.woff2": {
+    "file": "assets/open-sans-v44-latin-500-C0rntwkW.woff2",
+    "src": "src/fonts/open-sans-v44-latin-500.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-500italic.woff2": {
+    "file": "assets/open-sans-v44-latin-500italic-D-qyW44K.woff2",
+    "src": "src/fonts/open-sans-v44-latin-500italic.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-800.woff2": {
+    "file": "assets/open-sans-v44-latin-800-C0t39IfQ.woff2",
+    "src": "src/fonts/open-sans-v44-latin-800.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-800italic.woff2": {
+    "file": "assets/open-sans-v44-latin-800italic-Dm-zyCnf.woff2",
+    "src": "src/fonts/open-sans-v44-latin-800italic.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-italic.woff2": {
+    "file": "assets/open-sans-v44-latin-italic-oaOkCnEp.woff2",
+    "src": "src/fonts/open-sans-v44-latin-italic.woff2"
+  },
+  "src/fonts/open-sans-v44-latin-regular.woff2": {
+    "file": "assets/open-sans-v44-latin-regular-Bk63H6sG.woff2",
+    "src": "src/fonts/open-sans-v44-latin-regular.woff2"
+  },
   "src/js/app.js": {
-    "file": "assets/app-D2iWDr6k.js",
+    "file": "assets/app-DZh8jcLC.js",
     "name": "app",
     "src": "src/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-mlkNK6Ip.css"
+      "assets/app-Ccbb-ei0.css"
+    ],
+    "assets": [
+      "assets/open-sans-v44-latin-300-D5gIFPXQ.woff2",
+      "assets/open-sans-v44-latin-300italic-BGZKUWQW.woff2",
+      "assets/open-sans-v44-latin-regular-Bk63H6sG.woff2",
+      "assets/open-sans-v44-latin-italic-oaOkCnEp.woff2",
+      "assets/open-sans-v44-latin-500-C0rntwkW.woff2",
+      "assets/open-sans-v44-latin-500italic-D-qyW44K.woff2",
+      "assets/open-sans-v44-latin-800-C0t39IfQ.woff2",
+      "assets/open-sans-v44-latin-800italic-Dm-zyCnf.woff2"
     ]
   }
 }

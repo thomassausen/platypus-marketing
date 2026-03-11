@@ -46,12 +46,12 @@ Uses entry fields:
     mode: 'crop'
 } %}
 
-<section class="py-16 relative overflow-hidden {{ vars.backgroundClass }}">
+<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
     {{ ui.svgShapes(svgVariant, vars) }}
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 {{ imageOverhang ? 'overflow-visible' : '' }}">
-        <div class="grid md:grid-cols-2 gap-12 items-center {{ imagePosition == 'right' ? 'md:flex-row-reverse' : '' }} {{ imageOverhang ? 'overflow-visible' : '' }}">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center {{ imagePosition == 'right' ? 'md:flex-row-reverse' : '' }} {{ imageOverhang ? 'overflow-visible' : '' }}">
             {% if imagePosition == 'left' %}
                 <div class="relative {{ imageOverhang ? 'md:-ml-24 lg:-ml-40 xl:-ml-56' : '' }}">
                     <div class="{{ isSvg ? '' : 'bg-gradient-to-br from-brand-primary to-brand-secondary' }} {{ roundingClass }} {{ isSvg ? '' : 'shadow-elevated' }}">
@@ -76,12 +76,12 @@ Uses entry fields:
         </span>
                         </div>
                     {% endif %}
-                    <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">{{ entry.title }}</h2>
+                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">{{ entry.title }}</h2>
                     {% if entry.description %}
-                        <p class="text-lg {{ vars.textColorClass }} mb-8">{{ entry.description }}</p>
+                        <p class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 leading-relaxed">{{ entry.description }}</p>
                     {% endif %}
                     {% if entry.text %}
-                        <div class="text-lg {{ vars.textColorClass }} mb-8 space-y-4 content-styles">
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 space-y-4 content-styles leading-relaxed">
                             {{ entry.text }}
                         </div>
                     {% endif %}
@@ -96,12 +96,12 @@ Uses entry fields:
         </span>
                         </div>
                     {% endif %}
-                    <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">{{ entry.title }}</h2>
+                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">{{ entry.title }}</h2>
                     {% if entry.description %}
-                        <p class="text-lg {{ vars.textColorClass }} mb-8">{{ entry.description }}</p>
+                        <p class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 leading-relaxed">{{ entry.description }}</p>
                     {% endif %}
                     {% if entry.text %}
-                        <div class="text-lg {{ vars.textColorClass }} mb-8 space-y-4 content-styles">
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 space-y-4 content-styles leading-relaxed">
                             {{ entry.text }}
                         </div>
                     {% endif %}

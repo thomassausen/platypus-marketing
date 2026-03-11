@@ -17,7 +17,7 @@ Uses entry fields:
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
-<section class="py-16 relative {{ vars.backgroundClass }}">
+<section class="py-20 lg:py-28 relative {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
     {{ ui.svgShapes(svgVariant, vars) }}
 
@@ -25,7 +25,7 @@ Uses entry fields:
         <div class="text-center mb-12">
             {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
 
-            <h2 class="text-4xl font-bold {{ vars.titleColorClass }} mb-6">
+            <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6">
                 {{ entry.heading }}
             </h2>
         </div>
@@ -49,7 +49,7 @@ Uses entry fields:
             mode: 'crop'
         } %}
 
-        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
             {% for member in entry.teamMembers %}
                 {% set photo = member.image.one() ?? null %}
                 <div class="bg-white rounded-2xl shadow-elevated overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105">
@@ -65,7 +65,7 @@ Uses entry fields:
                         {% endif %}
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-brand-primary mb-4">
+                        <h3 class="text-2xl lg:text-3xl font-bold text-brand-primary mb-4">
                             {{ member.title }}
                         </h3>
                         <div class="space-y-3 mb-4">

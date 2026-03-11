@@ -8,7 +8,7 @@
 {% set svgVariant = entry.svgVariant ?? 1 %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
-<section class="py-16 relative {{ vars.backgroundClass }}">
+<section class="py-20 lg:py-28 relative {{ vars.backgroundClass }}">
     {# SVG Background Shapes #}
     {{ ui.svgShapes(svgVariant, vars) }}
 
@@ -32,20 +32,20 @@
             </div>
         {% else %}
             {# Two Column Layout #}
-            <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                 {# Sticky Header Column #}
                 <div class="md:sticky md:top-24">
                     {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                    <h2 class="text-4xl font-bold {{ vars.titleColorClass }}">{{ entry.title }}</h2>
+                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} leading-tight">{{ entry.title }}</h2>
                 </div>
 
                 {# Content Column #}
                 <div>
                     {% if entry.description %}
-                        <div class="text-xl {{ vars.textColorClass }} mb-8 content-styles font-bold">{{ entry.description }}</div>
+                        <div class="text-xl lg:text-2xl {{ vars.textColorClass }} mb-8 content-styles font-bold leading-relaxed">{{ entry.description }}</div>
                     {% endif %}
                     {% if entry.text %}
-                        <div class="text-lg {{ vars.textColorClass }} mb-8 space-y-4 content-styles">
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 space-y-4 content-styles leading-relaxed">
                             {{ entry.text }}
                         </div>
                     {% endif %}

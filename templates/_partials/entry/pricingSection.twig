@@ -85,7 +85,7 @@ Uses entry fields:
     {% set cardHeaderHighlighted = 'bg-brand-primary' %}
 {% endif %}
 
-<section class="py-16 relative {{ backgroundClass }}">
+<section class="py-20 lg:py-28 relative {{ backgroundClass }}">
     {# SVG Background Shapes #}
     {% include '_partials/svg-shapes.twig' with {
         variant: svgVariant,
@@ -104,7 +104,7 @@ Uses entry fields:
                     </span>
                 </div>
             {% endif %}
-            <h2 class="text-4xl font-bold mb-6 {{ titleColorClass }}">
+            <h2 class="text-3xl lg:text-5xl font-bold mb-6 {{ titleColorClass }}">
                 {{ title }}
             </h2>
         </div>
@@ -114,7 +114,7 @@ Uses entry fields:
                 <div class="bg-white rounded-2xl shadow-elevated overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl {{ tier.highlighted ?? false ? 'ring-4 ring-brand-secondary' : '' }}">
                     {# Header #}
                     <div class="p-8 text-center {{ tier.highlighted ?? false ? cardHeaderHighlighted : cardHeaderDefault }}">
-                        <h3 class="text-2xl font-bold mb-2 {{ background in ['blue', 'orange'] and not (tier.highlighted ?? false) ? 'text-gray-900' : 'text-white' }}">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-2 {{ background in ['blue', 'orange'] and not (tier.highlighted ?? false) ? 'text-gray-900' : 'text-white' }}">
                             {{ tier.title }}
                         </h3>
                     </div>
@@ -144,7 +144,7 @@ Uses entry fields:
 
                         {# Price #}
                         <div class="text-center pt-6 border-t-2 border-gray-100">
-                            <div class="text-4xl font-bold text-gray-900 mb-2">
+                            <div class="text-3xl lg:text-5xl font-bold text-gray-900 mb-2">
                                 {{ tier.price }}
                             </div>
                             <p class="text-gray-600 text-sm">{{ tier.billingModel }}</p>
