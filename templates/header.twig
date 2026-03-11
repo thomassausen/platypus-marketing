@@ -60,7 +60,7 @@
         {% for item in mainNav %}
             {% if item.children|length %}
                 <div class="text-center">
-                    <button class="mobile-dropdown-btn mobile-menu-link flex items-center gap-2">
+                    <button class="mobile-dropdown-btn mobile-menu-link inline-flex items-center gap-2">
                         {{ item.customLink.label }}
                         <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -130,6 +130,44 @@
                 mobileMenuBtn.click();
             }
         });
+    });
+
+    // Desktop Dropdown Touch Support (for iPad/Touch devices)
+    document.querySelectorAll('.relative.group').forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const menu = dropdown.querySelector('.absolute');
+        let isOpen = false;
+
+        link?.addEventListener('click', (e) => {
+            // Only intercept on touch devices
+            if ('ontouchstart' in window) {
+                e.preventDefault();
+
+                // Close all other dropdowns
+                document.querySelectorAll('.relative.group .absolute').forEach(otherMenu => {
+                    if (otherMenu !== menu) {
+                        otherMenu.classList.add('opacity-0', 'invisible');
+                    }
+                });
+
+                // Toggle this dropdown
+                isOpen = !isOpen;
+                if (isOpen) {
+                    menu.classList.remove('opacity-0', 'invisible');
+                } else {
+                    menu.classList.add('opacity-0', 'invisible');
+                }
+            }
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.relative.group')) {
+            document.querySelectorAll('.relative.group .absolute').forEach(menu => {
+                menu.classList.add('opacity-0', 'invisible');
+            });
+        }
     });
 
     // Scroll listener
