@@ -1,0 +1,86 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  dd078a73-3459-4b36-98f0-d67046db0f93:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-03-11T18:16:45+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 35abbd98-4655-4fb4-99b0-ba5522b98200
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:18:51+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: description
+            instructions: null
+            label: Beschreibung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4d3552f2-9014-4c07-8b4a-8a13ff9fb9ce
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:18:51+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fc9288e1-5d14-4d35-b4be-c9cfe19a18c5 # Icon-Typ
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f10d74a1-dd5b-4ebc-926b-6de9e2bc64e5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 9b45b6e0-8ce2-47d1-92db-7d3cb6b2d65f
+        userCondition: null
+    thumbFieldKey: null
+handle: benefit
+hasTitleField: true
+icon: trophy
+name: Vorteil
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

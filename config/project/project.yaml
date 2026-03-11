@@ -1,4 +1,4 @@
-dateModified: 1772819604
+dateModified: 1773253251
 elementSources:
   craft\elements\Entry:
     -
@@ -132,6 +132,36 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  1fad6153-d19c-4b99-bb81-ee955c3d9572: # Vorteile
+    columnSuffix: null
+    handle: benefits
+    instructions: null
+    name: Vorteile
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 8c9ea530-6518-4a2f-ad94-c03133f2c96e # Vorteil
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
   4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52: # SEO Image
     columnSuffix: null
     handle: seoImage
@@ -623,30 +653,6 @@ fields:
           __assoc__:
             -
               - uid
-              - 2c827773-a1a5-4eec-a293-bbf49f578c99 # Preise-Sektion
-            -
-              - group
-              - Allgemein
-        -
-          __assoc__:
-            -
-              - uid
-              - 6994b292-6925-411a-962d-317554f02c28 # Team-Sektion
-            -
-              - group
-              - Allgemein
-        -
-          __assoc__:
-            -
-              - uid
-              - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520 # Services-Sektion
-            -
-              - group
-              - Allgemein
-        -
-          __assoc__:
-            -
-              - uid
               - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
             -
               - group
@@ -683,6 +689,49 @@ fields:
             -
               - group
               - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520 # Services-Sektion
+            -
+              - group
+              - Sektionen
+        -
+          __assoc__:
+            -
+              - uid
+              - 36519611-89d8-4430-8d93-e485065dfb9a # Vorteile-Sektion
+            -
+              - group
+              - Sektionen
+        -
+          __assoc__:
+            -
+              - uid
+              - 6a632431-a5bc-4810-bb48-e26de2dc4e3c # Steps Section
+            -
+              - name
+              - Schritte-Sektion
+            -
+              - group
+              - Sektionen
+        -
+          __assoc__:
+            -
+              - uid
+              - 2c827773-a1a5-4eec-a293-bbf49f578c99 # Preise-Sektion
+            -
+              - group
+              - Sektionen
+        -
+          __assoc__:
+            -
+              - uid
+              - 6994b292-6925-411a-962d-317554f02c28 # Team-Sektion
+            -
+              - group
+              - Sektionen
         -
           __assoc__:
             -
@@ -1161,6 +1210,36 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  349900bb-e6bd-421a-8e4d-59a85854daea: # Steps
+    columnSuffix: null
+    handle: steps
+    instructions: null
+    name: Steps
+    searchable: false
+    settings:
+      createButtonLabel: null
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - aa7da33d-13e0-41de-9710-62000ce09c68 # Step
+            -
+              - group
+              - Allgemein
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: false
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
   394137d7-b17b-4bf5-9bc2-62dcc5d06808: # Plain Text
     columnSuffix: null
     handle: plainText
@@ -2280,11 +2359,14 @@ meta:
   __names__:
     00e38bc0-ae91-4cf8-aa18-0003e2a08d96: Bild-Position # Bild-Position
     0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520: Services-Sektion # Services-Sektion
+    1fad6153-d19c-4b99-bb81-ee955c3d9572: Vorteile # Vorteile
     2c827773-a1a5-4eec-a293-bbf49f578c99: Preise-Sektion # Preise-Sektion
     3b1d2716-73ff-403e-ac9d-af5e6dda7832: Team-Mitglieder # Team-Mitglieder
     4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52: 'SEO Image' # SEO Image
+    6a632431-a5bc-4810-bb48-e26de2dc4e3c: 'Steps Section' # Steps Section
     6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: Hintergrundfarbe # Hintergrundfarbe
     6eb230e1-4b05-4189-afed-31ce409f3009: Hero-Variante # Hero-Variante
+    8c9ea530-6518-4a2f-ad94-c03133f2c96e: Vorteil # Vorteil
     11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
     23ab57f9-640e-4064-8333-458692667dec: Bilder # Bilder
     27c7e471-18ee-45b7-9b10-b046b53ff4c4: Service # Service
@@ -2304,11 +2386,13 @@ meta:
     6994b292-6925-411a-962d-317554f02c28: Team-Sektion # Team-Sektion
     7987c3dc-bd17-4987-a298-02c6dceaf17e: Seiten # Seiten
     74210a0e-fd21-4d35-ad82-89fd1c871a69: Layout # Layout
+    349900bb-e6bd-421a-8e4d-59a85854daea: Steps # Steps
     394137d7-b17b-4bf5-9bc2-62dcc5d06808: 'Plain Text' # Plain Text
     537187e5-68b5-47b4-92d9-39c5d886ea78: Tiers # Tiers
     02042204-6864-49bf-9cde-1cb1aa18da80: 'Highlighted?' # Highlighted?
     6599081e-7b55-4c7f-8101-8048954a235a: Simple # Simple
     10581733-0aaf-43ac-b04a-9de940b7cf8e: Zitat # Zitat
+    36519611-89d8-4430-8d93-e485065dfb9a: Vorteile-Sektion # Vorteile-Sektion
     54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
     a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f: Facebook # Facebook
     a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7: Blog # Blog
@@ -2319,6 +2403,7 @@ meta:
     a7b9b6cf-354d-49e6-995c-14005abaa032: 'Art des Inhalts' # Art des Inhalts
     a9fe5882-8235-4bc4-b0a8-71a6c69fe6cd: 'Erstes Item groß' # Erstes Item groß
     a38b83cd-7ef0-45ae-9b83-00bd32d1d9ca: Platypus-Marketing # Platypus-Marketing
+    aa7da33d-13e0-41de-9710-62000ce09c68: Step # Step
     acd5ae4b-736e-42bb-b318-c52282d61a09: Bild-Rundungen # Bild-Rundungen
     b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: Instagram # Instagram
     b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog

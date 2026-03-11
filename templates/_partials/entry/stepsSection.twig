@@ -1,0 +1,76 @@
+{#
+Steps Section Component
+
+Parameters:
+- title: string (required) - Main section title
+- subtitle: string (optional) - Small badge above title
+- description: string (optional) - Text below title
+- steps: matrix field (required) - Array of step objects with:
+  - stepTitle: string
+  - stepDescription: string
+- backgroundColor: string (optional) - 'gradient', 'soft', 'white', 'accent', 'blue', 'orange', 'transparent'
+- svgVariant: number 1-9 or 'none' (optional)
+#}
+
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
+{% set svgVariant = entry.svgVariant ?? 'none' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
+
+<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
+    {# SVG Background Shapes #}
+    {{ ui.svgShapes(svgVariant, vars) }}
+
+    <div class="max-w-5xl mx-auto px-4 lg:px-8 relative z-0">
+        {# Section Header #}
+        <div class="text-center mb-16 lg:mb-20">
+            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+
+            {% if entry.title %}
+                <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                    {{ entry.title }}
+                </h2>
+            {% endif %}
+
+            {% if entry.description %}
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} max-w-3xl mx-auto leading-relaxed">
+                    {{ entry.description }}
+                </div>
+            {% endif %}
+        </div>
+
+        {# Steps Timeline #}
+        {% if entry.steps %}
+            <div class="relative">
+                {% for step in entry.steps.all() %}
+                    <div class="relative flex gap-8 {{ loop.last ? '' : 'mb-12 lg:mb-16' }} group">
+                        {# Timeline Line and Number #}
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            {# Number Circle #}
+                            <div class="relative z-10 w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300" style="border-radius: 50%; min-width: 4rem; min-height: 4rem;">
+                                {{ loop.index }}
+                            </div>
+
+                            {# Connecting Line (not for last item) #}
+                            {% if not loop.last %}
+                                <div class="w-0.5 h-full min-h-[80px] bg-gradient-to-b from-brand-primary/30 to-brand-secondary/30 mt-4"></div>
+                            {% endif %}
+                        </div>
+
+                        {# Step Content #}
+                        <div class="flex-1 pt-2 pb-8">
+                            <h3 class="text-2xl lg:text-3xl font-bold {{ vars.titleColorClass }} mb-4 group-hover:text-brand-primary transition-colors duration-300">
+                                {{ step.title }}
+                            </h3>
+                            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed content-styles">
+                                {{ step.stepDescription }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

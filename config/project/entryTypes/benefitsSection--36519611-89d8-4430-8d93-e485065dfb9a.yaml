@@ -1,0 +1,156 @@
+allowLineBreaksInTitles: false
+color: orange
+description: null
+fieldLayouts:
+  abb92cd8-5b8f-4dc1-aa95-334874db55fc:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-03-11T18:15:10+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6414768f-f2ad-49ca-bcd2-d1668851717d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Untertitel
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2c2881eb-23cd-4c03-80f3-f2bb0b1fcfc7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: description
+            instructions: null
+            label: Beschreibung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a8bfc0e-4f3e-4479-a7dd-c93c81ef3af3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 1fad6153-d19c-4b99-bb81-ee955c3d9572 # Vorteile
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9b01e0e2-f1a5-4288-bd4e-09d032ea0f25
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 6e37b3f5-5c98-41a1-b732-78960b4f875c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f78f3b41-1039-4123-8d68-fd20eaafb7ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f56c800-a15e-4f96-82d9-24cf9075313b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-11T18:19:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5 # Spalten
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: de565350-dfd3-480e-b689-053cfd5b5168
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: 96a83e98-a207-4e70-b050-1cd86c2037cd
+        userCondition: null
+    thumbFieldKey: null
+handle: benefitsSection
+hasTitleField: true
+icon: trophy
+name: Vorteile-Sektion
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
