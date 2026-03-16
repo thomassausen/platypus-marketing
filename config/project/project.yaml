@@ -1,4 +1,4 @@
-dateModified: 1773681978
+dateModified: 1773683725
 elementSources:
   craft\elements\Entry:
     -
@@ -2726,6 +2726,108 @@ fields:
             -
               - value
               - thumb-up
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Daumen runter'
+            -
+              - value
+              - thumb-down
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Alarm
+            -
+              - value
+              - alert-circle
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Ausrufezeichen
+            -
+              - value
+              - exclamation
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Verbot
+            -
+              - value
+              - ban
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'X im Kreis'
+            -
+              - value
+              - x-circle
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Warnung
+            -
+              - value
+              - warning
             -
               - icon
               - ''
