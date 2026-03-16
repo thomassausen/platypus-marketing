@@ -1,19 +1,51 @@
 allowLineBreaksInTitles: false
-color: sky
+color: orange
 description: null
 fieldLayouts:
-  7a81d751-eb35-46b9-98ca-dbf6167aa2ed:
+  12cb2539-8e3b-4fad-a3b4-d80911d25c7d:
     cardThumbAlignment: end
     cardView:
-      - 'layoutElement:fda29487-2b1e-4856-8744-bdbc6b27bbb3'
-      - 'layoutElement:1438db13-6011-4df4-85c1-14f7ad96cd31'
-      - 'layoutElement:b50e0dbf-e560-49f2-8ff4-b496bbfe9db8'
+      - 'layoutElement:3193fdca-69c1-45c2-a6df-97b4080f10ee'
+      - 'layoutElement:29c710ac-2bf6-4161-b059-5d3c3011a058'
+      - 'layoutElement:b3a8c432-0685-4a20-9004-42c741d6af7e'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T16:55:57+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3193fdca-69c1-45c2-a6df-97b4080f10ee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-16T16:55:57+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtilte
+            instructions: null
+            label: Untertitel
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 29c710ac-2bf6-4161-b059-5d3c3011a058
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-16T16:55:57+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -24,50 +56,34 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fda29487-2b1e-4856-8744-bdbc6b27bbb3
+            uid: b3a8c432-0685-4a20-9004-42c741d6af7e
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T16:55:57+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
-            handle: creator
+            fieldUid: 7d5cf96b-6d4e-4c4b-b9c4-02591bfa3bbd # FAQ-Items
+            handle: null
             instructions: null
-            label: Autor
+            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1438db13-6011-4df4-85c1-14f7ad96cd31
+            uid: 1ef14841-65e4-4012-87b9-0489b0161787
             userCondition: null
             warning: null
-            width: 50
-          -
-            dateAdded: '2025-12-19T18:59:08+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
-            handle: supplement
-            instructions: null
-            label: Ergänzung
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b50e0dbf-e560-49f2-8ff4-b496bbfe9db8
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
         name: Inhalt
-        uid: a4ffc8fd-5e3f-4bf6-b0c4-fd10acca4c6f
+        uid: 52967e35-8fd4-407e-b3f6-5da4415b5266
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:02:38+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -78,50 +94,34 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2487f4d4-a25f-40aa-8af5-649ebb892d3b
+            uid: 5e9ac672-e26e-409c-a108-981ef76eb770
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:02:38+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
+            fieldUid: 89d9744a-dbc1-4b8a-ac14-bcb5f9ca1d9b # Textausrichtung
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 673318df-c19b-43b7-aac8-0119d9609bf8
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-03-16T17:24:30+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 59127974-f469-4d6e-b9aa-ed3c3d066358 # Container-Breite
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: f4430dbf-5fa7-4fb3-8fa5-11d33ab531cd
+            uid: ad99e634-dc35-4b28-99d3-fe60d58ec0f6
             userCondition: null
             warning: null
             width: 100
         name: Einstellungen
-        uid: 9a1f9979-7780-40a7-acac-e99475949a79
+        uid: d1d1f97f-7966-476e-b0dc-e6b850ddb401
         userCondition: null
     thumbFieldKey: null
-handle: quote
+handle: faqSection
 hasTitleField: false
-icon: quotes
-name: Zitat
+icon: comments-question
+name: FAQ
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

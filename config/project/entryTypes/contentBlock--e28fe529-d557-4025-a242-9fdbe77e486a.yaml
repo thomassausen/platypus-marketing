@@ -1,0 +1,96 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  ea30f9f0-b83b-4321-a68e-d931cf9282f1:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-16T16:23:33+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: blockIcon
+            instructions: null
+            label: Icon
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 265704da-4e90-4b7a-a003-49e763239f7c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-16T15:48:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: blockTitle
+            instructions: null
+            label: Title
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 583562be-86bd-45d7-98c7-23d0f25f3330
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-16T15:48:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: blockText
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 224b1313-66ce-4fc5-afb2-d662f434af6c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 92544075-0d57-41d6-85cf-e314f9870f9c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-16T15:48:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5dccaceb-3de2-4299-8df0-d7121aa38357 # Highliht-Style
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c9a7c0c4-bbf9-48de-a658-fe63a0b65c85
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: 796e6508-b396-45c0-8e1f-27dfa30a99b9
+        userCondition: null
+    thumbFieldKey: null
+handle: contentBlock
+hasTitleField: false
+icon: block-brick
+name: Inhaltsblock
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

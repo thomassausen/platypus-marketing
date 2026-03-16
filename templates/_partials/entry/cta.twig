@@ -17,7 +17,19 @@ Uses entry fields:
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'gradient' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
 {% set textAlignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
+
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
 
 {# CTA-Box ist immer weiß, daher immer Standard-Button-Styles verwenden #}
 {% set ctaButtonVars = {
@@ -32,7 +44,7 @@ Uses entry fields:
     {# SVG Background Shapes #}
     {{ ui.svgShapes(svgVariant, vars) }}
 
-    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
         <div class="rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl bg-white {{ textAlignment == 'center' ? 'text-center' : '' }}">
             <h2 class="text-3xl lg:text-5xl font-bold text-brand-primary mb-6">
                 {{ entry.title }}

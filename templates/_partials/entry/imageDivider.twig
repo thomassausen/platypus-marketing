@@ -6,6 +6,8 @@ Parameters:
 - alt: string (required) - Alt text for the image
 - height: string (optional) - 'small' | 'medium' | 'large' | 'full', default: 'medium'
 - objectPosition: string (optional) - CSS object-position value, default: 'center'
+
+Note: imageDivider typically spans full width, so containerWidth is not applicable
 #}
 
 {% set image = entry.image.one() ?? null %}

@@ -1,19 +1,15 @@
 allowLineBreaksInTitles: false
-color: sky
+color: orange
 description: null
 fieldLayouts:
-  7a81d751-eb35-46b9-98ca-dbf6167aa2ed:
+  a465adc0-6a7e-4357-99c7-c12c8d644f80:
     cardThumbAlignment: end
-    cardView:
-      - 'layoutElement:fda29487-2b1e-4856-8744-bdbc6b27bbb3'
-      - 'layoutElement:1438db13-6011-4df4-85c1-14f7ad96cd31'
-      - 'layoutElement:b50e0dbf-e560-49f2-8ff4-b496bbfe9db8'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:00:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -24,50 +20,34 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fda29487-2b1e-4856-8744-bdbc6b27bbb3
+            uid: 43653d1c-e4e3-411e-a957-1dd58c698fd6
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:00:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
-            handle: creator
+            handle: quoteAuthor
             instructions: null
             label: Autor
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1438db13-6011-4df4-85c1-14f7ad96cd31
+            uid: 72b00123-5cd3-41c3-bf6b-c764e9f3bd9e
             userCondition: null
             warning: null
-            width: 50
-          -
-            dateAdded: '2025-12-19T18:59:08+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
-            handle: supplement
-            instructions: null
-            label: Ergänzung
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b50e0dbf-e560-49f2-8ff4-b496bbfe9db8
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
         name: Inhalt
-        uid: a4ffc8fd-5e3f-4bf6-b0c4-fd10acca4c6f
+        uid: 0b4e2698-4007-414a-b818-e8d40c77f884
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:00:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -78,50 +58,50 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2487f4d4-a25f-40aa-8af5-649ebb892d3b
+            uid: e9fad204-61ef-4f8e-b358-548b0b2b9d8c
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-19T18:52:46+00:00'
+            dateAdded: '2026-03-16T17:00:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
+            fieldUid: d35cbd98-b3a8-42a9-acfd-c9c53d0f60a6 # Highlight-Typ
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 673318df-c19b-43b7-aac8-0119d9609bf8
+            uid: 1269b759-0ad0-4b41-b1a2-119e5c2462b6
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-03-16T17:24:30+00:00'
+            dateAdded: '2026-03-16T17:00:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 59127974-f469-4d6e-b9aa-ed3c3d066358 # Container-Breite
+            fieldUid: 4111023a-b9d2-4eb9-9d57-5638426d40a4 # Icon zeigen
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f4430dbf-5fa7-4fb3-8fa5-11d33ab531cd
+            uid: 6dc7c019-9f72-4102-9b1c-f62853563c48
             userCondition: null
             warning: null
             width: 100
         name: Einstellungen
-        uid: 9a1f9979-7780-40a7-acac-e99475949a79
+        uid: 23081576-67cf-446f-b221-17f0d8abdcc4
         userCondition: null
     thumbFieldKey: null
-handle: quote
+handle: highlightBox
 hasTitleField: false
-icon: quotes
-name: Zitat
+icon: star
+name: 'Highlight Box / Pullquote'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

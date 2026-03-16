@@ -158,6 +158,22 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-03-16T17:26:18+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 59127974-f469-4d6e-b9aa-ed3c3d066358 # Container-Breite
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: becf7816-7f87-445a-bcd1-54baae3160c9
+            userCondition: null
+            warning: null
+            width: 100
         name: Einstellungen
         uid: 26e60198-0183-4451-865a-956deea4dd18
         userCondition: null

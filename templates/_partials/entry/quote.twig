@@ -3,6 +3,7 @@
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
 {% set layout = entry.textLayout ?? 'one-column' %}
 {% set svgVariant = entry.svgVariant ?? 1 %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
 
 {# Default-Werte #}
 {% set backgroundClass = '' %}
@@ -56,6 +57,17 @@
     {% set svgColor4 = 'text-white/15' %}
 {% endif %}
 
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
 <section class="py-20 lg:py-28 relative {{ backgroundClass }}">
     {# SVG Background Shapes #}
     {% include '_partials/svg-shapes.twig' with {
@@ -66,7 +78,7 @@
         color4: svgColor4
     } %}
 
-    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
         {# Centered Quote Layout with backdrop blur box #}
         <div class="{{ quoteBoxClass }} rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl">
             <div class="max-w-4xl mx-auto text-center">

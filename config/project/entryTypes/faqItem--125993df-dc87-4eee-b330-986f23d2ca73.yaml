@@ -1,0 +1,58 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  294dbd31-57a5-4e51-8bbf-9eee3af41a00:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-16T16:55:50+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: question
+            instructions: null
+            label: Frage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0da0de8d-1844-438f-ae21-dbcee56840bb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-16T16:55:50+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: answer
+            instructions: null
+            label: Antwort
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ab13857-3faa-4399-b029-16f0c024dbaa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 63fa64fc-1b6b-4258-a091-ff0f7fa9e4e1
+        userCondition: null
+    thumbFieldKey: null
+handle: faqItem
+hasTitleField: false
+icon: comment-question
+name: 'FAQ Item'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

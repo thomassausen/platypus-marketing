@@ -1,6 +1,23 @@
 {% set mainNav = craft.entries.section('mainNavigation').level(1).all() %}
 
+{# Get page background color for progress bar #}
+{% set progressColor = 'bg-brand-primary' %}
+{% if entry is defined and entry.backgroundColor is defined %}
+    {% set bgValue = entry.backgroundColor.value ?? entry.backgroundColor ?? null %}
+    {% if bgValue == 'orange' %}
+        {% set progressColor = 'bg-brand-secondary' %}
+    {% elseif bgValue == 'purple' %}
+        {% set progressColor = 'bg-brand-purple' %}
+    {% elseif bgValue == 'teal' %}
+        {% set progressColor = 'bg-brand-teal' %}
+    {% elseif bgValue == 'accent' %}
+        {% set progressColor = 'bg-brand-accent' %}
+    {% endif %}
+{% endif %}
+
 <header class="fixed top-0 left-0 right-0 z-50 shadow-sm" id="header" style="transform: translate3d(0, 0, 0); isolation: isolate; background-color: rgba(239, 237, 230, 0.98);">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="absolute top-0 left-0 h-[3px] {{ progressColor }} transition-all duration-150 z-[60]" style="width: 0%; right: 0;"></div>
     <div class="max-w-7xl mx-auto px-4 lg:px-8">
         <nav class="flex justify-between items-center h-20">
             <!-- Logo -->
@@ -21,9 +38,18 @@
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex space-x-8 text-gray-600 items-center">
                 {% for item in mainNav %}
+                    {% set isActive = craft.app.request.url starts with item.customLink.value %}
+                    {% set hasActiveChild = false %}
+                    {% if item.children|length %}
+                        {% for child in item.children %}
+                            {% if craft.app.request.url starts with child.customLink.value %}
+                                {% set hasActiveChild = true %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     {% if item.children|length %}
                         <div class="relative group">
-                            <a href="{{ item.customLink.value }}" class="nav-link !inline-flex items-center gap-2 !whitespace-nowrap" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>
+                            <a href="{{ item.customLink.value }}" class="nav-link !inline-flex items-center gap-2 !whitespace-nowrap !font-semibold !uppercase {{ isActive or hasActiveChild ? '!text-brand-primary' : '' }}" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>
                                 {{ item.customLink.label }}
                                 <svg class="w-4 h-4 transition-transform group-hover:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -32,13 +58,14 @@
                             <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                                 <div class="py-2">
                                     {% for child in item.children %}
-                                        <a href="{{ child.customLink.value }}" class="block px-4 py-2 hover:bg-gray-100 transition-colors" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
+                                        {% set isChildActive = craft.app.request.url starts with child.customLink.value %}
+                                        <a href="{{ child.customLink.value }}" class="block px-4 py-2 hover:bg-gray-100 transition-colors {{ isChildActive ? 'bg-brand-primary/10 text-brand-primary font-semibold' : '' }}" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
                                     {% endfor %}
                                 </div>
                             </div>
                         </div>
                     {% else %}
-                        <a href="{{ item.customLink.value }}" class="nav-link" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
+                        <a href="{{ item.customLink.value }}" class="nav-link !font-semibold !uppercase {{ isActive ? '!text-brand-primary' : '' }}" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -51,8 +78,39 @@
             </button>
         </nav>
     </div>
-
 </header>
+
+<!-- Breadcrumbs (outside of fixed header) -->
+{% if entry is defined and entry.section.handle != 'homepage' %}
+    {% set ancestors = entry.ancestors.all() %}
+    {% if ancestors|length > 0 %}
+    <div class="fixed top-20 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <nav aria-label="Breadcrumb" class="py-2">
+                <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                    <li>
+                        <a href="{{ siteUrl }}" class="hover:text-brand-primary transition-colors">Home</a>
+                    </li>
+                    {% for ancestor in ancestors %}
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <a href="{{ ancestor.url }}" class="hover:text-brand-primary transition-colors">{{ ancestor.title }}</a>
+                        </li>
+                    {% endfor %}
+                    <li class="flex items-center space-x-2">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span class="text-brand-primary font-semibold">{{ entry.title }}</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    {% endif %}
+{% endif %}
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-0 bg-background-soft z-40 lg:hidden translate-x-full transition-transform duration-300">
@@ -170,7 +228,34 @@
         }
     });
 
+    // Scroll Progress Bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    console.log('Scroll Progress Element:', scrollProgress);
+
+    function updateScrollProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+        if (scrollProgress) {
+            const width = Math.max(0, Math.min(scrollPercentage, 100));
+            scrollProgress.style.width = width + '%';
+            console.log('Scroll Progress:', width + '%');
+        }
+    }
+
     // Scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', () => {
+        updateScrollProgress();
+    }, { passive: true });
+
+    // Initial progress update
+    updateScrollProgress();
+
+    // Force initial visibility for testing
+    if (scrollProgress) {
+        scrollProgress.style.display = 'block';
+    }
 })();
 </script>

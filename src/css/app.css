@@ -96,7 +96,7 @@
     --color-brand-accent: #feebde;
     --color-brand-neutral1: #d6d1c4;
     --color-brand-neutral2: #b5a899;
-    --color-brand-purple: #9d7db5;
+    --color-brand-purple: #6B4C8A;
     --color-brand-teal: #3f5e5a;
     --color-background-soft: #EFEDE6;
     --color-background-light: #fff;
@@ -141,7 +141,7 @@
 
 /* Navigation Link Hover - Desktop */
 .nav-link {
-    color: rgb(75 85 99); /* text-gray-600 */
+    color: #5162AA; /* text-brand-primary */
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -160,7 +160,7 @@
 }
 
 .nav-link:hover {
-    color: #5162AA;
+    color: rgb(75 85 99); /* text-gray-600 */
 }
 
 .nav-link:hover::after {
@@ -170,7 +170,7 @@
 .nav-link:focus {
     outline: 2px solid #f89c48;
     outline-offset: 4px;
-    color: #5162AA;
+    color: rgb(75 85 99);
 }
 
 /* Mobile Menu Link Styles */

@@ -85,8 +85,8 @@ Usage:
             cardTextClass: 'text-gray-800',
             cardTitleClass: 'text-gray-800',
             checkmarkClass: 'text-gray-800',
-            buttonClass: 'bg-white hover:bg-gray-100',
-            buttonTextClass: 'text-brand-primary',
+            buttonClass: 'bg-white hover:bg-brand-primary',
+            buttonTextClass: 'text-brand-primary hover:text-white',
             buttonBorderClass: 'border-white/30',
             buttonSecondaryClass: 'bg-white/10 text-gray-800 backdrop-blur-sm',
             buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
@@ -113,6 +113,50 @@ Usage:
     {% elseif background == 'accent' %}
         {% set vars = vars|merge({
             backgroundClass: 'bg-brand-accent'
+        }) %}
+
+    {# Purple service background #}
+    {% elseif background == 'purple' %}
+        {% set vars = vars|merge({
+            backgroundClass: 'bg-brand-purple',
+            textColorClass: 'text-white',
+            titleColorClass: 'text-white',
+            subtitleBgClass: 'bg-white/20 text-white',
+            cardBgClass: 'bg-white/10 backdrop-blur-sm',
+            cardTextClass: 'text-white',
+            cardTitleClass: 'text-white',
+            checkmarkClass: 'text-white',
+            buttonClass: 'bg-white hover:bg-gray-100',
+            buttonTextClass: 'text-brand-primary',
+            buttonBorderClass: 'border-white/30',
+            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
+            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
+            svgColor1: 'text-white/8',
+            svgColor2: 'text-white/10',
+            svgColor3: 'text-white/12',
+            svgColor4: 'text-white/15'
+        }) %}
+
+    {# Teal service background #}
+    {% elseif background == 'teal' %}
+        {% set vars = vars|merge({
+            backgroundClass: 'bg-brand-teal',
+            textColorClass: 'text-white',
+            titleColorClass: 'text-white',
+            subtitleBgClass: 'bg-white/20 text-white',
+            cardBgClass: 'bg-white/10 backdrop-blur-sm',
+            cardTextClass: 'text-white',
+            cardTitleClass: 'text-white',
+            checkmarkClass: 'text-white',
+            buttonClass: 'bg-white hover:bg-gray-100',
+            buttonTextClass: 'text-brand-teal',
+            buttonBorderClass: 'border-white/30',
+            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
+            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-teal hover:border-white',
+            svgColor1: 'text-white/8',
+            svgColor2: 'text-white/10',
+            svgColor3: 'text-white/12',
+            svgColor4: 'text-white/15'
         }) %}
 
     {# Transparent background #}

@@ -16,6 +16,7 @@ Uses entry fields:
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set disclaimer = entry.disclaimer ?? null %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
 
 {# Default-Werte #}
 {% set backgroundClass = '' %}
@@ -85,6 +86,17 @@ Uses entry fields:
     {% set cardHeaderHighlighted = 'bg-brand-primary' %}
 {% endif %}
 
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
 <section class="py-20 lg:py-28 relative {{ backgroundClass }}">
     {# SVG Background Shapes #}
     {% include '_partials/svg-shapes.twig' with {
@@ -95,7 +107,7 @@ Uses entry fields:
         color4: svgColor4
     } %}
 
-    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
         <div class="text-center mb-12">
             {% if subtitle %}
                 <div class="inline-block mb-4">

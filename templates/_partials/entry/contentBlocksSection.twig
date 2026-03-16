@@ -1,0 +1,166 @@
+{#
+Content Blocks Section Component
+
+Flexible component for structured content with main heading and multiple sub-sections.
+Perfect for text-heavy pages with examples, explanations, or structured information.
+
+Parameters:
+- title: string (required) - Main section title
+- subtitle: string (optional) - Subtitle badge above title
+- introText: string (optional) - Introduction text after title
+- blocks: array (required) - Array of content blocks
+  - blockTitle: string - Block heading
+  - blockText: string - Block content
+  - highlightStyle: string - 'default', 'box', 'border-left' (optional)
+- backgroundColor: string (optional) - 'soft', 'white', 'accent', 'transparent' (default: 'white')
+- alignment: string (optional) - 'left', 'center' (default: 'left')
+- svgVariant: number 1-9 or 'none' (optional)
+#}
+
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'white' %}
+{% set alignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' %}
+{% set alignmentClass = alignment == 'center' ? 'text-center' : '' %}
+{% set showNumbering = entry.showNumbering ?? false %}
+{% set columns = entry.columns.value ?? entry.columns ?? '1' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
+
+{# Border color for border-left style - use contrasting color #}
+{% set borderColor = 'border-brand-secondary' %}
+{% if background == 'orange' %}
+    {% set borderColor = 'border-brand-primary' %}
+{% elseif background in ['blue', 'purple', 'teal'] %}
+    {% set borderColor = 'border-brand-secondary' %}
+{% endif %}
+
+{# Container Width - either from field or auto-determined by columns #}
+{% set containerWidthField = entry.containerWidth.value ?? entry.containerWidth ?? null %}
+{% if containerWidthField %}
+    {% if containerWidthField == 'narrow' %}
+        {% set containerClass = 'max-w-5xl' %}
+    {% elseif containerWidthField == 'wide' %}
+        {% set containerClass = 'max-w-[1920px]' %}
+    {% elseif containerWidthField == 'full' %}
+        {% set containerClass = 'max-w-full' %}
+    {% else %}
+        {% set containerClass = 'max-w-7xl' %}
+    {% endif %}
+{% else %}
+    {# Auto-determine based on columns if no field set - always use default #}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
+<section class="py-16 lg:py-24 relative overflow-hidden {{ vars.backgroundClass }}">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
+        <div class="{{ alignmentClass }}">
+            {# Section Header #}
+            {% if entry.subtitle is defined and entry.subtitle %}
+                {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+            {% endif %}
+
+            {% if entry.heading ?? entry.title %}
+                <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                    {{ entry.heading ?? entry.title }}
+                </h2>
+            {% endif %}
+
+            {% if entry.text is defined and entry.text %}
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
+                    {{ entry.text }}
+                </div>
+            {% endif %}
+        </div>
+
+        {# Content Blocks #}
+        {% if entry.contentBlocks is defined and entry.contentBlocks|length %}
+            {% set highlightStyle = entry.highlightStyle.value ?? entry.highlightStyle ?? 'default' %}
+
+            {# Grid layout based on columns #}
+            {% if columns == '2' %}
+                {% set gridClass = 'grid md:grid-cols-2 gap-8 lg:gap-12' %}
+            {% elseif columns == '3' %}
+                {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12' %}
+            {% elseif columns == '4' %}
+                {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8' %}
+            {% else %}
+                {% set gridClass = 'space-y-12 lg:space-y-16' %}
+            {% endif %}
+
+            <div class="{{ gridClass }} mt-12">
+                {% for block in entry.contentBlocks %}
+                    {% set blockNumber = loop.index %}
+                    {% set blockIcon = block.blockIcon ?? null %}
+
+                    {% if highlightStyle == 'box' %}
+                        {# Box Style - with background + hover #}
+                        <div class="group p-8 {{ vars.cardBgClass }} rounded-2xl shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4 mb-4">
+                                {# Numbering or Icon #}
+                                {% if showNumbering %}
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <span class="text-white text-xl font-bold">{{ blockNumber }}</span>
+                                    </div>
+                                {% elseif blockIcon %}
+                                    <div class="flex-shrink-0 text-4xl group-hover:scale-110 transition-transform duration-300">{{ blockIcon }}</div>
+                                {% endif %}
+
+                                <h3 class="text-2xl lg:text-3xl font-bold {{ vars.titleColorClass }} leading-tight">
+                                    {{ block.blockTitle }}
+                                </h3>
+                            </div>
+                            <div class="text-lg {{ vars.textColorClass }} leading-relaxed content-styles {{ showNumbering or blockIcon ? 'ml-16' : '' }}">
+                                {{ block.blockText }}
+                            </div>
+                        </div>
+
+                    {% elseif highlightStyle == 'border-left' %}
+                        {# Border Left Style - with accent border + hover #}
+                        <div class="group border-l-[6px] {{ borderColor }} pl-8 lg:pl-10 py-2 hover:border-l-[8px] transition-all duration-300">
+                            <div class="flex items-start gap-4 mb-4">
+                                {# Numbering or Icon #}
+                                {% if showNumbering %}
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <span class="text-white text-lg font-bold">{{ blockNumber }}</span>
+                                    </div>
+                                {% elseif blockIcon %}
+                                    <div class="flex-shrink-0 text-3xl group-hover:scale-110 transition-transform duration-300">{{ blockIcon }}</div>
+                                {% endif %}
+
+                                <h3 class="text-2xl lg:text-3xl font-bold {{ vars.titleColorClass }} leading-tight group-hover:text-brand-secondary transition-colors duration-300">
+                                    {{ block.blockTitle }}
+                                </h3>
+                            </div>
+                            <div class="text-lg {{ vars.textColorClass }} leading-relaxed content-styles {{ showNumbering or blockIcon ? 'ml-14' : '' }}">
+                                {{ block.blockText }}
+                            </div>
+                        </div>
+
+                    {% else %}
+                        {# Default Style - clean and simple + hover #}
+                        <div class="group hover:translate-x-2 transition-all duration-300">
+                            <div class="flex items-start gap-4 mb-4">
+                                {# Numbering or Icon #}
+                                {% if showNumbering %}
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <span class="text-white text-lg font-bold">{{ blockNumber }}</span>
+                                    </div>
+                                {% elseif blockIcon %}
+                                    <div class="flex-shrink-0 text-3xl group-hover:scale-110 transition-transform duration-300">{{ blockIcon }}</div>
+                                {% endif %}
+
+                                <h3 class="text-2xl lg:text-3xl font-bold {{ vars.titleColorClass }} leading-tight">
+                                    {{ block.blockTitle }}
+                                </h3>
+                            </div>
+                            <div class="text-lg {{ vars.textColorClass }} leading-relaxed content-styles {{ showNumbering or blockIcon ? 'ml-14' : '' }}">
+                                {{ block.blockText }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

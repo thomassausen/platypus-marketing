@@ -17,6 +17,7 @@ Parameters:
 {% set gap = entry.gap.value ?? 'medium' %}
 {% set rounded = entry.rounded ?? true %}
 {% set svgVariant = entry.svgVariant ?? 1 %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
 
 {# Default-Werte #}
 {% set backgroundClass = '' %}
@@ -82,6 +83,17 @@ Parameters:
     mode: 'crop'
 } %}
 
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
 <section class="py-20 lg:py-28 relative {{ backgroundClass }}">
     {# SVG Background Shapes #}
     {% include '_partials/svg-shapes.twig' with {
@@ -92,7 +104,7 @@ Parameters:
         color4: svgColor4
     } %}
 
-    <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
         {% if layout == 'grid' or layout == 'auto' %}
             <div class="grid grid-cols-1 {{ columnClass }} {{ gapClass }}">
                 {% for image in images %}

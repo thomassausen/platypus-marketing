@@ -1,0 +1,132 @@
+{#
+FAQ/Accordion Section Component
+
+Collapsible Q&A sections to save space and organize information.
+Perfect for frequently asked questions, documentation, or detailed explanations.
+
+Parameters:
+- heading: string (optional) - Main section title
+- subtitle: string (optional) - Subtitle badge above title
+- text: string (optional) - Introduction text
+- faqItems: matrix field (required) - Array of FAQ items with:
+  - question: string - The question/title
+  - answer: string - The answer/content
+- backgroundColor: string (optional) - 'soft', 'white', 'accent', 'transparent' (default: 'white')
+- textAlignment: string (optional) - 'left', 'center' (default: 'left')
+#}
+
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'white' %}
+{% set alignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' %}
+{% set alignmentClass = alignment == 'center' ? 'text-center' : '' %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'narrow' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
+
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
+{# Hover color based on background - darker backgrounds need lighter hover #}
+{% set hoverBgClass = 'hover:bg-gray-50' %}
+{% if background in ['gradient', 'blue', 'orange', 'purple', 'teal'] %}
+    {% set hoverBgClass = 'hover:bg-white/10' %}
+{% endif %}
+
+<section class="py-16 lg:py-24 relative overflow-hidden {{ vars.backgroundClass }}">
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
+        <div class="{{ alignmentClass }}">
+            {# Section Header #}
+            {% if entry.subtitle is defined and entry.subtitle %}
+                {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+            {% endif %}
+
+            {% if entry.heading ?? entry.title %}
+                <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                    {{ entry.heading ?? entry.title }}
+                </h2>
+            {% endif %}
+
+            {% if entry.text is defined and entry.text %}
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-12 content-styles">
+                    {{ entry.text }}
+                </div>
+            {% endif %}
+        </div>
+
+        {# FAQ Items #}
+        {% if entry.faqItems is defined and entry.faqItems|length %}
+            <div class="space-y-4">
+                {% for item in entry.faqItems %}
+                    <div class="faq-item {{ vars.cardBgClass }} rounded-xl overflow-hidden shadow-soft border border-gray-200">
+                        <button
+                            class="faq-question w-full text-left px-6 lg:px-8 py-5 lg:py-6 flex items-center justify-between gap-4 {{ hoverBgClass }} transition-colors duration-200 cursor-pointer"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-{{ loop.index }}"
+                        >
+                            <span class="text-lg lg:text-xl font-semibold {{ vars.titleColorClass }} pr-4">
+                                {{ item.question }}
+                            </span>
+                            <svg class="faq-icon w-6 h-6 flex-shrink-0 {{ vars.titleColorClass }} transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            id="faq-answer-{{ loop.index }}"
+                            class="faq-answer overflow-hidden transition-all duration-300"
+                            style="max-height: 0;"
+                        >
+                            <div class="px-6 lg:px-8 pb-5 lg:pb-6 pt-2">
+                                <div class="text-base lg:text-lg {{ vars.textColorClass }} leading-relaxed content-styles border-t border-gray-200 pt-4">
+                                    {{ item.answer }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+(function() {
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector('.faq-icon');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-question').forEach(otherButton => {
+                if (otherButton !== button) {
+                    const otherAnswer = otherButton.nextElementSibling;
+                    const otherIcon = otherButton.querySelector('.faq-icon');
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherAnswer.style.maxHeight = '0';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current item
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                answer.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+})();
+</script>
