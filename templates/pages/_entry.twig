@@ -15,10 +15,10 @@
             {# Determine spacing classes #}
             {% set spacingClass = '' %}
             {% if prevBg == currentBg and prevBg != 'transparent' %}
-                {% set spacingClass = spacingClass ~ ' -mt-12 lg:-mt-16' %}
+                {% set spacingClass = spacingClass ~ ' -mt-16 lg:-mt-20' %}
             {% endif %}
             {% if nextBg == currentBg and nextBg != 'transparent' %}
-                {% set spacingClass = spacingClass ~ ' -mb-12 lg:-mb-16' %}
+                {% set spacingClass = spacingClass ~ ' -mb-16 lg:-mb-20' %}
             {% endif %}
 
             <div class="block{{ spacingClass }}">
