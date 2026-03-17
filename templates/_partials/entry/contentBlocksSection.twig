@@ -76,23 +76,25 @@ Parameters:
                     {% endif %}
                 </div>
             {% else %}
-                {# Left-aligned layout - width matches first column of text.twig two-column grid #}
-                <div class="max-w-4xl text-left">
-                    {% if entry.subtitle is defined and entry.subtitle %}
-                        {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                    {% endif %}
+                {# Left-aligned layout - use same grid as text.twig to match first column position #}
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                    <div>
+                        {% if entry.subtitle is defined and entry.subtitle %}
+                            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+                        {% endif %}
 
-                    {% if entry.heading ?? entry.title %}
-                        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                            {{ entry.heading ?? entry.title }}
-                        </h2>
-                    {% endif %}
+                        {% if entry.heading ?? entry.title %}
+                            <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                                {{ entry.heading ?? entry.title }}
+                            </h2>
+                        {% endif %}
 
-                    {% if entry.text is defined and entry.text %}
-                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
-                            {{ entry.text }}
-                        </div>
-                    {% endif %}
+                        {% if entry.text is defined and entry.text %}
+                            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
+                                {{ entry.text }}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             {% endif %}
         </div>
