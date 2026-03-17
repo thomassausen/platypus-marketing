@@ -54,8 +54,8 @@ Parameters:
 
 <section class="py-16 lg:py-24 relative overflow-hidden {{ vars.backgroundClass }}">
     <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
-        {# Section Header - use narrower width to account for grid padding in content blocks #}
-        <div class="max-w-4xl {{ alignmentClass == 'text-center' ? 'mx-auto' : '' }} {{ alignmentClass }}">
+        {# Section Header - always centered block, narrower width to account for grid padding in content blocks #}
+        <div class="max-w-4xl mx-auto {{ alignmentClass }}">
             {% if entry.subtitle is defined and entry.subtitle %}
                 {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
             {% endif %}
