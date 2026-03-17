@@ -54,46 +54,48 @@ Parameters:
 
 <section class="py-16 lg:py-24 relative overflow-hidden {{ vars.backgroundClass }}">
     <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
-        {# Section Header #}
-        {% if alignment == 'center' %}
-            {# Centered layout #}
-            <div class="max-w-4xl mx-auto text-center">
-                {% if entry.subtitle is defined and entry.subtitle %}
-                    {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                {% endif %}
+        {# Section Header - constrain to max-w-7xl then apply alignment #}
+        <div class="max-w-7xl mx-auto">
+            {% if alignment == 'center' %}
+                {# Centered layout #}
+                <div class="max-w-4xl mx-auto text-center">
+                    {% if entry.subtitle is defined and entry.subtitle %}
+                        {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+                    {% endif %}
 
-                {% if entry.heading ?? entry.title %}
-                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                        {{ entry.heading ?? entry.title }}
-                    </h2>
-                {% endif %}
+                    {% if entry.heading ?? entry.title %}
+                        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                            {{ entry.heading ?? entry.title }}
+                        </h2>
+                    {% endif %}
 
-                {% if entry.text is defined and entry.text %}
-                    <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
-                        {{ entry.text }}
-                    </div>
-                {% endif %}
-            </div>
-        {% else %}
-            {# Left-aligned layout - width matches first column of text.twig two-column grid #}
-            <div class="max-w-4xl text-left">
-                {% if entry.subtitle is defined and entry.subtitle %}
-                    {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                {% endif %}
+                    {% if entry.text is defined and entry.text %}
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
+                            {{ entry.text }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                {# Left-aligned layout - width matches first column of text.twig two-column grid #}
+                <div class="max-w-4xl text-left">
+                    {% if entry.subtitle is defined and entry.subtitle %}
+                        {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+                    {% endif %}
 
-                {% if entry.heading ?? entry.title %}
-                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                        {{ entry.heading ?? entry.title }}
-                    </h2>
-                {% endif %}
+                    {% if entry.heading ?? entry.title %}
+                        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                            {{ entry.heading ?? entry.title }}
+                        </h2>
+                    {% endif %}
 
-                {% if entry.text is defined and entry.text %}
-                    <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
-                        {{ entry.text }}
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
+                    {% if entry.text is defined and entry.text %}
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
+                            {{ entry.text }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
 
         {# Content Blocks #}
         {% if entry.contentBlocks is defined and entry.contentBlocks|length %}
