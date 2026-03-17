@@ -197,3 +197,15 @@ Parameters:
     </style>
 
 {% endif %}
+
+<style>
+    /* Adjust hero padding when breadcrumbs are present */
+    body.has-breadcrumbs section[class*="pt-36"] {
+        padding-top: 12rem;
+    }
+    @media (min-width: 1024px) {
+        body.has-breadcrumbs section[class*="pt-44"] {
+            padding-top: 14rem;
+        }
+    }
+</style>
