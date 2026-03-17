@@ -2,8 +2,26 @@
 
 {% block content %}
     <div class="">
-        {% for block in entry.contentBuilder.all() %}
-            <div class="block">
+        {% set allBlocks = entry.contentBuilder.all() %}
+        {% for block in allBlocks %}
+            {% set prevBlock = allBlocks[loop.index0 - 1] ?? null %}
+            {% set nextBlock = allBlocks[loop.index0 + 1] ?? null %}
+
+            {# Get background colors #}
+            {% set currentBg = block.backgroundColor.value ?? block.backgroundColor ?? 'transparent' %}
+            {% set prevBg = prevBlock ? (prevBlock.backgroundColor.value ?? prevBlock.backgroundColor ?? 'transparent') : null %}
+            {% set nextBg = nextBlock ? (nextBlock.backgroundColor.value ?? nextBlock.backgroundColor ?? 'transparent') : null %}
+
+            {# Determine spacing classes #}
+            {% set spacingClass = '' %}
+            {% if prevBg == currentBg and prevBg != 'transparent' %}
+                {% set spacingClass = spacingClass ~ ' -mt-12 lg:-mt-16' %}
+            {% endif %}
+            {% if nextBg == currentBg and nextBg != 'transparent' %}
+                {% set spacingClass = spacingClass ~ ' -mb-12 lg:-mb-16' %}
+            {% endif %}
+
+            <div class="block{{ spacingClass }}">
                 {{ block.render }}
             </div>
         {% endfor %}

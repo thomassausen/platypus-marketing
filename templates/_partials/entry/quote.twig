@@ -4,6 +4,8 @@
 {% set layout = entry.textLayout ?? 'one-column' %}
 {% set svgVariant = entry.svgVariant ?? 1 %}
 {% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
+{% set textAlignment = entry.textAlignment.value ?? entry.textAlignment ?? 'center' %}
+{% set alignmentClass = textAlignment == 'center' ? 'text-center' : 'text-left' %}
 
 {# Default-Werte #}
 {% set backgroundClass = '' %}
@@ -79,11 +81,11 @@
     } %}
 
     <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
-        {# Centered Quote Layout with backdrop blur box #}
+        {# Quote Layout with backdrop blur box #}
         <div class="{{ quoteBoxClass }} rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl">
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="max-w-4xl {{ textAlignment == 'center' ? 'mx-auto' : '' }} {{ alignmentClass }}">
                 {# Quote Icon #}
-                <svg class="w-16 h-16 {{ quoteSvgColor }} mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-16 h-16 {{ quoteSvgColor }} {{ textAlignment == 'center' ? 'mx-auto' : '' }} mb-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9.983 3v7.391c0 5.704-3.731 9.57-9.983 10.609l-.995-1.265c2.135-1.718 3.408-4.431 3.408-7.841v-8.894h7.57zm14.017 0v7.391c0 5.704-3.731 9.57-9.983 10.609l-.995-1.265c2.135-1.718 3.408-4.431 3.408-7.841v-8.894h7.57z"/>
                 </svg>
 

@@ -139,6 +139,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-03-17T14:23:37+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 89d9744a-dbc1-4b8a-ac14-bcb5f9ca1d9b # Textausrichtung
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 08e8ad15-99d6-441e-bdfb-1903b8232d58
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-03-16T17:22:44+00:00'
             editCondition: null
             elementCondition: null
