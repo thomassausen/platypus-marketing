@@ -79,25 +79,23 @@ Parameters:
                     {% endif %}
                 </div>
             {% else %}
-                {# Left-aligned layout - use same grid as text.twig to match first column position #}
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-                    <div class="lg:col-span-2">
-                        {% if entry.subtitle is defined and entry.subtitle %}
-                            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                        {% endif %}
+                {# Left-aligned layout - text-left, no grid, just starts at same position as grid would #}
+                <div class="text-left">
+                    {% if entry.subtitle is defined and entry.subtitle %}
+                        {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+                    {% endif %}
 
-                        {% if entry.heading ?? entry.title %}
-                            <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                                {{ entry.heading ?? entry.title }}
-                            </h2>
-                        {% endif %}
+                    {% if entry.heading ?? entry.title %}
+                        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                            {{ entry.heading ?? entry.title }}
+                        </h2>
+                    {% endif %}
 
-                        {% if entry.text is defined and entry.text %}
-                            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
-                                {{ entry.text }}
-                            </div>
-                        {% endif %}
-                    </div>
+                    {% if entry.text is defined and entry.text %}
+                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-8 content-styles">
+                            {{ entry.text }}
+                        </div>
+                    {% endif %}
                 </div>
             {% endif %}
 
