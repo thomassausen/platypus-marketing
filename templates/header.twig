@@ -15,13 +15,13 @@
     {% endif %}
 {% endif %}
 
-<header class="fixed top-0 left-0 right-0 z-50 shadow-sm" id="header" style="transform: translate3d(0, 0, 0); isolation: isolate; background-color: rgba(239, 237, 230, 0.98);">
+<header class="fixed top-0 left-0 right-0 z-[60] shadow-sm" id="header" style="transform: translate3d(0, 0, 0); isolation: isolate; background-color: rgba(239, 237, 230, 0.98);">
     <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="absolute top-0 left-0 h-[3px] {{ progressColor }} transition-all duration-150 z-[60]" style="width: 0%; right: 0;"></div>
+    <div id="scroll-progress" class="absolute top-0 left-0 h-[3px] {{ progressColor }} transition-all duration-150 z-10" style="width: 0%; right: 0;"></div>
     <div class="max-w-7xl mx-auto px-4 lg:px-8">
         <nav class="flex justify-between items-center h-20">
             <!-- Logo -->
-            <a href="{{ siteUrl }}" class="flex items-center relative z-[60]" id="logo-link" aria-label="Platypus Marketing - Zur Startseite">
+            <a href="{{ siteUrl }}" class="flex items-center relative z-10" id="logo-link" aria-label="Platypus Marketing - Zur Startseite">
                 <svg id="logo-svg" width="240" height="72" viewBox="0 0 1772 1182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" class="hover:opacity-80 transition-opacity">
                     <g transform="matrix(4.16667,0,0,4.16667,106.764,930.67)">
                         <path d="M0,27.652L9.45,3.195L9.602,3.195C9.425,5.589 9.337,7.806 9.337,9.848L9.337,27.652L12.55,27.652L12.55,0.019L7.749,0.019L-1.077,22.813L-1.229,22.813L-9.98,0.019L-14.818,0.019L-14.818,27.652L-11.851,27.652L-11.851,10.074C-11.851,7.403 -11.939,5.097 -12.115,3.157L-11.964,3.157L-2.589,27.652L0,27.652ZM64.825,27.652L53.957,-0.094L51.254,-0.094L40.329,27.652L43.58,27.652L46.982,18.863L58.058,18.863L61.498,27.652L64.825,27.652ZM48.116,15.971L51.367,7.409C51.884,5.961 52.281,4.631 52.558,3.421C52.999,4.997 53.428,6.326 53.843,7.409L57.056,15.971L48.116,15.971ZM101.601,16.16L108.292,27.652L112.091,27.652L104.587,15.234C108.292,13.949 110.144,11.48 110.144,7.825C110.144,5.217 109.334,3.264 107.715,1.966C106.096,0.668 103.591,0.019 100.202,0.019L92.623,0.019L92.623,27.652L95.836,27.652L95.836,16.16L101.601,16.16ZM95.836,2.835L100.013,2.835C102.395,2.835 104.124,3.239 105.201,4.045C106.279,4.852 106.817,6.168 106.817,7.995C106.817,9.797 106.288,11.149 105.23,12.05C104.171,12.951 102.508,13.401 100.24,13.401L95.836,13.401L95.836,2.835ZM148.98,12.021L160.094,0.019L156.295,0.019L143.763,13.722L143.763,0.019L140.55,0.019L140.55,27.652L143.763,27.652L143.763,16.822L146.655,14.251L156.729,27.652L160.509,27.652L148.98,12.021ZM203.712,24.779L191.521,24.779L191.521,14.611L202.975,14.611L202.975,11.775L191.521,11.775L191.521,2.873L203.712,2.873L203.712,0.019L188.308,0.019L188.308,27.652L203.712,27.652L203.712,24.779ZM242.34,2.873L251.091,2.873L251.091,0.019L230.376,0.019L230.376,2.873L239.127,2.873L239.127,27.652L242.34,27.652L242.34,2.873ZM282.461,0.019L279.248,0.019L279.248,27.652L282.461,27.652L282.461,0.019ZM335.624,0.019L332.619,0.019L332.619,15.877C332.594,16.671 332.625,17.991 332.714,19.837C332.802,21.683 332.858,22.776 332.884,23.116L332.733,23.116L317.669,0.019L314.04,0.019L314.04,27.652L317.007,27.652L317.007,11.946C317.007,9.677 316.906,7.183 316.705,4.461L316.856,4.461L331.958,27.652L335.624,27.652L335.624,0.019ZM379.375,16.047L385.555,16.047L385.555,24.552C383.728,24.994 381.857,25.214 379.942,25.214C376.414,25.214 373.739,24.25 371.918,22.322C370.098,20.394 369.187,17.566 369.187,13.836C369.187,10.282 370.132,7.504 372.022,5.5C373.912,3.497 376.54,2.495 379.904,2.495C382.21,2.495 384.61,3.024 387.105,4.083L388.353,1.248C385.807,0.164 383.06,-0.378 380.112,-0.378C377.201,-0.378 374.662,0.193 372.495,1.333C370.328,2.473 368.668,4.124 367.515,6.285C366.362,8.446 365.785,10.963 365.785,13.836C365.785,18.322 366.951,21.809 369.282,24.297C371.613,26.786 374.87,28.03 379.053,28.03C381.044,28.03 382.796,27.91 384.308,27.671C385.82,27.432 387.307,27.079 388.768,26.612L388.768,13.174L379.375,13.174L379.375,16.047Z" style="fill:rgb(81,97,170);fill-rule:nonzero;"/>
@@ -71,10 +71,12 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden relative z-[60] w-10 h-10 flex flex-col justify-center items-center" aria-label="Menü">
-                <span class="burger-line w-6 h-0.5 bg-brand-primary mb-1.5 transition-all duration-300"></span>
-                <span class="burger-line w-6 h-0.5 bg-brand-primary mb-1.5 transition-all duration-300"></span>
-                <span class="burger-line w-6 h-0.5 bg-brand-primary transition-all duration-300"></span>
+            <button id="mobile-menu-btn" class="lg:hidden relative z-10 p-2" aria-label="Menü">
+                <div class="w-8 h-8 flex flex-col justify-center items-center gap-1.5">
+                    <span class="burger-line block w-full h-0.5 bg-brand-primary transition-all duration-300"></span>
+                    <span class="burger-line block w-full h-0.5 bg-brand-primary transition-all duration-300"></span>
+                    <span class="burger-line block w-full h-0.5 bg-brand-primary transition-all duration-300"></span>
+                </div>
             </button>
         </nav>
     </div>
@@ -113,25 +115,22 @@
 {% endif %}
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 bg-background-soft z-40 lg:hidden translate-x-full transition-transform duration-300">
-    <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+<div id="mobile-menu" class="fixed inset-0 bg-background-soft z-[45] lg:hidden translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="flex flex-col justify-start min-h-full pt-32 pb-20 px-8 space-y-6">
         {% for item in mainNav %}
             {% if item.children|length %}
-                <div class="text-center">
-                    <button class="mobile-dropdown-btn mobile-menu-link inline-flex items-center gap-2">
+                <div class="w-full">
+                    <a href="{{ item.customLink.value }}" class="mobile-menu-link block text-2xl font-bold text-brand-primary mb-3 hover:opacity-80 transition-opacity uppercase" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>
                         {{ item.customLink.label }}
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="mobile-dropdown hidden mt-4 space-y-4">
+                    </a>
+                    <div class="space-y-2.5 pl-4 border-l-2 border-brand-secondary">
                         {% for child in item.children %}
-                            <a href="{{ child.customLink.value }}" class="block text-xl text-gray-600 hover:text-brand-primary transition-colors" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
+                            <a href="{{ child.customLink.value }}" class="block text-lg text-gray-700 hover:text-brand-primary hover:translate-x-1 transition-all" {% if child.customLink.target %}target="{{ child.customLink.target }}"{% endif %}>{{ child.customLink.label }}</a>
                         {% endfor %}
                     </div>
                 </div>
             {% else %}
-                <a href="{{ item.customLink.value }}" class="mobile-menu-link" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
+                <a href="{{ item.customLink.value }}" class="mobile-menu-link text-2xl font-bold text-brand-primary hover:opacity-80 transition-opacity uppercase" {% if item.customLink.target %}target="{{ item.customLink.target }}"{% endif %}>{{ item.customLink.label }}</a>
             {% endif %}
         {% endfor %}
     </div>
@@ -152,9 +151,10 @@
         if (isMobileMenuOpen) {
             mobileMenu.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
-            burgerLines[0].style.transform = 'rotate(45deg) translateY(8px)';
+            // Transform to X
+            burgerLines[0].style.transform = 'translateY(5px) rotate(45deg)';
             burgerLines[1].style.opacity = '0';
-            burgerLines[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+            burgerLines[2].style.transform = 'translateY(-10px) rotate(-45deg)';
         } else {
             mobileMenu.classList.add('translate-x-full');
             document.body.style.overflow = '';
@@ -164,25 +164,8 @@
         }
     });
 
-    // Mobile Dropdowns
-    document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const dropdown = btn.nextElementSibling;
-            const icon = btn.querySelector('svg');
-            const isOpen = !dropdown.classList.contains('hidden');
-
-            if (isOpen) {
-                dropdown.classList.add('hidden');
-                icon.style.transform = '';
-            } else {
-                dropdown.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-
     // Close mobile menu on link click
-    document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-btn), .mobile-dropdown a').forEach(link => {
+    document.querySelectorAll('.mobile-menu-link, #mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             if (isMobileMenuOpen) {
                 mobileMenuBtn.click();

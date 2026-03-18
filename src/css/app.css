@@ -219,6 +219,33 @@
     margin-bottom: 0 !important;
 }
 
+/* CKEditor Font Size Support - inline styles und Klassen */
+.content-styles span[style*="font-size"] {
+    line-height: 1.5 !important;
+}
+
+.content-styles .text-tiny {
+    font-size: 0.75rem !important;
+}
+
+.content-styles .text-small {
+    font-size: 0.875rem !important;
+}
+
+.content-styles .text-big {
+    font-size: 1.25rem !important;
+}
+
+.content-styles .text-huge {
+    font-size: 1.5rem !important;
+}
+
+@media (width >= 1024px) {
+    .content-styles .text-huge {
+        font-size: 1.75rem !important;
+    }
+}
+
 .content-styles h1 {
     font-size: 2rem !important;
     font-weight: 700 !important;
