@@ -1,0 +1,88 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  2bab31b9-768e-4db4-9a01-7b05b1fb12da:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:5d2fc4b1-3d1f-4423-9018-f3eda5afbcbc'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-03-23T15:42:55+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: a873bb12-37d3-4dbc-aca8-5fa66378dce6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-23T15:42:55+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
+            handle: logo
+            instructions: null
+            label: Logo
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97c735b4-c047-4881-b169-7652be7acfd7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-23T15:53:19+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 8045be83-d2a7-411a-915a-7c183ccb601d # Externer Link
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d2fc4b1-3d1f-4423-9018-f3eda5afbcbc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 1305f838-6946-4204-b002-a75313535975
+        userCondition: null
+    thumbFieldKey: 'layoutElement:97c735b4-c047-4881-b169-7652be7acfd7'
+handle: clients
+hasTitleField: true
+icon: people-group
+name: Kunden
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

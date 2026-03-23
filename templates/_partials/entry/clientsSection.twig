@@ -1,0 +1,85 @@
+{#
+Client Logos Section Component
+
+Uses entry fields:
+- title: string (optional)
+- subtitle: string (optional)
+- description: string (optional)
+- selectedClients: Entries field - reference to client entries with logo assets
+- backgroundColor: Color field, default: 'soft'
+- svgVariant: number 1-9 or 'none', default: 'none'
+- containerWidth: dropdown (narrow, normal, wide, full), default: 'normal'
+#}
+
+{% import '_partials/theme-macros.twig' as theme %}
+{% import '_partials/ui-macros.twig' as ui %}
+
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
+{% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 'none' %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'normal' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
+
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
+<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
+    {# SVG Background Shapes #}
+    {{ ui.svgShapes(svgVariant, vars) }}
+
+    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
+        {# Section Header #}
+        <div class="text-center mb-12 lg:mb-16">
+            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+
+            {% if entry.title %}
+                <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
+                    {{ entry.title }}
+                </h2>
+            {% endif %}
+
+            {% if entry.description %}
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} max-w-3xl mx-auto leading-relaxed content-styles">
+                    {{ entry.description }}
+                </div>
+            {% endif %}
+        </div>
+
+        {# Client Logos Grid #}
+        {% if entry.selectedClients|length %}
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 items-center justify-items-center">
+                {% for client in entry.selectedClients.all() %}
+                    {% set logo = client.logo.one() %}
+                    {% if logo %}
+                        {% if client.externalLink %}
+                            <a href="{{ client.externalLink }}" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-full h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                                <img
+                                    src="{{ logo.url }}"
+                                    alt="{{ client.title }}"
+                                    class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                >
+                            </a>
+                        {% else %}
+                            <div class="group flex items-center justify-center w-full h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                                <img
+                                    src="{{ logo.url }}"
+                                    alt="{{ client.title }}"
+                                    class="max-w-full max-h-full object-contain"
+                                    loading="lazy"
+                                >
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
