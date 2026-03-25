@@ -10,7 +10,7 @@ Uses entry fields:
 - backgroundColor: Color field, default: 'soft'
 - svgVariant: number 1-9 or 'none', default: 'none'
 - containerWidth: dropdown (narrow, normal, wide, full), default: 'normal'
-- textAlign: dropdown (left, center), default: 'center'
+- textAlignment: dropdown (left, center), default: 'center'
 #}
 
 {% import '_partials/theme-macros.twig' as theme %}
@@ -19,7 +19,7 @@ Uses entry fields:
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 'none' %}
 {% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'normal' %}
-{% set textAlign = entry.textAlign.value ?? entry.textAlign ?? 'center' %}
+{% set textAlign = entry.textAlignment is defined ? (entry.textAlignment.value ?? entry.textAlignment) : 'center' %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
 {# Map containerWidth to Tailwind classes #}
@@ -48,15 +48,15 @@ Uses entry fields:
                 </h2>
             {% endif %}
 
-            {% if entry.description %}
+            {% if entry.introText is defined and entry.introText %}
                 <div class="text-xl lg:text-2xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} mb-8 content-styles font-bold leading-relaxed">
-                    {{ entry.description }}
+                    {{ entry.introText }}
                 </div>
             {% endif %}
 
-            {% if entry.text %}
+            {% if entry.description %}
                 <div class="text-lg lg:text-xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} leading-relaxed content-styles">
-                    {{ entry.text }}
+                    {{ entry.description }}
                 </div>
             {% endif %}
         </div>
