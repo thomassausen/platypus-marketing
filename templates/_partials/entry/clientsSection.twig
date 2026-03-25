@@ -4,11 +4,13 @@ Client Logos Section Component
 Uses entry fields:
 - title: string (optional)
 - subtitle: string (optional)
+- introText: string (optional) - Intro text displayed before description
 - description: string (optional)
 - selectedClients: Entries field - reference to client entries with logo assets
 - backgroundColor: Color field, default: 'soft'
 - svgVariant: number 1-9 or 'none', default: 'none'
 - containerWidth: dropdown (narrow, normal, wide, full), default: 'normal'
+- textAlign: dropdown (left, center), default: 'center'
 #}
 
 {% import '_partials/theme-macros.twig' as theme %}
@@ -17,6 +19,7 @@ Uses entry fields:
 {% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
 {% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 'none' %}
 {% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'normal' %}
+{% set textAlign = entry.textAlign.value ?? entry.textAlign ?? 'center' %}
 {% set vars = theme.getThemeVars(background)|json_decode %}
 
 {# Map containerWidth to Tailwind classes #}
@@ -36,7 +39,7 @@ Uses entry fields:
 
     <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
         {# Section Header #}
-        <div class="text-center mb-12 lg:mb-16">
+        <div class="{% if textAlign == 'center' %}text-center{% endif %} mb-12 lg:mb-16">
             {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
 
             {% if entry.title %}
@@ -46,8 +49,14 @@ Uses entry fields:
             {% endif %}
 
             {% if entry.description %}
-                <div class="text-lg lg:text-xl {{ vars.textColorClass }} max-w-3xl mx-auto leading-relaxed content-styles">
+                <div class="text-xl lg:text-2xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} mb-8 content-styles font-bold leading-relaxed">
                     {{ entry.description }}
+                </div>
+            {% endif %}
+
+            {% if entry.text %}
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} leading-relaxed content-styles">
+                    {{ entry.text }}
                 </div>
             {% endif %}
         </div>
