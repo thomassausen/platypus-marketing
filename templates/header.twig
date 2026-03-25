@@ -85,7 +85,7 @@
 <!-- Breadcrumbs (outside of fixed header) -->
 {% if entry is defined and entry.section.handle != 'homepage' %}
     {% set ancestors = entry.ancestors.all() %}
-    {% if ancestors|length > 0 %}
+    {% if ancestors|length > 0 or entry.section.handle == 'blog' %}
     <div class="fixed top-20 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <nav aria-label="Breadcrumb" class="py-2">
@@ -93,6 +93,14 @@
                     <li>
                         <a href="{{ siteUrl }}" class="hover:text-brand-primary transition-colors">Home</a>
                     </li>
+                    {% if entry.section.handle == 'blog' %}
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <a href="/blog" class="hover:text-brand-primary transition-colors">Blog</a>
+                        </li>
+                    {% endif %}
                     {% for ancestor in ancestors %}
                         <li class="flex items-center space-x-2">
                             <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

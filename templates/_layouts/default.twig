@@ -16,7 +16,7 @@
     {{ craft.vite.script("src/js/app.js", false) }}
 
 </head>
-{% set hasBreadcrumbs = entry is defined and entry.section.handle != 'homepage' and entry.ancestors.all()|length > 0 %}
+{% set hasBreadcrumbs = entry is defined and entry.section.handle != 'homepage' and (entry.ancestors.all()|length > 0 or entry.section.handle == 'blog') %}
 <body class="{{ hasBreadcrumbs ? 'has-breadcrumbs' : '' }}">
 {% include "header" %}
 

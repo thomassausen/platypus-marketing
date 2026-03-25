@@ -390,3 +390,58 @@
 .bg-white .content-styles a:hover {
     color: #f89c48;
 }
+
+/* Blog Content - Kleinere Abstände für Sections und Blöcke */
+.blog-content section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+@media (width >= 1024px) {
+    .blog-content section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+.blog-content.content-styles h1 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.blog-content.content-styles h2 {
+    margin-top: 2rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.blog-content.content-styles h3 {
+    margin-top: 1.75rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.blog-content.content-styles h4 {
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.blog-content.content-styles h5,
+.blog-content.content-styles h6 {
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.blog-content.content-styles p {
+    margin-bottom: 1rem !important;
+}
+
+.blog-content.content-styles ul,
+.blog-content.content-styles ol {
+    margin-bottom: 1rem !important;
+}
+
+.blog-content.content-styles hr {
+    border: 0 !important;
+    height: 3px !important;
+    background-color: #b5a899 !important;
+    margin: 2rem 0 !important;
+}

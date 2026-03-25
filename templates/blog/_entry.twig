@@ -1,23 +1,16 @@
 {% extends "_layouts/default" %}
 
 {% block content %}
-    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {# Featured Image #}
-        {% set featuredImage = entry.blogFeaturedImage.one() %}
-        {% if featuredImage %}
-            <div class="mb-8 rounded-lg overflow-hidden shadow-soft">
-                <img 
-                    src="{{ featuredImage.url }}" 
-                    alt="{{ featuredImage.title }}"
-                    class="w-full aspect-video object-cover"
-                >
-            </div>
-        {% endif %}
-
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-36 pb-12 lg:pb-16">
         {# Header #}
-        <header class="mb-12">
+        <header class="mb-8">
+            {# Title #}
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-primary mb-4 leading-tight">
+                {{ entry.title }}
+            </h1>
+
             {# Meta Information #}
-            <div class="flex items-center text-sm text-gray-500 mb-4">
+            <div class="flex items-center text-sm text-gray-500 mb-6">
                 <time datetime="{{ entry.postDate|date('Y-m-d') }}">
                     {{ entry.postDate|date('d. F Y') }}
                 </time>
@@ -27,22 +20,29 @@
                 {% endif %}
             </div>
 
-            {# Title #}
-            <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary mb-6">
-                {{ entry.title }}
-            </h1>
-
             {# Summary #}
             {% if entry.blogSummary %}
-                <p class="text-xl text-gray-600 leading-relaxed">
+                <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
                     {{ entry.blogSummary }}
                 </p>
             {% endif %}
         </header>
 
+        {# Featured Image #}
+        {% set featuredImage = entry.blogFeaturedImage.one() %}
+        {% if featuredImage %}
+            <div class="mb-8 lg:mb-12 rounded-2xl overflow-hidden">
+                <img
+                    src="{{ featuredImage.url }}"
+                    alt="{{ featuredImage.title }}"
+                    class="w-full aspect-video object-cover"
+                >
+            </div>
+        {% endif %}
+
         {# Blog Content (CKEditor) #}
         {% if entry.blogContent %}
-            <div class="prose prose-lg max-w-none">
+            <div class="prose prose-lg max-w-none blog-content">
                 {{ entry.blogContent }}
             </div>
         {% endif %}
@@ -73,9 +73,10 @@
                 {% endif %}
 
                 {# Back to Overview #}
-                <a href="/blog" 
-                   class="px-6 py-3 bg-brand-primary text-white rounded-lg hover:bg-brand-secondary transition-colors font-semibold">
-                    Zur Übersicht
+                <a href="/blog"
+                   class="group relative bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
+                    <span class="relative z-10 inline-block mr-2 group-hover:-translate-x-1 transition-transform duration-200">←</span>
+                    <span class="relative z-10">Zur Übersicht</span>
                 </a>
 
                 {# Next Entry #}
