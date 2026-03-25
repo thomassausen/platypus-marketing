@@ -39,7 +39,7 @@ Uses entry fields:
 
     <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
         {# Section Header #}
-        <div class="{% if textAlign == 'center' %}text-center{% endif %} mb-12 lg:mb-16">
+        <div class="{% if textAlign == 'center' %}text-center{% endif %} mb-12 lg:mb-16 max-w-4xl mx-auto">
             {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
 
             {% if entry.title %}
@@ -49,13 +49,13 @@ Uses entry fields:
             {% endif %}
 
             {% if entry.description is defined and entry.description %}
-                <div class="text-xl lg:text-2xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} mb-8 content-styles font-bold leading-relaxed">
+                <div class="text-xl lg:text-2xl {{ vars.textColorClass }} mb-8 content-styles font-bold leading-relaxed">
                     {{ entry.description }}
                 </div>
             {% endif %}
 
             {% if entry.text %}
-                <div class="text-lg lg:text-xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} leading-relaxed content-styles">
+                <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed content-styles">
                     {{ entry.text }}
                 </div>
             {% endif %}
@@ -63,12 +63,12 @@ Uses entry fields:
 
         {# Client Logos Grid #}
         {% if entry.selectedClients|length %}
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 items-center justify-items-center">
+            <div class="flex flex-wrap justify-center gap-8 lg:gap-12">
                 {% for client in entry.selectedClients.all() %}
                     {% set logo = client.logo.one() %}
                     {% if logo %}
                         {% if client.externalLink %}
-                            <a href="{{ client.externalLink }}" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-full h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                            <a href="{{ client.externalLink }}" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-40 md:w-48 lg:w-56 h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
                                 <img
                                     src="{{ logo.url }}"
                                     alt="{{ client.title }}"
@@ -77,7 +77,7 @@ Uses entry fields:
                                 >
                             </a>
                         {% else %}
-                            <div class="group flex items-center justify-center w-full h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="group flex items-center justify-center w-40 md:w-48 lg:w-56 h-24 lg:h-32 bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                                 <img
                                     src="{{ logo.url }}"
                                     alt="{{ client.title }}"
