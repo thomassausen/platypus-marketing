@@ -48,15 +48,15 @@ Uses entry fields:
                 </h2>
             {% endif %}
 
-            {% if entry.introText is defined and entry.introText %}
+            {% if entry.description is defined and entry.description %}
                 <div class="text-xl lg:text-2xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} mb-8 content-styles font-bold leading-relaxed">
-                    {{ entry.introText }}
+                    {{ entry.description }}
                 </div>
             {% endif %}
 
-            {% if entry.description %}
+            {% if entry.text %}
                 <div class="text-lg lg:text-xl {{ vars.textColorClass }} {% if textAlign == 'center' %}max-w-3xl mx-auto{% else %}max-w-4xl{% endif %} leading-relaxed content-styles">
-                    {{ entry.description }}
+                    {{ entry.text }}
                 </div>
             {% endif %}
         </div>
