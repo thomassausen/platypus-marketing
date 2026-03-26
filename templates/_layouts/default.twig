@@ -15,6 +15,7 @@
 
     {{ craft.vite.script("src/js/app.js", false) }}
 
+    <script src="https://cloud.ccm19.de/app.js?apiKey=f5daf9f29580314ffc3a08c8e79bb60437726e606511487a&domain=69261871e4a6d17cba03ac62" referrerpolicy="origin"></script>
 </head>
 {% set hasBreadcrumbs = entry is defined and entry.section.handle != 'homepage' and (entry.ancestors.all()|length > 0 or entry.section.handle == 'blog') %}
 <body class="{{ hasBreadcrumbs ? 'has-breadcrumbs' : '' }}">
