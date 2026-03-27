@@ -1,4 +1,4 @@
-dateModified: 1774632917
+dateModified: 1774633088
 elementSources:
   craft\elements\Entry:
     -
@@ -1188,11 +1188,19 @@ fields:
       availableTransforms: ''
       availableVolumes: ''
       characterLimit: null
-      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
-      createButtonLabel: null
+      css: null
+      cssFile: null
       defaultTransform: null
-      expandEntryButtons: false
       fullGraphqlData: true
+      headingLevels:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      js: null
+      jsFile: null
+      options: null
       parseEmbeds: false
       purifierConfig: null
       purifyHtml: true
@@ -1201,6 +1209,18 @@ fields:
       showWordCount: false
       sourceEditingGroups:
         - __ADMINS__
+      toolbar:
+        - heading
+        - fontSize
+        - '|'
+        - bold
+        - italic
+        - bulletedList
+        - '|'
+        - link
+        - '|'
+        - undo
+        - redo
       wordLimit: null
     translationKeyFormat: null
     translationMethod: none
@@ -1958,11 +1978,19 @@ fields:
       availableTransforms: ''
       availableVolumes: '*'
       characterLimit: null
-      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
-      createButtonLabel: null
+      css: null
+      cssFile: null
       defaultTransform: null
-      expandEntryButtons: false
       fullGraphqlData: true
+      headingLevels:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      js: null
+      jsFile: null
+      options: null
       parseEmbeds: false
       purifierConfig: null
       purifyHtml: true
@@ -1971,6 +1999,18 @@ fields:
       showWordCount: false
       sourceEditingGroups:
         - __ADMINS__
+      toolbar:
+        - heading
+        - fontSize
+        - '|'
+        - bold
+        - italic
+        - bulletedList
+        - '|'
+        - link
+        - '|'
+        - undo
+        - redo
       wordLimit: null
     translationKeyFormat: null
     translationMethod: none
@@ -2071,11 +2111,19 @@ fields:
       availableTransforms: ''
       availableVolumes: ''
       characterLimit: null
-      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
-      createButtonLabel: null
+      css: null
+      cssFile: null
       defaultTransform: null
-      expandEntryButtons: false
       fullGraphqlData: true
+      headingLevels:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      js: null
+      jsFile: null
+      options: null
       parseEmbeds: false
       purifierConfig: null
       purifyHtml: true
@@ -2084,6 +2132,18 @@ fields:
       showWordCount: false
       sourceEditingGroups:
         - __ADMINS__
+      toolbar:
+        - heading
+        - fontSize
+        - '|'
+        - bold
+        - italic
+        - bulletedList
+        - '|'
+        - link
+        - '|'
+        - undo
+        - redo
       wordLimit: null
     translationKeyFormat: null
     translationMethod: site
@@ -2348,11 +2408,19 @@ fields:
       availableTransforms: ''
       availableVolumes: ''
       characterLimit: null
-      ckeConfig: 6599081e-7b55-4c7f-8101-8048954a235a # Simple
-      createButtonLabel: null
+      css: null
+      cssFile: null
       defaultTransform: null
-      expandEntryButtons: false
       fullGraphqlData: true
+      headingLevels:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      js: null
+      jsFile: null
+      options: null
       parseEmbeds: false
       purifierConfig: null
       purifyHtml: true
@@ -2361,6 +2429,18 @@ fields:
       showWordCount: false
       sourceEditingGroups:
         - __ADMINS__
+      toolbar:
+        - heading
+        - fontSize
+        - '|'
+        - bold
+        - italic
+        - bulletedList
+        - '|'
+        - link
+        - '|'
+        - undo
+        - redo
       wordLimit: null
     translationKeyFormat: null
     translationMethod: site
@@ -2502,32 +2582,28 @@ fields:
       availableTransforms: ''
       availableVolumes: '*'
       characterLimit: null
-      ckeConfig: c14b8e65-2507-46d1-b976-40e9777424e2 # Blog Longform
-      createButtonLabel: null
+      css: null
+      cssFile: null
       defaultTransform: null
       entryTypes:
         -
-          __assoc__:
-            -
-              - uid
-              - 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
+          uid: 70ed1bce-64d0-4fdd-86e7-ced980b47160 # Bild und Text
         -
-          __assoc__:
-            -
-              - uid
-              - e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
+          uid: e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
         -
-          __assoc__:
-            -
-              - uid
-              - 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
+          uid: 10581733-0aaf-43ac-b04a-9de940b7cf8e # Zitat
         -
-          __assoc__:
-            -
-              - uid
-              - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
-      expandEntryButtons: false
+          uid: fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
       fullGraphqlData: false
+      headingLevels:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      js: null
+      jsFile: null
+      options: null
       parseEmbeds: false
       purifierConfig: null
       purifyHtml: true
@@ -2536,6 +2612,19 @@ fields:
       showWordCount: false
       sourceEditingGroups:
         - __ADMINS__
+      toolbar:
+        - heading
+        - '|'
+        - bold
+        - italic
+        - bulletedList
+        - numberedList
+        - link
+        - '|'
+        - createEntry
+        - '|'
+        - undo
+        - redo
       wordLimit: null
     translationKeyFormat: null
     translationMethod: none
@@ -3019,7 +3108,6 @@ meta:
     02042204-6864-49bf-9cde-1cb1aa18da80: 'Highlighted?' # Highlighted?
     3160707c-6078-4d7b-a2c8-64ffc2756733: Inhalts-Block # Inhalts-Block
     4111023a-b9d2-4eb9-9d57-5638426d40a4: 'Icon zeigen' # Icon zeigen
-    6599081e-7b55-4c7f-8101-8048954a235a: Simple # Simple
     10581733-0aaf-43ac-b04a-9de940b7cf8e: Zitat # Zitat
     36519611-89d8-4430-8d93-e485065dfb9a: Vorteile-Sektion # Vorteile-Sektion
     54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
@@ -3049,7 +3137,6 @@ meta:
     c032286b-2d69-4f53-986d-bf92576ecc87: Text # Text
     c3d4e5f6-a7b8-4012-a456-7890abcdef01: 'Features Intro' # Features Intro
     c7fd23e2-6f38-4cf9-a791-e8c6719878a7: Telefon-Nummer # Telefon-Nummer
-    c14b8e65-2507-46d1-b976-40e9777424e2: 'Blog Longform' # Blog Longform
     c47ca354-18fb-4c37-b29d-d0f4f4a499b3: Services # Services
     c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: Platypus # Platypus
     c1696d61-467a-45b3-8386-ec628a918f32: Bild # Bild
@@ -3077,7 +3164,7 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
+    schemaVersion: 5.0.0.1
   vite:
     edition: standard
     enabled: true
