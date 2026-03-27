@@ -3,6 +3,12 @@
 {%- set seoDescription = seoDescription ?? entry.seoDescription ?? '' -%}
 {%- set seoImage = seoImage ?? entry.seoImage.one() ?? null -%}
 {%- set canonicalUrl = canonicalUrl ?? entry.url ?? craft.app.request.absoluteUrl -%}
+{%- set noIndex = entry.noIndex ?? false -%}
+
+{# Robots Meta Tag #}
+{% if noIndex %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
 
 {# Title #}
 <title>{{ seoTitle }}{{ seoTitle != siteName ? ' | ' ~ siteName : '' }}</title>

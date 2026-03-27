@@ -22,11 +22,13 @@
     {# Blog Posts #}
     {% set posts = craft.entries.section('blog').all() %}
     {% for post in posts %}
+        {% if post.excludeFromSitemap is not defined or not post.excludeFromSitemap %}
     <url>
         <loc>{{ post.url }}</loc>
         <lastmod>{{ post.dateUpdated|date('c') }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+        {% endif %}
     {% endfor %}
 </urlset>

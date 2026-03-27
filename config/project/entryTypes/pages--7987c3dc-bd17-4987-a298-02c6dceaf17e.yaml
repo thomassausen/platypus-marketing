@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
@@ -39,6 +40,7 @@ fieldLayouts:
             dateAdded: '2025-12-19T15:39:01+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 73fc6da3-d133-4a74-affd-c06ae2ca7c3c # Content Builder
             handle: null
             instructions: null
@@ -67,6 +69,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T18:05:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 9f454419-a68a-4271-afa9-c4b736016383
             handle: null
             instructions: null
@@ -82,6 +85,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T18:05:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 203d08b2-04c9-4069-910c-6def1a3c9f7f
             handle: null
             instructions: null
@@ -97,6 +101,7 @@ fieldLayouts:
             dateAdded: '2025-12-26T18:05:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52 # SEO Image
             handle: null
             instructions: null
@@ -108,9 +113,42 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-03-27T17:35:17+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b2eb1c85-7df6-4db0-856e-37beb70d26cd # Von Suchmaschinen ausschließen
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f5c68f6-5bf1-4070-bb81-9bd012e8e1c1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-27T17:35:17+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 608cc24c-fdd9-4aa1-82b8-29c4b8793e9f # Von Sitemap ausschließen
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 668a5d27-8b1d-4d22-9d1d-c6cddc3ae5ae
+            userCondition: null
+            warning: null
+            width: 100
         name: SEO
         uid: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
         userCondition: null
+    thumbFieldKey: null
 handle: pages
 hasTitleField: true
 icon: book
@@ -122,3 +160,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

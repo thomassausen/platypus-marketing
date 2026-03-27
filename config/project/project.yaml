@@ -1,4 +1,4 @@
-dateModified: 1774626824
+dateModified: 1774632917
 elementSources:
   craft\elements\Entry:
     -
@@ -1164,6 +1164,20 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  608cc24c-fdd9-4aa1-82b8-29c4b8793e9f: # Von Sitemap ausschließen
+    columnSuffix: null
+    handle: excludeFromSitemap
+    instructions: null
+    name: 'Von Sitemap ausschließen'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+      showLabelsInCards: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
   983f3c7c-a082-4298-bd61-06d175c7cba8: # Text
     columnSuffix: null
     handle: text
@@ -1961,6 +1975,20 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\ckeditor\Field
+  b2eb1c85-7df6-4db0-856e-37beb70d26cd: # Von Suchmaschinen ausschließen
+    columnSuffix: null
+    handle: noIndex
+    instructions: null
+    name: 'Von Suchmaschinen ausschließen'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+      showLabelsInCards: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
   b591db6f-b83f-4160-ad47-bdfe5b2688e1: # Buttons
     columnSuffix: null
     handle: buttons
@@ -2974,6 +3002,7 @@ meta:
     176fe785-6697-4da6-be7b-4e8981ee6e8d: 'Features Tabelle' # Features Tabelle
     381f340a-2f22-4412-b9d1-63971c6a5da9: Service-Farbe # Service-Farbe
     546a1aba-9733-4f5d-917b-567daf653235: 'Image Divider' # Image Divider
+    608cc24c-fdd9-4aa1-82b8-29c4b8793e9f: 'Von Sitemap ausschließen' # Von Sitemap ausschließen
     983f3c7c-a082-4298-bd61-06d175c7cba8: Text # Text
     1576f0ec-fbf0-46df-bdf5-c0b9a27c17a5: Spalten # Spalten
     05924f1a-126a-4a36-a9e2-14a56c5c8ccd: Hero # Hero
@@ -3010,6 +3039,7 @@ meta:
     b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: Instagram # Instagram
     b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog
     b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
+    b2eb1c85-7df6-4db0-856e-37beb70d26cd: 'Von Suchmaschinen ausschließen' # Von Suchmaschinen ausschließen
     b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
     ba25033b-529b-498b-bde0-fb79b878bfa8: 'Sticky Überschrift?' # Sticky Überschrift?
