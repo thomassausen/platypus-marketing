@@ -1,4 +1,4 @@
-dateModified: 1774439558
+dateModified: 1774626824
 elementSources:
   craft\elements\Entry:
     -
@@ -1991,6 +1991,20 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
+  ba25033b-529b-498b-bde0-fb79b878bfa8: # Sticky Überschrift?
+    columnSuffix: null
+    handle: stickyTitle
+    instructions: null
+    name: 'Sticky Überschrift?'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+      showLabelsInCards: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
   be9e472f-6557-47cc-8402-06b4027d587b: # Abgerundet?
     columnSuffix: null
     handle: rounded
@@ -2998,6 +3012,7 @@ meta:
     b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
     b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
+    ba25033b-529b-498b-bde0-fb79b878bfa8: 'Sticky Überschrift?' # Sticky Überschrift?
     bb7b9081-dc2c-4665-880e-9668439f22a5: Preis # Preis
     bbbaa0df-d69c-41e2-8fd8-544bbb50f88f: Preise-Reihen # Preise-Reihen
     be9e472f-6557-47cc-8402-06b4027d587b: 'Abgerundet?' # Abgerundet?
