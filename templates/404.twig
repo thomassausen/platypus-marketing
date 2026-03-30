@@ -9,8 +9,10 @@
                 Die gesuchte Seite existiert leider nicht (mehr).
                 Vielleicht finden Sie auf unserer Startseite, was Sie suchen.
             </p>
-            <a href="{{ siteUrl }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-                Zur Startseite
+            <a href="{{ siteUrl }}"
+               class="group relative inline-block bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 font-semibold">
+                <span class="relative z-10 inline-block mr-2 group-hover:-translate-x-1 transition-transform duration-200">←</span>
+                <span class="relative z-10">Zur Startseite</span>
             </a>
         </div>
     </div>
