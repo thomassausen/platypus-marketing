@@ -5,6 +5,12 @@ AddType application/x-httpd-php83 .php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # 301 Redirects for old project URLs
+    RewriteRule ^projekte/docatwork/?$ /was-wir-tun [R=301,L]
+    RewriteRule ^projekte/?$ /was-wir-tun [R=301,L]
+    RewriteRule ^projekte/promotion-pool/?$ /was-wir-tun [R=301,L]
+    RewriteRule ^projekte/hamburg-marketing/?$ /was-wir-tun [R=301,L]
+
     # Route 404s to index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
