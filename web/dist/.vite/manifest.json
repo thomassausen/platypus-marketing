@@ -32,12 +32,12 @@
     "src": "src/fonts/open-sans-v44-latin-regular.woff2"
   },
   "src/js/app.js": {
-    "file": "assets/app-BWPUZsrK.js",
+    "file": "assets/app-CFdRO3cr.js",
     "name": "app",
     "src": "src/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-DRZSuFBG.css"
+      "assets/app-Db0i84En.css"
     ],
     "assets": [
       "assets/open-sans-v44-latin-300-D5gIFPXQ.woff2",
