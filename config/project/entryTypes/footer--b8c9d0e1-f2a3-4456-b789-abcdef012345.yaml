@@ -161,6 +161,27 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-10-08T12:00:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 19b6761a-c483-4c45-8b23-fd7bb2578019 # Footer-Logos
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: de95b3ff-ad18-459d-95e0-8d10bd55a514
+            userCondition: null
+            warning: null
+            width: 100
+        name: Logos
+        uid: 5c1e7a2b-9d4f-4e83-b6a1-2f0c8d7e3a94
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
             dateAdded: null
             editCondition: null
             elementCondition: null

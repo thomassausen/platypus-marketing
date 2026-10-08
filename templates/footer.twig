@@ -82,6 +82,33 @@
             </div>
         </div>
     </div>
+    {% set footerLogos = footer ? footer.footerLogos.with(['logo']).all() : [] %}
+    {% if footerLogos|length %}
+        <div class="py-8 border-t border-white/10 relative z-10">
+            <ul class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-wrap justify-center items-center gap-4 lg:gap-6">
+                {% for item in footerLogos %}
+                    {% set logo = item.logo|first %}
+                    {% if logo %}
+                        {% set tileClass = 'flex items-center justify-center w-32 h-20 lg:w-40 lg:h-24 bg-white rounded-xl p-3 lg:p-4 shadow-sm' %}
+                        {% set logoImg %}
+                            <img src="{{ logo.getUrl({ height: 192, mode: 'fit' }) }}" alt="{{ item.title }}" class="max-w-full max-h-full object-contain" loading="lazy">
+                        {% endset %}
+                        <li>
+                            {% if item.externalLink and item.externalLink.getUrl() %}
+                                <a href="{{ item.externalLink.getUrl() }}" class="{{ tileClass }} hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300" target="_blank" rel="noopener noreferrer">
+                                    {{ logoImg }}
+                                </a>
+                            {% else %}
+                                <div class="{{ tileClass }}">
+                                    {{ logoImg }}
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
     <div class="py-4 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-center items-center gap-6 text-white">

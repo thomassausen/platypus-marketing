@@ -1,6 +1,18 @@
-dateModified: 1774633088
+dateModified: 1791478964
 elementSources:
   craft\elements\Entry:
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:f33a4e83-1f1c-494a-8868-e03c49695831' # Haupt-Navigation
+      page: Navigation
+      tableAttributes:
+        - status
+        - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
+      type: native
     -
       defaultSort:
         - postDate
@@ -60,33 +72,16 @@ elementSources:
         - status
       type: native
     -
-      heading: Optionen
-      key: 'heading:1664f019-4b12-49f0-b187-b9017b5a1398'
-      page: Inhalte
-      type: heading
-    -
       defaultSort:
         - title
         - asc
       defaultViewMode: ''
       disabled: false
       key: singles
-      page: Inhalte
+      page: Optionen
       tableAttributes:
         - status
         - link
-      type: native
-    -
-      defaultSort:
-        - structure
-        - asc
-      defaultViewMode: ''
-      disabled: false
-      key: 'section:f33a4e83-1f1c-494a-8868-e03c49695831' # Haupt-Navigation
-      page: Navigation
-      tableAttributes:
-        - status
-        - 'field:46dc81ec-70cb-496a-98e9-65e6ca50b3d5' # Link
       type: native
 elementSourcesPages:
   craft\elements\Entry:
@@ -94,6 +89,8 @@ elementSourcesPages:
       icon: file-lines
     Navigation:
       icon: circle-location-arrow
+    Optionen:
+      icon: folder-gear
 email:
   fromEmail: hi@thomassausen.com
   fromName: Platypus-Marketing
@@ -722,6 +719,33 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  19b6761a-c483-4c45-8b23-fd7bb2578019: # Footer-Logos
+    columnSuffix: null
+    handle: footerLogos
+    instructions: 'Logos (z. B. Mitgliedschaften, Siegel, Partner), optional verlinkt.'
+    name: Footer-Logos
+    searchable: false
+    settings:
+      createButtonLabel: 'Logo hinzufügen'
+      defaultIndexViewMode: cards
+      enableVersioning: false
+      entryTypes:
+        -
+          __assoc__:
+            -
+              - uid
+              - 3fba40d2-ce46-4084-8c67-d92d1b8ffa8a # Footer-Logo
+      includeTableView: false
+      maxEntries: null
+      minEntries: null
+      pageSize: 50
+      propagationKeyFormat: null
+      propagationMethod: all
+      showCardsInGrid: true
+      viewMode: cards
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
   23ab57f9-640e-4064-8333-458692667dec: # Bilder
     columnSuffix: null
     handle: images
@@ -3069,6 +3093,7 @@ meta:
     3a1dad5e-2392-4c4c-9048-b199ac6eb00c: Kunden # Kunden
     3aae3c3d-78d3-4363-9717-a43dcc6bd34a: 'Kunden auswählen' # Kunden auswählen
     3b1d2716-73ff-403e-ac9d-af5e6dda7832: Team-Mitglieder # Team-Mitglieder
+    3fba40d2-ce46-4084-8c67-d92d1b8ffa8a: Footer-Logo # Footer-Logo
     4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52: 'SEO Image' # SEO Image
     04c57400-7a25-4235-8728-fc4d54ce7675: 'Highlight Box / Pullquote' # Highlight Box / Pullquote
     5dccaceb-3de2-4299-8df0-d7121aa38357: Highliht-Style # Highliht-Style
@@ -3080,6 +3105,7 @@ meta:
     8bb09a1f-dca2-460e-9595-5fe310bd2c64: FAQ # FAQ
     8c9ea530-6518-4a2f-ad94-c03133f2c96e: Vorteil # Vorteil
     11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
+    19b6761a-c483-4c45-8b23-fd7bb2578019: Footer-Logos # Footer-Logos
     23ab57f9-640e-4064-8333-458692667dec: Bilder # Bilder
     27c7e471-18ee-45b7-9b10-b046b53ff4c4: Service # Service
     46dc81ec-70cb-496a-98e9-65e6ca50b3d5: Link # Link
