@@ -1,0 +1,98 @@
+allowLineBreaksInTitles: false
+color: sky
+description: 'Externer Code (Brevo, Calendly, Maps, …) als iFrame oder direkt eingebettet'
+fieldLayouts:
+  66e365d5-4315-457d-bde7-f8173d4ab228:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:1cb84681-4ba1-4264-af7a-c70a051e7aec'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-20T14:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cb1656aa-d943-4b7a-ac19-58725e3273c8 # Embed-Code
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a21b7951-92e3-435f-9733-62dc6655d105
+            userCondition: null
+            warning: 'Der Code wird ungeprüft ausgeführt – nur Code aus vertrauenswürdigen Quellen einfügen.'
+            width: 100
+          -
+            dateAdded: '2026-10-20T14:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 782a3a13-1235-455c-90bd-9c1cb77ddcb1 # Darstellung
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1cb84681-4ba1-4264-af7a-c70a051e7aec
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 138eebb0-89d2-449d-bc59-fbb528714363
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-20T14:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 56e2409e-4220-4efe-befa-ec8b129672f5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-20T14:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 59127974-f469-4d6e-b9aa-ed3c3d066358 # Container-Breite
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f7d3a8ac-676b-4b6b-9ec2-acc95254c448
+            userCondition: null
+            warning: null
+            width: 100
+        name: Einstellungen
+        uid: 61d84f3a-b706-4738-85cd-68328cc38950
+        userCondition: null
+    thumbFieldKey: null
+handle: embed
+hasTitleField: false
+icon: code
+name: 'Embed / iFrame'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

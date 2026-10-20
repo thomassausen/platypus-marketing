@@ -834,6 +834,69 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Link
+  782a3a13-1235-455c-90bd-9c1cb77ddcb1: # Darstellung
+    columnSuffix: null
+    handle: embedMode
+    instructions: 'Isoliert: Code läuft in einem eigenen iFrame, Seiten-Styles greifen nicht. Direkt: Code wird unverändert in die Seite eingefügt.'
+    name: Darstellung
+    searchable: false
+    settings:
+      customOptions: false
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Isoliert (iFrame)'
+            -
+              - value
+              - iframe
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Direkt in die Seite'
+            -
+              - value
+              - inline
+            -
+              - icon
+              - ''
+            -
+              - color
+              - ''
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  cb1656aa-d943-4b7a-ac19-58725e3273c8: # Embed-Code
+    columnSuffix: null
+    handle: embedCode
+    instructions: 'HTML-/JavaScript-Code des Anbieters (z.B. Brevo-Formular, Calendly, YouTube) oder ein fertiger <iframe>-Code.'
+    name: Embed-Code
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: true
+      initialRows: 10
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   73fc6da3-d133-4a74-affd-c06ae2ca7c3c: # Content Builder
     columnSuffix: null
     handle: contentBuilder
@@ -973,6 +1036,14 @@ fields:
             -
               - uid
               - e295543e-e1d9-41ac-827a-5dd3ba110f60 # Bilder
+            -
+              - group
+              - Medien
+        -
+          __assoc__:
+            -
+              - uid
+              - 98488a2b-246a-4d07-823a-b363f883f81f # Embed / iFrame
             -
               - group
               - Medien
@@ -3086,6 +3157,9 @@ graphql:
     expiryDate: null
 meta:
   __names__:
+    98488a2b-246a-4d07-823a-b363f883f81f: 'Embed / iFrame' # Embed / iFrame
+    782a3a13-1235-455c-90bd-9c1cb77ddcb1: Darstellung # Darstellung
+    cb1656aa-d943-4b7a-ac19-58725e3273c8: Embed-Code # Embed-Code
     00e38bc0-ae91-4cf8-aa18-0003e2a08d96: Bild-Position # Bild-Position
     0f62e29f-a4bb-44b9-a0c4-f0f69ac2c520: Services-Sektion # Services-Sektion
     1fad6153-d19c-4b99-bb81-ee955c3d9572: Vorteile # Vorteile

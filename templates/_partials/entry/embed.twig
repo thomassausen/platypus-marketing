@@ -1,0 +1,58 @@
+{# Embed Section Component – externer Code (Brevo, Calendly, …) als iFrame oder direkt #}
+
+{% import '_partials/theme-macros.twig' as theme %}
+
+{% set code = entry.embedCode ?? '' %}
+{% set mode = entry.embedMode.value ?? entry.embedMode ?? 'iframe' %}
+{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
+{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'default' %}
+{% set vars = theme.getThemeVars(background)|json_decode %}
+
+{# Map containerWidth to Tailwind classes #}
+{% if containerWidth == 'narrow' %}
+    {% set containerClass = 'max-w-5xl' %}
+{% elseif containerWidth == 'wide' %}
+    {% set containerClass = 'max-w-[1920px]' %}
+{% elseif containerWidth == 'full' %}
+    {% set containerClass = 'max-w-full' %}
+{% else %}
+    {% set containerClass = 'max-w-7xl' %}
+{% endif %}
+
+{% if code|trim %}
+    <section class="py-20 lg:py-28 relative {{ vars.backgroundClass }}">
+        <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
+            {% if mode == 'inline' %}
+                {{ code|raw }}
+            {% else %}
+                {# Isoliert: eigenes Dokument, Höhe wird per Script an den Inhalt angepasst #}
+                {% set document = '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base target="_top"><style>html,body{margin:0;background:transparent}</style></head><body>' ~ code ~ '</body></html>' %}
+                {{ tag('iframe', {
+                    srcdoc: document,
+                    title: 'Eingebetteter Inhalt',
+                    loading: 'lazy',
+                    class: 'block w-full border-0',
+                    style: 'height: 300px',
+                    data: {embedFrame: true},
+                }) }}
+
+                {% js %}
+                    document.querySelectorAll('iframe[data-embed-frame]').forEach((frame) => {
+                        if (frame.dataset.embedReady) return;
+                        frame.dataset.embedReady = '1';
+                        const resize = () => {
+                            const doc = frame.contentDocument;
+                            if (doc) frame.style.height = doc.documentElement.scrollHeight + 'px';
+                        };
+                        const init = () => {
+                            resize();
+                            new ResizeObserver(resize).observe(frame.contentDocument.body);
+                        };
+                        frame.addEventListener('load', init);
+                        if (frame.contentDocument?.readyState === 'complete' && frame.contentDocument.body?.childNodes.length) init();
+                    });
+                {% endjs %}
+            {% endif %}
+        </div>
+    </section>
+{% endif %}
