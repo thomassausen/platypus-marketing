@@ -1,164 +1,59 @@
-{#
-Benefits Section Component
+{# =========================================================================
+   Benefits
+   Benefits with line icon, title and text (2026 design).
+   Fields: subtitle, title, description, benefits (title, description,
+           iconType), columns, textAlignment, backgroundColor, containerWidth
+   ========================================================================= #}
 
-Uses entry fields:
-- title: string (required)
-- subtitle: string (optional)
-- description: string (optional)
-- benefits: Matrix field with benefit entries
-  - title: string
-  - description: text/redactor
-  - iconType: dropdown (check, star, rocket, chart, users, lightbulb, shield, heart)
-- backgroundColor: Color field, default: 'soft'
-- svgVariant: number 1-9 or 'none', default: 'none'
-- columns: number (2 or 3), default: 2
-#}
+{%- import '_partials/theme-macros.twig' as theme -%}
+{%- import '_partials/ui-macros.twig' as ui -%}
 
-{% import '_partials/theme-macros.twig' as theme %}
-{% import '_partials/ui-macros.twig' as ui %}
+{%- set vars = theme.getThemeVars(entry.backgroundColor.value ?? entry.backgroundColor ?? 'white')|json_decode -%}
+{%- set container = theme.containerClass(entry.containerWidth.value ?? entry.containerWidth ?? null, 'default') -%}
+{%- set alignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' -%}
+{%- set columns = (entry.columns.value ?? entry.columns ?? 2)|number_format -%}
+{%- set benefits = entry.benefits.all() -%}
 
-{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
-{% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 'none' %}
-{% set columns = entry.columns.value ?? entry.columns ?? 2 %}
-{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
-{% set textAlignment = entry.textAlignment.value ?? entry.textAlignment ?? 'center' %}
-{% set alignmentClass = textAlignment == 'center' ? 'text-center' : 'text-left' %}
-{% set vars = theme.getThemeVars(background)|json_decode %}
+{# Line icons (24px grid, stroke) #}
+{%- set icons = {
+    check: '<path d="M5 13l4 4L19 7"/>',
+    star: '<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
+    rocket: '<path d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+    lightning: '<path d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+    chart: '<path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+    lightbulb: '<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>',
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+    heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>',
+    trophy: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
+    'thumb-up': '<path d="M7 10v11H4V10h3zM7 10l4-8a3 3 0 0 1 3 3v4h5.5a2 2 0 0 1 2 2.3l-1.4 8a2 2 0 0 1-2 1.7H7"/>',
+    'thumb-down': '<path d="M17 14V3h3v11h-3zM17 14l-4 8a3 3 0 0 1-3-3v-4H4.5a2 2 0 0 1-2-2.3l1.4-8a2 2 0 0 1 2-1.7H17"/>',
+    warning: '<path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>',
+    x: '<path d="M6 18L18 6M6 6l12 12"/>',
+    close: '<path d="M6 18L18 6M6 6l12 12"/>',
+    'x-circle': '<circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/>',
+    ban: '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+    'minus-circle': '<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>',
+    'alert-circle': '<circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/>',
+} -%}
 
-{# Map containerWidth to Tailwind classes #}
-{% if containerWidth == 'narrow' %}
-    {% set containerClass = 'max-w-5xl' %}
-{% elseif containerWidth == 'wide' %}
-    {% set containerClass = 'max-w-[1920px]' %}
-{% elseif containerWidth == 'full' %}
-    {% set containerClass = 'max-w-full' %}
-{% else %}
-    {% set containerClass = 'max-w-7xl' %}
-{% endif %}
+<section class="relative overflow-hidden section-band {{ vars.backgroundClass }} {{ vars.textColorClass }}">
+    <div class="{{ container }}">
+        {{ ui.sectionHeader(entry.subtitle, entry.title, entry.description, null, vars, alignment) }}
 
-<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
-    {# SVG Background Shapes #}
-    {{ ui.svgShapes(svgVariant, vars) }}
-
-    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
-        {# Section Header #}
-        <div class="{{ alignmentClass }} mb-12 lg:mb-16">
-            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-
-            {% if entry.title %}
-                <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                    {{ entry.title }}
-                </h2>
-            {% endif %}
-
-            {% if entry.description %}
-                <div class="text-lg lg:text-xl {{ vars.textColorClass }} {{ textAlignment == 'center' ? 'max-w-3xl mx-auto' : '' }} leading-relaxed content-styles">
-                    {{ entry.description }}
-                </div>
-            {% endif %}
-        </div>
-
-        {# Benefits Grid #}
-        {% if entry.benefits %}
-            {% set gridClass = columns == 3 ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12' : 'grid md:grid-cols-2 gap-8 lg:gap-12' %}
-
-            {# White border for icons on dark backgrounds #}
-            {% set iconBorderClass = background in ['gradient', 'blue', 'orange', 'purple', 'teal'] ? 'ring-4 ring-white' : '' %}
-
-            <div class="{{ gridClass }}">
-                {% for benefit in entry.benefits.all() %}
-                    <div class="group">
-                        {# Icon and Title in one row #}
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 flex-shrink-0 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg {{ iconBorderClass }}">
-                                {% set iconType = (benefit.iconType.value ?? benefit.iconType ?? 'check')|trim %}
-                                {% if iconType == 'check' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            {% elseif iconType == 'star' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                </svg>
-                            {% elseif iconType == 'rocket' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            {% elseif iconType == 'chart' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                                </svg>
-                            {% elseif iconType == 'users' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                </svg>
-                            {% elseif iconType == 'lightbulb' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            {% elseif iconType == 'shield' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
-                            {% elseif iconType == 'heart' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                            {% elseif iconType == 'lightning' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            {% elseif iconType == 'trophy' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                </svg>
-                            {% elseif iconType == 'thumb-up' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
-                                </svg>
-                            {% elseif iconType == 'warning' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                                </svg>
-                            {% elseif iconType == 'x' or iconType == 'close' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            {% elseif iconType == 'x-circle' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            {% elseif iconType == 'ban' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-                                </svg>
-                            {% elseif iconType == 'minus-circle' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            {% elseif iconType == 'alert-circle' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            {% elseif iconType == 'thumb-down' %}
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path>
-                                </svg>
-                            {% endif %}
-                            </div>
-
-                            <h3 class="text-2xl lg:text-3xl font-bold {{ vars.titleColorClass }} flex-1">
-                                {{ benefit.title }}
-                            </h3>
-                        </div>
-
-                        {# Description #}
-                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed content-styles">
-                            {{ benefit.description }}
-                        </div>
+        {%- if benefits|length %}
+            <div class="mt-14 grid gap-x-12 gap-y-10 tablet:grid-cols-[repeat(2,1fr)] {{ columns == '3' ? 'desktop:grid-cols-[repeat(3,1fr)]' }}">
+                {%- for benefit in benefits %}
+                    {%- set iconType = (benefit.iconType.value ?? benefit.iconType ?? 'check')|trim -%}
+                    <div class="border-t pt-6 {{ vars.lineClass }}">
+                        <svg class="size-8 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.5] {{ vars.highlightClass }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{{ (icons[iconType] ?? icons.check)|raw }}</svg>
+                        <h3 class="mt-4 text-[19px] leading-[26px] font-normal {{ vars.titleColorClass }}">{{ benefit.title }}</h3>
+                        {%- if benefit.description %}
+                            <div class="prose-plain content-styles mt-2 text-copy-sm {{ vars.mutedClass }}">{{ benefit.description }}</div>
+                        {%- endif %}
                     </div>
-                {% endfor %}
+                {%- endfor %}
             </div>
-        {% endif %}
+        {%- endif %}
     </div>
 </section>

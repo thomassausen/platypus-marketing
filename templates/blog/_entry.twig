@@ -1,160 +1,106 @@
+{# =========================================================================
+   Blog post
+   Navy header, featured image overlapping it, reading column,
+   previous/next navigation, related posts.
+   ========================================================================= #}
+
 {% extends "_layouts/default" %}
 
 {% block content %}
-    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 pb-12 lg:pb-16">
+    {%- set image = entry.blogFeaturedImage.one() ?? null -%}
+    {%- set prevEntry = craft.entries().section('blog').postDate('< ' ~ entry.postDate|date('Y-m-d H:i:s')).orderBy('postDate DESC').one() -%}
+    {%- set nextEntry = craft.entries().section('blog').postDate('> ' ~ entry.postDate|date('Y-m-d H:i:s')).orderBy('postDate ASC').one() -%}
+    {%- set relatedPosts = craft.entries().section('blog').id('not ' ~ entry.id).orderBy('RAND()').limit(3).with(['blogFeaturedImage']).all() -%}
+
+    <article>
         {# Header #}
-        <header class="mb-8">
-            {# Title #}
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-primary mb-4 leading-tight">
-                {{ entry.title }}
-            </h1>
-
-            {# Meta Information #}
-            <div class="flex items-center text-sm text-gray-500 mb-6">
-                <time datetime="{{ entry.postDate|date('Y-m-d') }}">
-                    {{ entry.postDate|date('d. F Y') }}
-                </time>
-                {% if entry.author %}
-                    <span class="mx-2">•</span>
-                    <span>{{ entry.author.fullName }}</span>
-                {% endif %}
+        <header class="relative overflow-hidden bg-navy-deep pt-20 text-white tablet:pt-[104px] {{ image ? 'pb-40 tablet:pb-56' : 'pb-[72px] tablet:pb-[88px]' }}">
+            {%- include '_partials/redesign/platypus-mark' with {
+                utilities: 'pointer-events-none absolute -right-[6%] top-16 hidden w-[min(40vw,520px)] text-petrol opacity-15 tablet:block',
+            } only -%}
+            <div class="container-wrap relative z-[1]">
+                <div class="mx-auto max-w-[880px]">
+                    <p class="text-label text-petrol">
+                        <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('d. F Y') }}</time>
+                        {%- if entry.author %} · {{ entry.author.fullName }}{% endif %}
+                    </p>
+                    <h1 class="mt-6 text-statement-md">{{ entry.title }}</h1>
+                    {%- if entry.blogSummary %}
+                        <p class="mt-8 max-w-[52ch] text-[clamp(19px,2vw,22px)] leading-[1.5] font-light text-ink-soft">{{ entry.blogSummary }}</p>
+                    {%- endif %}
+                </div>
             </div>
-
-            {# Summary #}
-            {% if entry.blogSummary %}
-                <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
-                    {{ entry.blogSummary }}
-                </p>
-            {% endif %}
         </header>
 
-        {# Featured Image #}
-        {% set featuredImage = entry.blogFeaturedImage.one() %}
-        {% if featuredImage %}
-            <div class="mb-8 lg:mb-12 rounded-2xl overflow-hidden">
-                <img
-                    src="{{ featuredImage.url }}"
-                    alt="{{ featuredImage.title }}"
-                    class="w-full aspect-video object-cover"
-                >
+        {# Featured image, overlapping the header #}
+        {%- if image %}
+            <div class="container-wrap relative z-[2] -mt-28 tablet:-mt-40">
+                <figure class="mx-auto max-w-[1040px]">
+                    {{ tag('img', {
+                        src: image.extension == 'svg' ? image.url : image.getUrl({ width: 2080, height: 1170, mode: 'crop', format: 'webp', quality: 82 }),
+                        alt: image.alt ?? '',
+                        width: 2080,
+                        height: 1170,
+                        class: 'aspect-video w-full bg-beige object-cover',
+                    }) }}
+                    {%- if image.alt %}
+                        <figcaption class="mt-3 text-caption text-ink-muted">{{ image.alt }}</figcaption>
+                    {%- endif %}
+                </figure>
             </div>
-        {% endif %}
+        {%- endif %}
 
-        {# Blog Content (CKEditor) #}
-        {% if entry.blogContent %}
-            <div class="prose prose-lg max-w-none blog-content">
-                {{ entry.blogContent }}
-            </div>
-        {% endif %}
+        {# Body #}
+        <div class="container-wrap pt-14 pb-20 tablet:pt-20 tablet:pb-28">
+            {%- if entry.blogContent %}
+                <div class="blog-content content-styles prose-plain mx-auto max-w-[720px] text-[18px] leading-[30px] [&_blockquote]:my-10 [&_blockquote]:border-l-4 [&_blockquote]:border-gold [&_blockquote]:pl-6 [&_blockquote]:font-display [&_blockquote]:text-[26px] [&_blockquote]:leading-[1.3] [&_img]:my-8 [&_img]:h-auto">
+                    {{ entry.blogContent }}
+                </div>
+            {%- endif %}
 
-        {# Footer / Navigation #}
-        <footer class="mt-16 pt-8 border-t border-gray-200">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
-                {# Previous Entry #}
-                {% set prevEntry = craft.entries()
-                    .section('blog')
-                    .postDate('< ' ~ entry.postDate|date('Y-m-d H:i:s'))
-                    .orderBy('postDate DESC')
-                    .one() %}
-                
-                {% if prevEntry %}
-                    <a href="{{ prevEntry.url }}" 
-                       class="flex items-center text-brand-primary hover:text-brand-secondary transition-colors group">
-                        <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                        <div class="text-left">
-                            <div class="text-sm text-gray-500">Vorheriger Beitrag</div>
-                            <div class="font-semibold">{{ prevEntry.title }}</div>
-                        </div>
-                    </a>
-                {% else %}
-                    <div></div>
-                {% endif %}
-
-                {# Back to Overview #}
-                <a href="/blog"
-                   class="group relative bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
-                    <span class="relative z-10 inline-block mr-2 group-hover:-translate-x-1 transition-transform duration-200">←</span>
-                    <span class="relative z-10">Zur Übersicht</span>
-                </a>
-
-                {# Next Entry #}
-                {% set nextEntry = craft.entries()
-                    .section('blog')
-                    .postDate('> ' ~ entry.postDate|date('Y-m-d H:i:s'))
-                    .orderBy('postDate ASC')
-                    .one() %}
-                
-                {% if nextEntry %}
-                    <a href="{{ nextEntry.url }}" 
-                       class="flex items-center text-brand-primary hover:text-brand-secondary transition-colors group">
-                        <div class="text-right">
-                            <div class="text-sm text-gray-500">Nächster Beitrag</div>
-                            <div class="font-semibold">{{ nextEntry.title }}</div>
-                        </div>
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                {% else %}
-                    <div></div>
-                {% endif %}
-            </div>
-        </footer>
+            {# Previous / overview / next #}
+            <nav class="mx-auto mt-16 max-w-[880px] border-t border-line pt-10" aria-label="Weitere Beiträge">
+                <div class="grid gap-4 tablet:grid-cols-[repeat(2,1fr)]">
+                    {%- if prevEntry %}
+                        <a href="{{ prevEntry.url }}" class="group flex flex-col gap-2 bg-white p-6 no-underline hover:text-navy">
+                            <span class="inline-flex items-center gap-2 text-label-sm text-ink-muted">
+                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-4 rotate-90 transition-transform group-hover:-translate-x-0.5' } only -%}
+                                Vorheriger Beitrag
+                            </span>
+                            <span class="text-[19px] leading-[26px]">{{ prevEntry.title }}</span>
+                        </a>
+                    {%- else %}
+                        <span class="hidden tablet:block"></span>
+                    {%- endif %}
+                    {%- if nextEntry %}
+                        <a href="{{ nextEntry.url }}" class="group flex flex-col gap-2 bg-white p-6 no-underline hover:text-navy tablet:items-end tablet:text-right">
+                            <span class="inline-flex items-center gap-2 text-label-sm text-ink-muted">
+                                Nächster Beitrag
+                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-4 -rotate-90 transition-transform group-hover:translate-x-0.5' } only -%}
+                            </span>
+                            <span class="text-[19px] leading-[26px]">{{ nextEntry.title }}</span>
+                        </a>
+                    {%- endif %}
+                </div>
+                <div class="mt-8 text-center">
+                    {%- include '_partials/redesign/button' with { text: 'Zur Übersicht', url: url('blog'), variant: 'outline' } only -%}
+                </div>
+            </nav>
+        </div>
     </article>
 
-    {# Related Posts Section (Optional) #}
-    {% set relatedPosts = craft.entries()
-        .section('blog')
-        .id('not ' ~ entry.id)
-        .orderBy('RAND()')
-        .limit(3)
-        .all() %}
-
-    {% if relatedPosts|length %}
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-200">
-            <h2 class="text-3xl font-bold text-brand-primary mb-8 text-center">Weitere Beiträge</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {% for post in relatedPosts %}
-                    <article class="bg-white rounded-lg overflow-hidden shadow-soft hover:shadow-elevated transition-shadow">
-                        {# Thumbnail #}
-                        {% set postImage = post.blogFeaturedImage.one() %}
-                        <a href="{{ post.url }}" class="block aspect-video bg-brand-accent overflow-hidden">
-                            {% if postImage %}
-                                <img 
-                                    src="{{ postImage.url }}" 
-                                    alt="{{ postImage.title }}"
-                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                                >
-                            {% else %}
-                                <div class="w-full h-full flex items-center justify-center text-brand-primary">
-                                    <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                            {% endif %}
-                        </a>
-
-                        <div class="p-6">
-                            <div class="text-sm text-gray-500 mb-2">
-                                {{ post.postDate|date('d.m.Y') }}
-                            </div>
-                            <h3 class="text-xl font-bold text-brand-primary mb-2">
-                                <a href="{{ post.url }}" class="hover:text-brand-secondary transition-colors">
-                                    {{ post.title }}
-                                </a>
-                            </h3>
-                            {% if post.blogSummary %}
-                                <p class="text-gray-600 text-sm line-clamp-2">
-                                    {{ post.blogSummary }}
-                                </p>
-                            {% endif %}
-                        </div>
-                    </article>
-                {% endfor %}
+    {# Related posts #}
+    {%- if relatedPosts|length %}
+        <section class="section-band bg-beige">
+            <div class="container-wrap">
+                <p class="text-label text-navy">Weiterlesen</p>
+                <h2 class="mt-5 text-h2">Weitere Beiträge</h2>
+                <div class="mt-14 grid gap-4 tablet:grid-cols-[repeat(2,1fr)] desktop:grid-cols-[repeat(3,1fr)]">
+                    {%- for post in relatedPosts %}
+                        {%- include '_partials/redesign/blog-card' with { post: post } only -%}
+                    {%- endfor %}
+                </div>
             </div>
         </section>
-    {% endif %}
+    {%- endif %}
 {% endblock %}

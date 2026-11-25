@@ -1,4 +1,4 @@
-dateModified: 1795627930
+dateModified: 1795633035
 elementSources:
   craft\elements\Entry:
     -
@@ -325,104 +325,35 @@ fields:
           __assoc__:
             -
               - label
-              - 'Verlauf (Blau-Orange)'
-            -
-              - value
-              - gradient
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Blau
-            -
-              - value
-              - blue
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Orange
-            -
-              - value
-              - orange
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
               - Weiß
             -
               - value
               - white
             -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
               - default
-              - '1'
+              - true
         -
           __assoc__:
             -
               - label
-              - Soft
+              - Beige
             -
               - value
               - soft
             -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
               - default
-              - ''
+              - false
         -
           __assoc__:
             -
               - label
-              - Lila
+              - 'Koralle hell'
             -
               - value
-              - purple
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
+              - accent
             -
               - default
-              - ''
+              - false
         -
           __assoc__:
             -
@@ -432,14 +363,52 @@ fields:
               - value
               - teal
             -
-              - icon
-              - ''
+              - default
+              - false
+        -
+          __assoc__:
             -
-              - color
-              - ''
+              - label
+              - Gold
+            -
+              - value
+              - orange
             -
               - default
-              - ''
+              - false
+        -
+          __assoc__:
+            -
+              - label
+              - Navy
+            -
+              - value
+              - blue
+            -
+              - default
+              - false
+        -
+          __assoc__:
+            -
+              - label
+              - 'Navy dunkel'
+            -
+              - value
+              - gradient
+            -
+              - default
+              - false
+        -
+          __assoc__:
+            -
+              - label
+              - Pflaume
+            -
+              - value
+              - purple
+            -
+              - default
+              - false
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
@@ -537,188 +506,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
-  11f840b0-e02b-470d-8a12-11e80446b819: # SVG Variante
-    columnSuffix: null
-    handle: svgVariant
-    instructions: null
-    name: 'SVG Variante'
-    searchable: false
-    settings:
-      customOptions: false
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - '0'
-            -
-              - value
-              - '0'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - '1'
-            -
-              - value
-              - '1'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '2'
-            -
-              - value
-              - '2'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '3'
-            -
-              - value
-              - '3'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '4'
-            -
-              - value
-              - '4'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '5'
-            -
-              - value
-              - '5'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '6'
-            -
-              - value
-              - '6'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '7'
-            -
-              - value
-              - '7'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '8'
-            -
-              - value
-              - '8'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - '9'
-            -
-              - value
-              - '9'
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
   19b6761a-c483-4c45-8b23-fd7bb2578019: # Footer-Logos
     columnSuffix: null
     handle: footerLogos
@@ -1214,7 +1001,7 @@ fields:
           __assoc__:
             -
               - label
-              - Blau
+              - Navy
             -
               - value
               - '#5162AA'
@@ -1231,7 +1018,7 @@ fields:
           __assoc__:
             -
               - label
-              - Orange
+              - Gold
             -
               - value
               - '#f89c48'
@@ -1248,7 +1035,7 @@ fields:
           __assoc__:
             -
               - label
-              - Lila
+              - Pflaume
             -
               - value
               - '#9d7db5'
@@ -2063,86 +1850,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
-  acd5ae4b-736e-42bb-b318-c52282d61a09: # Bild-Rundungen
-    columnSuffix: null
-    handle: imageRounding
-    instructions: null
-    name: Bild-Rundungen
-    searchable: false
-    settings:
-      customOptions: false
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Keine
-            -
-              - value
-              - none
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - Alle
-            -
-              - value
-              - all
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - 'Oben links und unten rechts'
-            -
-              - value
-              - topLeft-bottomRight
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - 'Oben rechts und unten links'
-            -
-              - value
-              - topRight-bottomLeft
-            -
-              - icon
-              - ''
-            -
-              - color
-              - ''
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
   b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: # Instagram
     columnSuffix: null
     handle: socialInstagram
@@ -2260,19 +1967,6 @@ fields:
       offLabel: null
       onLabel: null
       showLabelsInCards: false
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Lightswitch
-  be9e472f-6557-47cc-8402-06b4027d587b: # Abgerundet?
-    columnSuffix: null
-    handle: rounded
-    instructions: null
-    name: 'Abgerundet?'
-    searchable: false
-    settings:
-      default: false
-      offLabel: null
-      onLabel: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
@@ -3337,7 +3031,6 @@ meta:
     7d5cf96b-6d4e-4c4b-b9c4-02591bfa3bbd: FAQ-Items # FAQ-Items
     8bb09a1f-dca2-460e-9595-5fe310bd2c64: FAQ # FAQ
     8c9ea530-6518-4a2f-ad94-c03133f2c96e: Vorteil # Vorteil
-    11f840b0-e02b-470d-8a12-11e80446b819: 'SVG Variante' # SVG Variante
     19b6761a-c483-4c45-8b23-fd7bb2578019: Footer-Logos # Footer-Logos
     23ab57f9-640e-4064-8333-458692667dec: Bilder # Bilder
     27c7e471-18ee-45b7-9b10-b046b53ff4c4: Service # Service
@@ -3388,7 +3081,6 @@ meta:
     a17603b1-fe40-43bc-95c1-7f79ce5ae219: 'Vergleich alt/neu' # Vergleich alt/neu
     a56179a4-1ab7-467c-9b7b-64391f1333ce: Modell-Karten # Modell-Karten
     aa7da33d-13e0-41de-9710-62000ce09c68: Step # Step
-    acd5ae4b-736e-42bb-b318-c52282d61a09: Bild-Rundungen # Bild-Rundungen
     b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: Instagram # Instagram
     b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog
     b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
@@ -3398,7 +3090,6 @@ meta:
     ba25033b-529b-498b-bde0-fb79b878bfa8: 'Sticky Überschrift?' # Sticky Überschrift?
     bb7b9081-dc2c-4665-880e-9668439f22a5: Preis # Preis
     bbbaa0df-d69c-41e2-8fd8-544bbb50f88f: Preise-Reihen # Preise-Reihen
-    be9e472f-6557-47cc-8402-06b4027d587b: 'Abgerundet?' # Abgerundet?
     c032286b-2d69-4f53-986d-bf92576ecc87: Text # Text
     c3d4e5f6-a7b8-4012-a456-7890abcdef01: 'Features Intro' # Features Intro
     c7eb1b51-2704-4566-812d-5b8f6f710e00: Gründe # Gründe

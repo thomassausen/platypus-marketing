@@ -1,137 +1,103 @@
+{# =========================================================================
+   Blog index
+   Navy header, first post of each page as lead story, card grid (2 × 3),
+   pagination.
+   ========================================================================= #}
+
 {% extends "_layouts/default" %}
 
 {% block content %}
-<div class="bg-white min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 pb-16">
-        {# Hero Section #}
-        <div class="text-center mb-16">
-            <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary mb-4">Blog</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Neuigkeiten, Einblicke und Expertenwissen aus unserer Welt
-            </p>
+    {%- set query = craft.entries().section('blog').orderBy('postDate DESC').with(['blogFeaturedImage']).limit(7) -%}
+    {%- paginate query as pageInfo, posts -%}
+    {%- set lead = posts|first -%}
+    {%- set gridPosts = lead ? posts|slice(1) : posts -%}
+
+    {# Header #}
+    <section class="relative overflow-hidden bg-navy-deep pt-20 pb-[72px] text-white tablet:pt-[104px] tablet:pb-[88px]">
+        {%- include '_partials/redesign/platypus-mark' with {
+            utilities: 'pointer-events-none absolute -right-[4%] -bottom-5 w-[90vw] text-petrol opacity-40 tablet:top-16 tablet:bottom-auto tablet:w-[min(44vw,560px)] tablet:opacity-20',
+        } only -%}
+        <div class="container-wrap relative z-[1]">
+            <h1 class="max-w-[16ch] text-statement">Blog</h1>
+            <p class="mt-8 max-w-[46ch] text-[clamp(19px,2vw,22px)] leading-[1.5] font-light text-ink-soft">Neuigkeiten, Einblicke und Expertenwissen aus unserer Welt</p>
         </div>
+    </section>
 
-    {# Blog Entries Grid #}
-    {% set blogEntries = craft.entries()
-        .section('blog')
-        .orderBy('postDate DESC')
-        .limit(9) %}
-
-    {% paginate blogEntries as pageInfo, entries %}
-
-    {% if entries|length %}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {% for entry in entries %}
-                <article class="bg-background-soft rounded-lg overflow-hidden transition-all duration-300 hover:shadow-elevated">
-                    {# Featured Image #}
-                    {% set featuredImage = entry.blogFeaturedImage.one() %}
-                    <a href="{{ entry.url }}" class="block aspect-video bg-brand-accent overflow-hidden">
-                        {% if featuredImage %}
-                            <img
-                                src="{{ featuredImage.url }}"
-                                alt="{{ featuredImage.title }}"
-                                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                            >
-                        {% else %}
-                            <div class="w-full h-full flex items-center justify-center text-brand-primary">
-                                <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                        {% endif %}
-                    </a>
-
-                    {# Content #}
-                    <div class="p-6">
-                        <div class="text-sm text-gray-700 mb-2">
-                            {{ entry.postDate|date('d.m.Y') }}
+    <section class="section-band bg-ground">
+        <div class="container-wrap">
+            {%- if posts|length %}
+                {# Lead story #}
+                {%- if lead %}
+                    {%- set leadImage = lead.blogFeaturedImage|first -%}
+                    <article class="group relative grid bg-white tablet:grid-cols-[1.25fr_1fr]">
+                        <div class="aspect-[3/2] overflow-hidden bg-beige tablet:aspect-auto tablet:min-h-[420px]">
+                            {%- if leadImage %}
+                                {{ tag('img', {
+                                    src: leadImage.extension == 'svg' ? leadImage.url : leadImage.getUrl({ width: 1200, height: 800, mode: 'crop', format: 'webp', quality: 82 }),
+                                    alt: '',
+                                    width: 1200,
+                                    height: 800,
+                                    class: 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100',
+                                }) }}
+                            {%- else %}
+                                <div class="grid h-full place-items-center">
+                                    {%- include '_partials/redesign/platypus-mark' with { utilities: 'w-1/2 text-petrol' } only -%}
+                                </div>
+                            {%- endif %}
                         </div>
-
-                        <h2 class="text-2xl font-bold text-brand-primary mb-3">
-                            <a href="{{ entry.url }}" class="hover:text-brand-secondary transition-colors">
-                                {{ entry.title }}
-                            </a>
-                        </h2>
-
-                        {% if entry.blogSummary %}
-                            <p class="text-gray-800 mb-4 line-clamp-3">
-                                {{ entry.blogSummary }}
+                        <div class="flex flex-col gap-5 p-8 tablet:p-12">
+                            <p class="text-label text-gold-deep">
+                                {% if pageInfo.currentPage == 1 %}Neuester Beitrag · {% endif %}<time datetime="{{ lead.postDate|date('Y-m-d') }}">{{ lead.postDate|date('d. F Y') }}</time>
                             </p>
-                        {% endif %}
+                            <h2 class="text-h2">
+                                <a href="{{ lead.url }}" class="no-underline after:absolute after:inset-0 after:content-[''] group-hover:text-navy">{{ lead.title }}</a>
+                            </h2>
+                            {%- if lead.blogSummary %}
+                                <p class="text-lead text-ink-muted">{{ lead.blogSummary }}</p>
+                            {%- endif %}
+                            <span class="mt-auto inline-flex items-center gap-2 pt-2 text-label leading-[26px] text-navy" aria-hidden="true">
+                                Beitrag lesen
+                                {%- include '_partials/redesign/icon' with { name: 'arrow', utilities: 'size-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5' } only -%}
+                            </span>
+                        </div>
+                    </article>
+                {%- endif %}
 
-                        <a href="{{ entry.url }}" class="group relative inline-block bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
-                            <span class="relative z-10">Weiterlesen</span>
-                            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                        </a>
+                {# Grid #}
+                {%- if gridPosts|length %}
+                    <div class="{{ lead ? 'mt-4' }} grid gap-4 tablet:grid-cols-[repeat(2,1fr)] desktop:grid-cols-[repeat(3,1fr)]">
+                        {%- for post in gridPosts %}
+                            {%- include '_partials/redesign/blog-card' with { post: post, headingLevel: 2 } only -%}
+                        {%- endfor %}
                     </div>
-                </article>
-            {% endfor %}
+                {%- endif %}
+
+                {# Pagination #}
+                {%- if pageInfo.totalPages > 1 %}
+                    {%- set pageLink = 'grid size-11 place-items-center rounded-[3px] border border-line bg-white text-label leading-[26px] no-underline hover:border-navy hover:text-navy' -%}
+                    <nav class="mt-14 flex flex-wrap items-center justify-center gap-2" aria-label="Seitennavigation">
+                        {%- if pageInfo.prevUrl %}
+                            <a href="{{ pageInfo.prevUrl }}" class="{{ pageLink }}" aria-label="Vorherige Seite">
+                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-5 rotate-90' } only -%}
+                            </a>
+                        {%- endif %}
+                        {%- for page, url in pageInfo.getPrevUrls(2) %}
+                            <a href="{{ url }}" class="{{ pageLink }}">{{ page }}</a>
+                        {%- endfor %}
+                        <span class="grid size-11 place-items-center rounded-[3px] bg-navy text-label leading-[26px] text-white" aria-current="page">{{ pageInfo.currentPage }}</span>
+                        {%- for page, url in pageInfo.getNextUrls(2) %}
+                            <a href="{{ url }}" class="{{ pageLink }}">{{ page }}</a>
+                        {%- endfor %}
+                        {%- if pageInfo.nextUrl %}
+                            <a href="{{ pageInfo.nextUrl }}" class="{{ pageLink }}" aria-label="Nächste Seite">
+                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-5 -rotate-90' } only -%}
+                            </a>
+                        {%- endif %}
+                    </nav>
+                {%- endif %}
+            {%- else %}
+                <p class="text-lead text-ink-muted">Noch keine Beiträge veröffentlicht.</p>
+            {%- endif %}
         </div>
-
-        {# Pagination #}
-        {% if pageInfo.totalPages > 1 %}
-            <nav class="flex justify-center items-center space-x-2" aria-label="Pagination">
-                {# Previous Button #}
-                {% if pageInfo.prevUrl %}
-                    <a href="{{ pageInfo.prevUrl }}"
-                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
-                        <span class="sr-only">Vorherige Seite</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </a>
-                {% else %}
-                    <span class="px-4 py-2 bg-gray-100 text-gray-400 border border-gray-300 rounded-lg cursor-not-allowed">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </span>
-                {% endif %}
-
-                {# Page Numbers #}
-                {% for page, url in pageInfo.getPrevUrls(2) %}
-                    <a href="{{ url }}"
-                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
-                        {{ page }}
-                    </a>
-                {% endfor %}
-
-                {# Current Page #}
-                <span class="px-4 py-2 bg-brand-primary text-white border border-brand-primary rounded-lg font-semibold">
-                    {{ pageInfo.currentPage }}
-                </span>
-
-                {% for page, url in pageInfo.getNextUrls(2) %}
-                    <a href="{{ url }}"
-                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
-                        {{ page }}
-                    </a>
-                {% endfor %}
-
-                {# Next Button #}
-                {% if pageInfo.nextUrl %}
-                    <a href="{{ pageInfo.nextUrl }}"
-                       class="px-4 py-2 bg-white text-brand-primary border border-gray-300 rounded-lg hover:bg-brand-accent transition-colors">
-                        <span class="sr-only">Nächste Seite</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                {% else %}
-                    <span class="px-4 py-2 bg-gray-100 text-gray-400 border border-gray-300 rounded-lg cursor-not-allowed">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </span>
-                {% endif %}
-            </nav>
-        {% endif %}
-
-    {% else %}
-        <div class="text-center py-16">
-            <p class="text-xl text-gray-500">Noch keine Blog-Beiträge verfügbar.</p>
-        </div>
-    {% endif %}
-    </div>
-</div>
+    </section>
 {% endblock %}

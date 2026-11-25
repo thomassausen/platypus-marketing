@@ -1,70 +1,48 @@
-{# Text Section Component #}
+{# =========================================================================
+   Text
+   One or two column text section in the 2026 design.
+   Fields: subtitle, title, description, text, button, textLayout,
+           stickyTitle, backgroundColor, containerWidth
+   ========================================================================= #}
 
-{% import '_partials/theme-macros.twig' as theme %}
-{% import '_partials/ui-macros.twig' as ui %}
+{%- import '_partials/theme-macros.twig' as theme -%}
+{%- import '_partials/ui-macros.twig' as ui -%}
 
-{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'transparent' %}
-{% set layout = entry.textLayout ?? 'one-column' %}
-{% set svgVariant = entry.svgVariant ?? 1 %}
-{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'default' %}
-{% set stickyTitle = entry.stickyTitle ?? false %}
-{% set vars = theme.getThemeVars(background)|json_decode %}
+{%- set vars = theme.getThemeVars(entry.backgroundColor.value ?? entry.backgroundColor ?? 'white')|json_decode -%}
+{%- set layout = entry.textLayout.value ?? entry.textLayout ?? 'one-column' -%}
+{%- set container = theme.containerClass(entry.containerWidth.value ?? entry.containerWidth ?? null, 'default') -%}
 
-{# Map containerWidth to Tailwind classes #}
-{% if containerWidth == 'narrow' %}
-    {% set containerClass = 'max-w-5xl' %}
-{% elseif containerWidth == 'wide' %}
-    {% set containerClass = 'max-w-[1920px]' %}
-{% elseif containerWidth == 'full' %}
-    {% set containerClass = 'max-w-full' %}
-{% else %}
-    {% set containerClass = 'max-w-7xl' %}
-{% endif %}
-
-<section class="py-20 lg:py-28 relative {{ vars.backgroundClass }}">
-    {# SVG Background Shapes #}
-    {{ ui.svgShapes(svgVariant, vars) }}
-
-    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
-        {% if layout == 'one-column' %}
-            {# One Column Layout #}
-            <div class="max-w-4xl">
-                {% include '_partials/text-content.twig' with {
+<section class="relative section-band {{ vars.backgroundClass }} {{ vars.textColorClass }}">
+    <div class="{{ container }}">
+        {%- if layout == 'two-column' %}
+            <div class="grid items-start gap-8 tablet:grid-cols-[repeat(2,1fr)] tablet:gap-16">
+                <div class="{{ entry.stickyTitle ? 'tablet:sticky tablet:top-[124px]' }}">
+                    {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+                    <h2 class="text-h2 {{ vars.titleColorClass }}">{{ entry.title }}</h2>
+                </div>
+                <div>
+                    {%- if entry.description %}
+                        <div class="prose-plain content-styles text-lead">{{ entry.description }}</div>
+                    {%- endif %}
+                    {%- if entry.text %}
+                        <div class="prose-plain content-styles {{ entry.description ? 'mt-5' }}">{{ entry.text }}</div>
+                    {%- endif %}
+                    {%- if entry.button and entry.button.url %}
+                        <div class="mt-10">{{ ui.buttonPrimary(entry.button, vars.buttonPrimary) }}</div>
+                    {%- endif %}
+                </div>
+            </div>
+        {%- else %}
+            <div class="max-w-[760px]">
+                {%- include '_partials/text-content' with {
                     subtitle: entry.subtitle,
                     title: entry.title,
                     description: entry.description,
                     text: entry.text,
                     button: entry.button,
-                    subtitleBgClass: vars.subtitleBgClass,
-                    titleColorClass: vars.titleColorClass,
-                    textColorClass: vars.textColorClass,
-                    buttonClass: vars.buttonClass,
-                    buttonTextClass: vars.buttonTextClass,
-                    buttonAlign: ''
-                } %}
+                    vars: vars,
+                } only -%}
             </div>
-        {% else %}
-            {# Two Column Layout #}
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                {# Sticky Header Column #}
-                <div class="{{ stickyTitle ? 'lg:sticky lg:top-24' : '' }}">
-                    {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-                    <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} leading-tight">{{ entry.title }}</h2>
-                </div>
-
-                {# Content Column #}
-                <div>
-                    {% if entry.description %}
-                        <div class="text-xl lg:text-2xl {{ vars.textColorClass }} mb-8 content-styles font-bold leading-relaxed">{{ entry.description }}</div>
-                    {% endif %}
-                    {% if entry.text %}
-                        <div class="text-lg lg:text-xl {{ vars.textColorClass }} mb-8 space-y-4 content-styles leading-relaxed">
-                            {{ entry.text }}
-                        </div>
-                    {% endif %}
-                    {{ ui.buttonPrimary(entry.button, vars.buttonClass, vars.buttonTextClass) }}
-                </div>
-            </div>
-        {% endif %}
+        {%- endif %}
     </div>
 </section>

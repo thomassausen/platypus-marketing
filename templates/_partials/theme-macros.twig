@@ -1,170 +1,101 @@
-{#
-Theme Macros for consistent theming across components
+{# =========================================================================
+   Theme Macros
+   Maps the stored backgroundColor values of the content builder blocks to
+   the 2026 palette. The stored values (gradient, blue, orange, …) stay the
+   same so existing content keeps working.
 
-Usage:
-{% import '_partials/theme-macros.twig' as theme %}
-{% set vars = theme.getThemeVars(background) %}
-#}
+   Usage:
+   {% import '_partials/theme-macros.twig' as theme %}
+   {% set vars = theme.getThemeVars(background)|json_decode %}
+   ========================================================================= #}
 
 {% macro getThemeVars(background) %}
-    {% set background = background ?? 'soft' %}
+    {%- set background = background ?? 'white' -%}
 
-    {# Default values for all themes #}
-    {% set vars = {
+    {# Light defaults (white / transparent) #}
+    {%- set vars = {
+        dark: false,
         backgroundClass: '',
-        textColorClass: 'text-gray-600',
-        titleColorClass: 'text-brand-primary',
-        subtitleBgClass: 'bg-brand-primary/10 text-brand-primary',
-        cardBgClass: 'bg-white',
-        cardTextClass: 'text-gray-700',
-        cardTitleClass: 'text-brand-primary',
-        checkmarkClass: 'text-brand-secondary',
-        buttonClass: 'bg-brand-primary hover:bg-brand-secondary',
-        buttonTextClass: 'text-white',
-        buttonBorderClass: 'border-brand-primary',
-        buttonSecondaryClass: 'bg-white text-brand-primary',
-        buttonSecondaryHoverClass: 'hover:bg-brand-secondary hover:text-white hover:border-brand-secondary',
-        svgColor1: 'text-brand-secondary/8',
-        svgColor2: 'text-brand-accent/10',
-        svgColor3: 'text-brand-primary/12',
-        svgColor4: 'text-brand-accent/15'
-    } %}
+        textColorClass: 'text-ink',
+        mutedClass: 'text-ink-muted',
+        titleColorClass: 'text-ink',
+        subtitleBgClass: 'text-navy',
+        highlightClass: 'text-gold-deep',
+        cardBgClass: 'bg-beige',
+        cardTextClass: 'text-ink',
+        cardTitleClass: 'text-ink',
+        checkmarkClass: 'bg-gold',
+        bulletClass: 'before:bg-gold',
+        lineClass: 'border-line',
+        accentBorderClass: 'border-gold',
+        buttonPrimary: 'navy',
+        buttonSecondary: 'outline',
+    } -%}
 
-    {# Gradient background overrides #}
-    {% if background == 'gradient' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-gradient-to-br from-brand-primary to-brand-secondary',
-            textColorClass: 'text-white',
-            titleColorClass: 'text-white',
-            subtitleBgClass: 'bg-white/20 text-white',
-            cardBgClass: 'bg-white/10 backdrop-blur-sm',
-            cardTextClass: 'text-white',
-            cardTitleClass: 'text-white',
-            checkmarkClass: 'text-white',
-            buttonClass: 'bg-white hover:bg-gray-100',
-            buttonTextClass: 'text-brand-primary',
-            buttonBorderClass: 'border-white/30',
-            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
-            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
-            svgColor1: 'text-white/8',
-            svgColor2: 'text-white/10',
-            svgColor3: 'text-white/12',
-            svgColor4: 'text-white/15'
-        }) %}
+    {%- set light = {
+        soft: { backgroundClass: 'bg-beige', cardBgClass: 'bg-white', lineClass: 'border-stone' },
+        white: { backgroundClass: 'bg-white', cardBgClass: 'bg-beige' },
+        accent: { backgroundClass: 'bg-coral-trace', subtitleBgClass: 'text-coral-deep', highlightClass: 'text-coral-deep', cardBgClass: 'bg-white', accentBorderClass: 'border-coral' },
+        orange: { backgroundClass: 'bg-gold', subtitleBgClass: 'text-ink', highlightClass: 'text-navy', mutedClass: 'text-ink/75', cardBgClass: 'bg-gold-light', checkmarkClass: 'bg-navy', bulletClass: 'before:bg-navy', lineClass: 'border-ink/18', accentBorderClass: 'border-navy' },
+        teal: { backgroundClass: 'bg-petrol', subtitleBgClass: 'text-ink', highlightClass: 'text-navy', mutedClass: 'text-ink/75', cardBgClass: 'bg-petrol-trace', checkmarkClass: 'bg-navy', bulletClass: 'before:bg-navy', lineClass: 'border-ink/18', accentBorderClass: 'border-navy' },
+    } -%}
 
-    {# Blue or Orange solid backgrounds #}
-    {% elseif background in ['blue'] %}
-        {% set vars = vars|merge({
-            backgroundClass: background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary',
-            textColorClass: 'text-white',
-            titleColorClass: 'text-white',
-            subtitleBgClass: 'bg-white/20 text-white',
-            cardBgClass: 'bg-white/10 backdrop-blur-sm',
-            cardTextClass: 'text-white',
-            cardTitleClass: 'text-white',
-            checkmarkClass: 'text-white',
-            buttonClass: 'bg-white hover:bg-gray-100',
-            buttonTextClass: 'text-brand-primary',
-            buttonBorderClass: 'border-white/30',
-            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
-            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
-            svgColor1: 'text-white/8',
-            svgColor2: 'text-white/10',
-            svgColor3: 'text-white/12',
-            svgColor4: 'text-white/15'
-        }) %}
+    {%- set darkBase = {
+        dark: true,
+        textColorClass: 'text-white',
+        mutedClass: 'text-ink-light',
+        titleColorClass: 'text-white',
+        subtitleBgClass: 'text-petrol',
+        highlightClass: 'text-gold',
+        cardTextClass: 'text-white',
+        cardTitleClass: 'text-white',
+        checkmarkClass: 'bg-gold',
+        lineClass: 'border-white/18',
+        accentBorderClass: 'border-gold',
+        buttonPrimary: 'gold',
+        buttonSecondary: 'outline-light',
+    } -%}
 
-    {% elseif background in ['orange'] %}
+    {%- set dark = {
+        gradient: { backgroundClass: 'bg-navy-deep', cardBgClass: 'bg-navy' },
+        blue: { backgroundClass: 'bg-navy', cardBgClass: 'bg-navy-deep' },
+        purple: { backgroundClass: 'bg-plum', subtitleBgClass: 'text-plum-light', mutedClass: 'text-plum-trace', cardBgClass: 'bg-plum-deep' },
+    } -%}
 
-        {% set vars = vars|merge({
-            backgroundClass: background == 'blue' ? 'bg-brand-primary' : 'bg-brand-secondary',
-            textColorClass: 'text-gray-800',
-            titleColorClass: 'text-gray-800',
-            subtitleBgClass: 'bg-white/20 text-gray-800',
-            cardBgClass: 'bg-white/10 backdrop-blur-sm',
-            cardTextClass: 'text-gray-800',
-            cardTitleClass: 'text-gray-800',
-            checkmarkClass: 'text-gray-800',
-            buttonClass: 'bg-white hover:bg-brand-primary',
-            buttonTextClass: 'text-brand-primary hover:text-white',
-            buttonBorderClass: 'border-white/30',
-            buttonSecondaryClass: 'bg-white/10 text-gray-800 backdrop-blur-sm',
-            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
-            svgColor1: 'text-white/8',
-            svgColor2: 'text-white/10',
-            svgColor3: 'text-white/12',
-            svgColor4: 'text-white/15'
-        }) %}
+    {%- if light[background] is defined -%}
+        {%- set vars = vars|merge(light[background]) -%}
+    {%- elseif dark[background] is defined -%}
+        {%- set vars = vars|merge(darkBase)|merge(dark[background]) -%}
+    {%- endif -%}
 
-    {# Soft background #}
-    {% elseif background == 'soft' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-background-soft'
-        }) %}
-
-    {# White background #}
-    {% elseif background == 'white' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-white',
-            cardBgClass: 'bg-background-soft'
-        }) %}
-
-    {# Accent background #}
-    {% elseif background == 'accent' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-brand-accent'
-        }) %}
-
-    {# Purple service background #}
-    {% elseif background == 'purple' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-brand-purple',
-            textColorClass: 'text-white',
-            titleColorClass: 'text-white',
-            subtitleBgClass: 'bg-white/20 text-white',
-            cardBgClass: 'bg-white/10 backdrop-blur-sm',
-            cardTextClass: 'text-white',
-            cardTitleClass: 'text-white',
-            checkmarkClass: 'text-white',
-            buttonClass: 'bg-white hover:bg-gray-100',
-            buttonTextClass: 'text-brand-primary',
-            buttonBorderClass: 'border-white/30',
-            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
-            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-primary hover:border-white',
-            svgColor1: 'text-white/8',
-            svgColor2: 'text-white/10',
-            svgColor3: 'text-white/12',
-            svgColor4: 'text-white/15'
-        }) %}
-
-    {# Teal service background #}
-    {% elseif background == 'teal' %}
-        {% set vars = vars|merge({
-            backgroundClass: 'bg-brand-teal',
-            textColorClass: 'text-white',
-            titleColorClass: 'text-white',
-            subtitleBgClass: 'bg-white/20 text-white',
-            cardBgClass: 'bg-white/10 backdrop-blur-sm',
-            cardTextClass: 'text-white',
-            cardTitleClass: 'text-white',
-            checkmarkClass: 'text-white',
-            buttonClass: 'bg-white hover:bg-gray-100',
-            buttonTextClass: 'text-brand-teal',
-            buttonBorderClass: 'border-white/30',
-            buttonSecondaryClass: 'bg-white/10 text-white backdrop-blur-sm',
-            buttonSecondaryHoverClass: 'hover:bg-white hover:text-brand-teal hover:border-white',
-            svgColor1: 'text-white/8',
-            svgColor2: 'text-white/10',
-            svgColor3: 'text-white/12',
-            svgColor4: 'text-white/15'
-        }) %}
-
-    {# Transparent background #}
-    {% elseif background == 'transparent' %}
-        {% set vars = vars|merge({
-            backgroundClass: ''
-        }) %}
-    {% endif %}
+    {# Legacy keys used by older templates #}
+    {%- set vars = vars|merge({
+        buttonClass: vars.buttonPrimary,
+        buttonTextClass: '',
+    }) -%}
 
     {{- vars|json_encode|raw -}}
+{% endmacro %}
+
+{# Container width dropdown → classes (2026 grid: 1200px incl. gutter) #}
+{% macro containerClass(width, fallback) %}
+    {%- set width = width ?? fallback ?? 'default' -%}
+    {%- set map = {
+        narrow: 'container-wrap max-w-[960px]',
+        default: 'container-wrap',
+        wide: 'container-wrap max-w-[1440px]',
+        full: 'container-wrap max-w-none',
+    } -%}
+    {{- map[width] ?? map.default -}}
+{% endmacro %}
+
+{# Service colour (stored as old hex values) → card classes #}
+{% macro serviceColorClass(color) %}
+    {%- set map = {
+        '#5162aa': 'bg-navy text-white',
+        '#f89c48': 'bg-gold text-ink',
+        '#9d7db5': 'bg-plum text-white',
+        '#3f5e5a': 'bg-petrol text-ink',
+    } -%}
+    {{- map[(color.value ?? color ?? '')|lower] ?? 'bg-navy text-white' -}}
 {% endmacro %}

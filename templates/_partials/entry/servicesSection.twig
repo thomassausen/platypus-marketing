@@ -1,133 +1,50 @@
-{#
-Services Section Component for Craft CMS 5
+{# =========================================================================
+   Services
+   Coloured service cards, styled like the 2026 model cards.
+   Fields: subtitle, heading, description, text, services (title, text,
+           color, link), columns, firstFullWidth, backgroundColor,
+           containerWidth
+   ========================================================================= #}
 
-Uses entry fields:
-- title: string (required)
-- subtitle: string (optional)
-- description: string (optional)
-- text: Redactor field (optional)
-- services: Matrix field with service entries
-- backgroundColor: Color field, default: 'soft'
-- svgVariant: number 1-9 or 'none', default: 1
-- columns: number (2, 3, or 4), default: 2
-#}
+{%- import '_partials/theme-macros.twig' as theme -%}
+{%- import '_partials/ui-macros.twig' as ui -%}
 
-{% import '_partials/theme-macros.twig' as theme %}
-{% import '_partials/ui-macros.twig' as ui %}
+{%- set vars = theme.getThemeVars(entry.backgroundColor.value ?? entry.backgroundColor ?? 'white')|json_decode -%}
+{%- set container = theme.containerClass(entry.containerWidth.value ?? entry.containerWidth ?? null, 'default') -%}
+{%- set services = entry.services.all() -%}
+{%- set columns = (entry.columns.value ?? entry.columns ?? 2)|number_format -%}
+{%- set gridClasses = {
+    '2': 'tablet:grid-cols-[repeat(2,1fr)]',
+    '3': 'tablet:grid-cols-[repeat(2,1fr)] desktop:grid-cols-[repeat(3,1fr)]',
+    '4': 'tablet:grid-cols-[repeat(2,1fr)] desktop:grid-cols-[repeat(4,1fr)]',
+} -%}
+{%- set firstFull = (entry.firstFullWidth ?? false) and services|length >= 4 -%}
+{%- set grid = firstFull ? gridClasses['3'] : (gridClasses[columns] ?? gridClasses['2']) -%}
 
-{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'soft' %}
-{% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
-{% set columns = entry.columns.value ?? entry.columns ?? 2 %}
-{% set firstFullWidth = entry.firstFullWidth ?? false %}
-{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
-{% set vars = theme.getThemeVars(background)|json_decode %}
+<section class="relative overflow-hidden section-band {{ vars.backgroundClass }} {{ vars.textColorClass }}">
+    <div class="{{ container }}">
+        {{ ui.sectionHeader(entry.subtitle, entry.heading, entry.description, entry.text, vars, 'left') }}
 
-{# Map containerWidth to Tailwind classes #}
-{% if containerWidth == 'narrow' %}
-    {% set containerClass = 'max-w-5xl' %}
-{% elseif containerWidth == 'wide' %}
-    {% set containerClass = 'max-w-[1920px]' %}
-{% elseif containerWidth == 'full' %}
-    {% set containerClass = 'max-w-full' %}
-{% else %}
-    {% set containerClass = 'max-w-7xl' %}
-{% endif %}
-
-<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
-    {# SVG Background Shapes #}
-    {{ ui.svgShapes(svgVariant, vars) }}
-
-    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
-        <div class="text-center mb-12">
-            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-
-            <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6">
-                {{ entry.heading }}
-            </h2>
-            {% if entry.description %}
-                <div class="text-xl {{ vars.textColorClass }} mt-4 max-w-3xl mx-auto content-styles">
-                    {{ entry.description }}
-                </div>
-            {% endif %}
-            {% if entry.text %}
-                <div class="content-styles max-w-3xl mx-auto text-lg {{ vars.textColorClass }}">
-                    {{ entry.text }}
-                </div>
-            {% endif %}
-        </div>
-
-        {% if columns == 3 %}
-            {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' %}
-        {% elseif columns == 4 %}
-            {% set gridClass = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6' %}
-        {% else %}
-            {% set gridClass = 'grid md:grid-cols-2 gap-8' %}
-        {% endif %}
-
-        {% if firstFullWidth and entry.services|length >= 4 %}
-            {# First service full width #}
-            {% set firstService = entry.services[0] %}
-            <div class="mb-6">
-                <div class="p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ firstService.color }}">
-                    <h3 class="text-2xl lg:text-3xl font-semibold mb-4">{{ firstService.title }}</h3>
-                    {% if firstService.text %}<div class="mb-4 flex-grow content-styles text-lg">{{ firstService.text }}</div>{% endif %}
-                    {% if firstService.link %}
-                        <a
-                            href="{{ firstService.link.value }}"
-                            class="inline-flex items-center text-white hover:text-white/80 transition-colors font-semibold group"
-                        >
-                            {{ firstService.link.label }}
-                            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
-
-            {# Remaining services in 3-column grid #}
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for service in entry.services|slice(1) %}
-                    <div class="p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">
-                        <h3 class="text-2xl font-semibold mb-3">{{ service.title }}</h3>
-                        {% if service.text %}<div class="mb-4 flex-grow content-styles">{{ service.text }}</div>{% endif %}
-                        {% if service.link %}
-                            <a
-                                href="{{ service.link.value }}"
-                                class="inline-flex items-center text-white hover:text-white/80 transition-colors font-semibold group"
-                            >
-                                {{ service.link.label }}
-                                <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
+        {%- if services|length %}
+            <div class="mt-14 grid gap-4 {{ grid }}">
+                {%- for service in services %}
+                    {%- set colors = theme.serviceColorClass(service.color) -%}
+                    {%- set isWide = firstFull and loop.first -%}
+                    {%- set isNavy = 'bg-navy' in colors -%}
+                    <article class="flex flex-col gap-4 p-8 {{ colors }} {{ isWide ? 'col-span-full tablet:p-12' }}">
+                        <h3 class="{{ isWide ? 'text-statement-md' : 'font-display text-[32px] leading-[1.1]' }}">{{ service.title }}</h3>
+                        {%- if service.text %}
+                            <div class="prose-plain content-styles {{ isWide ? 'max-w-[64ch]' : 'text-copy-sm' }}">{{ service.text }}</div>
+                        {%- endif %}
+                        {%- if service.link and service.link.url %}
+                            <a href="{{ service.link.url }}" class="mt-auto inline-flex items-center gap-2 pt-2 text-label leading-[26px] no-underline hover:underline {{ isNavy ? 'text-gold' }}"{% if service.link.target %} target="{{ service.link.target }}"{% endif %}>
+                                {{- service.link.label -}}
+                                {% include '_partials/redesign/icon' with { name: 'arrow', utilities: 'size-4' } only %}
                             </a>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+                        {%- endif %}
+                    </article>
+                {%- endfor %}
             </div>
-        {% else %}
-            {# Regular grid layout #}
-            <div class="{{ gridClass }}">
-                {% if entry.services %}
-                    {% for service in entry.services %}
-                        <div class="p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white flex flex-col rounded-tl-[2.5rem] rounded-br-[2.5rem]" style="background-color: {{ service.color }}">
-                            <h3 class="text-2xl font-semibold mb-3">{{ service.title }}</h3>
-                            {% if service.text %}<div class="mb-4 flex-grow content-styles">{{ service.text }}</div>{% endif %}
-                            {% if service.link %}
-                                <a
-                                    href="{{ service.link.value }}"
-                                    class="inline-flex items-center text-white hover:text-white/80 transition-colors font-semibold group"
-                                >
-                                    {{ service.link.label }}
-                                    <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                </a>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
-        {% endif %}
+        {%- endif %}
     </div>
 </section>

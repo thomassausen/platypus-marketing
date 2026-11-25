@@ -1,98 +1,74 @@
-{#
-UI Macros for reusable UI components
+{# =========================================================================
+   UI Macros
+   Shared pieces of the older content builder blocks, rendered in the 2026
+   design (label, headings, buttons).
 
-Usage:
-{% import '_partials/ui-macros.twig' as ui %}
-{{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-#}
+   Usage:
+   {% import '_partials/ui-macros.twig' as ui %}
+   {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
+   ========================================================================= #}
 
-{# Subtitle Badge #}
-{% macro subtitle(text, bgClass) %}
-    {% if text %}
-        <div class="inline-block mb-6">
-            <span class="px-4 py-2 {{ bgClass }} rounded-full text-sm font-semibold tracking-wide">
-                {{ text }}
-            </span>
+{# Label above a heading #}
+{% macro subtitle(text, colorClass) %}
+    {%- if text -%}
+        <p class="mb-5 text-label {{ colorClass }}">{{ text }}</p>
+    {%- endif -%}
+{% endmacro %}
+
+{# Single link button. variant: navy | gold | outline | outline-light #}
+{% macro buttonPrimary(button, variant) %}
+    {%- if button and button.url -%}
+        {%- include '_partials/redesign/button' with {
+            text: button.label,
+            url: button.url,
+            target: button.target,
+            variant: variant in ['navy', 'gold', 'outline', 'outline-light'] ? variant : 'navy',
+            arrow: true,
+        } only -%}
+    {%- endif -%}
+{% endmacro %}
+
+{% macro buttonSecondary(button, variant) %}
+    {%- if button and button.url -%}
+        {%- include '_partials/redesign/button' with {
+            text: button.label,
+            url: button.url,
+            target: button.target,
+            variant: variant in ['outline', 'outline-light'] ? variant : 'outline',
+        } only -%}
+    {%- endif -%}
+{% endmacro %}
+
+{# Buttons matrix (primary / secondary) #}
+{% macro buttonGroup(buttons, vars, alignment) %}
+    {%- set items = buttons.all() ?? buttons ?? [] -%}
+    {%- if items|length -%}
+        <div class="flex flex-wrap gap-3 {{ alignment == 'center' ? 'justify-center' }}">
+            {%- include '_partials/redesign/buttons' with {
+                buttons: items,
+                primary: vars.buttonPrimary ?? 'navy',
+                secondary: vars.buttonSecondary ?? 'outline',
+            } only -%}
         </div>
-    {% endif %}
+    {%- endif -%}
 {% endmacro %}
 
-{# Primary Button #}
-{% macro buttonPrimary(button, buttonClass, buttonTextClass) %}
-    {% if button %}
-        <a href="{{ button.value }}" class="group relative {{ buttonClass }} {{ buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
-            <span class="relative z-10">{{ button.label }}</span>
-            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-        </a>
-    {% endif %}
-{% endmacro %}
+{# The decorative blob shapes are not part of the 2026 design #}
+{% macro svgShapes(svgVariant, vars) %}{% endmacro %}
 
-{# Secondary Button #}
-{% macro buttonSecondary(button, secondaryClass, hoverClass, borderClass) %}
-    {% if button %}
-        <a href="{{ button.value }}" class="group {{ secondaryClass }} border-2 {{ borderClass }} px-8 py-4 text-lg rounded-full {{ hoverClass }} hover:scale-105 hover:shadow-lg active:scale-95 transition-all duration-200 text-center font-semibold">
-            <span class="relative z-10">{{ button.label }}</span>
-            <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-        </a>
-    {% endif %}
-{% endmacro %}
-
-{# Button Group with Primary/Secondary styles #}
-{% macro buttonGroup(buttons, vars) %}
-    {% if buttons %}
-        <div class="flex justify-center flex-col sm:flex-row gap-4">
-            {% for item in buttons %}
-                {% if item.buttonStyle == 'primary' %}
-                    <a href="{{ item.button.value }}" class="group relative {{ vars.buttonClass }} {{ vars.buttonTextClass }} px-8 py-4 text-lg rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
-                        <span class="relative z-10">{{ item.button.label }}</span>
-                        <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                    </a>
-                {% elseif item.buttonStyle == 'secondary' %}
-                    <a href="{{ item.button.value }}" class="group {{ vars.buttonSecondaryClass }} border-2 {{ vars.buttonBorderClass }} px-8 py-4 text-lg rounded-full {{ vars.buttonSecondaryHoverClass }} hover:scale-105 hover:shadow-lg active:scale-95 transition-all duration-200 text-center font-semibold">
-                        <span class="relative z-10">{{ item.button.label }}</span>
-                        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
-{% endmacro %}
-
-{# SVG Background Shapes Include #}
-{% macro svgShapes(svgVariant, vars) %}
-    {% if svgVariant != 'none' %}
-        {% include '_partials/svg-shapes.twig' with {
-            variant: svgVariant,
-            color1: vars.svgColor1,
-            color2: vars.svgColor2,
-            color3: vars.svgColor3,
-            color4: vars.svgColor4
-        } %}
-    {% endif %}
-{% endmacro %}
-
-{# Section Header (Subtitle + Title + Description/Text) #}
+{# Section header: label, heading, lead, text #}
 {% macro sectionHeader(subtitle, title, description, text, vars, alignment) %}
-    {% set alignment = alignment ?? 'left' %}
-    {% set alignmentClass = alignment == 'center' ? 'text-center' : '' %}
-
-    <div class="{{ alignmentClass }}">
+    {%- set centered = (alignment ?? 'left') == 'center' -%}
+    <div class="{{ centered ? 'mx-auto max-w-[64ch] text-center' : 'max-w-[64ch]' }}">
         {{ _self.subtitle(subtitle, vars.subtitleBgClass) }}
-
-        <h2 class="text-3xl lg:text-5xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-            {{ title }}
-        </h2>
-
-        {% if description %}
-            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed mb-6">
-                {{ description }}
-            </div>
-        {% endif %}
-
-        {% if text %}
-            <div class="text-lg lg:text-xl {{ vars.textColorClass }} leading-relaxed space-y-4 content-styles">
-                {{ text }}
-            </div>
-        {% endif %}
+        {%- if title %}
+            <h2 class="text-h2 {{ vars.titleColorClass }}">{{ title }}</h2>
+        {%- endif %}
+        {%- if description %}
+            <div class="prose-plain content-styles mt-5 text-lead {{ vars.textColorClass }}">{{ description }}</div>
+        {%- endif %}
+        {%- if text %}
+            <div class="prose-plain content-styles mt-5 {{ vars.textColorClass }}">{{ text }}</div>
+        {%- endif %}
     </div>
 {% endmacro %}

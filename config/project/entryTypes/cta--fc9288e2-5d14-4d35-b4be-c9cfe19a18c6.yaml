@@ -126,38 +126,6 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-12-26T11:00:00+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 6c9288d8-5d14-4d35-b4be-c9cfe19a18bc # Hintergrundfarbe
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: fc9288e9-5d14-4d35-b4be-c9cfe19a18cd
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-12-26T11:00:00+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: fc9288ea-5d14-4d35-b4be-c9cfe19a18ce
-            userCondition: null
-            warning: null
-            width: 100
-          -
             dateAdded: '2025-12-26T12:24:23+00:00'
             editCondition: null
             elementCondition: null

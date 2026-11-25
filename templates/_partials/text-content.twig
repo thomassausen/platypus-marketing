@@ -1,37 +1,21 @@
-{# Text Content Partial - DRY component for subtitle, title, description, text, button #}
+{# =========================================================================
+   Text content
+   Label, heading, lead, rich text and button in the 2026 design.
+   Props: subtitle, title, description, text, button, vars (theme vars)
+   ========================================================================= #}
 
-{# Subtitle #}
-{% if subtitle %}
-    <div class="inline-block mb-4">
-        <span class="px-4 py-2 {{ subtitleBgClass }} rounded-full text-sm font-semibold tracking-wide">
-            {{ subtitle }}
-        </span>
-    </div>
-{% endif %}
+{%- import '_partials/ui-macros.twig' as ui -%}
 
-{# Title #}
-{% if title %}
-    <h2 class="text-3xl lg:text-5xl font-bold {{ titleColorClass }} mb-6 leading-tight">{{ title }}</h2>
-{% endif %}
-
-{# Description #}
-{% if description %}
-    <div class="text-xl lg:text-2xl {{ textColorClass }} mb-8 leading-relaxed">{{ description }}</div>
-{% endif %}
-
-{# Text Content #}
-{% if text %}
-    <div class="text-lg lg:text-xl {{ textColorClass }} mb-8 space-y-4 content-styles leading-relaxed">
-        {{ text }}
-    </div>
-{% endif %}
-
-{# Button #}
-{% if button %}
-    <div class="flex {{ buttonAlign|default('') }} space-x-4">
-        <a href="{{ button.value }}" class="group relative {{ buttonClass|default('bg-brand-primary hover:bg-brand-secondary') }} {{ buttonTextClass|default('text-white') }} px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 text-center font-semibold">
-            <span class="relative z-10">{{ button.label }}</span>
-            <span class="relative z-10 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-        </a>
-    </div>
-{% endif %}
+{{ ui.subtitle(subtitle ?? null, vars.subtitleBgClass) }}
+{%- if title ?? false %}
+    <h2 class="text-h2 {{ vars.titleColorClass }}">{{ title }}</h2>
+{%- endif %}
+{%- if description ?? false %}
+    <div class="prose-plain content-styles mt-5 text-lead {{ vars.textColorClass }}">{{ description }}</div>
+{%- endif %}
+{%- if text ?? false %}
+    <div class="prose-plain content-styles mt-5 {{ vars.textColorClass }}">{{ text }}</div>
+{%- endif %}
+{%- if (button ?? null) and button.url %}
+    <div class="mt-10">{{ ui.buttonPrimary(button, vars.buttonPrimary) }}</div>
+{%- endif %}

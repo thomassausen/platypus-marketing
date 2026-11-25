@@ -109,22 +109,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-12-25T20:04:20+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 11f840b0-e02b-470d-8a12-11e80446b819 # SVG Variante
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: ffff783c-0b64-4ba0-91d9-cae5d5b59584
-            userCondition: null
-            warning: null
-            width: 100
-          -
             dateAdded: '2025-12-25T20:06:22+00:00'
             editCondition: null
             elementCondition: null
@@ -137,22 +121,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: bb6aba19-e15f-42b8-bcc3-4db046001ff4
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-12-25T20:20:14+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: acd5ae4b-736e-42bb-b318-c52282d61a09 # Bild-Rundungen
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 8882c62d-e4d3-432f-bdf0-9454f3b07fe0
             userCondition: null
             warning: null
             width: 100
