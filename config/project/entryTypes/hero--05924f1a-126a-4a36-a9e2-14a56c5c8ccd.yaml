@@ -132,6 +132,22 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: facts
+            instructions: 'Drei Einträge: Titel = Stärke, Text = „statt …“.'
+            label: Vergleichszeile
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6a7db574-9ecb-47a3-adcb-2100c0f7c928
+            userCondition: null
+            warning: null
+            width: 100
         name: Inhalt
         uid: 1aef1eec-351d-482c-a8aa-3195c393ccb2
         userCondition: null

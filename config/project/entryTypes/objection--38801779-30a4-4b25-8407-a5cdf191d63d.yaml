@@ -1,0 +1,154 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Einwand als Zitat mit Gegenüberstellung, auf Pflaume'
+fieldLayouts:
+  f3a2f1f3-7b4b-42a2-86df-9049504feee2:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'Optional, ohne #. Damit lässt sich der Abschnitt per Link ansteuern (z. B. /seite#methode).'
+            label: Anker-ID
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0c5793e3-9ad6-4749-ac89-4b5ba1e9297c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf9386d5-963b-4756-937d-69ca902362a8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Text zwischen *Sternchen* wird farbig hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 88087ef7-128c-45a8-bc1b-04f48dc9661b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: description
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d81beda9-6c43-46e9-aa05-0723dbe3a664
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: leftLabel
+            instructions: null
+            label: 'Box links: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: feef5617-d296-4575-8f5a-00b4be55f7e9
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: rightLabel
+            instructions: null
+            label: 'Box rechts: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: edaa667b-46ef-44bb-814b-d45c2585ea76
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: leftText
+            instructions: null
+            label: 'Box links: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b6832abe-b39b-443f-9e37-f37601148f39
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: rightText
+            instructions: null
+            label: 'Box rechts: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f9f086e-31c9-4d5e-9f6a-6c071bfd5126
+            userCondition: null
+            warning: null
+            width: 50
+        name: Inhalt
+        uid: 72bfbd24-cc52-42d5-96c3-664e72e0a644
+        userCondition: null
+    thumbFieldKey: null
+handle: objection
+hasTitleField: false
+icon: comment
+name: Einwand
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,150 @@
+{# =========================================================================
+   Method
+   Method section on beige: header, three-circle Venn graphic with
+   editable labels, three lists, key figures, two-column text, sources
+   and a closing statement.
+   Fields: anchor, subtitle, heading, description, vennTitle,
+           circleOne/Two/ThreeLabel, centerLabel, overlapOne/Two/Three,
+           circleOne/Two/ThreeTitle, circleOne/Two/ThreeItems, resultText,
+           facts, detailHeading, detailText, detailTextRight, sources,
+           closingStatement (*…* = gold), buttons
+   ========================================================================= #}
+
+{%- set facts = (entry.facts ?? [])|filter(row => row.title ?? false) -%}
+{%- set sources = (entry.sources ?? [])|filter(row => row.text ?? false) -%}
+{%- set factColors = ['border-coral', 'border-petrol-deep', 'border-gold'] -%}
+
+{%- set lists = [
+    { title: entry.circleOneTitle, items: (entry.circleOneItems ?? [])|filter(row => row.text ?? false), border: 'border-[#E2CEA7]', text: 'text-gold-deep', area: '[grid-area:links]' },
+    { title: entry.circleTwoTitle, items: (entry.circleTwoItems ?? [])|filter(row => row.text ?? false), border: 'border-[#C2B0B6]', text: 'text-plum', area: '[grid-area:rechts]' },
+    { title: entry.circleThreeTitle, items: (entry.circleThreeItems ?? [])|filter(row => row.text ?? false), border: 'border-[#969DB6]', text: 'text-navy', area: '[grid-area:unten] self-start' },
+] -%}
+
+{# Circle labels: x, midpoint of the baselines, line height and font size as in the original graphic #}
+{%- set labels = [
+    { text: entry.circleOneLabel, x: 514, y: 445, lineHeight: 20, size: 17.6 },
+    { text: entry.circleTwoLabel, x: 754, y: 448.5, lineHeight: 21, size: 17.6 },
+    { text: entry.circleThreeLabel, x: 631, y: 630.5, lineHeight: 21, size: 17.6 },
+    { text: entry.centerLabel, x: 630.5, y: 487, lineHeight: 16, size: 12.3 },
+] -%}
+{%- set overlaps = [
+    { text: entry.overlapOne, x: 628, y: 400 },
+    { text: entry.overlapTwo, x: 549, y: 546 },
+    { text: entry.overlapThree, x: 712, y: 546 },
+] -%}
+{%- set ariaParts = [
+    entry.circleOneLabel, entry.circleTwoLabel, entry.circleThreeLabel,
+]|map(label => (label ?? '')|replace({"-\n": '', "\n": ' '})|trim)|filter(label => label) -%}
+{%- set hasGraphic = ariaParts|length > 0 -%}
+
+<section{{ attr({ id: entry.anchor ?: false }) }} class="relative overflow-hidden scroll-mt-24 section-band bg-beige">
+    <div class="container-wrap">
+        {%- if entry.subtitle %}
+            <p class="text-label text-navy">{{ entry.subtitle }}</p>
+        {%- endif %}
+        <h2 class="mt-4 text-[clamp(36px,4.6vw,52px)] leading-[1.1] font-light tracking-[-.02em] text-coral">{{ entry.heading }}</h2>
+        {%- if entry.description %}
+            <div class="prose-plain mt-6 max-w-[64ch] text-lead">{{ entry.description }}</div>
+        {%- endif %}
+
+        {%- if hasGraphic or lists|filter(list => list.items|length)|length %}
+            <div class="mt-14 grid items-center gap-x-8 gap-y-6 [grid-template-areas:'grafik'_'links'_'rechts'_'unten'_'ergebnis'] phablet:grid-cols-[repeat(2,1fr)] phablet:[grid-template-areas:'grafik_grafik'_'links_rechts'_'unten_ergebnis'] desktop:grid-cols-[1fr_minmax(320px,520px)_1fr] desktop:[grid-template-areas:'links_grafik_rechts'_'unten_grafik_ergebnis']">
+                {%- if hasGraphic %}
+                    <figure class="w-full max-w-[560px] justify-self-center [grid-area:grafik] desktop:max-w-none">
+                        {%- if entry.vennTitle %}
+                            <figcaption class="font-display text-[clamp(28px,3vw,36px)] leading-[1.1]">{{ entry.vennTitle }}</figcaption>
+                        {%- endif %}
+                        <svg viewBox="372 300 516 450" role="img" aria-label="Drei sich überschneidende Kreise: {{ ariaParts|join(', ') }}." class="mt-3 h-auto w-full">
+                            <circle cx="528" cy="463" r="149" fill="#D3A95C" opacity=".5"/>
+                            <circle cx="630.5" cy="593.5" r="149.5" fill="#293D7C" opacity=".5"/>
+                            <circle cx="731.5" cy="458.5" r="149.5" fill="#8B667C" opacity=".5"/>
+                            <g fill="#fff" text-anchor="middle" font-family="'Open Sans',sans-serif">
+                                {%- for label in labels %}
+                                    {%- set lines = (label.text ?? '')|split("\n")|map(line => line|trim)|filter(line => line) -%}
+                                    {%- for line in lines %}
+                                        <text x="{{ label.x }}" y="{{ label.y - (lines|length - 1) * label.lineHeight / 2 + loop.index0 * label.lineHeight }}" font-size="{{ label.size }}">{{ line }}</text>
+                                    {%- endfor %}
+                                {%- endfor %}
+                            </g>
+                            <g fill="#fff" text-anchor="middle" font-family="Inter,sans-serif" font-weight="300" font-size="13">
+                                {%- for overlap in overlaps|filter(overlap => overlap.text) %}
+                                    <text x="{{ overlap.x }}" y="{{ overlap.y }}">{{ overlap.text }}</text>
+                                {%- endfor %}
+                            </g>
+                        </svg>
+                    </figure>
+                {%- endif %}
+
+                {%- for list in lists|filter(list => list.items|length) %}
+                    <div class="border-l-4 bg-white/60 px-[22px] py-5 {{ list.border }} {{ list.area }}">
+                        {%- if list.title %}
+                            <p class="text-label-sm {{ list.text }}">{{ list.title }}</p>
+                        {%- endif %}
+                        <ul class="mt-2.5 font-open text-[13px] leading-5">
+                            {%- for item in list.items %}
+                                <li class="py-[3px]">{{ item.text }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                {%- endfor %}
+
+                {%- if entry.resultText %}
+                    <p class="flex items-center gap-4 self-end font-open text-[19px] leading-[26px] [grid-area:ergebnis]">
+                        <svg viewBox="880 679 52 31" class="h-[31px] w-[52px] flex-none" aria-hidden="true" focusable="false"><path d="M880 690h28v-11l24 15.5-24 15.5v-11h-28z" fill="#18203D"/></svg>
+                        <span>{{ entry.resultText }}</span>
+                    </p>
+                {%- endif %}
+            </div>
+        {%- endif %}
+
+        {%- if facts|length %}
+            <div class="mt-20 grid gap-4 tablet:grid-cols-[repeat(3,1fr)]">
+                {%- for fact in facts %}
+                    <div class="border-t-[6px] bg-white p-7 {{ factColors[loop.index0 % 3] }}">
+                        <div class="text-[60px] leading-[60px] font-light tracking-[-.03em]">{{ fact.title }}</div>
+                        {%- if fact.text ?? false %}
+                            <p class="mt-3 text-copy-sm text-ink-muted">{{ fact.text }}</p>
+                        {%- endif %}
+                    </div>
+                {%- endfor %}
+            </div>
+        {%- endif %}
+
+        {%- if entry.detailHeading or entry.detailText or entry.detailTextRight or sources|length %}
+            <div class="mt-16 grid gap-12 tablet:grid-cols-[repeat(2,1fr)]">
+                <div>
+                    {%- if entry.detailHeading %}
+                        <h3 class="text-h3">{{ entry.detailHeading }}</h3>
+                    {%- endif %}
+                    {%- if entry.detailText %}
+                        <div class="prose-plain mt-5 text-ink-muted">{{ entry.detailText }}</div>
+                    {%- endif %}
+                </div>
+                <div>
+                    {%- if entry.detailTextRight %}
+                        <div class="prose-plain">{{ entry.detailTextRight }}</div>
+                    {%- endif %}
+                    {%- if sources|length %}
+                        <ul class="mt-5 flex flex-wrap gap-2" aria-label="Auswahl der Quellen">
+                            {%- for source in sources %}
+                                <li class="inline-flex h-[30px] items-center rounded-[3px] border border-stone bg-white px-3 text-[13px]">{{ source.text }}</li>
+                            {%- endfor %}
+                        </ul>
+                    {%- endif %}
+                </div>
+            </div>
+        {%- endif %}
+
+        {%- set buttons = entry.buttons.all() -%}
+        {%- if entry.closingStatement or buttons|length %}
+            <div class="mt-20 flex flex-wrap items-center justify-between gap-8 border-t border-stone pt-10">
+                {%- if entry.closingStatement %}
+                    <p class="text-quote">
+                        {%- include '_partials/redesign/highlight' with { text: entry.closingStatement, utilities: 'text-gold-deep' } only -%}
+                    </p>
+                {%- endif %}
+                {%- include '_partials/redesign/buttons' with { buttons: buttons, primary: 'navy', secondary: 'outline' } only -%}
+            </div>
+        {%- endif %}
+    </div>
+</section>

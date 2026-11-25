@@ -1,0 +1,122 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Bis zu drei farbige Modell-Karten'
+fieldLayouts:
+  2baa36ca-b8c2-499e-86f7-ab574683e649:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'Optional, ohne #. Damit lässt sich der Abschnitt per Link ansteuern (z. B. /seite#methode).'
+            label: Anker-ID
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4d16011c-ea35-4001-9fdd-887ebb83cfaa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 68e309cb-b300-459b-b1d4-8dda67fcdc3a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Text zwischen *Sternchen* wird farbig hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f6fa3000-573c-46fd-bd89-41e61146bf5a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: baseTag
+            instructions: null
+            label: 'Basis: Tag'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6a49e8d9-d56d-437d-9e23-ee14ef2cd0ab
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: baseText
+            instructions: null
+            label: 'Basis: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a4bb6247-6156-4c1e-babe-6fe8d2e0d24c
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a56179a4-1ab7-467c-9b7b-64391f1333ce # Modell-Karten
+            handle: null
+            instructions: 'Farben nach Reihenfolge: Stein, Petrol, Navy.'
+            label: Modelle
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d4a1e318-98b4-470c-8cbb-8a49e0accc30
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: e32616c4-fbd2-417e-9450-a65bb1143690
+        userCondition: null
+    thumbFieldKey: null
+handle: models
+hasTitleField: false
+icon: layer-group
+name: Modelle
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

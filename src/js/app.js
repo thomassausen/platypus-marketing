@@ -7,6 +7,33 @@ if(import.meta.hot) {
     });
 }
 
+// Mobile navigation toggle
+const navToggle = document.querySelector('[data-nav-toggle]');
+const navigation = document.querySelector('[data-nav]');
+
+if (navToggle && navigation) {
+    const setOpen = (open) => {
+        navigation.classList.toggle('hidden', !open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    };
+
+    navToggle.addEventListener('click', () => {
+        setOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navigation.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            navToggle.focus();
+        }
+    });
+}
+
 // Intersection Observer for Fade-in Animations
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {

@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Nummerierte Kacheln auf Petrol'
+fieldLayouts:
+  7dff5fba-93bd-45bf-9efe-8550b7fa0b97:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'Optional, ohne #. Damit lässt sich der Abschnitt per Link ansteuern (z. B. /seite#methode).'
+            label: Anker-ID
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ddf65397-c346-4ddd-bb89-c58d122fe345
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bb03bb9e-fb45-4339-8df9-b1be165cf60e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Text zwischen *Sternchen* wird farbig hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9490d763-89fb-496a-90ab-167d70809567
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: description
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e509ed21-bfb7-42b7-803a-8ce36aa30f69
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: items
+            instructions: 'Werden automatisch nummeriert.'
+            label: Kacheln
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 897c4e6e-4566-4e7a-b037-43ea6cbab0d8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: d3ac3da8-5bab-44fa-a46c-cff4c1b802c6
+        userCondition: null
+    thumbFieldKey: null
+handle: deliverables
+hasTitleField: false
+icon: table-cells
+name: Ergebnis-Raster
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

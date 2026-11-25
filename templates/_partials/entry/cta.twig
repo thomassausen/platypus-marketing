@@ -1,65 +1,48 @@
-{#
-CTA Section Component for Craft CMS 5
+{# =========================================================================
+   CTA
+   Gold closing call to action of the 2026 design.
+   Fields: anchor, subtitle (label), title (statement), description (lead),
+           text, buttons (primary = navy, secondary = outline).
+   Phone number comes from the footer single.
+   The older fields backgroundColor, svgVariant, textAlignment and
+   containerWidth are no longer used.
+   ========================================================================= #}
 
-Uses entry fields:
-- title: string (required)
-- description: string (optional)
-- text: Redactor field (optional)
-- buttons: Matrix field with button entries (button field with label/value, buttonStyle: 'primary'|'secondary')
-- backgroundColor: Color field, default: 'gradient'
-- svgVariant: number 1-9 or 'none', default: 1
-- textAlignment: Dropdown field, options: 'center'|'left', default: 'left'
-#}
+{%- set footer = craft.entries.section('footer').one() -%}
+{%- set phone = footer.contactPhone ?? null -%}
+{%- set buttons = entry.buttons.all() -%}
 
-{% import '_partials/theme-macros.twig' as theme %}
-{% import '_partials/ui-macros.twig' as ui %}
+<section{{ attr({ id: entry.anchor ?: false }) }} class="relative overflow-hidden scroll-mt-24 section-band bg-gold text-ink">
+    {%- include '_partials/redesign/platypus-mark' with {
+        utilities: 'pointer-events-none absolute -right-[4%] -bottom-[18px] w-[min(46vw,560px)] text-gold-deep opacity-35',
+    } only -%}
 
-{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'gradient' %}
-{% set svgVariant = entry.svgVariant.value ?? entry.svgVariant ?? 1 %}
-{% set textAlignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' %}
-{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? 'wide' %}
-{% set vars = theme.getThemeVars(background)|json_decode %}
+    <div class="container-wrap relative z-[1]">
+        {%- if entry.subtitle %}
+            <p class="text-label">{{ entry.subtitle }}</p>
+        {%- endif %}
 
-{# Map containerWidth to Tailwind classes #}
-{% if containerWidth == 'narrow' %}
-    {% set containerClass = 'max-w-5xl' %}
-{% elseif containerWidth == 'wide' %}
-    {% set containerClass = 'max-w-[1920px]' %}
-{% elseif containerWidth == 'full' %}
-    {% set containerClass = 'max-w-full' %}
-{% else %}
-    {% set containerClass = 'max-w-7xl' %}
-{% endif %}
+        <h2 class="mt-5 max-w-[20ch] text-statement-md">{{ entry.title }}</h2>
 
-{# CTA-Box ist immer weiß, daher immer Standard-Button-Styles verwenden #}
-{% set ctaButtonVars = {
-    buttonClass: 'bg-brand-primary hover:bg-brand-secondary',
-    buttonTextClass: 'text-white',
-    buttonBorderClass: 'border-brand-primary',
-    buttonSecondaryClass: 'bg-white text-brand-primary',
-    buttonSecondaryHoverClass: 'hover:bg-brand-secondary hover:text-white hover:border-brand-secondary'
-} %}
+        {%- if entry.description %}
+            <div class="prose-plain mt-6 max-w-[64ch] text-lead">{{ entry.description }}</div>
+        {%- endif %}
 
-<section class="py-20 lg:py-28 relative overflow-hidden {{ vars.backgroundClass }}">
-    {# SVG Background Shapes #}
-    {{ ui.svgShapes(svgVariant, vars) }}
+        {%- if entry.text %}
+            <div class="prose-plain mt-4 max-w-[64ch]">{{ entry.text }}</div>
+        {%- endif %}
 
-    <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-10">
-        <div class="rounded-tl-[2.5rem] rounded-br-[2.5rem] p-12 shadow-2xl bg-white {{ textAlignment == 'center' ? 'text-center' : '' }}">
-            <h2 class="text-3xl lg:text-5xl font-bold text-brand-primary mb-6">
-                {{ entry.title }}
-            </h2>
-            {% if entry.description %}
-                <div class="text-xl font-bold text-gray-600 mb-8 content-styles {{ textAlignment == 'center' ? 'max-w-2xl mx-auto' : '' }}">
-                    {{ entry.description }}
-                </div>
-            {% endif %}
-            {% if entry.text %}
-                <div class="text-lg text-gray-600 mb-8 content-styles {{ textAlignment == 'center' ? 'max-w-2xl mx-auto' : '' }}">
-                    {{ entry.text }}
-                </div>
-            {% endif %}
-            {{ ui.buttonGroup(entry.buttons, ctaButtonVars) }}
-        </div>
+        {%- if buttons|length or (phone and phone.url) %}
+            <div class="mt-10 flex flex-wrap items-center gap-3">
+                {%- include '_partials/redesign/buttons' with {
+                    buttons: buttons,
+                    primary: 'navy',
+                    secondary: 'outline',
+                } only -%}
+                {%- if phone and phone.url %}
+                    <a href="{{ phone.url }}" class="px-3 text-label leading-[26px] no-underline hover:underline">Oder anrufen: {{ phone.label }}</a>
+                {%- endif %}
+            </div>
+        {%- endif %}
     </div>
 </section>

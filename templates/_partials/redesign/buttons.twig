@@ -1,0 +1,21 @@
+{# =========================================================================
+   Buttons
+   Renders the entries of a "buttons" Matrix field with the 2026 button.
+   Props: buttons (array of button entries), primary / secondary (variant
+          per buttonStyle), arrow (arrow on primary buttons), utilities
+   ========================================================================= #}
+
+{%- for item in buttons ?? [] -%}
+    {%- set link = item.button ?? null -%}
+    {%- if link and link.url -%}
+        {%- set isPrimary = (item.buttonStyle.value ?? item.buttonStyle) != 'secondary' -%}
+        {%- include '_partials/redesign/button' with {
+            text: link.label,
+            url: link.url,
+            target: link.target ?? null,
+            variant: isPrimary ? (primary ?? 'navy') : (secondary ?? 'outline'),
+            arrow: isPrimary and (arrow ?? true),
+            utilities: utilities ?? null,
+        } only -%}
+    {%- endif -%}
+{%- endfor -%}

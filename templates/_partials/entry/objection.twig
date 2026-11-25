@@ -1,0 +1,41 @@
+{# =========================================================================
+   Objection
+   Objection as quote with two contrasting boxes, on plum.
+   Fields: anchor, subtitle, heading, description, leftLabel, leftText,
+           rightLabel, rightText
+   ========================================================================= #}
+
+{%- set hasBoxes = entry.leftText or entry.rightText -%}
+
+<section{{ attr({ id: entry.anchor ?: false }) }} class="relative overflow-hidden scroll-mt-24 section-band bg-plum text-white">
+    <div class="container-wrap grid items-center gap-8 tablet:grid-cols-[repeat(2,1fr)] tablet:gap-16">
+        <div>
+            {%- if entry.subtitle %}
+                <p class="text-label text-plum-light">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="mt-5 text-quote tracking-[-.015em] text-white">
+                {%- include '_partials/redesign/highlight' with { text: entry.heading, utilities: 'text-gold' } only -%}
+            </h2>
+            {%- if entry.description %}
+                <div class="prose-plain mt-6 text-plum-trace">{{ entry.description }}</div>
+            {%- endif %}
+        </div>
+
+        {%- if hasBoxes %}
+            <div class="grid gap-[2px] bg-plum phablet:grid-cols-[repeat(2,1fr)]">
+                <div class="bg-plum-deep p-7">
+                    {%- if entry.leftLabel %}
+                        <p class="text-label-sm text-plum-light">{{ entry.leftLabel }}</p>
+                    {%- endif %}
+                    <p class="mt-3">{{ entry.leftText|nl2br }}</p>
+                </div>
+                <div class="bg-white p-7 text-ink">
+                    {%- if entry.rightLabel %}
+                        <p class="text-label-sm text-plum">{{ entry.rightLabel }}</p>
+                    {%- endif %}
+                    <p class="mt-3">{{ entry.rightText|nl2br }}</p>
+                </div>
+            </div>
+        {%- endif %}
+    </div>
+</section>

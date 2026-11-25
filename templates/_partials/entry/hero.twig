@@ -1,224 +1,57 @@
-{#
-HeroSection Component
+{# =========================================================================
+   Hero
+   Navy statement hero of the 2026 design.
+   Fields: subtitle (label), heading (*…* = gold), text, buttons
+           (primary = gold, secondary = outline), facts (table: title/text).
+   The older fields heroVariant, backgroundColor, svgVariant, image,
+   floatingCard and containerWidth are no longer used.
+   ========================================================================= #}
 
-Parameters:
-- title: string (required)
-- subtitle: string (required)
-- variant: string (optional) - 'default' (default), 'animated'
-- backgroundColor: string (optional) - 'gradient', 'soft', 'white', 'accent', 'blue', 'orange', 'transparent' (default: 'gradient')
-- svgVariant: number 1-9 or 'none' (optional) - default: 1
-- badge: string (optional) - Small badge text above title
-- buttons: array (optional) - Array of button objects {text, url, style: 'primary'|'secondary'}
-- image: string (optional) - Image URL for animated variant
-- imageAlt: string (optional) - Image alt text
-- floatingCard: object (optional) - {icon, title, subtitle} for animated variant
-#}
+{%- set facts = (entry.facts ?? [])|filter(row => row.title ?? false) -%}
 
-{% import '_partials/theme-macros.twig' as theme %}
-{% import '_partials/ui-macros.twig' as ui %}
+<section class="relative overflow-hidden scroll-mt-24 bg-navy-deep pt-20 pb-[72px] text-white tablet:pt-[120px] tablet:pb-[104px]">
+    {%- include '_partials/redesign/platypus-mark' with {
+        utilities: 'pointer-events-none absolute -right-[4%] -bottom-5 w-[90vw] text-petrol opacity-55 tablet:top-24 tablet:bottom-auto tablet:w-[min(52vw,680px)] tablet:opacity-20',
+    } only -%}
 
-{% set variant = entry.heroVariant ?? 'default' %}
-{% set background = entry.backgroundColor.value ?? entry.backgroundColor ?? 'gradient' %}
-{% set svgVariant = entry.svgVariant ?? 1 %}
-{% set image = entry.image.one() ?? null %}
-{% set containerWidth = entry.containerWidth.value ?? entry.containerWidth ?? (variant == 'large' ? 'wide' : 'default') %}
-{% set vars = theme.getThemeVars(background)|json_decode %}
+    <div class="container-wrap relative z-[1]">
+        {%- if entry.subtitle %}
+            <p class="text-label text-petrol">{{ entry.subtitle }}</p>
+        {%- endif %}
 
-{# Map containerWidth to Tailwind classes #}
-{% if containerWidth == 'narrow' %}
-    {% set containerClass = 'max-w-5xl' %}
-{% elseif containerWidth == 'wide' %}
-    {% set containerClass = 'max-w-[1920px]' %}
-{% elseif containerWidth == 'full' %}
-    {% set containerClass = 'max-w-full' %}
-{% else %}
-    {% set containerClass = 'max-w-7xl' %}
-{% endif %}
+        <h1 class="mt-7 max-w-[15ch] text-statement">
+            {%- include '_partials/redesign/highlight' with { text: entry.heading, utilities: 'text-gold' } only -%}
+        </h1>
 
-{# Image transform settings #}
-{% set imageWidth = 1200 %}
-{% set ratio = 4/3 %}
-{% set imageHeightPx = (imageWidth / ratio)|round %}
-
-{% set transform = {
-    format: 'webp',
-    quality: 85,
-    width: imageWidth,
-    height: imageHeightPx,
-    mode: 'crop'
-} %}
-
-{# Process heading to highlight text between asterisks - just pass the original for now #}
-{% set processedHeading = entry.heading %}
-
-{% if variant == 'default' %}
-    <section class="pt-36 lg:pt-40 pb-24 lg:pb-28 relative overflow-hidden {{ vars.backgroundClass }}" style="transform: translate3d(0, 0, 0);">
-        {# SVG Background Shapes #}
-        {{ ui.svgShapes(svgVariant, vars) }}
-
-        <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0">
-            {{ ui.subtitle(entry.subtitle, vars.subtitleBgClass) }}
-
-            <h1 class="text-5xl lg:text-7xl font-bold {{ vars.titleColorClass }} mb-6 leading-tight">
-                {% autoescape false %}
-                {% set parts = processedHeading | split('*') %}
-                {% for i, part in parts %}
-                    {% if i % 2 == 1 %}<span class="text-brand-secondary">{{ part }}</span>{% else %}{{ part }}{% endif %}
-                {% endfor %}
-                {% endautoescape %}
-            </h1>
-            <div class="text-lg lg:text-xl {{ vars.textColorClass }} max-w-4xl content-styles leading-relaxed">
+        {%- if entry.text %}
+            <div class="prose-plain mt-10 max-w-[46ch] text-[clamp(20px,2.2vw,24px)] leading-[1.5] font-light text-ink-soft">
                 {{ entry.text }}
             </div>
+        {%- endif %}
 
-            {% if entry.buttons %}
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    {{ ui.buttonGroup(entry.buttons, vars) }}
-                </div>
-            {% endif %}
-        </div>
-    </section>
-
-{% elseif variant == 'large' %}
-    <section class="relative min-h-[90vh] lg:min-h-[70vh] flex items-center overflow-hidden {{ vars.backgroundClass }}" style="transform: translate3d(0, 0, 0);">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-brand-accent/20"></div>
-
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-primary/30 rounded-full blur-3xl animate-blob" style="will-change: transform;"></div>
-        <div class="absolute top-40 right-20 w-96 h-96 bg-brand-secondary/30 rounded-full blur-3xl animate-blob animation-delay-2000" style="will-change: transform;"></div>
-        <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-brand-accent/30 rounded-full blur-3xl animate-blob animation-delay-4000" style="will-change: transform;"></div>
-
-        <div class="{{ containerClass }} mx-auto px-4 lg:px-8 relative z-0 pt-32 lg:pt-36 pb-20">
-            <div class="grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-20 items-center">
-                <!-- Content -->
-                <div class="space-y-8">
-                    {{ ui.subtitle(entry.subtitle, 'bg-white/20 text-white') }}
-
-                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-white">
-                        {% autoescape false %}
-                        {% set parts = processedHeading | split('*') %}
-                        {% for i, part in parts %}
-                            {% if i % 2 == 1 %}<span class="text-brand-secondary">{{ part }}</span>{% else %}{{ part }}{% endif %}
-                        {% endfor %}
-                        {% endautoescape %}
-                    </h1>
-
-                    <div class="text-lg lg:text-xl text-white leading-relaxed max-w-4xl content-styles">
-                        {{ entry.text }}
-                    </div>
-
-                    {% if entry.buttons %}
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        {{ ui.buttonGroup(entry.buttons, vars) }}
-                    </div>
-                    {% endif %}
-                </div>
-
-                <!-- Image -->
-                {% if image %}
-                <div class="relative">
-                    <!-- Decorative Elements -->
-                    <div class="absolute -top-6 -right-6 w-72 h-72 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-tl-[3rem] rounded-br-[3rem] opacity-20 blur-2xl"></div>
-
-                    <div class="relative">
-                        <!-- Main Image Container -->
-                        <div class="relative shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
-                            {% if image %}
-                                {{ tag('img', {
-                                    class: 'w-full h-[500px] object-cover rounded-tl-[3rem] rounded-br-[3rem]',
-                                    width: imageWidth,
-                                    height: imageHeightPx,
-                                    src: image.getUrl(transform),
-                                    alt: image.title
-                                }) }}
-                            {% endif %}
-                            <!-- Floating Card -->
-                            {% set floatingCard = entry.floatingCard.one() ?? null %}
-                            {% if floatingCard %}
-                            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden lg:block">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center">
-                                        {% set iconType = floatingCard.iconType.value ?? floatingCard.iconType ?? 'check' %}
-                                        {% if iconType == 'check' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        {% elseif iconType == 'star' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                        </svg>
-                                        {% elseif iconType == 'heart' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                        </svg>
-                                        {% elseif iconType == 'lightning' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                        </svg>
-                                        {% elseif iconType == 'trophy' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                        </svg>
-                                        {% elseif iconType == 'rocket' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z M15 10l-4-4M11 14l4 4"></path>
-                                        </svg>
-                                        {% elseif iconType == 'users' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                        </svg>
-                                        {% elseif iconType == 'thumb-up' %}
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
-                                        </svg>
-                                        {% endif %}
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900">{{ floatingCard.cardTitle }}</div>
-                                        <div class="text-sm text-gray-600">{{ floatingCard.cardSubtitle }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
+        {%- set buttons = entry.buttons.all() -%}
+        {%- if buttons|length %}
+            <div class="mt-10 flex flex-wrap gap-3">
+                {%- include '_partials/redesign/buttons' with {
+                    buttons: buttons,
+                    primary: 'gold',
+                    secondary: 'outline-light',
+                    utilities: 'max-phablet:w-full max-phablet:justify-center',
+                } only -%}
             </div>
-        </div>
-    </section>
+        {%- endif %}
 
-    <style>
-        @keyframes blob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
-
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-    </style>
-
-{% endif %}
-
-<style>
-    /* Adjust hero padding when breadcrumbs are present */
-    body.has-breadcrumbs section[class*="pt-36"] {
-        padding-top: 12rem;
-    }
-    @media (min-width: 1024px) {
-        body.has-breadcrumbs section[class*="pt-44"] {
-            padding-top: 14rem;
-        }
-    }
-</style>
+        {%- if facts|length %}
+            <div class="mt-[88px] grid gap-px border-t border-white/14 bg-white/14 tablet:grid-cols-[repeat(3,1fr)]">
+                {%- for fact in facts %}
+                    <div class="bg-navy-deep pt-6 pr-6">
+                        <strong class="block text-[22px] leading-[30px] font-light text-white">{{ fact.title }}</strong>
+                        {%- if fact.text ?? false %}
+                            <span class="mt-1.5 block text-copy-sm text-ink-light">{{ fact.text }}</span>
+                        {%- endif %}
+                    </div>
+                {%- endfor %}
+            </div>
+        {%- endif %}
+    </div>
+</section>

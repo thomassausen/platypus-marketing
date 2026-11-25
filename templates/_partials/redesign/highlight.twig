@@ -1,0 +1,13 @@
+{# =========================================================================
+   Highlight
+   Renders text and wraps parts between *asterisks* in a coloured span.
+   Props: text, utilities (classes of the highlighted span)
+   ========================================================================= #}
+
+{%- for part in (text ?? '')|split('*') -%}
+    {%- if loop.index0 is odd -%}
+        <span class="{{ utilities ?? 'text-gold' }}">{{ part }}</span>
+    {%- else -%}
+        {{- part -}}
+    {%- endif -%}
+{%- endfor -%}

@@ -1,4 +1,184 @@
 @import "tailwindcss";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource-variable/newsreader/opsz.css";
+
+/* =========================================================================
+   Redesign 2026 — design tokens
+   ========================================================================= */
+
+@theme {
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-display: "Reckless Neue", "Newsreader Variable", georgia, serif;
+    --font-open: "Open Sans", "Inter", system-ui, -apple-system, sans-serif;
+    --color-navy: #293D7C;
+    --color-navy-deep: #1B2754;
+    --color-navy-field: #22316A;
+    --color-navy-border: #3D4F8F;
+    --color-ink: #18203D;
+    --color-ink-muted: #5B6177;
+    --color-ink-light: #B8C1E3;
+    --color-ink-soft: #E6E9F5;
+    --color-petrol: #A3C5CB;
+    --color-petrol-light: #D6E5E8;
+    --color-petrol-trace: #EEF5F6;
+    --color-petrol-deep: #5F9AA4;
+    --color-stone: #DCCFB9;
+    --color-stone-light: #EFE9E0;
+    --color-beige: #F0EDE6;
+    --color-plum: #8B667C;
+    --color-plum-light: #CBBAC4;
+    --color-plum-trace: #F1EAEE;
+    --color-plum-deep: #634558;
+    --color-coral: #D48873;
+    --color-coral-light: #ECC9C0;
+    --color-coral-trace: #F7EAE6;
+    --color-coral-deep: #B0614C;
+    --color-gold: #D3A85C;
+    --color-gold-hover: #E0B96F;
+    --color-gold-light: #EBD8B6;
+    --color-gold-deep: #B48A3C;
+    --color-ground: #F7F7F7;
+    --color-line: #DADADA;
+
+    /* Breakpoints of the 2026 design (601 / 901 / 1101 px) */
+    --breakpoint-phablet: 37.5625rem;
+    --breakpoint-tablet: 56.3125rem;
+    --breakpoint-desktop: 68.8125rem;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-ground);
+        color: var(--color-ink);
+        font: 400 16px/26px var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-gold);
+        outline-offset: 3px;
+        border-radius: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
+
+/* Layout */
+@layer components {
+    .container-wrap {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: 24px;
+    }
+
+    .section-band {
+        padding-block: 80px;
+    }
+
+    @media (width >= 56.3125rem) {
+        .container-wrap {
+            padding-inline: 48px;
+        }
+
+        .section-band {
+            padding-block: 112px;
+        }
+    }
+
+    /* Rich text inside the new blocks: paragraphs spaced like the design (p + p: 16px) */
+    .prose-plain p + p {
+        margin-top: 16px;
+    }
+
+    .prose-plain a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .prose-plain strong {
+        font-weight: 700;
+    }
+}
+
+/* Typography */
+@utility text-statement {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: .01em;
+}
+
+@utility text-statement-md {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(34px, 4.6vw, 56px);
+    line-height: 1.05;
+    letter-spacing: .01em;
+}
+
+@utility text-quote {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.25;
+}
+
+@utility text-h2 {
+    font-weight: 300;
+    font-size: clamp(32px, 4.2vw, 44px);
+    line-height: 1.18;
+    letter-spacing: -.015em;
+}
+
+@utility text-h3 {
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 34px;
+}
+
+@utility text-lead {
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 32px;
+}
+
+@utility text-copy-sm {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@utility text-caption {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@utility text-label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+}
+
+@utility text-label-sm {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+}
+
 
 /* Fade-in Animations */
 .fade-in-section {
@@ -84,10 +264,6 @@
     src: url('../fonts/open-sans-v44-latin-800italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-
-* {
-    font-family: 'Open Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-}
 
 @theme {
     --font-family-sans: 'Open Sans', ui-sans-serif, system-ui;

@@ -1,0 +1,236 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Kennzahl, Kundenzitat und Logoleiste'
+fieldLayouts:
+  08c09af0-aa55-4d6f-b96d-8ae716a400e6:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'Optional, ohne #. Damit lässt sich der Abschnitt per Link ansteuern (z. B. /seite#methode).'
+            label: Anker-ID
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e63039aa-8754-45e4-8ce0-43e2766b7661
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db398855-d5b7-4a53-bce0-1213d1c4b9f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Text zwischen *Sternchen* wird farbig hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8fbbec3c-6c0f-4497-a341-d8be80f6cf59
+            userCondition: null
+            warning: null
+            width: 100
+        name: Kopf
+        uid: bc1218ff-3ef1-48ad-9b74-0a5bcd27387a
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: figure
+            instructions: null
+            label: Kennzahl
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dc4f73c4-e941-4bd8-8f52-0f1c216e0c27
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: figureUnit
+            instructions: null
+            label: 'Einheit (z. B. %)'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3a90bcf-b71c-45c1-b159-30885f6e2f56
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: figureText
+            instructions: null
+            label: 'Beschreibung der Kennzahl'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f01c4468-8291-4332-9c73-c9e39762006f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: details
+            instructions: 'z. B. Ausgangslage, Vorgehen'
+            label: Details
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1c8521d7-f526-4cd6-b633-23b0c1e3b635
+            userCondition: null
+            warning: null
+            width: 100
+        name: Ergebnis
+        uid: 26e2c3f8-e7e8-4f9f-9bc5-6f2890b0d852
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quote
+            instructions: null
+            label: Zitat
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 31587c8d-df7f-4a7a-86d1-de482949f766
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quoteAuthor
+            instructions: null
+            label: Name
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 57355ce7-6405-4ec4-a2c3-08b3f12e2f92
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quoteRole
+            instructions: null
+            label: 'Funktion, Firma'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1765a690-65e4-4cf7-85eb-e21371a0880e
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b591db6f-b83f-4160-ad47-bdfe5b2688e1 # Buttons
+            handle: null
+            instructions: null
+            label: Button
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cd5c4682-785f-4f12-9d77-1c11e9518faa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Zitat
+        uid: 58f318f1-bf2e-40b5-81f5-9d47f88c20c1
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3aae3c3d-78d3-4363-9717-a43dcc6bd34a # Kunden auswählen
+            handle: null
+            instructions: null
+            label: Kundenlogos
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 51d1e68d-62d2-4c30-9745-960f2775ce7b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Logos
+        uid: 1f150a43-a763-4042-b715-5a9a040e6539
+        userCondition: null
+    thumbFieldKey: null
+handle: caseStudy
+hasTitleField: false
+icon: trophy
+name: Fallbeispiel
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

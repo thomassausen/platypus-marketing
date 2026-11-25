@@ -1,0 +1,90 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  7f726064-9748-49bf-925d-7b838dd75598:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: modelName
+            instructions: null
+            label: Name
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e54f5497-c8d4-40af-b1fb-3d3c002f1f7d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: summary
+            instructions: null
+            label: 'Nutzen in einem Satz'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 588d1dd9-fc64-4bea-85cc-a8f96e163cba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: items
+            instructions: null
+            label: Leistungen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 94922a4d-0209-4bad-9e35-2130de596de0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: cardLink
+            instructions: null
+            label: Link
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee7e30f6-7066-4b18-9443-aa308b2ef440
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: a722c5bc-b571-4dcc-9429-ef11aa76745e
+        userCondition: null
+    thumbFieldKey: null
+handle: modelCard
+hasTitleField: false
+icon: square
+name: Modell-Karte
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{modelName}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

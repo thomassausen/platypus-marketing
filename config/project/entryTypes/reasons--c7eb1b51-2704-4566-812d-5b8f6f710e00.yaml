@@ -1,0 +1,122 @@
+allowLineBreaksInTitles: false
+color: null
+description: 'Nummerierte Gründe mit Begriffen, auf Navy'
+fieldLayouts:
+  d8dba39e-8653-49e8-a97b-9fa608b0e4cd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'Optional, ohne #. Damit lässt sich der Abschnitt per Link ansteuern (z. B. /seite#methode).'
+            label: Anker-ID
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fd5cb2d9-f3fd-4cb5-899a-5f43e0072f5e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3fa5821a-7927-460c-9983-fb7f174c304c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Text zwischen *Sternchen* wird in Gold hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bda00c86-c794-4028-a24e-5943e7bd8d38
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: chipsLabel
+            instructions: null
+            label: 'Text über den Begriffen'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eb34cbfe-f2e6-43b6-a867-6f0d545dc448
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: chips
+            instructions: null
+            label: Begriffe
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 26af2c88-ae52-42d9-b4e3-0fca33a0cd8b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: items
+            instructions: 'Werden automatisch nummeriert.'
+            label: Gründe
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c73cccc3-68d6-40f0-bef8-925f19cb6541
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: c98ebeb2-04ba-4536-901b-6276341650a0
+        userCondition: null
+    thumbFieldKey: null
+handle: reasons
+hasTitleField: false
+icon: list-ol
+name: Gründe
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

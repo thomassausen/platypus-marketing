@@ -1,0 +1,29 @@
+{# =========================================================================
+   Button
+   Link button of the 2026 design.
+   Props: text, url, variant (gold|navy|outline|outline-light), arrow (bool),
+          target, utilities (extra classes)
+   ========================================================================= #}
+
+{%- set variants = {
+    gold: 'border-transparent bg-gold text-ink hover:bg-gold-hover',
+    navy: 'border-transparent bg-navy text-white hover:bg-navy-deep',
+    outline: 'text-ink border-ink hover:bg-ink hover:text-white',
+    'outline-light': 'text-white border-white/40 hover:border-white',
+} -%}
+
+{%- set classes = collect({
+    layout: 'inline-flex items-center gap-[10px] h-[52px] px-[26px] whitespace-nowrap',
+    shape: 'rounded-[4px] border no-underline cursor-pointer',
+    type: 'text-label leading-[26px]',
+    motion: 'transition-[background-color,color,border-color] duration-150',
+    variant: variants[variant ?? 'navy'] ?? variants.navy,
+    utilities: utilities ?? null,
+}) -%}
+
+{%- if url ?? false -%}
+<a href="{{ url }}" class="{{ classes.filter(v => v).implode(' ') }}"{% if target ?? false %} target="{{ target }}"{% if target == '_blank' %} rel="noopener noreferrer"{% endif %}{% endif %}>
+    {{- text -}}
+    {%- if arrow ?? false %} {% include '_partials/redesign/icon' with { name: 'arrow', utilities: 'size-4' } only %}{% endif -%}
+</a>
+{%- endif -%}

@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
@@ -11,6 +12,23 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: headerButton
+            instructions: 'Button rechts im Hauptmenü, z. B. „Erstgespräch buchen“.'
+            label: Header-Button
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d31aeb35-1bf3-401a-b632-b4b299e5b82a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
             fieldUid: a1b2c3d4-e5f6-4789-a012-3456789abcde # Footer Überschrift
             handle: null
             instructions: null
@@ -26,6 +44,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: b2c3d4e5-f6a7-4890-b123-456789abcdef # Footer Text
             handle: null
             instructions: null
@@ -47,6 +66,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c3d4e5f6-a7b8-4901-c234-56789abcdef0
             handle: null
             instructions: null
@@ -62,6 +82,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: d4e5f6a7-b8c9-4012-d345-6789abcdef01
             handle: null
             instructions: null
@@ -77,6 +98,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: e5f6a7b8-c9d0-4123-e456-789abcdef012
             handle: null
             instructions: null
@@ -98,6 +120,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f # Facebook
             handle: null
             instructions: null
@@ -113,6 +136,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a # Instagram
             handle: null
             instructions: null
@@ -128,6 +152,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c3c4c5c6-d7d8-4e9f-0a1b-2c3d4e5f6a7b
             handle: null
             instructions: null
@@ -143,6 +168,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: d4d5d6d7-e8e9-4f0a-1b2c-3d4e5f6a7b8c
             handle: null
             instructions: null
@@ -164,6 +190,7 @@ fieldLayouts:
             dateAdded: '2026-10-08T12:00:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 19b6761a-c483-4c45-8b23-fd7bb2578019 # Footer-Logos
             handle: null
             instructions: null
@@ -185,6 +212,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: f6a7b8c9-d0e1-4234-f567-89abcdef0123
             handle: null
             instructions: null
@@ -199,6 +227,7 @@ fieldLayouts:
         name: Sonstiges
         uid: f8a9b0c1-d2e3-4456-f789-345678901234
         userCondition: null
+    thumbFieldKey: null
 handle: footer
 hasTitleField: false
 icon: null
@@ -210,3 +239,4 @@ slugTranslationMethod: site
 titleFormat: Footer
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'
