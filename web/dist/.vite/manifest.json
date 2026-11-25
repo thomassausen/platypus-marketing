@@ -212,12 +212,12 @@
     "src": "src/fonts/open-sans-v44-latin-regular.woff2"
   },
   "src/js/app.js": {
-    "file": "assets/app-rw3FaYBQ.js",
+    "file": "assets/app-D2z2IfeG.js",
     "name": "app",
     "src": "src/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-0ACWJj26.css"
+      "assets/app-CqTdiYbR.css"
     ],
     "assets": [
       "assets/inter-cyrillic-ext-300-normal-CgCALhwJ.woff2",

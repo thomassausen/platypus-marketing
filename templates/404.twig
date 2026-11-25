@@ -1,19 +1,60 @@
+{# =========================================================================
+   404
+   Navy page in the hero style: large "404", message, button to the home
+   page and the main navigation as direct links.
+   ========================================================================= #}
+
 {% extends "_layouts/default" %}
 
 {% block content %}
-    <div class="container mx-auto px-4 py-24 lg:py-32 text-center">
-        <div class="max-w-2xl mx-auto">
-            <h1 class="text-6xl lg:text-8xl font-bold text-gray-900 mb-6">404</h1>
-            <h2 class="text-2xl lg:text-3xl font-semibold text-gray-800 mb-4">Seite nicht gefunden</h2>
-            <p class="text-lg text-gray-600 mb-8">
-                Die gesuchte Seite existiert leider nicht (mehr).
-                Vielleicht finden Sie auf unserer Startseite, was Sie suchen.
-            </p>
-            <a href="{{ siteUrl }}"
-               class="group relative inline-block bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-full hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-200 font-semibold">
-                <span class="relative z-10 inline-block mr-2 group-hover:-translate-x-1 transition-transform duration-200">←</span>
-                <span class="relative z-10">Zur Startseite</span>
-            </a>
+    {%- set pages = craft.entries.section('mainNavigation').level(1).with(['children']).all() -%}
+
+    <section class="relative flex min-h-[calc(100svh-132px)] items-center overflow-hidden bg-navy-deep py-20 text-white tablet:py-[104px]">
+        {%- include '_partials/redesign/platypus-mark' with {
+            utilities: 'pointer-events-none absolute -right-[8%] -bottom-6 w-[110vw] text-petrol opacity-25 tablet:right-auto tablet:-left-[4%] tablet:w-[min(46vw,640px)] tablet:opacity-15',
+        } only -%}
+
+        <div class="container-wrap relative z-[1] grid w-full items-center gap-10 tablet:grid-cols-[1fr_1.1fr] tablet:gap-16">
+            <p class="font-display text-[clamp(120px,20vw,260px)] leading-[.85] tracking-[-.02em] text-gold" aria-hidden="true">404</p>
+
+            <div>
+                <p class="text-label text-petrol">Fehler 404</p>
+                <h1 class="mt-5 text-statement-md">Seite nicht gefunden</h1>
+                <p class="mt-6 max-w-[46ch] text-[clamp(19px,2vw,22px)] leading-[1.5] font-light text-ink-soft">
+                    Die gesuchte Seite existiert leider nicht (mehr).
+                    Vielleicht finden Sie auf unserer Startseite, was Sie suchen.
+                </p>
+
+                <div class="mt-10">
+                    {%- include '_partials/redesign/button' with {
+                        text: 'Zur Startseite',
+                        url: siteUrl,
+                        variant: 'gold',
+                        arrow: true,
+                    } only -%}
+                </div>
+
+                {%- if pages|length %}
+                    <nav class="mt-14 border-t border-white/14 pt-6" aria-label="Weitere Seiten">
+                        <p class="text-label-sm text-ink-light">Oder direkt weiter zu</p>
+                        <ul class="mt-4 flex flex-wrap gap-2">
+                            {%- for page in pages %}
+                                {%- for item in [page]|merge(page.children.all()) %}
+                                    {%- set link = item.customLink -%}
+                                    {%- if link and link.url %}
+                                        <li>
+                                            <a href="{{ link.url }}" class="inline-flex h-[34px] items-center rounded-[3px] bg-petrol/18 px-[14px] text-[11px] font-bold tracking-[.14em] text-petrol uppercase no-underline transition-colors hover:bg-petrol hover:text-ink">{{ link.label }}</a>
+                                        </li>
+                                    {%- endif %}
+                                {%- endfor %}
+                            {%- endfor %}
+                            <li>
+                                <a href="{{ url('blog') }}" class="inline-flex h-[34px] items-center rounded-[3px] bg-petrol/18 px-[14px] text-[11px] font-bold tracking-[.14em] text-petrol uppercase no-underline transition-colors hover:bg-petrol hover:text-ink">Blog</a>
+                            </li>
+                        </ul>
+                    </nav>
+                {%- endif %}
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
