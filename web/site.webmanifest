@@ -1,5 +1,5 @@
 {
-    "name": "Platypus Marketing",
+    "name": "Platypus Strategieberatung",
     "short_name": "Platypus",
     "icons": [
         {
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#5b6ca8",
+    "theme_color": "#293D7C",
     "background_color": "#ffffff",
     "display": "standalone"
 }
