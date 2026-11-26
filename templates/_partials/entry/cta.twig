@@ -1,47 +1,38 @@
 {# =========================================================================
    CTA
-   Gold closing call to action of the 2026 design.
-   Fields: anchor, subtitle (label), title (statement), description (lead),
-           text, buttons (primary = navy, secondary = outline).
-   Phone number comes from the footer single.
-   The older fields backgroundColor, svgVariant, textAlignment and
-   containerWidth are no longer used.
+   Light grey contact box inside a page (e.g. "Ist COMPASS der richtige
+   Weg für Sie?"). The petrol "next step" CTA is global, see footer.twig.
+   Fields: anchor, subtitle (label), title (heading), description (lead),
+           text, buttons (primary = navy, secondary = white).
    ========================================================================= #}
 
-{%- set footer = craft.entries.section('footer').one() -%}
-{%- set phone = footer.contactPhone ?? null -%}
 {%- set buttons = entry.buttons.all() -%}
 
-<section{{ attr({ id: entry.anchor ?: false }) }} class="relative overflow-hidden scroll-mt-24 section-band bg-gold text-ink">
-    {%- include '_partials/redesign/platypus-mark' with {
-        utilities: 'pointer-events-none absolute -right-[4%] -bottom-[18px] w-[min(46vw,560px)] text-gold-deep opacity-35',
-    } only -%}
+<section{{ attr({ id: entry.anchor ?: false }) }} class="container-wrap scroll-mt-40 py-12 tablet:py-16">
+    <div class="flex flex-wrap items-end justify-between gap-8 bg-mist p-8 tablet:p-12">
+        <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-[14px]">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
 
-    <div class="container-wrap relative z-[1]">
-        {%- if entry.subtitle %}
-            <p class="text-label">{{ entry.subtitle }}</p>
-        {%- endif %}
+            <h2 class="text-[clamp(30px,3.4vw,40px)] leading-[1.2] font-light tracking-[-.01em]">{{ entry.title }}</h2>
 
-        <h2 class="mt-5 max-w-[20ch] text-statement-md">{{ entry.title }}</h2>
+            {%- if entry.description %}
+                <div class="prose-plain text-lead">{{ entry.description }}</div>
+            {%- endif %}
 
-        {%- if entry.description %}
-            <div class="prose-plain mt-6 max-w-[64ch] text-lead">{{ entry.description }}</div>
-        {%- endif %}
+            {%- if entry.text %}
+                <div class="prose-plain">{{ entry.text }}</div>
+            {%- endif %}
+        </div>
 
-        {%- if entry.text %}
-            <div class="prose-plain mt-4 max-w-[64ch]">{{ entry.text }}</div>
-        {%- endif %}
-
-        {%- if buttons|length or (phone and phone.url) %}
-            <div class="mt-10 flex flex-wrap items-center gap-3">
+        {%- if buttons|length %}
+            <div class="flex flex-wrap gap-3">
                 {%- include '_partials/redesign/buttons' with {
                     buttons: buttons,
                     primary: 'navy',
-                    secondary: 'outline',
+                    secondary: 'white',
                 } only -%}
-                {%- if phone and phone.url %}
-                    <a href="{{ phone.url }}" class="px-3 text-label leading-[26px] no-underline hover:underline">Oder anrufen: {{ phone.label }}</a>
-                {%- endif %}
             </div>
         {%- endif %}
     </div>

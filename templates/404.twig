@@ -6,6 +6,8 @@
 
 {% extends "_layouts/default" %}
 
+{%- set hideNextStep = true -%}
+
 {% block content %}
     {%- set pages = craft.entries.section('mainNavigation').level(1).with(['children']).all() -%}
 

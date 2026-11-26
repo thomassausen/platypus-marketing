@@ -1,4 +1,4 @@
-dateModified: 1795633035
+dateModified: 1795737264
 elementSources:
   craft\elements\Entry:
     -
@@ -1674,23 +1674,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Link
-  a1b2c3d4-e5f6-4789-a012-3456789abcde: # Footer Überschrift
-    columnSuffix: null
-    handle: footerHeadline
-    instructions: 'Überschrift für den Footer-Bereich'
-    name: 'Footer Überschrift'
-    searchable: true
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: false
-      initialRows: 4
-      multiline: false
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\PlainText
   a1b2c3d4-e5f6-4890-a234-567890abcdef: # Features Titel
     columnSuffix: null
     handle: featuresTitle
@@ -1865,53 +1848,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Link
-  b2c3d4e5-f6a7-4890-b123-456789abcdef: # Footer Text
-    columnSuffix: null
-    handle: footerText
-    instructions: 'Beschreibungstext für den Footer-Bereich'
-    name: 'Footer Text'
-    searchable: true
-    settings:
-      availableTransforms: ''
-      availableVolumes: '*'
-      characterLimit: null
-      css: null
-      cssFile: null
-      defaultTransform: null
-      fullGraphqlData: true
-      headingLevels:
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-      js: null
-      jsFile: null
-      options: null
-      parseEmbeds: false
-      purifierConfig: null
-      purifyHtml: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      showWordCount: false
-      sourceEditingGroups:
-        - __ADMINS__
-      toolbar:
-        - heading
-        - fontSize
-        - '|'
-        - bold
-        - italic
-        - bulletedList
-        - '|'
-        - link
-        - '|'
-        - undo
-        - redo
-      wordLimit: null
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\ckeditor\Field
   b2eb1c85-7df6-4db0-856e-37beb70d26cd: # Von Suchmaschinen ausschließen
     columnSuffix: null
     handle: noIndex
@@ -3071,7 +3007,6 @@ meta:
     a00d30b5-921b-4df8-b4cb-4926b61ba371: Kunden # Kunden
     a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f: Facebook # Facebook
     a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7: Blog # Blog
-    a1b2c3d4-e5f6-4789-a012-3456789abcde: 'Footer Überschrift' # Footer Überschrift
     a1b2c3d4-e5f6-4890-a234-567890abcdef: 'Features Titel' # Features Titel
     a3b4c5d6-e7f8-49a0-b1c2-d3e4f5a6b7c8: 'Blog Featured Image' # Blog Featured Image
     a7b8c9d0-e1f2-4345-a678-9abcdef01234: Footer # Footer
@@ -3083,7 +3018,6 @@ meta:
     aa7da33d-13e0-41de-9710-62000ce09c68: Step # Step
     b2b3b4b5-c6c7-4d8e-9f0a-1b2c3d4e5f6a: Instagram # Instagram
     b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog
-    b2c3d4e5-f6a7-4890-b123-456789abcdef: 'Footer Text' # Footer Text
     b2eb1c85-7df6-4db0-856e-37beb70d26cd: 'Von Suchmaschinen ausschließen' # Von Suchmaschinen ausschließen
     b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons

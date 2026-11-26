@@ -1,8 +1,10 @@
 {# =========================================================================
    Header
-   Topbar (phone, mail, social), sticky main header with logo, navigation
-   and header button, breadcrumbs.
-   Data: mainNavigation structure, footer single (contact + headerButton).
+   Sticky header: light topbar (claim, phone, mail, social) and the
+   translucent main bar with logo, navigation (dropdown with sub lines for
+   children) and the outline header button.
+   Data: mainNavigation structure, footer single (topbar text, contact,
+         social, headerButton).
    ========================================================================= #}
 
 {%- set navigation = craft.entries.section('mainNavigation').level(1).with(['children']).all() -%}
@@ -12,130 +14,111 @@
 {%- set mail = settings.contactEmail ?? null -%}
 {%- set headerButton = settings.headerButton ?? null -%}
 {%- set socials = [
-    { name: 'linkedin', label: 'LinkedIn', link: settings.socialLinkedin ?? null },
-    { name: 'instagram', label: 'Instagram', link: settings.socialInstagram ?? null },
-    { name: 'facebook', label: 'Facebook', link: settings.socialFacebook ?? null },
-    { name: 'twitter', label: 'X (Twitter)', link: settings.socialTwitter ?? null },
+    { name: 'instagram', label: 'Platypus auf Instagram', link: settings.socialInstagram ?? null },
+    { name: 'facebook', label: 'Platypus auf Facebook', link: settings.socialFacebook ?? null },
+    { name: 'linkedin', label: 'Platypus auf LinkedIn', link: settings.socialLinkedin ?? null },
+    { name: 'twitter', label: 'Platypus auf X (Twitter)', link: settings.socialTwitter ?? null },
 ]|filter(social => social.link and social.link.url) -%}
 
 <a href="#inhalt" class="absolute -left-[999px] top-2 z-[99] bg-white px-4 py-2 focus:left-4">Zum Inhalt springen</a>
 
-{# Topbar #}
-<div class="bg-navy-deep text-ink-light text-copy-sm">
-    <div class="container-wrap flex h-10 items-center justify-end gap-6">
-        {%- if phone and phone.url %}
-            <a href="{{ phone.url }}" class="inline-flex items-center gap-2 no-underline hover:text-white">
-                {%- include '_partials/redesign/icon' with { name: 'phone', utilities: 'size-4' } only -%}
-                {{ phone.label }}
-            </a>
-        {%- endif %}
-        {%- if mail and mail.url %}
-            <a href="{{ mail.url }}" class="inline-flex items-center gap-2 no-underline hover:text-white" aria-label="E-Mail an {{ mail.label }}">
-                {%- include '_partials/redesign/icon' with { name: 'mail', utilities: 'size-4' } only -%}
-                <span class="hidden tablet:inline">{{ mail.label }}</span>
-            </a>
-        {%- endif %}
-        {%- if socials|length %}
-            <span class="flex gap-[14px]">
-                {%- for social in socials %}
-                    <a href="{{ social.link.url }}" class="inline-flex items-center no-underline hover:text-white" aria-label="{{ social.label }}" target="_blank" rel="noopener noreferrer">
-                        {%- include '_partials/redesign/icon' with { name: social.name, utilities: 'size-4' } only -%}
-                    </a>
-                {%- endfor %}
-            </span>
-        {%- endif %}
-    </div>
-</div>
-
-{# Main header #}
-<header class="sticky top-0 z-30 border-b border-line bg-white" data-site-header>
-    <div class="container-wrap flex h-[92px] items-center justify-between gap-6">
-        <a href="{{ siteUrl }}" class="shrink-0" aria-label="Platypus Strategieberatung – zur Startseite">
-            {%- include '_partials/redesign/logo' with { utilities: 'block h-auto w-[118px] text-navy' } only -%}
-        </a>
-
-        <nav id="hauptnav" aria-label="Hauptnavigation" data-nav class="absolute inset-x-0 top-[92px] hidden border-b border-line bg-white px-6 pt-4 pb-6 tablet:static tablet:block tablet:border-0 tablet:bg-transparent tablet:p-0">
-            <ul class="flex flex-col gap-[2px] tablet:flex-row">
-                {%- for item in navigation %}
-                    {%- set link = item.customLink -%}
-                    {%- set children = item.children.all() -%}
-                    {%- set itemUrl = (link.url ?? '')|trim('/', 'right') -%}
-                    {%- set isCurrent = itemUrl and requestUrl == itemUrl -%}
-                    {%- set isActive = itemUrl and requestUrl starts with itemUrl -%}
-                    <li class="{{ children|length ? 'group relative' }}">
-                        <a href="{{ link.url ?? '#' }}"
-                           class="inline-flex h-9 items-center gap-1 rounded-[3px] px-3 text-label leading-[26px] no-underline hover:bg-ground hover:text-navy {{ isActive ? 'text-navy' }}"
-                           {%- if isCurrent %} aria-current="page"{% endif %}
-                           {%- if link.target %} target="{{ link.target }}"{% endif %}>
-                            {{- link.label -}}
-                            {%- if children|length %}{% include '_partials/redesign/icon' with { name: 'chevron', utilities: 'hidden size-4 tablet:block' } only %}{% endif -%}
-                        </a>
-                        {%- if children|length %}
-                            <ul class="pl-3 tablet:invisible tablet:absolute tablet:left-0 tablet:top-full tablet:min-w-60 tablet:border tablet:border-line tablet:bg-white tablet:p-2 tablet:opacity-0 tablet:transition-opacity tablet:duration-150 tablet:group-hover:visible tablet:group-hover:opacity-100 tablet:group-focus-within:visible tablet:group-focus-within:opacity-100">
-                                {%- for child in children %}
-                                    {%- set childLink = child.customLink -%}
-                                    {%- set childUrl = (childLink.url ?? '')|trim('/', 'right') -%}
-                                    <li>
-                                        <a href="{{ childLink.url ?? '#' }}"
-                                           class="flex h-9 items-center whitespace-nowrap rounded-[3px] px-3 text-label leading-[26px] no-underline hover:bg-ground hover:text-navy {{ childUrl and requestUrl starts with childUrl ? 'text-navy' }}"
-                                           {%- if childUrl and requestUrl == childUrl %} aria-current="page"{% endif %}
-                                           {%- if childLink.target %} target="{{ childLink.target }}"{% endif %}>
-                                            {{- childLink.label -}}
-                                        </a>
-                                    </li>
-                                {%- endfor %}
-                            </ul>
-                        {%- endif %}
-                    </li>
-                {%- endfor %}
-            </ul>
-            {%- if headerButton and headerButton.url %}
-                {%- include '_partials/redesign/button' with {
-                    text: headerButton.label,
-                    url: headerButton.url,
-                    target: headerButton.target,
-                    variant: 'navy',
-                    utilities: 'mt-3 tablet:hidden',
-                } only -%}
+<header class="sticky top-0 z-30" data-site-header>
+    {# Topbar #}
+    <div class="bg-mist">
+        <div class="container-wrap flex min-h-11 flex-wrap items-center justify-end gap-x-6 gap-y-2 tablet:justify-between">
+            {%- if settings.topbarText ?? false %}
+                <p class="hidden text-caption text-ink-muted tablet:block">{{ settings.topbarText }}</p>
             {%- endif %}
-        </nav>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+                {%- if phone and phone.url %}
+                    <a href="{{ phone.url }}" class="inline-flex min-h-11 items-center gap-2 text-copy-sm text-ink no-underline hover:text-navy">
+                        {%- include '_partials/redesign/icon' with { name: 'phone', utilities: 'size-4' } only -%}
+                        {{ phone.label }}
+                    </a>
+                {%- endif %}
+                {%- if mail and mail.url %}
+                    <a href="{{ mail.url }}" class="inline-flex min-h-11 items-center gap-2 text-copy-sm text-ink no-underline hover:text-navy" aria-label="E-Mail an {{ mail.label }}">
+                        {%- include '_partials/redesign/icon' with { name: 'mail', utilities: 'size-4' } only -%}
+                        <span class="hidden phablet:inline">{{ mail.label }}</span>
+                    </a>
+                {%- endif %}
+                {%- if socials|length %}
+                    <span class="hidden phablet:flex">
+                        {%- for social in socials %}
+                            <a href="{{ social.link.url }}" class="inline-flex size-11 items-center justify-center text-ink hover:text-navy" aria-label="{{ social.label }}" target="_blank" rel="noopener noreferrer">
+                                {%- include '_partials/redesign/icon' with { name: social.name, utilities: 'size-[18px]' } only -%}
+                            </a>
+                        {%- endfor %}
+                    </span>
+                {%- endif %}
+            </div>
+        </div>
+    </div>
 
-        <div class="flex items-center gap-2">
-            {%- if headerButton and headerButton.url %}
-                <div class="hidden tablet:block">
+    {# Main bar #}
+    <div class="relative border-b border-line bg-ground/72 backdrop-blur-[24px]">
+        <div class="container-wrap flex items-center justify-between gap-x-8 gap-y-4 py-[14px]">
+            <a href="{{ siteUrl }}" class="block shrink-0" aria-label="Platypus Strategieberatung – zur Startseite">
+                {%- include '_partials/redesign/logo' with { utilities: 'block h-auto w-[104px] text-navy tablet:w-[132px]' } only -%}
+            </a>
+
+            <nav id="hauptnav" aria-label="Hauptnavigation" data-nav class="absolute inset-x-0 top-full hidden max-h-[calc(100svh-150px)] overflow-y-auto border-b border-line bg-ground px-6 pt-4 pb-6 tablet:static tablet:flex tablet:max-h-none tablet:items-center tablet:overflow-visible tablet:border-0 tablet:bg-transparent tablet:p-0">
+                <ul class="flex flex-col gap-[2px] tablet:flex-row tablet:flex-wrap tablet:items-center tablet:gap-x-[6px] tablet:gap-y-1">
+                    {%- for item in navigation %}
+                        {%- set link = item.customLink -%}
+                        {%- set children = item.children.all() -%}
+                        {%- set itemUrl = (link.url ?? '')|trim('/', 'right') -%}
+                        {%- set childActive = children|filter(child => (child.customLink.url ?? '') and requestUrl starts with child.customLink.url|trim('/', 'right'))|length > 0 -%}
+                        {%- set isCurrent = itemUrl and requestUrl == itemUrl -%}
+                        {%- set isActive = childActive or (itemUrl and itemUrl != siteUrl|trim('/', 'right') and requestUrl starts with itemUrl) or isCurrent -%}
+                        <li class="{{ children|length ? 'group relative' }}">
+                            <a href="{{ link.url ?? '#' }}"
+                               class="inline-flex min-h-11 items-center gap-2 rounded-[4px] px-[14px] text-label no-underline {{ isActive ? 'bg-navy text-white hover:text-white' : 'text-ink hover:bg-mist hover:text-ink' }}"
+                               {%- if isCurrent %} aria-current="page"{% endif %}
+                               {%- if link.target %} target="{{ link.target }}"{% endif %}>
+                                {{- link.label -}}
+                                {%- if children|length %}{% include '_partials/redesign/icon' with { name: 'chevron', utilities: 'hidden size-3 tablet:block' } only %}{% endif -%}
+                            </a>
+                            {%- if children|length %}
+                                <div class="pl-3 tablet:invisible tablet:absolute tablet:top-full tablet:left-0 tablet:z-20 tablet:min-w-[260px] tablet:pt-2 tablet:pl-0 tablet:opacity-0 tablet:transition-opacity tablet:duration-150 tablet:group-hover:visible tablet:group-hover:opacity-100 tablet:group-focus-within:visible tablet:group-focus-within:opacity-100">
+                                    <ul class="flex flex-col gap-[2px] tablet:rounded-[4px] tablet:border tablet:border-line tablet:bg-white tablet:p-2">
+                                        {%- for child in children %}
+                                            {%- set childLink = child.customLink -%}
+                                            {%- set childUrl = (childLink.url ?? '')|trim('/', 'right') -%}
+                                            <li>
+                                                <a href="{{ childLink.url ?? '#' }}"
+                                                   class="flex min-h-11 flex-col justify-center gap-[2px] rounded-[4px] px-[14px] py-[10px] text-ink no-underline hover:bg-ground hover:text-ink {{ childUrl and requestUrl starts with childUrl ? 'bg-ground' }}"
+                                                   {%- if childUrl and requestUrl == childUrl %} aria-current="page"{% endif %}
+                                                   {%- if childLink.target %} target="{{ childLink.target }}"{% endif %}>
+                                                    <span class="text-[14px] leading-5">{{ childLink.label }}</span>
+                                                    {%- if child.navDescription ?? false %}
+                                                        <span class="text-caption text-ink-muted">{{ child.navDescription }}</span>
+                                                    {%- endif %}
+                                                </a>
+                                            </li>
+                                        {%- endfor %}
+                                    </ul>
+                                </div>
+                            {%- endif %}
+                        </li>
+                    {%- endfor %}
+                </ul>
+                {%- if headerButton and headerButton.url %}
                     {%- include '_partials/redesign/button' with {
                         text: headerButton.label,
                         url: headerButton.url,
                         target: headerButton.target,
-                        variant: 'navy',
+                        variant: 'outline-navy',
+                        size: 'small',
+                        arrow: true,
+                        utilities: 'mt-4 tablet:mt-0 tablet:ml-[10px]',
                     } only -%}
-                </div>
-            {%- endif %}
-            <button type="button" class="grid size-12 cursor-pointer place-items-center rounded-full text-ink hover:bg-ground tablet:hidden" aria-expanded="false" aria-controls="hauptnav" aria-label="Menü öffnen" data-nav-toggle>
+                {%- endif %}
+            </nav>
+
+            <button type="button" class="grid size-12 cursor-pointer place-items-center rounded-[4px] text-ink hover:bg-mist tablet:hidden" aria-expanded="false" aria-controls="hauptnav" aria-label="Menü öffnen" data-nav-toggle>
                 {%- include '_partials/redesign/icon' with { name: 'menu' } only -%}
             </button>
         </div>
     </div>
 </header>
-
-{# Breadcrumbs #}
-{%- if entry is defined and entry.section.handle != 'homepage' %}
-    {%- set ancestors = entry.ancestors.all() -%}
-    {%- if ancestors|length or entry.section.handle == 'blog' %}
-        <nav aria-label="Breadcrumb" class="border-b border-line bg-white">
-            <ol class="container-wrap flex flex-wrap items-center gap-x-2 py-2 text-copy-sm text-ink-muted">
-                <li><a href="{{ siteUrl }}" class="no-underline hover:text-navy">Home</a></li>
-                {%- if entry.section.handle == 'blog' %}
-                    <li aria-hidden="true">/</li>
-                    <li><a href="{{ url('blog') }}" class="no-underline hover:text-navy">Blog</a></li>
-                {%- endif %}
-                {%- for ancestor in ancestors %}
-                    <li aria-hidden="true">/</li>
-                    <li><a href="{{ ancestor.url }}" class="no-underline hover:text-navy">{{ ancestor.title }}</a></li>
-                {%- endfor %}
-                <li aria-hidden="true">/</li>
-                <li><span class="text-ink" aria-current="page">{{ entry.title }}</span></li>
-            </ol>
-        </nav>
-    {%- endif %}
-{%- endif %}

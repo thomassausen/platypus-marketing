@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
@@ -39,6 +40,7 @@ fieldLayouts:
             dateAdded: '2025-12-19T14:40:42+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
             handle: null
             instructions: null
@@ -50,9 +52,26 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: navDescription
+            instructions: 'Nur bei Unterpunkten: kurze Zeile unter dem Namen, z. B. „Klarheit“.'
+            label: 'Unterzeile im Dropdown'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e8ddf587-5578-4334-b2e0-6e0570b5b3a8
+            userCondition: null
+            warning: null
+            width: 100
         name: Inhalt
         uid: 62fe8f86-3296-4b77-83e8-3238295a1d82
         userCondition: null
+    thumbFieldKey: null
 handle: link
 hasTitleField: true
 icon: null
@@ -64,3 +83,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

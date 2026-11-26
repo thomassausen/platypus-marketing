@@ -1,109 +1,149 @@
 {# =========================================================================
    Footer
-   Logo, four columns (contact, pages, social, headline + text), partner
-   logos and legal line.
+   Global "next step" CTA (petrol), data source strip, navy footer with
+   logo + claim, contact, pages, social, newsletter and legal line.
    Data: footer single, mainNavigation structure.
+   Set `hideNextStep = true` in a page template to omit the CTA.
    ========================================================================= #}
 
 {%- set footer = craft.entries.section('footer').one() -%}
-{%- set pages = craft.entries.section('mainNavigation').all() -%}
+{%- set navigation = craft.entries.section('mainNavigation').level(1).with(['children']).all() -%}
 {%- set addressLines = (footer.contactAddress ?? '')|split("\n")|map(line => line|trim)|filter(line => line) -%}
 {%- set socials = [
-    { label: 'LinkedIn', link: footer.socialLinkedin ?? null },
-    { label: 'Instagram', link: footer.socialInstagram ?? null },
-    { label: 'Facebook', link: footer.socialFacebook ?? null },
-    { label: 'X (Twitter)', link: footer.socialTwitter ?? null },
+    { name: 'linkedin', label: 'LinkedIn', link: footer.socialLinkedin ?? null },
+    { name: 'instagram', label: 'Instagram', link: footer.socialInstagram ?? null },
+    { name: 'facebook', label: 'Facebook', link: footer.socialFacebook ?? null },
+    { name: 'twitter', label: 'X (Twitter)', link: footer.socialTwitter ?? null },
 ]|filter(social => social.link and social.link.url) -%}
-{%- set footerLogos = footer ? footer.footerLogos.with(['logo']).all() : [] -%}
+{%- set sources = (footer.sources ?? [])|filter(row => row.text ?? false) -%}
+{%- set ctaButton = footer.ctaButton ?? null -%}
+{%- set newsletterAction = footer.newsletterAction ?? null -%}
 
-<footer class="relative z-10 bg-navy-deep pt-[88px] pb-12 text-white">
-    <div class="container-wrap">
-        {%- include '_partials/redesign/logo' with { utilities: 'block h-auto w-[150px] text-white' } only -%}
+{#- Pages column: children of an item replace the item itself (e.g. "Angebot") -#}
+{%- set pageLinks = [] -%}
+{%- for item in navigation -%}
+    {%- set children = item.children.all() -%}
+    {%- for navItem in children|length ? children : [item] -%}
+        {%- if navItem.customLink and navItem.customLink.url -%}
+            {%- set pageLinks = pageLinks|merge([navItem.customLink]) -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
 
-        <div class="mt-14 grid gap-12 text-copy-sm tablet:grid-cols-[1.1fr_1fr_1fr_1.4fr]">
-            <div>
-                <h2 class="text-label-sm text-ink-light">Kontakt</h2>
-                <address class="not-italic">
-                    <ul class="mt-3 space-y-2">
-                        {%- for line in addressLines %}
-                            <li>{{ line }}</li>
-                        {%- endfor %}
-                        {%- if footer.contactPhone.url ?? false %}
-                            <li><a href="{{ footer.contactPhone.url }}" class="no-underline hover:underline">{{ footer.contactPhone.label }}</a></li>
+<footer class="relative z-10">
+    {# Next step #}
+    {%- if not (hideNextStep ?? false) and (footer.ctaHeading ?? false) %}
+        <section aria-label="Nächster Schritt" class="bg-ground">
+            <div class="container-wrap py-16">
+                <div class="flex flex-wrap items-end justify-between gap-8 bg-petrol p-8 text-ink tablet:p-12">
+                    <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-4">
+                        {%- if footer.ctaLabel %}
+                            <p class="text-label">{{ footer.ctaLabel }}</p>
                         {%- endif %}
-                        {%- if footer.contactEmail.url ?? false %}
-                            <li><a href="{{ footer.contactEmail.url }}" class="no-underline hover:underline">{{ footer.contactEmail.label }}</a></li>
+                        <h2 class="max-w-[720px] text-[clamp(30px,3.4vw,40px)] leading-[1.2] font-light tracking-[-.01em]">{{ footer.ctaHeading }}</h2>
+                        {%- if footer.ctaText %}
+                            <div class="prose-plain max-w-[600px]">{{ footer.ctaText }}</div>
                         {%- endif %}
-                    </ul>
-                </address>
-            </div>
-
-            {%- if pages|length %}
-                <nav aria-label="Seiten">
-                    <h2 class="text-label-sm text-ink-light">Seiten</h2>
-                    <ul class="mt-3 space-y-2">
-                        {%- for page in pages %}
-                            {%- set link = page.customLink -%}
-                            {%- if link and link.url %}
-                                <li><a href="{{ link.url }}" class="no-underline hover:underline"{% if link.target %} target="{{ link.target }}"{% endif %}>{{ link.label }}</a></li>
-                            {%- endif %}
-                        {%- endfor %}
-                    </ul>
-                </nav>
-            {%- endif %}
-
-            {%- if socials|length %}
-                <nav aria-label="Social Media">
-                    <h2 class="text-label-sm text-ink-light">Folgen</h2>
-                    <ul class="mt-3 space-y-2">
-                        {%- for social in socials %}
-                            <li><a href="{{ social.link.url }}" class="no-underline hover:underline" target="_blank" rel="noopener noreferrer">{{ social.label }}</a></li>
-                        {%- endfor %}
-                    </ul>
-                </nav>
-            {%- endif %}
-
-            {%- if (footer.footerHeadline ?? false) or (footer.footerText ?? false) %}
-                <div>
-                    {%- if footer.footerHeadline %}
-                        <h2 class="text-label-sm text-ink-light">{{ footer.footerHeadline }}</h2>
-                    {%- endif %}
-                    {%- if footer.footerText %}
-                        <div class="prose-plain mt-3">{{ footer.footerText }}</div>
+                    </div>
+                    {%- if ctaButton and ctaButton.url %}
+                        {%- include '_partials/redesign/button' with {
+                            text: ctaButton.label,
+                            url: ctaButton.url,
+                            target: ctaButton.target,
+                            variant: 'navy',
+                            arrow: true,
+                        } only -%}
                     {%- endif %}
                 </div>
-            {%- endif %}
-        </div>
+            </div>
+        </section>
+    {%- endif %}
 
-        {%- if footerLogos|length %}
-            <ul class="mt-14 flex flex-wrap items-center gap-4">
-                {%- for item in footerLogos %}
-                    {%- set logo = item.logo|first -%}
-                    {%- if logo %}
-                        {%- set image = tag('img', {
-                            src: logo.extension == 'svg' ? logo.url : logo.getUrl({ height: 144, mode: 'fit' }),
-                            alt: item.title,
-                            class: 'h-auto max-h-[52px] w-auto max-w-full object-contain',
-                            loading: 'lazy',
-                        }) -%}
-                        <li>
-                            {%- if item.externalLink.url ?? false %}
-                                <a href="{{ item.externalLink.url }}" class="grid h-[84px] w-40 place-items-center bg-white p-4 transition-opacity hover:opacity-80" target="_blank" rel="noopener noreferrer">{{ image|raw }}</a>
-                            {%- else %}
-                                <div class="grid h-[84px] w-40 place-items-center bg-white p-4">{{ image|raw }}</div>
-                            {%- endif %}
-                        </li>
+    {# Data sources #}
+    {%- if sources|length %}
+        <section aria-label="Datenbasis" class="border-y border-line bg-white">
+            <div class="container-wrap flex flex-wrap items-center justify-between gap-x-10 gap-y-4 py-7">
+                {%- if footer.sourcesLabel %}
+                    <p class="text-label-sm text-ink-muted">{{ footer.sourcesLabel }}</p>
+                {%- endif %}
+                <ul class="flex flex-wrap items-center gap-x-11 gap-y-3 text-[20px] leading-[30px] font-light text-ink-muted">
+                    {%- for source in sources %}
+                        <li>{{ source.text }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        </section>
+    {%- endif %}
+
+    {# Main footer #}
+    <div class="bg-navy-deep text-white">
+        <div class="container-wrap flex flex-col gap-14 pt-[72px] pb-8">
+            <div class="flex flex-wrap items-start gap-x-16 gap-y-12">
+                <div class="flex flex-[0_0_200px] flex-col items-center gap-[19px]">
+                    {%- include '_partials/redesign/logo' with { utilities: 'block h-auto w-[200px] text-white' } only -%}
+                    {%- if footer.footerClaim ?? false %}
+                        <p class="text-center text-[18px] leading-6 font-light whitespace-nowrap">{{ footer.footerClaim }}</p>
                     {%- endif %}
-                {%- endfor %}
-            </ul>
-        {%- endif %}
+                </div>
 
-        <div class="mt-[72px] flex flex-wrap items-center justify-between gap-6 border-t border-white/14 pt-6 text-caption">
-            <span class="text-ink-light">&copy; {{ now|date('Y') }} {{ footer.copyrightText ?? '' }}</span>
-            <ul class="flex gap-6">
-                <li><a href="{{ url('impressum') }}" class="text-ink-light no-underline hover:underline">Impressum</a></li>
-                <li><a href="{{ url('datenschutz') }}" class="text-ink-light no-underline hover:underline">Datenschutz</a></li>
-            </ul>
+                <div class="grid min-w-0 flex-[1_1_640px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-x-8 gap-y-10 text-copy-sm">
+                    <div class="flex flex-col gap-[14px]">
+                        <h2 class="text-label text-ink-light">Kontakt</h2>
+                        {%- if addressLines|length %}
+                            <address class="not-italic">{{ addressLines|join('<br>')|raw }}</address>
+                        {%- endif %}
+                        {%- if footer.contactPhone.url ?? false %}
+                            <a href="{{ footer.contactPhone.url }}" class="self-start text-white underline underline-offset-3 hover:text-ink-light">{{ footer.contactPhone.label }}</a>
+                        {%- endif %}
+                        {%- if footer.contactEmail.url ?? false %}
+                            <a href="{{ footer.contactEmail.url }}" class="self-start text-white underline underline-offset-3 [overflow-wrap:anywhere] hover:text-ink-light">{{ footer.contactEmail.label }}</a>
+                        {%- endif %}
+                    </div>
+
+                    {%- if pageLinks|length %}
+                        <nav aria-label="Seiten" class="flex flex-col gap-[14px]">
+                            <h2 class="text-label text-ink-light">Seiten</h2>
+                            {%- for link in pageLinks %}
+                                <a href="{{ link.url }}" class="self-start text-white no-underline hover:text-white hover:underline"{% if link.target %} target="{{ link.target }}"{% endif %}>{{ link.label }}</a>
+                            {%- endfor %}
+                        </nav>
+                    {%- endif %}
+
+                    {%- if socials|length %}
+                        <nav aria-label="Social Media" class="flex flex-col gap-[14px]">
+                            <h2 class="text-label text-ink-light">Folgen</h2>
+                            {%- for social in socials %}
+                                <a href="{{ social.link.url }}" class="group inline-flex items-center gap-3 self-start text-white no-underline hover:text-white" target="_blank" rel="noopener noreferrer">
+                                    <span class="inline-flex size-11 items-center justify-center rounded-full bg-navy-field transition-colors group-hover:bg-navy-border">
+                                        {%- include '_partials/redesign/icon' with { name: social.name, utilities: 'size-5' } only -%}
+                                    </span>
+                                    {{ social.label }}
+                                </a>
+                            {%- endfor %}
+                        </nav>
+                    {%- endif %}
+
+                    {%- if newsletterAction and newsletterAction.url %}
+                        <form action="{{ newsletterAction.url }}" method="post" class="flex flex-col gap-[14px]"{% if newsletterAction.target %} target="{{ newsletterAction.target }}"{% endif %}>
+                            <h2 class="text-label text-ink-light">Newsletter</h2>
+                            {%- if footer.newsletterText %}
+                                <p>{{ footer.newsletterText }}</p>
+                            {%- endif %}
+                            <label for="newsletter-email" class="text-caption text-ink-light">E-Mail-Adresse</label>
+                            <input id="newsletter-email" name="email" type="email" required autocomplete="email" placeholder="name@beratung.de" class="h-11 w-full rounded-[4px] border border-navy-border bg-navy-field px-[14px] text-copy-sm text-white placeholder:text-ink-light/70">
+                            <button type="submit" class="h-11 cursor-pointer rounded-[4px] bg-white px-[18px] text-label text-navy transition-colors hover:bg-ink-soft">Anmelden</button>
+                        </form>
+                    {%- endif %}
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-between gap-x-8 gap-y-3 border-t border-navy-border pt-6 text-caption text-ink-light">
+                <span>&copy; {{ now|date('Y') }} {{ footer.copyrightText ?? '' }}</span>
+                <ul class="flex gap-6">
+                    <li><a href="{{ url('impressum') }}" class="text-white no-underline hover:text-white hover:underline">Impressum</a></li>
+                    <li><a href="{{ url('datenschutz') }}" class="text-white no-underline hover:text-white hover:underline">Datenschutz</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </footer>

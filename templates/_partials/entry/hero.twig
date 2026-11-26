@@ -1,56 +1,59 @@
 {# =========================================================================
    Hero
-   Navy statement hero of the 2026 design.
-   Fields: subtitle (label), heading (*…* = gold), text, buttons
-           (primary = gold, secondary = outline), facts (table: title/text).
-   The older fields heroVariant, backgroundColor, svgVariant, image,
-   floatingCard and containerWidth are no longer used.
+   Light box with label, statement heading, lead, text and buttons; navy
+   card on the right with a numbered list.
+   Fields: subtitle (label), heading (*…* = plum), lead, text, buttons
+           (primary = navy, secondary = white), cardTitle, facts (table,
+           column "title" = list item).
    ========================================================================= #}
 
-{%- set facts = (entry.facts ?? [])|filter(row => row.title ?? false) -%}
+{%- set items = (entry.facts ?? [])|filter(row => row.title ?? false) -%}
+{%- set buttons = entry.buttons.all() -%}
 
-<section class="relative overflow-hidden scroll-mt-24 bg-navy-deep pt-20 pb-[72px] text-white tablet:pt-[120px] tablet:pb-[104px]">
-    {%- include '_partials/redesign/platypus-mark' with {
-        utilities: 'pointer-events-none absolute -right-[4%] -bottom-5 w-[90vw] text-petrol opacity-55 tablet:top-24 tablet:bottom-auto tablet:w-[min(52vw,680px)] tablet:opacity-20',
-    } only -%}
+<section class="container-wrap scroll-mt-24 pt-6 tablet:pt-12">
+    <div class="flex flex-wrap items-stretch gap-12 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
+        <div class="flex min-w-0 flex-[1_1_560px] flex-col justify-center gap-7">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
 
-    <div class="container-wrap relative z-[1]">
-        {%- if entry.subtitle %}
-            <p class="text-label text-petrol">{{ entry.subtitle }}</p>
-        {%- endif %}
+            <h1 class="text-statement">
+                {%- include '_partials/redesign/highlight' with { text: entry.heading, utilities: 'text-plum' } only -%}
+            </h1>
 
-        <h1 class="mt-7 max-w-[15ch] text-statement">
-            {%- include '_partials/redesign/highlight' with { text: entry.heading, utilities: 'text-gold' } only -%}
-        </h1>
+            {%- if entry.lead ?? false %}
+                <p class="max-w-[620px] text-[clamp(19px,2vw,22px)] leading-[1.4545] font-light">{{ entry.lead }}</p>
+            {%- endif %}
 
-        {%- if entry.text %}
-            <div class="prose-plain mt-10 max-w-[46ch] text-[clamp(20px,2.2vw,24px)] leading-[1.5] font-light text-ink-soft">
-                {{ entry.text }}
-            </div>
-        {%- endif %}
+            {%- if entry.text %}
+                <div class="prose-plain max-w-[620px]">{{ entry.text }}</div>
+            {%- endif %}
 
-        {%- set buttons = entry.buttons.all() -%}
-        {%- if buttons|length %}
-            <div class="mt-10 flex flex-wrap gap-3">
-                {%- include '_partials/redesign/buttons' with {
-                    buttons: buttons,
-                    primary: 'gold',
-                    secondary: 'outline-light',
-                    utilities: 'max-phablet:w-full max-phablet:justify-center',
-                } only -%}
-            </div>
-        {%- endif %}
+            {%- if buttons|length %}
+                <div class="flex flex-wrap gap-3">
+                    {%- include '_partials/redesign/buttons' with {
+                        buttons: buttons,
+                        primary: 'navy',
+                        secondary: 'white',
+                        utilities: 'max-phablet:w-full max-phablet:justify-center',
+                    } only -%}
+                </div>
+            {%- endif %}
+        </div>
 
-        {%- if facts|length %}
-            <div class="mt-[88px] grid gap-px border-t border-white/14 bg-white/14 tablet:grid-cols-[repeat(3,1fr)]">
-                {%- for fact in facts %}
-                    <div class="bg-navy-deep pt-6 pr-6">
-                        <strong class="block text-[22px] leading-[30px] font-light text-white">{{ fact.title }}</strong>
-                        {%- if fact.text ?? false %}
-                            <span class="mt-1.5 block text-copy-sm text-ink-light">{{ fact.text }}</span>
-                        {%- endif %}
-                    </div>
-                {%- endfor %}
+        {%- if items|length %}
+            <div class="flex min-w-[min(280px,100%)] flex-[0_1_380px] flex-col gap-5 rounded-[24px] bg-navy px-6 py-8 text-white phablet:px-8 phablet:py-9">
+                {%- if entry.cardTitle ?? false %}
+                    <p class="text-label text-ink-light">{{ entry.cardTitle }}</p>
+                {%- endif %}
+                <ol>
+                    {%- for item in items %}
+                        <li class="flex items-baseline gap-4 py-[14px] {{ not loop.last ? 'border-b border-navy-border' }}">
+                            <span class="flex-none text-label text-petrol">{{ '%02d'|format(loop.index) }}</span>
+                            <span class="text-[17px] leading-[26px] font-light">{{ item.title }}</span>
+                        </li>
+                    {%- endfor %}
+                </ol>
             </div>
         {%- endif %}
     </div>
