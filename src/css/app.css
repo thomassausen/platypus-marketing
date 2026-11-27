@@ -45,6 +45,8 @@
     --color-ground: #F7F7F7;
     --color-mist: #ECECEC;
     --color-line: #DADADA;
+    --color-steel: #9097A6;
+    --color-sand: #FAF9F6;
 
     /* Breakpoints of the 2026 design (601 / 901 / 1101 px) */
     --breakpoint-phablet: 37.5625rem;

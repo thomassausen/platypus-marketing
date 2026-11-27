@@ -36,7 +36,7 @@
                         {%- if case.metricCaption %}
                             <span class="text-[13px] leading-5 {{ style.caption }}">{{ case.metricCaption }}</span>
                         {%- endif %}
-                        <span class="mt-auto text-[18px] leading-[26px] font-light group-hover:underline">{{ case.title }}</span>
+                        <span class="mt-auto text-[18px] leading-[26px] font-light group-hover:underline">{{ case.teaserTitle ?: case.title }}</span>
                     </a>
                 </li>
             {%- endfor %}

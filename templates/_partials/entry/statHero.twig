@@ -1,0 +1,42 @@
+{# =========================================================================
+   Stat hero
+   Grey box with label, heading and lead; 2 × 2 key figure tiles on the
+   right (navy, petrol, coral light, white) with one rounded outer corner.
+   Fields: subtitle, heading, lead, stats (table: title = value, text)
+   ========================================================================= #}
+
+{%- set stats = (entry.stats ?? [])|filter(row => row.title ?? false)|slice(0, 4) -%}
+{%- set tiles = [
+    { tile: 'bg-navy text-white rounded-[24px_4px_4px_4px]', caption: 'text-ink-light' },
+    { tile: 'bg-petrol text-ink rounded-[4px_24px_4px_4px]', caption: 'text-ink' },
+    { tile: 'bg-coral-light text-ink rounded-[4px_4px_4px_24px]', caption: 'text-ink' },
+    { tile: 'bg-white text-ink rounded-[4px_4px_24px_4px]', caption: 'text-ink' },
+] -%}
+
+<section class="container-wrap pt-6 tablet:pt-12">
+    <div class="flex flex-wrap items-center gap-12 bg-mist px-6 py-10 phablet:p-12">
+        <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-6">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h1 class="text-[clamp(38px,4.6vw,56px)] leading-[1.14] font-light tracking-[-.02em]">{{ entry.heading }}</h1>
+            {%- if entry.lead %}
+                <p class="max-w-[600px] text-[20px] leading-[30px] font-light">{{ entry.lead }}</p>
+            {%- endif %}
+        </div>
+
+        {%- if stats|length %}
+            <ul class="grid min-w-[min(260px,100%)] flex-[0_1_360px] grid-cols-[repeat(2,1fr)] gap-3">
+                {%- for stat in stats %}
+                    {%- set style = tiles[loop.index0] -%}
+                    <li class="flex flex-col gap-2 px-5 py-6 {{ style.tile }}">
+                        <span class="text-[36px] leading-10 font-light">{{ stat.title }}</span>
+                        {%- if stat.text ?? false %}
+                            <span class="text-[13px] leading-[19px] {{ style.caption }}">{{ stat.text }}</span>
+                        {%- endif %}
+                    </li>
+                {%- endfor %}
+            </ul>
+        {%- endif %}
+    </div>
+</section>

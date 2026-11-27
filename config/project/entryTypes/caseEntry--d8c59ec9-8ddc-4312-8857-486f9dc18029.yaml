@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  ad0ac191-46ba-4d5d-b4ae-83909bd833a5:
+  c6a17509-7b5e-472c-8465-169cdda724a6:
     cardThumbAlignment: end
     tabs:
       -
@@ -19,7 +19,7 @@ fieldLayouts:
             id: null
             inputType: null
             instructions: null
-            label: null
+            label: Titel
             max: null
             min: null
             name: null
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 84afb02d-bfd6-4f9d-bd0c-eded38fe67f4
+            uid: 521afdbd-f8db-450f-8e31-96ad406bab1a
             userCondition: null
             warning: null
             width: 100
@@ -43,12 +43,28 @@ fieldLayouts:
             elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: subtitle
-            instructions: 'z. B. „Personalberatung · HSE“'
+            instructions: 'z. B. „Personalberatung · HSE“. Teile mit „ · “ werden auf der Cases-Seite als zwei Labels gezeigt.'
             label: Branche
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4a8099e1-f67d-43e0-bbbd-8ab6ddacbb4f
+            uid: e6ac788d-1412-46d0-b035-44d111bb323e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teaserTitle
+            instructions: 'Optional, sonst wird der Titel verwendet.'
+            label: 'Kurztitel für Karten'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1acd0064-7899-452c-9049-9debce9e2b9f
             userCondition: null
             warning: null
             width: 100
@@ -64,7 +80,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 15c18a1c-2800-4f87-ad71-570a7bbede35
+            uid: 43c63bb4-7206-4ae1-a276-c8300254a0a1
             userCondition: null
             warning: null
             width: 100
@@ -76,11 +92,11 @@ fieldLayouts:
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: metricCaption
             instructions: 'z. B. „statt einer ganzen Berufsgruppe“'
-            label: 'Kennzahl: Erläuterung'
+            label: 'Kennzahl: Erläuterung (Karte)'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 961f38cd-beed-4ff4-b255-5dcd5fecf47d
+            uid: e8a4e1aa-7242-4792-b288-b697c9cf9ebf
             userCondition: null
             warning: null
             width: 100
@@ -96,12 +112,318 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 39466945-8577-430e-8269-da6605ee1cc4
+            uid: b5e15004-e7e9-4b7f-bab5-be0f0fae1af8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: summary
+            instructions: null
+            label: 'Kurzbeschreibung (Cases-Seite)'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46c649a5-786b-4aa4-a66a-0c0273deebc8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: overviewFacts
+            instructions: 'Nur für das erste Fallbeispiel, das groß gezeigt wird.'
+            label: 'Steckbrief (Cases-Seite)'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad4e338d-b312-458c-978e-5a2021f608ae
+            userCondition: null
+            warning: null
+            width: 100
+        name: Übersicht
+        uid: d1605796-27ae-4c8b-af15-e06340d35a14
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e5e53834-ddf4-4860-a52d-43be1adab40c # Hero-Farbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39a7529c-ec89-44f3-907c-d9a739fab4e0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Unterzeile
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fb6f7c5f-5b2c-498e-be99-c89c5a1a2dde
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: keyLabel
+            instructions: 'Optional, sonst die Kennzahl-Erläuterung der Karte.'
+            label: 'Kernergebnis: Erläuterung'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7a5c081c-5064-404c-9b70-0cd5e8cc698f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: before
+            instructions: null
+            label: Vorher
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 383dc7b2-32d7-4351-a0ff-d04e79a2ce09
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: after
+            instructions: null
+            label: Nachher
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ac1c92d-c53d-4c35-9059-4bdd79d11657
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seitenkopf
+        uid: 59d67027-e7fa-4c1f-a403-d274838c9ba3
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: intro
+            instructions: null
+            label: 'Worum es geht'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aaf669a1-173a-41ea-bb78-ea72548425b2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: glance
+            instructions: 'Alternativ zu Kennzahlen.'
+            label: 'Auf einen Blick'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3aefd18a-af02-46b1-993a-d8984a44e23d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: stats
+            instructions: 'Titel = Wert, Text = Erläuterung.'
+            label: Kennzahlen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d853db8e-5ed5-4beb-90f0-268248f9b76d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e297fb33-9f95-4266-a372-3e54afe799e2 # Abschnitte
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 291b0f17-72ed-411d-b688-c8494aa69914
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quote
+            instructions: null
+            label: Zitat
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 609407b6-eb94-43e6-806f-a087a3b467c0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quoteBy
+            instructions: null
+            label: 'Zitat von'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa556fa9-5c7c-438f-b881-1aac1357cc10
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: internalNote
+            instructions: 'Wird nicht angezeigt.'
+            label: 'Interne Notiz'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7bab080d-18d5-424f-9f92-2f2435041ce6
             userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        uid: afd2db10-f98d-4b84-a197-3f327e5c6f64
+        uid: 17e0a903-380c-4b14-b12f-673359f85a25
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: endLabel
+            instructions: 'z. B. „Fazit“ oder „Was bleibt“'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3e658ac0-fa34-42ff-8983-5a9b03b6a482
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: endHeading
+            instructions: null
+            label: Aussage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f239361d-9107-4181-8660-a09b83d19d19
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: endText
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64664a4c-b1d1-4d64-9cba-e485a4a8a26f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: lessons
+            instructions: null
+            label: 'Was wir daraus lernen'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 34d0650b-20d5-4f44-b813-5e62b77df866
+            userCondition: null
+            warning: null
+            width: 100
+        name: Fazit
+        uid: 65babd93-391b-438a-96b9-b360ccb9fe22
         userCondition: null
     thumbFieldKey: null
 handle: caseEntry

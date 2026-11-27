@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  30d1fefe-35d5-42ed-b9a8-3fbe381015be:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7fbb2f80-db31-45cc-91cf-150d89878ef0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Zeilenumbrüche werden übernommen.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a32945e7-2c84-4c82-8d86-bb294cc34468
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: 'Große Zeile unter der Überschrift.'
+            label: Aussage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bff9281b-7ecc-4d48-9363-e839f3250f5e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: 'Text rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ee5f02d-e6ea-4590-9bae-7c3e585e7c7f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b591db6f-b83f-4160-ad47-bdfe5b2688e1 # Buttons
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4140439d-fb69-4378-a645-5d946abbd9dc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 727bdbc2-37e4-4065-abfb-0b38f6a5d993
+        userCondition: null
+    thumbFieldKey: null
+handle: introHero
+hasTitleField: false
+icon: heading
+name: 'Seitenkopf mit großer Typo'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

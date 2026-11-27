@@ -5,8 +5,8 @@
    - with text: heading left, text column right (offset downwards)
    - plain: heading only
    Props: label, heading (*…* = accent), accent (plum|coral|petrol),
-          text (HTML), link (Link field data), split (wide|even: column
-          widths next to a text), maxWidth (heading width next to a link),
+          text (HTML), link (Link field data), split (wide|even|narrow:
+          column widths next to a text), maxWidth (heading width next to a link),
           headingId, utilities
    ========================================================================= #}
 
@@ -40,6 +40,11 @@
         <div class="flex flex-wrap items-start gap-12 {{ utilities ?? '' }}">
             <div class="min-w-0 flex-[1_1_520px]">{{ title }}</div>
             <div class="prose-plain flex min-w-0 flex-[1_1_420px] flex-col gap-4 tablet:pt-10 [&_p]:m-0">{{ text }}</div>
+        </div>
+    {%- elseif (split ?? 'even') == 'narrow' %}
+        <div class="flex flex-wrap gap-x-12 gap-y-6 {{ utilities ?? '' }}">
+            <div class="min-w-0 flex-[1_1_480px]">{{ title }}</div>
+            <div class="prose-plain flex min-w-0 flex-[1_1_420px] flex-col gap-4 tablet:pt-8 [&_p]:m-0">{{ text }}</div>
         </div>
     {%- else %}
         <div class="flex flex-wrap gap-x-16 gap-y-6 {{ utilities ?? '' }}">

@@ -1,0 +1,102 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c1f36e7e-b017-486d-9879-92b8a0219ab4:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Name der Leistung'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: fe9ea2c2-c1ba-450b-b363-1bdb6124f771
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: description
+            instructions: null
+            label: 'Was wir tun'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f72edb3d-32d1-4df3-a6c4-b25838eebe42
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: result
+            instructions: null
+            label: 'Ihr Ergebnis'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9606ade0-88bf-41a2-938e-3ef07e50aea8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: format
+            instructions: null
+            label: 'Sie erhalten'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 962fa931-add9-40a2-b07f-5aff2f757b30
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 91081bce-bf1a-4a9c-ad74-1437f3f1d1e7
+        userCondition: null
+    thumbFieldKey: null
+handle: packageService
+hasTitleField: true
+icon: list-check
+name: Leistung
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

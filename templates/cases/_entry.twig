@@ -1,21 +1,270 @@
 {# =========================================================================
-   Detail page (interim)
-   Minimal header until the full detail template is built (part C).
+   Case page
+   Coloured hero with key result, before/after, intro + "at a glance" or
+   key figures, numbered sections (plain, petrol band or result), quote,
+   conclusion with lessons and a contact box with "next case".
+   The case number comes from the order of the "cases" structure.
    ========================================================================= #}
 
 {% extends "_layouts/default" %}
 
 {% block content %}
-    <section class="container-wrap pt-6 tablet:pt-12">
-        <div class="flex flex-col gap-7 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
-            {%- if entry.subtitle ?? false %}
-                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
-            {%- endif %}
-            <h1 class="text-statement">{{ entry.title }}</h1>
-            {%- set lead = entry.claim ?? entry.metricCaption ?? null -%}
-            {%- if lead %}
-                <p class="max-w-[620px] text-[clamp(19px,2vw,22px)] leading-[1.4545] font-light">{{ lead }}</p>
+    {%- set cases = craft.entries.section('cases').all() -%}
+    {%- set number = 1 -%}
+    {%- for case in cases -%}
+        {%- if case.id == entry.id %}{% set number = loop.index %}{% endif -%}
+    {%- endfor -%}
+    {%- set next = cases[number] ?? cases|first -%}
+    {%- set overview = craft.entries.section('pages').slug('cases').one() -%}
+    {%- set footer = craft.entries.section('footer').one() -%}
+    {%- set contactUrl = footer.ctaButton.url ?? null -%}
+
+    {%- set colors = {
+        navy: { background: 'bg-navy', border: 'border-navy' },
+        navyDeep: { background: 'bg-navy-deep', border: 'border-navy-deep' },
+        plum: { background: 'bg-plum', border: 'border-plum' },
+        petrol: { background: 'bg-petrol-ink', border: 'border-petrol-ink' },
+    } -%}
+    {%- set color = colors[entry.heroColor.value ?? 'navy'] ?? colors.navy -%}
+    {%- set glance = (entry.glance ?? [])|filter(row => row.title ?? false) -%}
+    {%- set stats = (entry.stats ?? [])|filter(row => row.title ?? false) -%}
+    {%- set lessons = (entry.lessons ?? [])|filter(row => row.text ?? false) -%}
+    {%- set sections = entry.caseSections.all() -%}
+
+    {# Hero #}
+    <section class="container-wrap pt-6 tablet:pt-10">
+        {%- if overview %}
+            <a href="{{ overview.url }}" class="inline-flex min-h-11 items-center gap-2 text-label text-ink-muted no-underline hover:text-navy">
+                {%- include '_partials/redesign/icon' with { name: 'arrow-left', utilities: 'size-4' } only -%}
+                Alle Cases &amp; Referenzen
+            </a>
+        {%- endif %}
+        <div class="relative mt-3 flex flex-wrap items-end gap-12 overflow-hidden px-6 py-10 text-white phablet:px-14 phablet:py-16 {{ color.background }}">
+            <svg viewBox="0 0 400 400" aria-hidden="true" class="pointer-events-none absolute -top-20 -right-20 size-[420px] fill-none stroke-white opacity-14 [stroke-width:1.5]">
+                <circle cx="150" cy="170" r="120"/>
+                <circle cx="250" cy="170" r="120"/>
+                <circle cx="200" cy="255" r="120"/>
+            </svg>
+            <div class="relative flex min-w-0 flex-[1_1_560px] flex-col gap-7">
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex h-7 items-center rounded-[2px] bg-white px-[10px] text-label-sm text-ink">Fallbeispiel {{ number }}</span>
+                    {%- if entry.subtitle %}
+                        <span class="inline-flex h-7 items-center rounded-[2px] border border-white/60 px-[10px] text-label-sm">{{ entry.subtitle }}</span>
+                    {%- endif %}
+                </div>
+                <h1 class="max-w-[760px] font-display text-[clamp(38px,5vw,60px)] leading-[1.07]">{{ entry.title }}</h1>
+                {%- if entry.lead %}
+                    <p class="max-w-[680px] text-[20px] leading-[30px] font-light">{{ entry.lead }}</p>
+                {%- endif %}
+            </div>
+            {%- if entry.metric %}
+                <div class="relative flex min-w-[min(240px,100%)] flex-[0_1_336px] flex-col gap-2 rounded-[24px] bg-ground/92 p-7 text-ink">
+                    <span class="text-label-sm text-ink-muted">Kernergebnis</span>
+                    <span class="text-[clamp(44px,5vw,56px)] leading-[1.07] font-light tracking-[-.02em]">{{ entry.metric }}</span>
+                    {%- set keyLabel = entry.keyLabel ?: entry.metricCaption -%}
+                    {%- if keyLabel %}
+                        <span class="text-[15px] leading-[22px]">{{ keyLabel }}</span>
+                    {%- endif %}
+                </div>
             {%- endif %}
         </div>
+
+        {# Before / after #}
+        {%- if entry.before or entry.after %}
+            <div class="grid grid-cols-1 items-stretch gap-3 bg-mist p-6 tablet:grid-cols-[minmax(0,1fr)_64px_minmax(0,1fr)] tablet:gap-0">
+                <div class="flex flex-col gap-[6px] rounded-[4px] border-[1.5px] border-dashed border-steel px-6 py-5">
+                    <span class="text-label-sm text-ink-muted">Vorher</span>
+                    <span class="text-[20px] leading-7 font-light text-ink-muted">{{ entry.before }}</span>
+                </div>
+                <div class="flex items-center justify-center" aria-hidden="true">
+                    <svg viewBox="0 0 44 22" class="h-[22px] w-11 rotate-90 fill-none stroke-ink [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:3] tablet:rotate-0"><path d="M0 11h34M26 3l8 8-8 8"/></svg>
+                </div>
+                <div class="flex flex-col gap-[6px] rounded-[4px] bg-white px-6 py-5">
+                    <span class="inline-flex items-center gap-2 text-label-sm"><span class="size-2 rounded-full bg-gold"></span>Nachher</span>
+                    <span class="text-[20px] leading-7">{{ entry.after }}</span>
+                </div>
+            </div>
+        {%- endif %}
     </section>
+
+    {# Intro + at a glance / key figures #}
+    {%- if entry.intro or glance|length or stats|length %}
+        <section class="container-wrap pt-16">
+            <div class="flex flex-wrap gap-x-16 gap-y-8">
+                {%- if entry.intro %}
+                    <div class="flex min-w-0 flex-[1_1_472px] flex-col gap-4 border-l-4 pl-7 {{ color.border }}">
+                        <p class="text-label text-ink-muted">Worum es geht</p>
+                        <p class="font-display text-[clamp(22px,2.2vw,26px)] leading-[1.385]">{{ entry.intro }}</p>
+                    </div>
+                {%- endif %}
+                {%- if glance|length %}
+                    <div class="flex min-w-0 flex-[1_1_504px] flex-col gap-2 bg-white p-6 phablet:p-8">
+                        <p class="text-label text-ink-muted">Auf einen Blick</p>
+                        <dl class="grid grid-cols-[minmax(0,1fr)] phablet:grid-cols-[140px_minmax(0,1fr)]">
+                            {%- for row in glance %}
+                                <dt class="pt-3 pr-3 text-label-sm leading-[22px] text-ink-muted phablet:border-b phablet:border-line phablet:pb-3">{{ row.title }}</dt>
+                                <dd class="border-b border-line pb-3 text-[15px] leading-[22px] phablet:pt-3">{{ row.text }}</dd>
+                            {%- endfor %}
+                        </dl>
+                    </div>
+                {%- elseif stats|length %}
+                    <ul class="grid min-w-0 flex-[1_1_440px] grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-3">
+                        {%- for stat in stats %}
+                            <li class="flex flex-col gap-[10px] border-t-[6px] border-petrol bg-white p-6">
+                                <span class="text-[40px] leading-11 font-light tracking-[-.02em]">{{ stat.title }}</span>
+                                <span class="text-copy-sm">{{ stat.text }}</span>
+                            </li>
+                        {%- endfor %}
+                    </ul>
+                {%- endif %}
+            </div>
+        </section>
+    {%- endif %}
+
+    {# Sections #}
+    {%- for section in sections %}
+        {%- set style = section.sectionStyle.value ?? 'plain' -%}
+        {%- set sectionNumber = '%02d'|format(loop.index) -%}
+        {%- set items = (section.items ?? [])|filter(row => row.title ?? false) -%}
+        {%- set paragraphs = section.text and section.text|striptags|trim is not empty -%}
+
+        {%- if style == 'band' %}
+            <section class="container-wrap pt-20">
+                <div class="flex flex-col gap-8 bg-petrol px-6 py-10 phablet:px-12 phablet:py-14">
+                    <div class="flex flex-wrap items-end justify-between gap-x-12 gap-y-4">
+                        <div class="flex max-w-[640px] flex-col gap-3">
+                            <p class="text-label">{{ sectionNumber }} · {{ section.subtitle }}</p>
+                            <h2 class="text-[clamp(28px,3vw,36px)] leading-[1.22] font-light tracking-[-.01em]">{{ section.heading }}</h2>
+                        </div>
+                        {%- if paragraphs %}
+                            <div class="prose-plain max-w-[420px] [&_p]:m-0">{{ section.text }}</div>
+                        {%- endif %}
+                    </div>
+                    {%- if items|length %}
+                        <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(200px,100%),1fr))] gap-3">
+                            {%- for item in items %}
+                                <li class="flex flex-col gap-[10px] bg-petrol-trace px-5 py-6">
+                                    <span class="text-[40px] leading-11 font-light text-petrol-ink" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span>
+                                    <span class="text-[17px] leading-6">{{ item.title }}</span>
+                                    {%- if item.text ?? false %}
+                                        <span class="text-copy-sm text-slate">{{ item.text|nl2br }}</span>
+                                    {%- endif %}
+                                </li>
+                            {%- endfor %}
+                        </ol>
+                    {%- endif %}
+                </div>
+            </section>
+        {%- elseif style == 'result' %}
+            <section class="container-wrap pt-20">
+                <div class="flex flex-col gap-8 bg-coral-trace px-6 py-10 phablet:px-12 phablet:py-14">
+                    <div class="flex flex-wrap items-end gap-x-16 gap-y-4">
+                        <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-3">
+                            <p class="text-label text-coral-deep">{{ sectionNumber }} · {{ section.subtitle }}</p>
+                            <h2 class="font-display text-[clamp(30px,3.4vw,40px)] leading-[1.2]">{{ section.heading }}</h2>
+                        </div>
+                        {%- if paragraphs %}
+                            <div class="prose-plain flex min-w-0 flex-[1_1_420px] flex-col gap-3 [&_p]:m-0">{{ section.text }}</div>
+                        {%- endif %}
+                    </div>
+                    {%- if items|length %}
+                        <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-3">
+                            {%- for item in items %}
+                                <li class="flex flex-col gap-2 border-t-[6px] border-coral bg-white p-6">
+                                    <span class="{{ item.title|length <= 4 ? 'text-[56px]' : 'text-[22px]' }} leading-[1.15] font-light">{{ item.title }}</span>
+                                    {%- if item.text ?? false %}
+                                        <span class="text-copy-sm text-slate">{{ item.text|nl2br }}</span>
+                                    {%- endif %}
+                                </li>
+                            {%- endfor %}
+                        </ul>
+                    {%- endif %}
+                </div>
+            </section>
+        {%- else %}
+            <section class="container-wrap pt-20">
+                <div class="flex flex-wrap gap-x-16 gap-y-6">
+                    <div class="flex min-w-0 flex-[1_1_300px] flex-col gap-3">
+                        <span class="text-[72px] leading-[72px] font-light tracking-[-.02em] text-line" aria-hidden="true">{{ sectionNumber }}</span>
+                        <p class="text-label text-ink-muted">{{ section.subtitle }}</p>
+                        <h2 class="text-[clamp(26px,2.8vw,32px)] leading-[1.25] font-light tracking-[-.01em]">{{ section.heading }}</h2>
+                    </div>
+                    <div class="flex min-w-0 flex-[2_1_560px] flex-col gap-4 tablet:pt-3">
+                        {%- if paragraphs %}
+                            <div class="prose-plain flex flex-col gap-4 text-[17px] leading-7 [&_p]:m-0">{{ section.text }}</div>
+                        {%- endif %}
+                        {%- if items|length %}
+                            <ul class="mt-2 grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-3">
+                                {%- for item in items %}
+                                    <li class="flex flex-col gap-[6px] border-l-4 border-plum-light bg-white p-5">
+                                        <span class="text-[17px] leading-6">{{ item.title }}</span>
+                                        {%- if item.text ?? false %}
+                                            <span class="text-copy-sm text-slate">{{ item.text|nl2br }}</span>
+                                        {%- endif %}
+                                    </li>
+                                {%- endfor %}
+                            </ul>
+                        {%- endif %}
+                    </div>
+                </div>
+            </section>
+        {%- endif %}
+    {%- endfor %}
+
+    {# Quote #}
+    {%- if entry.quote %}
+        <section class="container-wrap pt-20">
+            <figure class="grid grid-cols-[48px_minmax(0,1fr)] items-start gap-4 tablet:grid-cols-[120px_minmax(0,1fr)] tablet:gap-6">
+                <span class="font-display text-[80px] leading-[60px] text-coral tablet:text-[160px] tablet:leading-[120px]" aria-hidden="true">„</span>
+                <div class="flex flex-col gap-5 border-t border-line pt-7">
+                    <blockquote class="max-w-[900px] font-display text-[clamp(24px,2.6vw,32px)] leading-[1.31]">{{ entry.quote }}“</blockquote>
+                    {%- if entry.quoteBy %}
+                        <figcaption class="text-label text-ink-muted">{{ entry.quoteBy }}</figcaption>
+                    {%- endif %}
+                </div>
+            </figure>
+        </section>
+    {%- endif %}
+
+    {# Conclusion #}
+    {%- if entry.endHeading %}
+        <section class="container-wrap pt-20">
+            <div class="flex flex-wrap gap-x-16 gap-y-10 bg-navy px-6 py-10 text-white phablet:px-12 phablet:py-14">
+                <div class="flex min-w-0 flex-[1_1_360px] flex-col gap-5">
+                    {%- if entry.endLabel %}
+                        <p class="text-label text-ink-light">{{ entry.endLabel }}</p>
+                    {%- endif %}
+                    <p class="font-display text-[clamp(28px,3vw,36px)] leading-[1.22]">{{ entry.endHeading }}</p>
+                    {%- if entry.endText %}
+                        <p class="text-[17px] leading-7 font-light">{{ entry.endText }}</p>
+                    {%- endif %}
+                </div>
+                {%- if lessons|length %}
+                    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-2">
+                        <p class="text-label text-ink-light">Was wir daraus lernen</p>
+                        <ol>
+                            {%- for lesson in lessons %}
+                                <li class="flex gap-5 border-b border-navy-border py-4">
+                                    <span class="flex-none text-label leading-[26px] text-petrol">{{ '%02d'|format(loop.index) }}</span>
+                                    <span>{{ lesson.text }}</span>
+                                </li>
+                            {%- endfor %}
+                        </ol>
+                    </div>
+                {%- endif %}
+            </div>
+        </section>
+    {%- endif %}
+
+    {# Next step #}
+    {%- include '_partials/redesign/contact-box' with {
+        label: 'Ihr nächster Schritt',
+        heading: 'Wofür soll man Ihre Beratung kennen?',
+        text: 'Im ersten Gespräch schauen wir gemeinsam, wo Sie heute stehen und welches Paket zu Ihnen passt. Vertraulich, persönlich und mit einer ehrlichen Einschätzung.',
+        buttons: [
+            { text: 'Erstgespräch vereinbaren', url: contactUrl, variant: 'navy', arrow: true },
+            { text: 'Nächstes Fallbeispiel', url: next and next.id != entry.id ? next.url : null, variant: 'white', arrow: true, icon: 'arrow-right' },
+        ],
+        utilities: 'pt-4 pb-8',
+    } only -%}
 {% endblock %}

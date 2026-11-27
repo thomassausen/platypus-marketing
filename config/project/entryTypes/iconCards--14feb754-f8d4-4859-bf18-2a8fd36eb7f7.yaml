@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  98b98b4a-ebc1-43af-928d-957bf7f82a79:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b293664a-c40b-4f54-bc78-81ef29f60efa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b035d130-379b-4e85-b711-a52c2b931be2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cf6f65d0-bd0f-4554-884e-8c9db99f52eb # Icon-Karten
+            handle: cards
+            instructions: null
+            label: Karten
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc0db100-ca00-4958-bd8c-74bdaa04f6a6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: b9ef61d3-13b4-4c71-bfff-b827950a1441
+        userCondition: null
+    thumbFieldKey: null
+handle: iconCards
+hasTitleField: false
+icon: icons
+name: 'Karten mit Icon'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

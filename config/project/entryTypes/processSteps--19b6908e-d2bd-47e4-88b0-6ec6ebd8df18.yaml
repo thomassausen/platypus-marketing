@@ -1,0 +1,90 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  a6501ee4-61e1-4db2-ae4a-a37f621e9a8b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5fbdb0b4-0117-4c34-9643-a357fe8485cf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 942bf2e1-e536-498e-913b-ac35392b67fa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf4a4455-5916-4a4d-9355-d0b9c84d366b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d5417b6b-19be-4973-9ffd-7f9cfd9286d9 # Schritte
+            handle: steps
+            instructions: null
+            label: Schritte
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 71c0cf71-820c-45fd-9091-0e74ef287734
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 97c4ab00-db88-4cb0-bbd0-b26654825df8
+        userCondition: null
+    thumbFieldKey: null
+handle: processSteps
+hasTitleField: false
+icon: route
+name: 'Projektablauf (Petrol, volle Breite)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

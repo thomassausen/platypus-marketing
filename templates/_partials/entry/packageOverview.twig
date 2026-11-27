@@ -1,0 +1,134 @@
+{# =========================================================================
+   Package overview
+   Section head, comparison graphic (result columns + one bar per package;
+   clicking a package highlights its row and card) and package cards.
+   Data comes from the "packages" structure; the last column ("Danach")
+   from the block fields.
+   Fields: anchor, subtitle, heading (*…* = petrol), lead, graphicTitle,
+           teamTitle, teamSummary, teamText, footnote
+   ========================================================================= #}
+
+{%- set packages = craft.entries.section('packages').limit(3).all() -%}
+{%- set count = packages|length -%}
+{%- set edges = ['border-petrol-light', 'border-petrol', 'border-petrol-deep'] -%}
+
+<section{{ attr({ id: entry.anchor ?: false }) }} class="container-wrap scroll-mt-40 pt-16 tablet:pt-24" data-package-overview>
+    <div class="mb-10 flex max-w-[760px] flex-col gap-4">
+        {%- if entry.subtitle %}
+            <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+        {%- endif %}
+        <h2 class="text-section">
+            {%- include '_partials/redesign/highlight' with { text: entry.heading, utilities: 'text-petrol-deep' } only -%}
+        </h2>
+        {%- if entry.lead %}
+            <p class="text-[20px] leading-[30px] font-light">{{ entry.lead }}</p>
+        {%- endif %}
+    </div>
+
+    {%- if count %}
+        <figure class="flex flex-col gap-7 bg-white p-6 tablet:p-12">
+            <figcaption class="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+                {%- if entry.graphicTitle %}
+                    <span class="max-w-[620px] text-[28px] leading-9 font-light">{{ entry.graphicTitle }}</span>
+                {%- endif %}
+                <span class="flex flex-wrap gap-x-6 gap-y-2 text-label-sm">
+                    <span class="inline-flex items-center gap-2"><span class="h-[14px] w-7 rounded-[2px] bg-petrol-deep"></span>Erarbeiten wir mit Ihnen</span>
+                    <span class="inline-flex items-center gap-2"><span class="h-[14px] w-7 rounded-[2px] border-[1.5px] border-dashed border-steel"></span>Übernimmt Ihr Team</span>
+                    <span class="inline-flex items-center gap-2"><span class="size-[14px] rounded-full border-[1.5px] border-ink bg-gold"></span>Übergabe</span>
+                </span>
+            </figcaption>
+
+            <div class="overflow-x-auto">
+                <div class="grid min-w-[940px] grid-cols-[140px_repeat(4,minmax(0,1fr))] gap-x-[10px] gap-y-3">
+                    {# Result columns #}
+                    {%- for package in packages %}
+                        {%- set highlights = (package.stageHighlights ?? [])|filter(row => row.text ?? false) -%}
+                        <div class="flex flex-col gap-[10px] border-t-[3px] bg-ground px-4 py-[18px] {{ edges[loop.index0] }}" style="grid-column: {{ loop.index + 1 }}; grid-row: 1">
+                            <span class="text-label-sm text-ink-muted">Ergebnis {{ loop.index }}</span>
+                            <span class="text-[22px] leading-7 font-light">{{ package.stageName ?: package.title }}</span>
+                            {%- if package.stageSummary %}
+                                <span class="text-[14px] leading-5 text-ink-muted">{{ package.stageSummary }}</span>
+                            {%- endif %}
+                            {%- if highlights|length %}
+                                <ul class="flex flex-col gap-[6px]">
+                                    {%- for row in highlights %}
+                                        <li class="relative pl-4 text-[14px] leading-5 before:absolute before:top-[7px] before:left-0 before:size-[6px] before:rounded-full before:bg-petrol-deep before:content-['']">{{ row.text }}</li>
+                                    {%- endfor %}
+                                </ul>
+                            {%- endif %}
+                        </div>
+                    {%- endfor %}
+                    <div class="flex flex-col gap-[10px] border-[1.5px] border-dashed border-steel px-4 py-[18px]" style="grid-column: {{ count + 2 }}; grid-row: 1">
+                        <span class="text-label-sm text-ink-muted">Danach</span>
+                        {%- if entry.teamTitle %}
+                            <span class="text-[22px] leading-7 font-light">{{ entry.teamTitle }}</span>
+                        {%- endif %}
+                        {%- if entry.teamSummary %}
+                            <span class="text-[14px] leading-5 text-ink-muted">{{ entry.teamSummary }}</span>
+                        {%- endif %}
+                        {%- if entry.teamText %}
+                            <p class="text-[14px] leading-5">{{ entry.teamText }}</p>
+                        {%- endif %}
+                    </div>
+
+                    {# One row per package #}
+                    {%- for package in packages %}
+                        {%- set row = loop.index + 1 -%}
+                        <button type="button" class="flex min-h-16 cursor-pointer flex-col justify-center gap-[2px] pr-3 text-left text-ink transition-opacity" style="grid-column: 1; grid-row: {{ row }}" aria-pressed="false" data-package-pick="{{ loop.index }}" data-package-row="{{ loop.index }}">
+                            <span class="text-label-sm text-ink-muted">Paket {{ loop.index }}</span>
+                            <span class="text-[22px] leading-[30px] font-light tracking-[.04em]">{{ package.title }}</span>
+                        </button>
+                        <div class="relative flex min-h-16 items-center rounded-[4px] bg-petrol-deep pr-[30px] pl-4 text-[14px] leading-5 transition-opacity" style="grid-column: 2 / span {{ loop.index }}; grid-row: {{ row }}" data-package-row="{{ loop.index }}">
+                            {{ package.reach ?: package.stageName }}
+                            <span class="absolute top-1/2 -right-[11px] -mt-[11px] size-[22px] rounded-full border-[1.5px] border-ink bg-white transition-colors" data-package-dot="{{ loop.index }}"></span>
+                        </div>
+                        {%- if package.teamPart %}
+                            <div class="flex min-h-16 items-center rounded-[4px] border-[1.5px] border-dashed border-steel pr-4 pl-6 text-[14px] leading-5 text-ink-muted transition-opacity" style="grid-column: {{ loop.index + 2 }} / span {{ count + 1 - loop.index }}; grid-row: {{ row }}" data-package-row="{{ loop.index }}">{{ package.teamPart }}</div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+
+            {%- if entry.footnote %}
+                <p class="text-caption text-ink-muted">{{ entry.footnote }}</p>
+            {%- endif %}
+        </figure>
+
+        {# Package cards #}
+        <div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
+            {%- for package in packages %}
+                {%- set number = loop.index -%}
+                <a href="{{ package.url }}" class="group flex flex-col gap-[14px] rounded-[4px] border-[1.5px] border-white bg-white px-6 py-7 text-ink no-underline transition-colors hover:text-ink" data-package-card="{{ number }}">
+                    <span class="flex w-full items-center justify-between gap-3">
+                        <span class="text-label-sm">Paket {{ number }}{% if package.reach %} · {{ package.reach }}{% endif %}</span>
+                        <span class="inline-flex gap-1" aria-hidden="true">
+                            {%- for bar in 1..3 %}
+                                <span class="h-[6px] w-[14px] rounded-[1px] border border-petrol-deep {{ bar <= number ? 'bg-petrol-deep' }}"></span>
+                            {%- endfor %}
+                        </span>
+                    </span>
+                    <span class="text-[40px] leading-12 font-light tracking-[.04em]">{{ package.title }}</span>
+                    {%- if package.heroClaim %}
+                        <span class="text-[20px] leading-[30px] font-light">{{ package.heroClaim }}</span>
+                    {%- endif %}
+                    {%- if package.result %}
+                        <span class="flex flex-col gap-1">
+                            <span class="text-label-sm text-ink-muted">Ihr Ergebnis</span>
+                            <span class="text-[15px] leading-6">{{ package.result }}</span>
+                        </span>
+                    {%- endif %}
+                    {%- if package.afterTitle %}
+                        <span class="flex w-full flex-col gap-1 border-t border-line pt-[14px]">
+                            <span class="text-label-sm text-ink-muted">Danach</span>
+                            <span class="text-copy-sm">{{ package.afterTitle }}</span>
+                        </span>
+                    {%- endif %}
+                    <span class="mt-auto inline-flex items-center gap-[10px] text-label group-hover:underline">
+                        Zum Paket {{ package.title }}
+                        {%- include '_partials/redesign/icon' with { name: 'arrow', utilities: 'size-4' } only -%}
+                    </span>
+                </a>
+            {%- endfor %}
+        </div>
+    {%- endif %}
+</section>

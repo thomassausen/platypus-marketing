@@ -1,0 +1,170 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  6a17c55e-b07a-42bc-95d5-9bce1e85afdf:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'z. B. „pakete“ für Links auf #pakete'
+            label: Anker
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 31a74d9f-7f86-49db-ba31-8ab753af058c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 957a737c-3576-4562-995d-1e210375c56b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in Petrol hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b21e6b60-b5f4-4446-89bb-83ae1ebbea0c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4bd459b2-2cfb-4400-ae0a-779a06314e3d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: graphicTitle
+            instructions: null
+            label: 'Grafik: Titel'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7b84ad4e-dc08-41b3-93c5-1ae69a165a7e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teamTitle
+            instructions: 'z. B. „Umsetzung“'
+            label: 'Letzte Spalte: Titel'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 57639bb9-5265-4ed9-bf61-3c894a8fc81d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teamSummary
+            instructions: 'z. B. „Ihr Team setzt um“'
+            label: 'Letzte Spalte: Unterzeile'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0db26f62-92aa-4247-8669-025a72776d67
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teamText
+            instructions: null
+            label: 'Letzte Spalte: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0623422d-7078-4427-b202-e6e5291cc91d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: footnote
+            instructions: null
+            label: Fußnote
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 111b618e-6c0e-4583-aaa6-a11fc0dcc4ca
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: c079f4aa-b715-422a-92e8-73f6b6a728f0
+        userCondition: null
+    thumbFieldKey: null
+handle: packageOverview
+hasTitleField: false
+icon: table-cells
+name: 'Pakete im Vergleich (Grafik)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -2,7 +2,8 @@
    Button
    Link button of the 2026 design.
    Props: text, url, variant (navy|white|outline-navy|gold|outline|outline-light),
-          size (default|small), arrow (bool), target, utilities (extra classes)
+          size (default|small), arrow (bool), icon (icon name for the arrow,
+          default 'arrow'), target, utilities (extra classes)
    ========================================================================= #}
 
 {%- set variants = {
@@ -32,6 +33,6 @@
 {%- if url ?? false -%}
 <a href="{{ url }}" class="{{ classes.filter(v => v).implode(' ') }}"{% if target ?? false %} target="{{ target }}"{% if target == '_blank' %} rel="noopener noreferrer"{% endif %}{% endif %}>
     {{- text -}}
-    {%- if arrow ?? false %} {% include '_partials/redesign/icon' with { name: 'arrow', utilities: (size ?? 'default') == 'small' ? 'size-4' : 'size-[18px]' } only %}{% endif -%}
+    {%- if arrow ?? false %} {% include '_partials/redesign/icon' with { name: icon ?? 'arrow', utilities: (size ?? 'default') == 'small' ? 'size-4' : 'size-[18px]' } only %}{% endif -%}
 </a>
 {%- endif -%}

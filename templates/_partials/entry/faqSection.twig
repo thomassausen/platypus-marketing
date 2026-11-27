@@ -1,40 +1,18 @@
 {# =========================================================================
    FAQ
-   Heading left, questions right as white <details> cards with a "+"
-   that turns into "×"; the first answer is open.
+   Content builder block; renders the shared FAQ partial with the first
+   answer open.
    Fields: subtitle, heading, text, faqItems (question, answer)
    The older fields textAlignment, backgroundColor and containerWidth are
    no longer used.
    ========================================================================= #}
 
-{%- set items = entry.faqItems.all() -%}
-
-<section id="faq" class="container-wrap scroll-mt-40 pt-16 pb-8 tablet:pt-24">
-    <div class="flex flex-wrap items-start gap-12">
-        <div class="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
-            {%- if entry.subtitle %}
-                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
-            {%- endif %}
-            <h2 class="text-section">
-                {%- include '_partials/redesign/highlight' with { text: entry.heading ?? entry.title, utilities: 'text-plum' } only -%}
-            </h2>
-            {%- if entry.text %}
-                <div class="prose-plain">{{ entry.text }}</div>
-            {%- endif %}
-        </div>
-
-        {%- if items|length %}
-            <div class="flex min-w-0 flex-[2_1_560px] flex-col gap-2">
-                {%- for item in items %}
-                    <details class="group bg-white px-6"{% if loop.first %} open{% endif %}>
-                        <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 text-[20px] leading-[30px] font-light [&::-webkit-details-marker]:hidden">
-                            <span>{{ item.question }}</span>
-                            <span class="flex-none text-[28px] leading-none font-light transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
-                        </summary>
-                        <div class="prose-plain content-styles max-w-[640px] pb-6">{{ item.answer }}</div>
-                    </details>
-                {%- endfor %}
-            </div>
-        {%- endif %}
-    </div>
-</section>
+{%- include '_partials/redesign/faq' with {
+    id: 'faq',
+    label: entry.subtitle,
+    heading: entry.heading ?? entry.title,
+    text: entry.text,
+    items: entry.faqItems.all(),
+    openFirst: true,
+    utilities: 'pt-16 pb-8 tablet:pt-24',
+} only -%}

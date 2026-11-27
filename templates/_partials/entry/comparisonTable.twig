@@ -1,0 +1,52 @@
+{# =========================================================================
+   Comparison table
+   White box with a three-column table (criterion, left, right) next to a
+   navy statement card.
+   Fields: heading, columnLeft, columnRight, rows (table: label, left,
+           right), asideLabel, asideHeading, asideText
+   ========================================================================= #}
+
+{%- set rows = (entry.rows ?? [])|filter(row => row.label ?? false) -%}
+
+<section class="container-wrap pt-16 pb-8 tablet:pt-24">
+    <div class="flex flex-wrap gap-4">
+        <div class="flex min-w-0 flex-[2_1_664px] flex-col gap-6 bg-white p-6 tablet:p-8">
+            <h2 class="text-[28px] leading-9 font-light">{{ entry.heading }}</h2>
+            {%- if rows|length %}
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[520px] border-collapse text-left text-copy-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="w-[22%] border-b border-ink pr-4 pb-3"></th>
+                                <th scope="col" class="border-b border-ink pr-4 pb-3 text-label-sm text-ink-muted">{{ entry.columnLeft }}</th>
+                                <th scope="col" class="border-b border-ink pb-3 text-label-sm">{{ entry.columnRight }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%- for row in rows %}
+                                {%- set line = not loop.last ? 'border-b border-line' -%}
+                                <tr>
+                                    <th scope="row" class="py-[14px] pr-4 font-normal text-ink-muted {{ line }}">{{ row.label }}</th>
+                                    <td class="py-[14px] pr-4 {{ line }}">{{ row.left }}</td>
+                                    <td class="py-[14px] {{ line }}">{{ row.right }}</td>
+                                </tr>
+                            {%- endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {%- endif %}
+        </div>
+
+        {%- if entry.asideHeading %}
+            <div class="flex min-w-0 flex-[1_1_384px] flex-col justify-between gap-8 bg-navy p-6 text-white tablet:p-8">
+                {%- if entry.asideLabel %}
+                    <p class="text-label text-ink-light">{{ entry.asideLabel }}</p>
+                {%- endif %}
+                <p class="text-[clamp(26px,2.6vw,32px)] leading-[1.25] font-light">{{ entry.asideHeading }}</p>
+                {%- if entry.asideText %}
+                    <p class="text-copy-sm">{{ entry.asideText }}</p>
+                {%- endif %}
+            </div>
+        {%- endif %}
+    </div>
+</section>

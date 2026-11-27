@@ -1,0 +1,41 @@
+{# =========================================================================
+   Intro hero
+   Grey box with a large serif heading (line breaks kept) and a statement
+   below; text and buttons in a narrow column on the right.
+   Fields: subtitle, heading, lead, text, buttons
+   ========================================================================= #}
+
+{%- set buttons = entry.buttons.all() -%}
+
+<section class="container-wrap pt-6 tablet:pt-12">
+    <div class="flex flex-wrap items-end gap-12 bg-mist px-6 py-10 phablet:px-12 phablet:py-16">
+        <div class="flex min-w-0 flex-[1_1_560px] flex-col gap-10 tablet:gap-16">
+            <div class="flex flex-col gap-6">
+                {%- if entry.subtitle %}
+                    <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+                {%- endif %}
+                <h1 class="font-display text-[clamp(48px,7vw,80px)] leading-none tracking-[.02em]">{{ entry.heading|nl2br }}</h1>
+            </div>
+            {%- if entry.lead %}
+                <p class="max-w-[620px] text-[clamp(28px,3.4vw,40px)] leading-[1.2] font-light">{{ entry.lead }}</p>
+            {%- endif %}
+        </div>
+
+        {%- if entry.text or buttons|length %}
+            <div class="flex min-w-[min(260px,100%)] flex-[0_1_360px] flex-col gap-4">
+                {%- if entry.text %}
+                    <div class="prose-plain">{{ entry.text }}</div>
+                {%- endif %}
+                {%- if buttons|length %}
+                    <div class="flex flex-wrap gap-3">
+                        {%- include '_partials/redesign/buttons' with {
+                            buttons: buttons,
+                            primary: 'navy',
+                            secondary: 'white',
+                        } only -%}
+                    </div>
+                {%- endif %}
+            </div>
+        {%- endif %}
+    </div>
+</section>

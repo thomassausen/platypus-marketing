@@ -1,0 +1,41 @@
+{# =========================================================================
+   Process steps
+   Full-width petrol band with label, heading, lead and numbered steps; a
+   step can carry a small gold badge (e.g. "Sie").
+   Fields: subtitle, heading, lead, steps (table: title, text, badge)
+   ========================================================================= #}
+
+{%- set steps = (entry.steps ?? [])|filter(row => row.title ?? false) -%}
+
+<section aria-label="{{ entry.heading }}" class="mt-16 bg-petrol text-ink tablet:mt-24">
+    <div class="container-wrap flex flex-col gap-12 py-16 tablet:py-[88px]">
+        <div class="flex max-w-[800px] flex-col gap-4">
+            {%- if entry.subtitle %}
+                <p class="text-label">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-[clamp(34px,4vw,48px)] leading-[1.167] font-light tracking-[-.01em]">{{ entry.heading }}</h2>
+            {%- if entry.lead %}
+                <p class="text-[20px] leading-[30px] font-light">{{ entry.lead }}</p>
+            {%- endif %}
+        </div>
+
+        {%- if steps|length %}
+            <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(190px,100%),1fr))] gap-[2px]">
+                {%- for step in steps %}
+                    <li class="flex min-h-[260px] flex-col gap-3 bg-petrol-trace px-[22px] pt-7 pb-8">
+                        <span class="flex items-center justify-between gap-2">
+                            <span class="text-[40px] leading-11 font-light text-petrol-ink" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span>
+                            {%- if step.badge ?? false %}
+                                <span class="inline-flex h-6 items-center rounded-[2px] bg-gold px-2 text-label-sm">{{ step.badge }}</span>
+                            {%- endif %}
+                        </span>
+                        <h3 class="text-[19px] leading-[26px]">{{ step.title }}</h3>
+                        {%- if step.text ?? false %}
+                            <p class="text-copy-sm text-slate">{{ step.text|nl2br }}</p>
+                        {%- endif %}
+                    </li>
+                {%- endfor %}
+            </ol>
+        {%- endif %}
+    </div>
+</section>

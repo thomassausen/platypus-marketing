@@ -1,0 +1,138 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  082164c0-e142-4960-87a3-2f99c8950f9d:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc5de53b-347f-4270-a620-bae17ad1242e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: columnLeft
+            instructions: null
+            label: 'Spalte links'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c57adf9-2a77-4762-84a8-04f67e0a49ab
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: columnRight
+            instructions: null
+            label: 'Spalte rechts (hervorgehoben)'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4698fa07-82ab-4770-a9cf-5c6b24598bd3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 14840270-f687-4a46-85c2-27aaf9adadac # Vergleichszeilen
+            handle: rows
+            instructions: null
+            label: Zeilen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1e778370-3e79-4d35-8b53-65c77b5bae77
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: asideLabel
+            instructions: null
+            label: 'Navy-Karte: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 86479f9b-7318-4cb6-825f-52ac0e6766f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: asideHeading
+            instructions: null
+            label: 'Navy-Karte: Aussage'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3bcfe553-0665-4707-bf9f-bcbad2ed5df8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: asideText
+            instructions: null
+            label: 'Navy-Karte: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e320bff5-58dc-4b3f-9019-bc9577986ecb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 018d865f-54bf-4dd4-bc71-8ea3b74e61ad
+        userCondition: null
+    thumbFieldKey: null
+handle: comparisonTable
+hasTitleField: false
+icon: table
+name: 'Vergleichstabelle mit Navy-Karte'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

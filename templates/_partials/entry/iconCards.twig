@@ -1,0 +1,39 @@
+{# =========================================================================
+   Icon cards
+   Small section head and white cards with a round icon, label, title
+   and text. Directly after "Methode mit Grafik" it moves up.
+   Fields: subtitle, heading, cards (table: icon, label, title, text)
+   Variables: previous (handle of the previous block)
+   ========================================================================= #}
+
+{%- set cards = (entry.cards ?? [])|filter(row => row.title ?? false) -%}
+
+<section class="container-wrap {{ (previous ?? null) == 'methodGraphic' ? 'pt-12' : 'pt-16 tablet:pt-24' }}">
+    {%- if entry.heading %}
+        <div class="mb-8 flex max-w-[760px] flex-col gap-4">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-[28px] leading-9 font-light">{{ entry.heading }}</h2>
+        </div>
+    {%- endif %}
+
+    {%- if cards|length %}
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
+            {%- for card in cards %}
+                <article class="flex flex-col gap-4 bg-white px-6 py-8">
+                    <span class="inline-flex size-[72px] items-center justify-center rounded-full bg-mist">
+                        {%- include '_partials/redesign/icon' with { name: card.icon ?? 'chat', utilities: 'size-[34px] text-ink' } only -%}
+                    </span>
+                    {%- if card.label ?? false %}
+                        <span class="text-label-sm text-ink-muted">{{ card.label }}</span>
+                    {%- endif %}
+                    <h3 class="text-[28px] leading-9 font-light">{{ card.title }}</h3>
+                    {%- if card.text ?? false %}
+                        <p>{{ card.text|nl2br }}</p>
+                    {%- endif %}
+                </article>
+            {%- endfor %}
+        </div>
+    {%- endif %}
+</section>

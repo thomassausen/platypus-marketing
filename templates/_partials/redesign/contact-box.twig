@@ -1,0 +1,28 @@
+{# =========================================================================
+   Contact box
+   Grey box with label, heading and text left, buttons bottom right.
+   Props: label, heading, text, buttons (list of { text, url, variant,
+          arrow }), utilities (outer spacing)
+   ========================================================================= #}
+
+<section class="container-wrap {{ utilities ?? 'pt-16 pb-8 tablet:pt-24' }}">
+    <div class="flex flex-wrap items-end justify-between gap-8 bg-mist p-8 tablet:p-12">
+        <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-[14px]">
+            {%- if label ?? false %}
+                <p class="text-label text-ink-muted">{{ label }}</p>
+            {%- endif %}
+            <h2 class="text-section">{{ heading }}</h2>
+            {%- if text ?? false %}
+                <p>{{ text }}</p>
+            {%- endif %}
+        </div>
+        {%- set buttons = (buttons ?? [])|filter(button => button.url ?? false) -%}
+        {%- if buttons|length %}
+            <div class="flex flex-wrap gap-3">
+                {%- for button in buttons %}
+                    {%- include '_partials/redesign/button' with button only -%}
+                {%- endfor %}
+            </div>
+        {%- endif %}
+    </div>
+</section>

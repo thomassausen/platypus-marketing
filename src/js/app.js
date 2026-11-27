@@ -34,6 +34,30 @@ if (navToggle && navigation) {
     });
 }
 
+// Package overview: clicking a package highlights its row, dot and card
+document.querySelectorAll('[data-package-overview]').forEach((root) => {
+    const pick = (number) => {
+        root.querySelectorAll('[data-package-row]').forEach((element) => {
+            element.style.opacity = element.dataset.packageRow === number ? '' : '0.35';
+        });
+        root.querySelectorAll('[data-package-dot]').forEach((dot) => {
+            dot.classList.toggle('bg-gold', dot.dataset.packageDot === number);
+            dot.classList.toggle('bg-white', dot.dataset.packageDot !== number);
+        });
+        root.querySelectorAll('[data-package-card]').forEach((card) => {
+            card.classList.toggle('border-ink', card.dataset.packageCard === number);
+            card.classList.toggle('border-white', card.dataset.packageCard !== number);
+        });
+        root.querySelectorAll('[data-package-pick]').forEach((button) => {
+            button.setAttribute('aria-pressed', String(button.dataset.packagePick === number));
+        });
+    };
+
+    root.querySelectorAll('[data-package-pick]').forEach((button) => {
+        button.addEventListener('click', () => pick(button.dataset.packagePick));
+    });
+});
+
 // Intersection Observer for Fade-in Animations
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {

@@ -1,21 +1,180 @@
 {# =========================================================================
-   Detail page (interim)
-   Minimal header until the full detail template is built (part C).
+   Package page
+   Hero with "what the package covers", target group + result, services,
+   "afterwards" box, FAQ and contact box.
+   The package position (1–3) comes from the order of the "packages"
+   structure; previous/next link to the neighbouring packages.
    ========================================================================= #}
 
 {% extends "_layouts/default" %}
 
 {% block content %}
+    {%- set packages = craft.entries.section('packages').all() -%}
+    {%- set number = 1 -%}
+    {%- for package in packages -%}
+        {%- if package.id == entry.id %}{% set number = loop.index %}{% endif -%}
+    {%- endfor -%}
+    {%- set previous = packages[number - 2] ?? null -%}
+    {%- set next = packages[number] ?? null -%}
+    {%- set overview = craft.entries.section('pages').slug('angebot').one() -%}
+    {%- set footer = craft.entries.section('footer').one() -%}
+    {%- set contactUrl = footer.ctaButton.url ?? null -%}
+    {%- set edges = ['border-petrol-light', 'border-petrol', 'border-petrol-deep'] -%}
+    {%- set edge = edges[(number - 1) % 3] -%}
+    {%- set forWhom = (entry.forWhom ?? [])|filter(row => row.text ?? false) -%}
+    {%- set services = entry.packageServices.all() -%}
+
+    {# Hero #}
     <section class="container-wrap pt-6 tablet:pt-12">
-        <div class="flex flex-col gap-7 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
-            {%- if entry.subtitle ?? false %}
-                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
-            {%- endif %}
-            <h1 class="text-statement">{{ entry.title }}</h1>
-            {%- set lead = entry.claim ?? entry.metricCaption ?? null -%}
-            {%- if lead %}
-                <p class="max-w-[620px] text-[clamp(19px,2vw,22px)] leading-[1.4545] font-light">{{ lead }}</p>
-            {%- endif %}
+        <div class="flex flex-wrap items-center gap-12 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
+            <div class="flex min-w-0 flex-[1_1_560px] flex-col gap-6">
+                {%- set kicker = ['Angebot', 'Paket ' ~ number, entry.reach]|filter|join(' · ') -%}
+                {%- if overview %}
+                    <a href="{{ overview.url }}#pakete" class="self-start text-label text-ink-muted no-underline hover:text-navy">{{ kicker }}</a>
+                {%- else %}
+                    <p class="text-label text-ink-muted">{{ kicker }}</p>
+                {%- endif %}
+                <h1 class="text-[clamp(48px,7vw,80px)] leading-[1.05] font-light tracking-[.06em]">{{ entry.title }}</h1>
+                {%- if entry.heroClaim %}
+                    <p class="max-w-[680px] font-display text-[clamp(28px,3.4vw,40px)] leading-[1.2]">{{ entry.heroClaim }}</p>
+                {%- endif %}
+                {%- if entry.lead %}
+                    <p class="max-w-[640px] text-[20px] leading-[30px] font-light">{{ entry.lead }}</p>
+                {%- endif %}
+                {%- include '_partials/redesign/button' with {
+                    text: 'Erstgespräch vereinbaren',
+                    url: contactUrl,
+                    variant: 'navy',
+                    arrow: true,
+                    utilities: 'self-start',
+                } only -%}
+            </div>
+
+            <figure class="flex min-w-[min(260px,100%)] flex-[0_1_388px] flex-col gap-[10px] bg-white p-6">
+                <figcaption class="text-label-sm text-ink-muted">Was {{ entry.title }} umfasst</figcaption>
+                {%- for package in packages %}
+                    {%- set included = loop.index <= number -%}
+                    <div class="flex min-h-12 items-center justify-between gap-3 rounded-[4px] border-[1.5px] px-4 text-[15px] leading-[22px] {{ included ? 'border-petrol-deep bg-petrol-deep text-ink' : 'border-dashed border-steel bg-white text-ink-muted' }}">
+                        <span>{{ package.stageName ?: package.title }}</span>
+                        <span class="text-label-sm">{{ included ? 'Mit Platypus' : 'Ihr Team' }}</span>
+                    </div>
+                {%- endfor %}
+                <div class="flex min-h-12 items-center justify-between gap-3 rounded-[4px] border-[1.5px] border-dashed border-steel bg-white px-4 text-[15px] leading-[22px] text-ink-muted">
+                    <span>Umsetzung</span>
+                    <span class="text-label-sm">Ihr Team</span>
+                </div>
+            </figure>
         </div>
     </section>
+
+    {# Target group + result #}
+    {%- if forWhom|length or entry.result %}
+        <section class="container-wrap pt-16 tablet:pt-24">
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))] gap-4">
+                {%- if forWhom|length %}
+                    <div class="flex flex-col gap-5 bg-white p-8 tablet:p-10">
+                        <p class="text-label text-ink-muted">Für wen {{ entry.title }} passt</p>
+                        <ul>
+                            {%- for row in forWhom %}
+                                <li class="flex gap-[14px] border-b border-line py-[14px] text-[18px] leading-7 font-light">
+                                    {%- include '_partials/redesign/icon' with { name: 'check', utilities: 'mt-1 size-5 text-petrol-deep [stroke-width:2]' } only -%}
+                                    <span>{{ row.text }}</span>
+                                </li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                {%- endif %}
+                {%- if entry.result %}
+                    <div class="flex flex-col justify-between gap-8 bg-navy p-8 text-white tablet:p-10">
+                        <span class="inline-flex h-7 items-center self-start rounded-[2px] bg-gold px-[10px] text-label-sm text-ink">Ihr Ergebnis</span>
+                        <p class="text-[clamp(24px,2.6vw,32px)] leading-[1.25] font-light">{{ entry.result }}</p>
+                    </div>
+                {%- endif %}
+            </div>
+        </section>
+    {%- endif %}
+
+    {# Services #}
+    {%- if services|length %}
+        <section class="container-wrap pt-16 tablet:pt-24">
+            <div class="mb-8 flex flex-wrap items-end justify-between gap-6">
+                <div class="flex max-w-[720px] flex-col gap-4">
+                    <p class="text-label text-ink-muted">Die Leistungen im Einzelnen</p>
+                    {%- if entry.stageTitle %}
+                        <h2 class="text-section">{{ entry.stageTitle }}</h2>
+                    {%- endif %}
+                    {%- if entry.stageIntro %}
+                        <p class="text-[20px] leading-[30px] font-light">{{ entry.stageIntro }}</p>
+                    {%- endif %}
+                </div>
+                {%- if previous %}
+                    {%- include '_partials/redesign/button' with {
+                        text: 'Enthält alles aus ' ~ previous.title,
+                        url: previous.url,
+                        variant: 'outline',
+                        size: 'small',
+                        arrow: true,
+                        utilities: 'min-h-[51px]',
+                    } only -%}
+                {%- endif %}
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))] gap-4">
+                {%- for service in services %}
+                    <article class="flex flex-col gap-3 border-t-[3px] bg-white px-6 py-7 {{ edge }}">
+                        <h3 class="text-[22px] leading-[30px] font-light">{{ service.title }}</h3>
+                        {%- if service.description %}
+                            <p class="text-[15px] leading-6">{{ service.description }}</p>
+                        {%- endif %}
+                        {%- if service.result %}
+                            <p class="text-[15px] leading-6"><span class="text-label-sm text-ink-muted">Ihr Ergebnis · </span>{{ service.result }}</p>
+                        {%- endif %}
+                        {%- if service.format %}
+                            <p class="text-copy-sm text-ink-muted"><span class="text-label-sm">Sie erhalten · </span>{{ service.format }}</p>
+                        {%- endif %}
+                    </article>
+                {%- endfor %}
+            </div>
+        </section>
+    {%- endif %}
+
+    {# Afterwards #}
+    {%- if entry.afterTitle %}
+        <section class="container-wrap pt-8">
+            <div class="flex flex-wrap items-center justify-between gap-6 rounded-[4px] border-[1.5px] border-dashed border-steel p-8 tablet:p-10">
+                <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-[10px]">
+                    <p class="text-label text-ink-muted">Danach</p>
+                    <p class="text-[28px] leading-9 font-light">{{ entry.afterTitle }}</p>
+                    {%- if entry.afterText %}
+                        <p>{{ entry.afterText }}</p>
+                    {%- endif %}
+                </div>
+                {%- if next %}
+                    <a href="{{ next.url }}" class="inline-flex min-h-12 items-center gap-[10px] rounded-[4px] bg-white px-5 text-label text-ink no-underline transition-colors hover:bg-ink hover:text-white">
+                        Weiter zu {{ next.title }}
+                        {%- include '_partials/redesign/icon' with { name: 'arrow-right', utilities: 'size-4' } only -%}
+                    </a>
+                {%- endif %}
+            </div>
+        </section>
+    {%- endif %}
+
+    {# FAQ #}
+    {%- set questions = entry.faqItems.all() -%}
+    {%- if questions|length %}
+        {%- include '_partials/redesign/faq' with {
+            label: 'Fragen zu ' ~ entry.title,
+            heading: 'Was Sie wissen sollten.',
+            items: questions,
+        } only -%}
+    {%- endif %}
+
+    {# Contact #}
+    {%- if entry.ctaTitle %}
+        {%- include '_partials/redesign/contact-box' with {
+            label: 'Kontakt',
+            heading: entry.ctaTitle,
+            text: entry.ctaText,
+            buttons: [{ text: 'Erstgespräch vereinbaren', url: contactUrl, variant: 'navy', arrow: true }],
+        } only -%}
+    {%- endif %}
 {% endblock %}

@@ -1,0 +1,77 @@
+{# =========================================================================
+   Method graphic
+   Section head (text right) and a beige figure: label, coral title, text,
+   graphic image, up to three columns with lists and a result line.
+   Fields: subtitle, heading, accentColor, text, graphicLabel, graphicTitle,
+           graphicText, image, columns (table: title, text = one item per
+           line), graphicResult
+   ========================================================================= #}
+
+{%- set image = entry.image.one() ?? null -%}
+{%- set columns = (entry.columns ?? [])|filter(row => row.title ?? false)|slice(0, 3) -%}
+{%- set columnStyles = [
+    { edge: 'border-[#E2C99A]', label: 'text-[#A5864F]' },
+    { edge: 'border-[#B9A1AE]', label: 'text-plum' },
+    { edge: 'border-[#8A94B5]', label: 'text-navy' },
+] -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    {%- if entry.heading %}
+        {%- include '_partials/redesign/section-head' with {
+            label: entry.subtitle,
+            heading: entry.heading,
+            accent: entry.accentColor.value ?? 'plum',
+            text: entry.text,
+            split: 'narrow',
+            utilities: 'mb-12',
+        } only -%}
+    {%- endif %}
+
+    <figure class="flex flex-col gap-10 bg-beige px-6 py-10 phablet:px-12 phablet:py-14">
+        <div class="flex max-w-[760px] flex-col gap-4">
+            {%- if entry.graphicLabel %}
+                <p class="text-label text-navy">{{ entry.graphicLabel }}</p>
+            {%- endif %}
+            {%- if entry.graphicTitle %}
+                <p class="text-[clamp(36px,4vw,48px)] leading-[1.125] font-light text-coral">{{ entry.graphicTitle }}</p>
+            {%- endif %}
+            {%- if entry.graphicText %}
+                <p class="text-[18px] leading-7 font-light">{{ entry.graphicText }}</p>
+            {%- endif %}
+        </div>
+
+        {%- if image %}
+            {{ tag('img', {
+                src: image.extension == 'svg' ? image.url : image.getUrl({ width: 1240, format: 'webp', quality: 85 }),
+                alt: image.alt ?? '',
+                width: image.width,
+                height: image.height,
+                loading: 'lazy',
+                class: 'mx-auto block h-auto w-full max-w-[620px]',
+            }) }}
+        {%- endif %}
+
+        {%- if columns|length %}
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-4">
+                {%- for column in columns %}
+                    {%- set style = columnStyles[loop.index0] -%}
+                    <div class="border-l-4 bg-sand p-6 {{ style.edge }}">
+                        <p class="mb-3 text-label-sm {{ style.label }}">{{ column.title }}</p>
+                        <ul class="flex flex-col gap-1 text-copy-sm">
+                            {%- for line in (column.text ?? '')|split("\n")|map(line => line|trim)|filter(line => line) %}
+                                <li>{{ line }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                {%- endfor %}
+            </div>
+        {%- endif %}
+
+        {%- if entry.graphicResult %}
+            <figcaption class="flex items-center justify-end gap-4">
+                <svg viewBox="0 0 36 20" class="h-5 w-9 flex-none fill-none stroke-ink [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2]" aria-hidden="true"><path d="M0 10h28M20 3l8 7-8 7"/></svg>
+                <span class="text-[18px] leading-6">{{ entry.graphicResult }}</span>
+            </figcaption>
+        {%- endif %}
+    </figure>
+</section>

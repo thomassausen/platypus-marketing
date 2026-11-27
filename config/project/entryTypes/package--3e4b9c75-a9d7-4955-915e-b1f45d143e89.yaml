@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  cdee4e3f-4250-46e2-a22b-8a2e701076a2:
+  81ad9f3a-fd53-4258-b40b-2761d81c34d2:
     cardThumbAlignment: end
     tabs:
       -
@@ -19,7 +19,7 @@ fieldLayouts:
             id: null
             inputType: null
             instructions: null
-            label: null
+            label: Name
             max: null
             min: null
             name: null
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: e408dbf5-10c9-4abe-a076-a03c1c554c0a
+            uid: 3f076dc7-85ff-4547-b656-146fbd106f81
             userCondition: null
             warning: null
             width: 100
@@ -43,12 +43,12 @@ fieldLayouts:
             elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: subtitle
-            instructions: 'z. B. „Paket 1 · Das Fundament“'
-            label: Label
+            instructions: 'Startseite, z. B. „Paket 1 · Das Fundament“'
+            label: 'Teaser: Label'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1dc19361-832d-49ce-94fc-c0240c6f7406
+            uid: 94396660-bd0e-4c09-a17f-f1ffa736c09f
             userCondition: null
             warning: null
             width: 100
@@ -59,12 +59,12 @@ fieldLayouts:
             elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: claim
-            instructions: 'z. B. „Profil entwickeln.“'
-            label: Kurzaussage
+            instructions: 'Startseite, z. B. „Profil entwickeln.“'
+            label: 'Teaser: Kurzaussage'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 95e85925-7c48-4446-83c6-d7303a39863a
+            uid: 65208c0e-b12b-45e3-bfb8-a0e5a09dad1e
             userCondition: null
             warning: null
             width: 100
@@ -75,17 +75,307 @@ fieldLayouts:
             elementEditCondition: null
             fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
             handle: teaser
-            instructions: 'Kurzbeschreibung für die Pakete-Übersicht.'
-            label: Teaser-Text
+            instructions: Startseite
+            label: 'Teaser: Text'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e0d1bacb-65e3-4fbf-90f1-2af13b2567c7
+            uid: 889910ad-afa3-4b2a-927f-33c51ea04b09
             userCondition: null
             warning: null
             width: 100
-        name: Inhalt
-        uid: 05e5c77b-be43-42ca-ba3d-4b90977afc3b
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: reach
+            instructions: 'z. B. „Klarheit + Leitplanken“. Erscheint im Seitenkopf, auf den Paketkarten und in der Grafik.'
+            label: Umfang
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 791b4512-cab1-4114-ad8d-60cd6dc8e150
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heroClaim
+            instructions: 'Große Zeile im Seitenkopf und auf den Paketkarten.'
+            label: Kernaussage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ebbe521-4aad-47bf-9825-b47e35e33e1d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 63de3648-d7d3-49ea-ba50-d2f2408ec3d5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: forWhom
+            instructions: null
+            label: 'Für wen das Paket passt'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9d93c07b-c961-4a9c-8fe4-8b836faff8d6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: result
+            instructions: null
+            label: 'Ihr Ergebnis'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3cfa287e-c738-4241-a8e0-54dfabf92d28
+            userCondition: null
+            warning: null
+            width: 100
+        name: Übersicht
+        uid: c3a9f8ba-78e0-4ff9-b342-b399bc449a63
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: stageTitle
+            instructions: null
+            label: Überschrift
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1e73803a-056c-412e-9b5a-01994446204a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: stageIntro
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4d67b5e1-67b4-42a8-a0c9-a06b2f3f8ebc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 67ee3cd6-5582-4b3c-bc45-0e3dc11e56b0 # Leistungen
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc80e83b-15b1-46cd-8422-99189636cd3a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: afterTitle
+            instructions: 'z. B. „Roadmap und Umsetzung plant Ihr Team selbst.“ Steht auch auf der Paketkarte.'
+            label: 'Danach: Aussage'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1fab8d68-50cf-4abf-b4ea-ba151915c290
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: afterText
+            instructions: null
+            label: 'Danach: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5cc351da-1df9-45cf-81ba-ddabcbad5c33
+            userCondition: null
+            warning: null
+            width: 100
+        name: Leistungen
+        uid: 3569e03f-8282-4d10-8078-ea2b90f1585e
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: stageName
+            instructions: 'Kurz, z. B. „Leitplanken“. Spalte in der Pakete-Grafik und Zeile „Was … umfasst“.'
+            label: Ergebnis-Name
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5785a9de-94cf-4fab-b174-5e2f4b815916
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: stageSummary
+            instructions: 'z. B. „Wie Marke, Marketing und Vertrieb entscheiden“'
+            label: Ergebnis-Unterzeile
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 82db0a07-1d06-445c-aa07-ad976e0b96e4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: stageHighlights
+            instructions: null
+            label: Ergebnis-Stichpunkte
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c4ddacc7-9888-4637-a0fd-96b43f48dea2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teamPart
+            instructions: 'z. B. „Roadmap und Umsetzung übernimmt Ihr Team“'
+            label: 'Übernimmt Ihr Team'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b01b2efa-a873-45f3-a355-bd2e4f907f81
+            userCondition: null
+            warning: null
+            width: 100
+        name: Grafik
+        uid: a1477ca0-f1f3-46fe-8e59-dc8e8965d73d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 7d5cf96b-6d4e-4c4b-b9c4-02591bfa3bbd # FAQ-Items
+            handle: faqItems
+            instructions: null
+            label: Fragen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06ed0221-ff2b-4c5f-87b9-c29694b5ebf1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: ctaTitle
+            instructions: null
+            label: 'Kontakt: Überschrift'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ccfa36f-5961-4bbb-8685-8c92110762f3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: ctaText
+            instructions: null
+            label: 'Kontakt: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66a16bf0-c174-47f0-bb23-0508e3773990
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'FAQ & Kontakt'
+        uid: e4bb571f-b857-4f01-9747-0bdb27ccc38b
         userCondition: null
     thumbFieldKey: null
 handle: package

@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  5ead7c2e-222f-44b1-bea9-27fa4d5cc8fd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'z. B. „Ausgangslage“, „Herausforderung“, „Ergebnis“'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9a1b1c01-df6d-450f-a7e2-54fd8d518d25
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7dad03a-e765-4300-bfb9-caeb2fcb3b04
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 850a3c8e-602c-47e1-8320-f668483d5a5c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: items
+            instructions: 'Optional. Bei „Ergebnis“ werden kurze Titel (bis 4 Zeichen, z. B. „34“) groß als Kennzahl gezeigt.'
+            label: Kacheln
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3fd2abdb-6e50-4e30-9dd9-1a202f96d001
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fe4e1245-2acd-44e2-b270-757e9c691865 # Abschnitt-Darstellung
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce4d685a-31f3-4cec-aec4-6662b1be7df4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: b8ae2c23-0123-4c1f-8dd6-07973c33017a
+        userCondition: null
+    thumbFieldKey: null
+handle: caseSection
+hasTitleField: false
+icon: paragraph
+name: Abschnitt
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
