@@ -8,7 +8,7 @@
 {%- set columns = (entry.columns ?? [])|filter(row => row.title ?? false)|slice(0, 2) -%}
 {%- set styles = [
     { panel: 'bg-petrol-trace', label: 'text-petrol-ink' },
-    { panel: 'bg-plum-mist', label: 'text-plum' },
+    { panel: 'bg-plum-mist', label: 'text-plum-deep' },
 ] -%}
 
 {%- if columns|length %}

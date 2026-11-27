@@ -10,7 +10,7 @@
 {%- set image = entry.image.one() ?? null -%}
 {%- set columns = (entry.columns ?? [])|filter(row => row.title ?? false)|slice(0, 3) -%}
 {%- set columnStyles = [
-    { edge: 'border-[#E2C99A]', label: 'text-[#A5864F]' },
+    { edge: 'border-[#E2C99A]', label: 'text-[#7D6233]' },
     { edge: 'border-[#B9A1AE]', label: 'text-plum' },
     { edge: 'border-[#8A94B5]', label: 'text-navy' },
 ] -%}
@@ -33,7 +33,7 @@
                 <p class="text-label text-navy">{{ entry.graphicLabel }}</p>
             {%- endif %}
             {%- if entry.graphicTitle %}
-                <p class="text-[clamp(36px,4vw,48px)] leading-[1.125] font-light text-coral">{{ entry.graphicTitle }}</p>
+                <p class="text-[clamp(36px,4vw,48px)] leading-[1.125] font-light text-coral-deep">{{ entry.graphicTitle }}</p>
             {%- endif %}
             {%- if entry.graphicText %}
                 <p class="text-[18px] leading-7 font-light">{{ entry.graphicText }}</p>

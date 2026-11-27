@@ -25,7 +25,7 @@
     --color-petrol-light: #D6E5E8;
     --color-petrol-trace: #EEF5F6;
     --color-petrol-deep: #5F9AA4;
-    --color-petrol-ink: #3F7D88;
+    --color-petrol-ink: #37707A;
     --color-stone: #DCCFB9;
     --color-stone-light: #EFE9E0;
     --color-beige: #F0EDE6;
@@ -37,7 +37,7 @@
     --color-coral: #D48873;
     --color-coral-light: #ECC9C0;
     --color-coral-trace: #F7EAE6;
-    --color-coral-deep: #B0614C;
+    --color-coral-deep: #9C5240;
     --color-gold: #D3A85C;
     --color-gold-hover: #E0B96F;
     --color-gold-light: #EBD8B6;
@@ -55,8 +55,10 @@
 }
 
 @layer base {
+    /* scroll-padding keeps focused elements and anchor targets clear of the sticky header */
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 150px;
     }
 
     body {
@@ -66,10 +68,19 @@
         -webkit-font-smoothing: antialiased;
     }
 
+    /* Focus: gold ring (visible on dark areas) plus a dark inner ring
+       (visible on light areas), so one of them always reaches 3:1 */
     :focus-visible {
-        outline: 2px solid var(--color-gold);
-        outline-offset: 3px;
+        outline: 3px solid var(--color-gold);
+        outline-offset: 2px;
         border-radius: 3px;
+        box-shadow: 0 0 0 2px var(--color-ink);
+    }
+
+    @media (width >= 56.3125rem) {
+        html {
+            scroll-padding-top: 170px;
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -290,6 +301,14 @@
 .fade-in-section.animate-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* open-sans-300 - latin */

@@ -54,7 +54,7 @@
                 <figcaption class="text-label-sm text-ink-muted">Was {{ entry.title }} umfasst</figcaption>
                 {%- for package in packages %}
                     {%- set included = loop.index <= number -%}
-                    <div class="flex min-h-12 items-center justify-between gap-3 rounded-[4px] border-[1.5px] px-4 text-[15px] leading-[22px] {{ included ? 'border-petrol-deep bg-petrol-deep text-ink' : 'border-dashed border-steel bg-white text-ink-muted' }}">
+                    <div class="flex min-h-12 items-center justify-between gap-3 rounded-[4px] border-[1.5px] px-4 text-[15px] leading-[22px] {{ included ? 'border-petrol-deep bg-petrol text-ink' : 'border-dashed border-steel bg-white text-ink-muted' }}">
                         <span>{{ package.stageName ?: package.title }}</span>
                         <span class="text-label-sm">{{ included ? 'Mit Platypus' : 'Ihr Team' }}</span>
                     </div>
@@ -149,7 +149,7 @@
                     {%- endif %}
                 </div>
                 {%- if next %}
-                    <a href="{{ next.url }}" class="inline-flex min-h-12 items-center gap-[10px] rounded-[4px] bg-white px-5 text-label text-ink no-underline transition-colors hover:bg-ink hover:text-white">
+                    <a href="{{ next.url }}" class="inline-flex min-h-12 items-center gap-[10px] rounded-[4px] border border-ink-muted bg-white px-5 text-label text-ink no-underline transition-colors hover:border-ink hover:bg-ink hover:text-white">
                         Weiter zu {{ next.title }}
                         {%- include '_partials/redesign/icon' with { name: 'arrow-right', utilities: 'size-4' } only -%}
                     </a>

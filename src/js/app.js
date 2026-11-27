@@ -60,6 +60,11 @@ document.querySelectorAll('[data-package-overview]').forEach((root) => {
 
 // Intersection Observer for Fade-in Animations
 document.addEventListener('DOMContentLoaded', () => {
+    // No fade-in for people who reduced motion in their system settings
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
