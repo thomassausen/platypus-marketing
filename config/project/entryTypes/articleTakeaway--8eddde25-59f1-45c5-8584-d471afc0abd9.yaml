@@ -1,0 +1,58 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  e610573a-e060-4ac6-a0c1-fcef2fdcc55b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: statement
+            instructions: null
+            label: Schlusssatz
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7e232b38-9e90-4244-85e3-de83790ed5e3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: customLink
+            instructions: null
+            label: Button
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1d5830f-71da-4996-8659-07f5f300c07d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 43b585ec-f076-4007-8b34-fa94b371505e
+        userCondition: null
+    thumbFieldKey: null
+handle: articleTakeaway
+hasTitleField: false
+icon: flag-checkered
+name: 'Schlusssatz mit Button'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Schlusssatz
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

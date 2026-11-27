@@ -1,0 +1,86 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  ac66cb72-00e0-468f-b6bc-81cf93e0cf28:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 1509fc51-c97f-49f2-8365-7beb411ea71a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: shortLabel
+            instructions: 'Für Filter und Labels, z. B. „KI-Zeitalter“. Leer = Titel.'
+            label: Kurzlabel
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7336e2cc-df10-445b-abf5-7b1c6923a94c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4b8b18a3-5bab-4542-9ee5-c8782743e02f # Themenfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8b1d65d1-1cf8-4ca4-b436-c27a15eea4c5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: f16afceb-b877-4f8e-b591-9db148e61a10
+        userCondition: null
+    thumbFieldKey: null
+handle: topic
+hasTitleField: true
+icon: tag
+name: Thema
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

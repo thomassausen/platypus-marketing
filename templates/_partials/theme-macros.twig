@@ -99,3 +99,20 @@
     } -%}
     {{- map[(color.value ?? color ?? '')|lower] ?? 'bg-navy text-white' -}}
 {% endmacro %}
+
+{# Topic colour → classes. kind: panel (news card), chip (labels), header (article head) #}
+{% macro topicClass(topic, kind) %}
+    {%- set color = topic.topicColor.value ?? null -%}
+    {%- set map = {
+        panel: { petrol: 'bg-petrol-light', plum: 'bg-plum-light', coral: 'bg-coral-light' },
+        chip: { petrol: 'bg-petrol-light', plum: 'bg-plum-mist', coral: 'bg-coral-trace' },
+        header: { petrol: 'bg-petrol-light', plum: 'bg-plum-light', coral: 'bg-coral-light' },
+    } -%}
+    {{- map[kind][color] ?? (kind == 'chip' ? 'bg-ground' : 'bg-mist') -}}
+{% endmacro %}
+
+{# Reading time in minutes (200 words per minute, at least 1) #}
+{% macro readingTime(post) %}
+    {%- set words = (post.blogContent ?? '')|striptags|split(' ')|filter(word => word|trim)|length -%}
+    {{- max(1, (words / 200)|round(0, 'ceil')) -}}
+{% endmacro %}

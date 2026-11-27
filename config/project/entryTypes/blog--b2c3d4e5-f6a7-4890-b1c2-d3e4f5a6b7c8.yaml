@@ -86,6 +86,54 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 67140daf-36b1-4d0b-9e00-bc669e905bd1 # Thema
+            handle: null
+            instructions: null
+            label: Thema
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3dd399c5-8f6c-46d2-a0ec-58fb490b1fce
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: series
+            instructions: 'Optional, z. B. „Positionierung im KI-Zeitalter“'
+            label: Reihe
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c261d026-0d1f-4110-b2f3-f53a193610cf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: keyPoints
+            instructions: 'Drei kurze Kernaussagen unter dem Kopf des Beitrags.'
+            label: 'Kurz gesagt'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 40c85a7a-454d-4480-8187-0126a0246c82
+            userCondition: null
+            warning: null
+            width: 100
         name: Inhalt
         uid: f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2c
         userCondition: null

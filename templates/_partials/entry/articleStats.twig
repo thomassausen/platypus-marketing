@@ -1,0 +1,20 @@
+{# =========================================================================
+   Article: key figures
+   White tiles with a petrol top edge, full container width in a blog post.
+   Fields: stats (table: title = value, text)
+   ========================================================================= #}
+
+{%- set stats = (entry.stats ?? [])|filter(row => row.title ?? false) -%}
+
+{%- if stats|length %}
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-3">
+        {%- for stat in stats %}
+            <li class="flex flex-col gap-2 border-t-[6px] border-petrol bg-white p-6">
+                <span class="text-[48px] leading-[52px] font-light">{{ stat.title }}</span>
+                {%- if stat.text ?? false %}
+                    <span class="text-copy-sm text-slate">{{ stat.text }}</span>
+                {%- endif %}
+            </li>
+        {%- endfor %}
+    </ul>
+{%- endif %}

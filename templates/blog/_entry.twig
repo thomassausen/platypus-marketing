@@ -1,106 +1,202 @@
 {# =========================================================================
-   Blog post
-   Navy header, featured image overlapping it, reading column,
-   previous/next navigation, related posts.
+   News article
+   Back link, coloured head (topic, series, date, reading time, title,
+   summary, featured image), "Kurz gesagt", body, further posts and
+   newsletter box.
+
+   Body: the CKEditor field is split into its chunks. Text and the inline
+   elements (compare, takeaway) flow in the reading column; quote, key
+   figures, two lists and the content builder blocks span the full width.
+   The first text segment gets the sticky sidebar (contents + author).
+   h2 headings are numbered (01, 02 …) and linked from the contents.
    ========================================================================= #}
 
 {% extends "_layouts/default" %}
 
+{%- import '_partials/theme-macros.twig' as theme -%}
+
 {% block content %}
+    {%- set topic = entry.topic.one() ?? null -%}
     {%- set image = entry.blogFeaturedImage.one() ?? null -%}
-    {%- set prevEntry = craft.entries().section('blog').postDate('< ' ~ entry.postDate|date('Y-m-d H:i:s')).orderBy('postDate DESC').one() -%}
-    {%- set nextEntry = craft.entries().section('blog').postDate('> ' ~ entry.postDate|date('Y-m-d H:i:s')).orderBy('postDate ASC').one() -%}
-    {%- set relatedPosts = craft.entries().section('blog').id('not ' ~ entry.id).orderBy('RAND()').limit(3).with(['blogFeaturedImage']).all() -%}
+    {%- set keyPoints = (entry.keyPoints ?? [])|filter(row => row.text ?? false)|slice(0, 3) -%}
+    {%- set author = entry.author -%}
+    {%- set authorPhoto = author ? (author.photo.one() ?? null) : null -%}
+    {%- set others = craft.entries().section('blog').id('not ' ~ entry.id).orderBy('postDate DESC').limit(2).with(['topic']).all() -%}
+    {%- set wideTypes = ['quote', 'articleStats', 'articleLists', 'imageText', 'imageGallery', 'cta'] -%}
+
+    {#- Split the body into segments: { wide: false, html } (flowing text) or { wide: true, chunk } -#}
+    {%- set segments = [] -%}
+    {%- set flow = '' -%}
+    {%- set toc = [] -%}
+    {%- set chunks = entry.blogContent ? entry.blogContent.getChunks() : [] -%}
+    {%- for chunk in chunks -%}
+        {%- if chunk.type == 'entry' and chunk.entry and chunk.entry.type.handle in wideTypes -%}
+            {%- if flow|trim %}{% set segments = segments|merge([{ wide: false, html: flow }]) %}{% endif -%}
+            {%- set flow = '' -%}
+            {%- set segments = segments|merge([{ wide: true, chunk: chunk }]) -%}
+        {%- elseif chunk.type == 'entry' -%}
+            {%- set flow = flow ~ chunk.html -%}
+        {%- else -%}
+            {#- Number the h2 headings and collect them for the contents -#}
+            {%- set parts = (chunk.html ~ '')|split('<h2') -%}
+            {%- set html = parts|first -%}
+            {%- for part in parts|slice(1) -%}
+                {%- set number = '%02d'|format(toc|length + 1) -%}
+                {%- set pieces = part|split('>', 2) -%}
+                {%- set title = (pieces[1] ?? '')|split('</h2>')|first|striptags|trim -%}
+                {%- set toc = toc|merge([{ id: 'abschnitt-' ~ number, number: number, title: title }]) -%}
+                {%- set html = html ~ '<h2 id="abschnitt-' ~ number ~ '"' ~ pieces[0] ~ '><span class="article-number">' ~ number ~ '</span>' ~ (pieces[1] ?? '') -%}
+            {%- endfor -%}
+            {%- set flow = flow ~ html -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if flow|trim %}{% set segments = segments|merge([{ wide: false, html: flow }]) %}{% endif -%}
 
     <article>
-        {# Header #}
-        <header class="relative overflow-hidden bg-navy-deep pt-20 text-white tablet:pt-[104px] {{ image ? 'pb-40 tablet:pb-56' : 'pb-[72px] tablet:pb-[88px]' }}">
-            {%- include '_partials/redesign/platypus-mark' with {
-                utilities: 'pointer-events-none absolute -right-[6%] top-16 hidden w-[min(40vw,520px)] text-petrol opacity-15 tablet:block',
-            } only -%}
-            <div class="container-wrap relative z-[1]">
-                <div class="mx-auto max-w-[880px]">
-                    <p class="text-label text-petrol">
-                        <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('d. F Y') }}</time>
-                        {%- if entry.author %} · {{ entry.author.fullName }}{% endif %}
-                    </p>
-                    <h1 class="mt-6 text-statement-md">{{ entry.title }}</h1>
+        {# Head #}
+        <header class="container-wrap pt-6 tablet:pt-12">
+            <a href="{{ url('blog') }}" class="inline-flex min-h-11 items-center gap-2 text-label text-ink-muted no-underline hover:text-navy">
+                {%- include '_partials/redesign/icon' with { name: 'arrow-left', utilities: 'size-4' } only -%}
+                Alle Beiträge
+            </a>
+            <div class="mt-4 flex flex-wrap items-center gap-12 px-6 py-10 phablet:px-12 phablet:py-14 {{ theme.topicClass(topic, 'header') }}">
+                <div class="flex min-w-0 flex-[1_1_560px] flex-col gap-6">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                        {%- if topic %}
+                            <span class="inline-flex h-7 items-center rounded-[2px] bg-white px-[10px] text-label-sm">{{ topic.shortLabel ?: topic.title }}</span>
+                        {%- endif %}
+                        <span class="text-[13px] leading-5 text-slate">
+                            {%- if entry.series %}Reihe: {{ entry.series }} · {% endif -%}
+                            <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('d. F Y') }}</time> · {{ theme.readingTime(entry) }} Min. Lesezeit
+                        </span>
+                    </div>
+                    <h1 class="font-display text-[clamp(38px,5vw,60px)] leading-[1.07]">{{ entry.title }}</h1>
                     {%- if entry.blogSummary %}
-                        <p class="mt-8 max-w-[52ch] text-[clamp(19px,2vw,22px)] leading-[1.5] font-light text-ink-soft">{{ entry.blogSummary }}</p>
+                        <p class="max-w-[680px] text-[clamp(19px,2vw,22px)] leading-[1.45] font-light">{{ entry.blogSummary }}</p>
                     {%- endif %}
                 </div>
+                {%- if image %}
+                    {{ tag('img', {
+                        src: image.extension == 'svg' ? image.url : image.getUrl({ width: 640, format: 'webp', quality: 82 }),
+                        alt: image.alt ?? '',
+                        width: image.width,
+                        height: image.height,
+                        class: 'block h-auto w-80 max-w-full min-w-[min(240px,100%)] flex-[0_1_320px]',
+                    }) }}
+                {%- endif %}
             </div>
         </header>
 
-        {# Featured image, overlapping the header #}
-        {%- if image %}
-            <div class="container-wrap relative z-[2] -mt-28 tablet:-mt-40">
-                <figure class="mx-auto max-w-[1040px]">
-                    {{ tag('img', {
-                        src: image.extension == 'svg' ? image.url : image.getUrl({ width: 2080, height: 1170, mode: 'crop', format: 'webp', quality: 82 }),
-                        alt: image.alt ?? '',
-                        width: 2080,
-                        height: 1170,
-                        class: 'aspect-video w-full bg-beige object-cover',
-                    }) }}
-                    {%- if image.alt %}
-                        <figcaption class="mt-3 text-caption text-ink-muted">{{ image.alt }}</figcaption>
-                    {%- endif %}
-                </figure>
-            </div>
+        {# Key points #}
+        {%- if keyPoints|length %}
+            <section class="container-wrap pt-4">
+                <div class="grid grid-cols-1 items-start gap-6 bg-white px-6 py-8 tablet:grid-cols-[160px_repeat(3,minmax(0,1fr))] tablet:px-10">
+                    <p class="text-label text-ink-muted tablet:pt-[6px]">Kurz gesagt</p>
+                    {%- for point in keyPoints %}
+                        <div class="flex flex-col gap-2 border-t-[3px] border-petrol pt-[14px]">
+                            <span class="text-label text-petrol-ink">{{ '%02d'|format(loop.index) }}</span>
+                            <span class="text-[15px] leading-[23px]">{{ point.text }}</span>
+                        </div>
+                    {%- endfor %}
+                </div>
+            </section>
         {%- endif %}
 
         {# Body #}
-        <div class="container-wrap pt-14 pb-20 tablet:pt-20 tablet:pb-28">
-            {%- if entry.blogContent %}
-                <div class="blog-content content-styles prose-plain mx-auto max-w-[720px] text-[18px] leading-[30px] [&_blockquote]:my-10 [&_blockquote]:border-l-4 [&_blockquote]:border-gold [&_blockquote]:pl-6 [&_blockquote]:font-display [&_blockquote]:text-[26px] [&_blockquote]:leading-[1.3] [&_img]:my-8 [&_img]:h-auto">
-                    {{ entry.blogContent }}
+        {%- set sidebarDone = false -%}
+        {%- for segment in segments %}
+            {%- if segment.wide %}
+                {%- set handle = segment.chunk.entry.type.handle -%}
+                {%- set block = segment.chunk.entry -%}
+                {%- if handle == 'quote' %}
+                    <section class="container-wrap pt-16">
+                        <blockquote class="grid grid-cols-[48px_minmax(0,1fr)] gap-4 bg-navy px-6 py-10 text-white tablet:grid-cols-[100px_minmax(0,1fr)] tablet:gap-6 tablet:px-12 tablet:py-14">
+                            <span class="font-display text-[80px] leading-[60px] text-petrol tablet:text-[140px] tablet:leading-[100px]" aria-hidden="true">„</span>
+                            <div class="flex flex-col gap-4">
+                                <p class="max-w-[860px] font-display text-[clamp(28px,3.2vw,38px)] leading-[1.26]">{{ block.text|striptags|trim }}“</p>
+                                {%- if block.creator ?? false %}
+                                    <footer class="text-label text-ink-light">{{ block.creator }}</footer>
+                                {%- endif %}
+                            </div>
+                        </blockquote>
+                    </section>
+                {%- elseif handle in ['articleStats', 'articleLists'] %}
+                    <section class="container-wrap {{ handle == 'articleStats' ? 'pt-8' : 'pt-16' }}">{{ segment.chunk.html|raw }}</section>
+                {%- else %}
+                    {{ segment.chunk.html|raw }}
+                {%- endif %}
+            {%- elseif not sidebarDone %}
+                {%- set sidebarDone = true -%}
+                <div class="container-wrap flex flex-wrap gap-x-16 gap-y-12 pt-12 tablet:pt-[72px]">
+                    <div class="article-text article-lead min-w-0 max-w-[740px] flex-[1_1_640px]">{{ segment.html|raw }}</div>
+
+                    <aside class="flex min-w-[min(260px,100%)] flex-[0_1_300px] flex-col gap-4 self-start tablet:sticky tablet:top-[170px]">
+                        {%- if toc|length > 1 %}
+                            <nav aria-label="Inhalt" class="flex flex-col gap-1 bg-white p-6">
+                                <p class="mb-2 text-label-sm text-ink-muted">In diesem Beitrag</p>
+                                {%- for item in toc %}
+                                    <a href="#{{ item.id }}" class="py-2 text-copy-sm text-ink no-underline hover:text-navy hover:underline {{ not loop.last ? 'border-b border-line' }}">{{ item.number }} · {{ item.title }}</a>
+                                {%- endfor %}
+                            </nav>
+                        {%- endif %}
+                        {%- if author %}
+                            <div class="flex flex-col gap-[14px] bg-white p-6">
+                                <div class="flex items-center gap-[14px]">
+                                    {%- if authorPhoto %}
+                                        {{ tag('img', {
+                                            src: authorPhoto.getUrl({ width: 128, height: 128, mode: 'crop', format: 'webp', quality: 82 }),
+                                            alt: '',
+                                            width: 64,
+                                            height: 64,
+                                            loading: 'lazy',
+                                            class: 'size-16 flex-none rounded-full object-cover object-[50%_20%]',
+                                        }) }}
+                                    {%- endif %}
+                                    <div>
+                                        <span class="block text-label-sm text-ink-muted">{{ author.authorLabel ?? null ?: 'Autorin' }}</span>
+                                        <span class="text-[18px] leading-[26px] font-light">{{ author.fullName ?: author.username }}</span>
+                                    </div>
+                                </div>
+                                {%- if author.bio ?? false %}
+                                    <p class="text-copy-sm text-slate">{{ author.bio }}</p>
+                                {%- endif %}
+                                {%- if author.profileLink.url ?? false %}
+                                    {%- include '_partials/redesign/text-link' with { link: author.profileLink, utilities: 'self-start' } only -%}
+                                {%- endif %}
+                            </div>
+                        {%- endif %}
+                    </aside>
+                </div>
+            {%- else %}
+                <div class="container-wrap pt-16">
+                    <div class="article-text max-w-[740px]">{{ segment.html|raw }}</div>
                 </div>
             {%- endif %}
-
-            {# Previous / overview / next #}
-            <nav class="mx-auto mt-16 max-w-[880px] border-t border-line pt-10" aria-label="Weitere Beiträge">
-                <div class="grid gap-4 tablet:grid-cols-[repeat(2,1fr)]">
-                    {%- if prevEntry %}
-                        <a href="{{ prevEntry.url }}" class="group flex flex-col gap-2 bg-white p-6 no-underline hover:text-navy">
-                            <span class="inline-flex items-center gap-2 text-label-sm text-ink-muted">
-                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-4 rotate-90 transition-transform group-hover:-translate-x-0.5' } only -%}
-                                Vorheriger Beitrag
-                            </span>
-                            <span class="text-[19px] leading-[26px]">{{ prevEntry.title }}</span>
-                        </a>
-                    {%- else %}
-                        <span class="hidden tablet:block"></span>
-                    {%- endif %}
-                    {%- if nextEntry %}
-                        <a href="{{ nextEntry.url }}" class="group flex flex-col gap-2 bg-white p-6 no-underline hover:text-navy tablet:items-end tablet:text-right">
-                            <span class="inline-flex items-center gap-2 text-label-sm text-ink-muted">
-                                Nächster Beitrag
-                                {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-4 -rotate-90 transition-transform group-hover:translate-x-0.5' } only -%}
-                            </span>
-                            <span class="text-[19px] leading-[26px]">{{ nextEntry.title }}</span>
-                        </a>
-                    {%- endif %}
-                </div>
-                <div class="mt-8 text-center">
-                    {%- include '_partials/redesign/button' with { text: 'Zur Übersicht', url: url('blog'), variant: 'outline' } only -%}
-                </div>
-            </nav>
-        </div>
+        {%- endfor %}
     </article>
 
-    {# Related posts #}
-    {%- if relatedPosts|length %}
-        <section class="section-band bg-beige">
-            <div class="container-wrap">
-                <p class="text-label text-navy">Weiterlesen</p>
-                <h2 class="mt-5 text-h2">Weitere Beiträge</h2>
-                <div class="mt-14 grid gap-4 tablet:grid-cols-[repeat(2,1fr)] desktop:grid-cols-[repeat(3,1fr)]">
-                    {%- for post in relatedPosts %}
-                        {%- include '_partials/redesign/blog-card' with { post: post } only -%}
-                    {%- endfor %}
-                </div>
+    {# Further posts #}
+    {%- if others|length %}
+        <section class="container-wrap pt-16 tablet:pt-24">
+            <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+                <h2 class="text-[28px] leading-9 font-light">Weitere Beiträge</h2>
+                {%- include '_partials/redesign/text-link' with { url: url('blog'), text: 'Alle Beiträge' } only -%}
             </div>
+            <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
+                {%- for post in others %}
+                    {%- set postTopic = post.topic|first -%}
+                    <li>
+                        <a href="{{ post.url }}" class="group flex h-full min-h-[200px] flex-col gap-[14px] bg-white p-6 text-ink no-underline hover:text-ink">
+                            {%- if postTopic %}
+                                <span class="inline-flex h-7 items-center self-start rounded-[2px] px-[10px] text-label-sm {{ theme.topicClass(postTopic, 'chip') }}">{{ postTopic.shortLabel ?: postTopic.title }}</span>
+                            {%- endif %}
+                            <span class="text-[22px] leading-[30px] font-light group-hover:underline">{{ post.title }}</span>
+                        </a>
+                    </li>
+                {%- endfor %}
+            </ul>
         </section>
     {%- endif %}
+
+    {%- include '_partials/redesign/newsletter-box' with { id: 'article-email' } only -%}
 {% endblock %}

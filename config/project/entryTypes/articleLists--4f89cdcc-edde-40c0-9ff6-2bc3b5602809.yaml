@@ -1,0 +1,42 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  21802370-3af6-455a-8a04-680357dfec70:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: columns
+            instructions: 'Titel = Überschrift, Text = ein Stichpunkt pro Zeile. Zwei Spalten: Petrol, Pflaume.'
+            label: Spalten
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0b7e644c-fc2b-453c-92aa-ec6e3ee7040b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 41f7dc23-b9b7-4b19-b811-6ca59dc8d593
+        userCondition: null
+    thumbFieldKey: null
+handle: articleLists
+hasTitleField: false
+icon: list
+name: 'Zwei Listen'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Zwei Listen'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

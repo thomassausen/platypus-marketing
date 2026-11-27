@@ -1,0 +1,22 @@
+{# =========================================================================
+   Article: takeaway
+   Closing sentence in the display face with an optional navy button,
+   inside the text column of a blog post.
+   Fields: statement, customLink
+   ========================================================================= #}
+
+{%- set link = entry.customLink ?? null -%}
+
+<div class="flex flex-col gap-8">
+    <p class="font-display text-[26px] leading-9">{{ entry.statement }}</p>
+    {%- if link and link.url %}
+        {%- include '_partials/redesign/button' with {
+            text: link.label,
+            url: link.url,
+            target: link.target,
+            variant: 'navy',
+            arrow: true,
+            utilities: 'self-start',
+        } only -%}
+    {%- endif %}
+</div>

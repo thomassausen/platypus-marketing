@@ -1,0 +1,42 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  367a1e72-ede5-4fea-a83c-5b768ac075c8:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: stats
+            instructions: 'Titel = Wert, Text = Erläuterung.'
+            label: Kennzahlen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a402e794-7984-4079-969c-be7d37442fa9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 7d6d517e-915a-4027-96bf-22b18c1c1fb9
+        userCondition: null
+    thumbFieldKey: null
+handle: articleStats
+hasTitleField: false
+icon: chart-simple
+name: Kennzahlen
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Kennzahlen
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

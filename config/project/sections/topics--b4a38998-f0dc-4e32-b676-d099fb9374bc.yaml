@@ -1,0 +1,23 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 51c29b32-c338-43f4-854d-94c920297a06 # Thema
+handle: topics
+maxAuthors: 1
+name: Themen
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: # Platypus
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 10352591-c69e-45ca-8aba-b6b6f0af280e
+type: structure

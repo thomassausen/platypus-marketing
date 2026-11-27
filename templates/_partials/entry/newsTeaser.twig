@@ -1,10 +1,13 @@
 {# =========================================================================
    News teaser
-   Section head with link and the three newest blog posts as cards.
+   Section head with link and the three newest blog posts as cards
+   (topic chip, title, "Beitrag 1–3 · date").
    Fields: subtitle, heading, headLink
    ========================================================================= #}
 
-{%- set posts = craft.entries.section('blog').orderBy('postDate DESC').limit(3).all() -%}
+{%- import '_partials/theme-macros.twig' as theme -%}
+
+{%- set posts = craft.entries.section('blog').orderBy('postDate DESC').limit(3).with(['topic']).all() -%}
 
 <section class="container-wrap pt-16 tablet:pt-24">
     {%- include '_partials/redesign/section-head' with {
@@ -17,10 +20,14 @@
     {%- if posts|length %}
         <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-4">
             {%- for post in posts %}
+                {%- set topic = post.topic|first -%}
                 <li>
                     <a href="{{ post.url }}" class="group flex h-full min-h-[260px] flex-col gap-4 bg-white p-6 text-ink no-underline hover:text-ink">
+                        {%- if topic %}
+                            <span class="inline-flex h-7 items-center self-start rounded-[2px] px-[10px] text-label-sm {{ theme.topicClass(topic, 'chip') }}">{{ topic.shortLabel ?: topic.title }}</span>
+                        {%- endif %}
                         <h3 class="grow text-[22px] leading-[30px] font-light group-hover:underline">{{ post.title }}</h3>
-                        <time class="text-caption text-ink-muted" datetime="{{ post.postDate|date('Y-m-d') }}">{{ post.postDate|date('d. F Y') }}</time>
+                        <p class="text-caption text-ink-muted">Beitrag {{ loop.index }} · <time datetime="{{ post.postDate|date('Y-m-d') }}">{{ post.postDate|date('d. F Y') }}</time></p>
                     </a>
                 </li>
             {%- endfor %}

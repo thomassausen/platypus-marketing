@@ -1,0 +1,27 @@
+{# =========================================================================
+   Newsletter box
+   Grey box with heading and sign-up form. Shown only when a form target
+   (newsletterAction) is set in the footer single.
+   Props: id (input id), utilities (outer spacing)
+   ========================================================================= #}
+
+{%- set footer = craft.entries.section('footer').one() -%}
+{%- set action = footer.newsletterAction ?? null -%}
+
+{%- if action and action.url %}
+    <section class="container-wrap {{ utilities ?? 'pt-8 pb-8' }}">
+        <form action="{{ action.url }}" method="post" class="flex flex-wrap items-end gap-8 bg-mist p-6 tablet:p-12"{% if action.target %} target="{{ action.target }}"{% endif %}>
+            <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-3">
+                <p class="text-label text-ink-muted">Newsletter</p>
+                <h2 class="text-[28px] leading-9 font-light">Neue Beiträge direkt in Ihr Postfach.</h2>
+            </div>
+            <div class="flex min-w-0 flex-[1_1_420px] flex-wrap items-end gap-2">
+                <div class="flex flex-[1_1_240px] flex-col gap-[6px]">
+                    <label for="{{ id ?? 'newsletter-box-email' }}" class="text-caption text-ink-muted">E-Mail-Adresse</label>
+                    <input id="{{ id ?? 'newsletter-box-email' }}" name="email" type="email" required autocomplete="email" placeholder="name@beratung.de" class="h-12 w-full rounded-[4px] border border-line bg-white px-[14px] text-ink">
+                </div>
+                <button type="submit" class="h-12 cursor-pointer rounded-[4px] bg-navy px-6 text-label text-white transition-colors hover:bg-navy-deep">Anmelden</button>
+            </div>
+        </form>
+    </section>
+{%- endif %}

@@ -1,0 +1,90 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  f9c19230-7685-4e12-95cc-8d82e479601f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: leftLabel
+            instructions: 'z. B. „Innensicht“'
+            label: 'Links: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 27dc51bf-3dde-45b0-993d-e61bcd09020c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: leftText
+            instructions: null
+            label: 'Links: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 75f6fe70-7835-4718-952b-968240726285
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: rightLabel
+            instructions: 'z. B. „Marktsicht“'
+            label: 'Rechts: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8c04e19f-fa16-4135-b09b-a9488ac75870
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: rightText
+            instructions: null
+            label: 'Rechts: Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 95bf3c9c-941e-49c3-926c-5bae0822591d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: cd8f3f42-1a87-4af3-8a34-17f4d78c4263
+        userCondition: null
+    thumbFieldKey: null
+handle: articleCompare
+hasTitleField: false
+icon: arrow-right-arrow-left
+name: 'Vergleich (zwei Sätze)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Vergleich
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

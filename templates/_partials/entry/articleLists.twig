@@ -1,0 +1,28 @@
+{# =========================================================================
+   Article: two lists
+   Two coloured panels (petrol, plum) with a label and a bullet list, full
+   container width in a blog post.
+   Fields: columns (table: title, text = one item per line)
+   ========================================================================= #}
+
+{%- set columns = (entry.columns ?? [])|filter(row => row.title ?? false)|slice(0, 2) -%}
+{%- set styles = [
+    { panel: 'bg-petrol-trace', label: 'text-petrol-ink' },
+    { panel: 'bg-plum-mist', label: 'text-plum' },
+] -%}
+
+{%- if columns|length %}
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-4">
+        {%- for column in columns %}
+            {%- set style = styles[loop.index0] -%}
+            <div class="flex flex-col gap-[14px] p-8 {{ style.panel }}">
+                <p class="text-label {{ style.label }}">{{ column.title }}</p>
+                <ul class="flex list-disc flex-col gap-[6px] pl-[18px]">
+                    {%- for line in (column.text ?? '')|split("\n")|map(line => line|trim)|filter(line => line) %}
+                        <li>{{ line }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        {%- endfor %}
+    </div>
+{%- endif %}

@@ -1,0 +1,24 @@
+{# =========================================================================
+   Article: compare
+   Two sentences side by side (dashed "before" box → white box), used
+   inside the text column of a blog post.
+   Fields: leftLabel, leftText, rightLabel, rightText
+   ========================================================================= #}
+
+<div class="my-2 grid grid-cols-1 items-stretch gap-3 phablet:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] phablet:gap-0">
+    <div class="rounded-[4px] border-[1.5px] border-dashed border-steel px-6 py-5">
+        {%- if entry.leftLabel %}
+            <span class="mb-[6px] block text-label-sm text-ink-muted">{{ entry.leftLabel }}</span>
+        {%- endif %}
+        <span class="text-[20px] leading-7 font-light">{{ entry.leftText }}</span>
+    </div>
+    <div class="flex items-center justify-center" aria-hidden="true">
+        {%- include '_partials/redesign/icon' with { name: 'arrow-right', utilities: 'size-6 rotate-90 phablet:rotate-0' } only -%}
+    </div>
+    <div class="rounded-[4px] bg-white px-6 py-5">
+        {%- if entry.rightLabel %}
+            <span class="mb-[6px] block text-label-sm text-petrol-ink">{{ entry.rightLabel }}</span>
+        {%- endif %}
+        <span class="text-[20px] leading-7 font-light">{{ entry.rightText }}</span>
+    </div>
+</div>
