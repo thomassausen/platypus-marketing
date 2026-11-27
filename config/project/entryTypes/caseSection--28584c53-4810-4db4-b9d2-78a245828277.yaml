@@ -1,9 +1,13 @@
 allowLineBreaksInTitles: false
-color: null
+color: sky
 description: null
 fieldLayouts:
   5ead7c2e-222f-44b1-bea9-27fa4d5cc8fd:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:9a1b1c01-df6d-450f-a7e2-54fd8d518d25'
+      - 'layoutElement:a7dad03a-e765-4300-bfb9-caeb2fcb3b04'
+      - 'layoutElement:ce4d685a-31f3-4cec-aec4-6662b1be7df4'
     tabs:
       -
         elementCondition: null

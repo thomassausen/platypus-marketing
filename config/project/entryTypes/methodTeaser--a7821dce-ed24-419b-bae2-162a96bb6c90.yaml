@@ -1,9 +1,13 @@
 allowLineBreaksInTitles: false
-color: null
+color: teal
 description: null
 fieldLayouts:
   52f9b91f-e5a9-4067-859d-a54e7791bec9:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:c97b91f3-f2bf-45ae-8a85-4dcdbf903a82'
+      - 'layoutElement:9c17d0a4-7616-4682-b235-1169bc89ac19'
+      - 'layoutElement:782d9a73-0091-4dda-a08b-47096fd55a31'
     tabs:
       -
         elementCondition: null
@@ -139,7 +143,7 @@ fieldLayouts:
         name: Inhalt
         uid: f8976c03-85ff-42c7-b50a-386af96fcc21
         userCondition: null
-    thumbFieldKey: null
+    thumbFieldKey: 'layoutElement:9aee70fc-9711-479c-9244-4a6983664921'
 handle: methodTeaser
 hasTitleField: false
 icon: video

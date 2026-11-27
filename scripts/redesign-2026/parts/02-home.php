@@ -116,7 +116,7 @@ foreach ($faq as $i => [$q, $a]) {
     $items['new' . ($i + 1)] = ['type' => 'faqItem', 'enabled' => true, 'fields' => ['question' => $q, 'answer' => "<p>$a</p>"]];
 }
 $add('faqSection', [
-    'subtitle' => 'FAQ',
+    'subtilte' => 'FAQ',
     'heading' => 'Ehrliche Antworten auf berechtigte Fragen.',
     'faqItems' => $items,
 ]);

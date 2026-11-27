@@ -1,9 +1,13 @@
 allowLineBreaksInTitles: false
-color: null
+color: teal
 description: null
 fieldLayouts:
   a6501ee4-61e1-4db2-ae4a-a37f621e9a8b:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:5fbdb0b4-0117-4c34-9643-a357fe8485cf'
+      - 'layoutElement:942bf2e1-e536-498e-913b-ac35392b67fa'
+      - 'layoutElement:bf4a4455-5916-4a4d-9355-d0b9c84d366b'
     tabs:
       -
         elementCondition: null

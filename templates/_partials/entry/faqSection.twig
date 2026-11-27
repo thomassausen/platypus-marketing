@@ -2,14 +2,15 @@
    FAQ
    Content builder block; renders the shared FAQ partial with the first
    answer open.
-   Fields: subtitle, heading, text, faqItems (question, answer)
+   Fields: subtilte (label; field handle with a typo, kept for existing
+           content), heading, text, faqItems (question, answer)
    The older fields textAlignment, backgroundColor and containerWidth are
    no longer used.
    ========================================================================= #}
 
 {%- include '_partials/redesign/faq' with {
     id: 'faq',
-    label: entry.subtitle,
+    label: entry.subtilte ?? entry.subtitle ?? null,
     heading: entry.heading ?? entry.title,
     text: entry.text,
     items: entry.faqItems.all(),

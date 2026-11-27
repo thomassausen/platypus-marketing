@@ -1,9 +1,13 @@
 allowLineBreaksInTitles: false
-color: null
+color: blue
 description: null
 fieldLayouts:
   f805be5a-44b7-4cc6-9665-b91eea9435b5:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:eefe6df1-a007-458c-8a1c-d89be0346c3b'
+      - 'layoutElement:6b0c4263-7ce9-4da9-8552-9112f74fdb4e'
+      - 'layoutElement:66015b4e-6cc8-4cd5-a9fc-5e1f4737dfad'
     tabs:
       -
         elementCondition: null
@@ -123,7 +127,7 @@ fieldLayouts:
         name: Inhalt
         uid: 79ae982e-9ad6-4a2e-be15-5474e3d7b51a
         userCondition: null
-    thumbFieldKey: null
+    thumbFieldKey: 'layoutElement:6cc0a2ae-be19-4e65-bf49-b07e72004ce2'
 handle: profileHero
 hasTitleField: false
 icon: id-card

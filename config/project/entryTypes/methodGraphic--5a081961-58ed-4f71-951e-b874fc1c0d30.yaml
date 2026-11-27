@@ -1,9 +1,13 @@
 allowLineBreaksInTitles: false
-color: null
+color: teal
 description: null
 fieldLayouts:
   5c2644f7-60cf-4282-8b4a-c2a2422a4d23:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:39b60a25-65d3-4150-a13b-3f701b092605'
+      - 'layoutElement:825eabd7-eb46-49f5-8899-43dbd815d109'
+      - 'layoutElement:c0e21c3c-4bc5-427b-a209-6481c2f9b601'
     tabs:
       -
         elementCondition: null
@@ -171,7 +175,7 @@ fieldLayouts:
         name: Inhalt
         uid: 21530ffd-b955-4246-9791-579f719517ea
         userCondition: null
-    thumbFieldKey: null
+    thumbFieldKey: 'layoutElement:36afa2ac-2a8b-4f57-ab15-88010bac569d'
 handle: methodGraphic
 hasTitleField: false
 icon: diagram-venn
