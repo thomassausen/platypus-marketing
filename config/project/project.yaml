@@ -1,4 +1,4 @@
-dateModified: 1795743767
+dateModified: 1795743943
 elementSources:
   craft\elements\Entry:
     -
@@ -673,15 +673,31 @@ fields:
               - 05924f1a-126a-4a36-a9e2-14a56c5c8ccd # Hero
             -
               - group
-              - Allgemein
+              - Seitenköpfe
         -
           __assoc__:
             -
               - uid
-              - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+              - 1ea31c66-25a9-4756-9792-1150db8f698a # Seitenkopf mit großer Typo
             -
               - group
-              - Allgemein
+              - Seitenköpfe
+        -
+          __assoc__:
+            -
+              - uid
+              - b188a0a0-18b9-49af-ad2c-b7a79380406c # Seitenkopf mit Kennzahlen
+            -
+              - group
+              - Seitenköpfe
+        -
+          __assoc__:
+            -
+              - uid
+              - f4008b06-50b4-477d-89d7-c27ce2df69cc # Seitenkopf mit Porträt
+            -
+              - group
+              - Seitenköpfe
         -
           __assoc__:
             -
@@ -702,10 +718,170 @@ fields:
           __assoc__:
             -
               - uid
+              - 62325f7d-b3f0-49bc-b6d9-565aeccf447d # Prinzipien (Karten mit Label)
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 539ade79-bf20-4e7f-b291-cef6becd1531 # Text mit Zitat
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 82849152-6801-4190-8a07-dbd50aaa12cb # Aussage mit Text
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 8d2a39ae-c04b-4fea-970e-1218a9173104 # Drei Karten (Pflaume)
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - b7f32c20-63e5-40b0-9321-ebc98d24796a # Werte-Liste
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 21062332-acd1-449b-aedb-3b3ab80b02c4 # Gegensätze (Platypus-Prinzip)
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - 14feb754-f8d4-4859-bf18-2a8fd36eb7f7 # Karten mit Icon
+            -
+              - group
+              - Texte
+        -
+          __assoc__:
+            -
+              - uid
+              - a7821dce-ed24-419b-bae2-162a96bb6c90 # Methode mit Video
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - 5a081961-58ed-4f71-951e-b874fc1c0d30 # Methode mit Grafik
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - 0b23a648-1a06-4f9d-b697-e28bb3aeab3f # Nummerierte Kacheln (Petrol)
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - 19b6908e-d2bd-47e4-88b0-6ec6ebd8df18 # Projektablauf (Petrol, volle Breite)
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - 0b8bc73d-5284-46e6-b27d-f7d5779e36a7 # Prinzip + Person
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - 51d05df3-e018-49aa-afc2-593ad5619eb6 # Vergleichstabelle mit Navy-Karte
+            -
+              - group
+              - 'Methode & Ablauf'
+        -
+          __assoc__:
+            -
+              - uid
+              - fe7d9814-5271-42e0-a3d1-c2a8e3e4a3cb # Pakete-Übersicht
+            -
+              - group
+              - Übersichten
+        -
+          __assoc__:
+            -
+              - uid
+              - 721f20b4-67cc-43c3-bf0e-21884d1a5930 # Pakete im Vergleich (Grafik)
+            -
+              - group
+              - Übersichten
+        -
+          __assoc__:
+            -
+              - uid
+              - c0f9fe3f-d851-40b7-8d2b-2129da9c38f4 # Cases-Übersicht
+            -
+              - group
+              - Übersichten
+        -
+          __assoc__:
+            -
+              - uid
+              - d73a14f1-c22c-4e83-98f4-dce78698c6e0 # Fallbeispiele (Liste)
+            -
+              - group
+              - Übersichten
+        -
+          __assoc__:
+            -
+              - uid
+              - 15eff4f8-bc5a-43df-84c2-0566b556fe83 # News-Übersicht
+            -
+              - group
+              - Übersichten
+        -
+          __assoc__:
+            -
+              - uid
+              - 4c55c2ed-8f72-4e5f-89aa-4e7d3447e12f # Kontaktbereich
+            -
+              - group
+              - 'Kontakt & Fragen'
+        -
+          __assoc__:
+            -
+              - uid
+              - fc9288e2-5d14-4d35-b4be-c9cfe19a18c6 # CTA
+            -
+              - group
+              - 'Kontakt & Fragen'
+        -
+          __assoc__:
+            -
+              - uid
               - 8bb09a1f-dca2-460e-9595-5fe310bd2c64 # FAQ
             -
               - group
-              - Sektionen
+              - 'Kontakt & Fragen'
         -
           __assoc__:
             -
@@ -714,182 +890,6 @@ fields:
             -
               - group
               - Medien
-        -
-          __assoc__:
-            -
-              - uid
-              - 62325f7d-b3f0-49bc-b6d9-565aeccf447d # Prinzipien (Karten mit Label)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - a7821dce-ed24-419b-bae2-162a96bb6c90 # Methode mit Video
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - fe7d9814-5271-42e0-a3d1-c2a8e3e4a3cb # Pakete-Übersicht
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 0b23a648-1a06-4f9d-b697-e28bb3aeab3f # Nummerierte Kacheln (Petrol)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 0b8bc73d-5284-46e6-b27d-f7d5779e36a7 # Prinzip + Person
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - c0f9fe3f-d851-40b7-8d2b-2129da9c38f4 # Cases-Übersicht
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 15eff4f8-bc5a-43df-84c2-0566b556fe83 # News-Übersicht
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 1ea31c66-25a9-4756-9792-1150db8f698a # Seitenkopf mit großer Typo
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - b188a0a0-18b9-49af-ad2c-b7a79380406c # Seitenkopf mit Kennzahlen
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 5a081961-58ed-4f71-951e-b874fc1c0d30 # Methode mit Grafik
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 14feb754-f8d4-4859-bf18-2a8fd36eb7f7 # Karten mit Icon
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 19b6908e-d2bd-47e4-88b0-6ec6ebd8df18 # Projektablauf (Petrol, volle Breite)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 721f20b4-67cc-43c3-bf0e-21884d1a5930 # Pakete im Vergleich (Grafik)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 51d05df3-e018-49aa-afc2-593ad5619eb6 # Vergleichstabelle mit Navy-Karte
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - d73a14f1-c22c-4e83-98f4-dce78698c6e0 # Fallbeispiele (Liste)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - f4008b06-50b4-477d-89d7-c27ce2df69cc # Seitenkopf mit Porträt
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 539ade79-bf20-4e7f-b291-cef6becd1531 # Text mit Zitat
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 8d2a39ae-c04b-4fea-970e-1218a9173104 # Drei Karten (Pflaume)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - b7f32c20-63e5-40b0-9321-ebc98d24796a # Werte-Liste
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 21062332-acd1-449b-aedb-3b3ab80b02c4 # Gegensätze (Platypus-Prinzip)
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 82849152-6801-4190-8a07-dbd50aaa12cb # Aussage mit Text
-            -
-              - group
-              - 'Neues Design'
-        -
-          __assoc__:
-            -
-              - uid
-              - 4c55c2ed-8f72-4e5f-89aa-4e7d3447e12f # Kontaktbereich
-            -
-              - group
-              - 'Neues Design'
       includeTableView: false
       maxEntries: null
       minEntries: null
