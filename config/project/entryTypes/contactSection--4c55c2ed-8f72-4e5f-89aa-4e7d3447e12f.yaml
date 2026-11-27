@@ -1,0 +1,154 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c1cbf264-fb27-492b-91b6-98c3a3eec41e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: anchor
+            instructions: 'z. B. „kontakt“ für Links auf #kontakt'
+            label: Anker
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67faa3ea-0560-45af-a7ac-5bc87733e07a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b9ed2856-2740-47cd-b961-522ea7e2b37b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a85f7015-b2d7-4063-aec0-f215ee31a5f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cb0e1e3f-e6d9-4fe0-9899-fa90c31f6814
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: customLink
+            instructions: 'z. B. „Erstgespräch buchen“. Telefon und E-Mail kommen aus dem Footer.'
+            label: Button
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6db8a442-7f14-4221-b20c-06ab138e4a85
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: cardTitle
+            instructions: null
+            label: 'Karte: Label'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 306ae6c4-4b19-481b-9372-6bc870bcc348
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: cardIntro
+            instructions: null
+            label: 'Karte: Einleitung'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e63bdd18-ca25-47a4-a22e-efa35d655e59
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: points
+            instructions: null
+            label: 'Karte: Liste'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7e5e7c0-b22f-44a4-bee2-deecae98e002
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 623716d0-3200-47ff-b89d-3d056f294d30
+        userCondition: null
+    thumbFieldKey: null
+handle: contactSection
+hasTitleField: false
+icon: envelope
+name: Kontaktbereich
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

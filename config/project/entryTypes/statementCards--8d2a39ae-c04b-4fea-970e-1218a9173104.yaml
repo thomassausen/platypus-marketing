@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  18ad9fb1-3763-469e-8ce6-747f656c20a1:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0c4f7e3a-19da-4b44-99f4-47e45c3c9cba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e4025445-60cb-4392-a997-aa16c3bd1350
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 6c6e5e71-06b8-4899-858b-d45ae0b8af82 # Karten mit Label
+            handle: cards
+            instructions: 'Bis zu drei. Ohne Titel wird der Text groß in der Schmuckschrift gezeigt.'
+            label: Karten
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d79ad61a-75e9-427b-9d4e-9de1ce1ae2bf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: c4786b7a-207b-42b1-a878-b67a11da06a2
+        userCondition: null
+    thumbFieldKey: null
+handle: statementCards
+hasTitleField: false
+icon: layer-group
+name: 'Drei Karten (Pflaume)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

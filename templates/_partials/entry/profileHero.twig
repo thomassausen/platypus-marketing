@@ -1,0 +1,53 @@
+{# =========================================================================
+   Profile hero
+   Grey box with a rounded portrait, label, name, role line, serif
+   statement, text and up to three key figure tiles.
+   Fields: image, subtitle, heading, role, lead, text, stats (table:
+           title = value, text)
+   ========================================================================= #}
+
+{%- set portrait = entry.image.one() ?? null -%}
+{%- set stats = (entry.stats ?? [])|filter(row => row.title ?? false)|slice(0, 3) -%}
+
+<section class="container-wrap pt-6 tablet:pt-12">
+    <div class="flex flex-wrap items-center gap-14 bg-mist p-6 phablet:p-12">
+        {%- if portrait %}
+            {{ tag('img', {
+                src: portrait.getUrl({ width: 760, height: 950, mode: 'crop', format: 'webp', quality: 82 }),
+                alt: portrait.alt ?? entry.heading,
+                width: 380,
+                height: 475,
+                class: 'block aspect-[4/5] w-[380px] min-w-[min(260px,100%)] flex-[0_1_380px] rounded-[48px] object-cover',
+            }) }}
+        {%- endif %}
+        <div class="flex min-w-0 flex-[1_1_480px] flex-col gap-6">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <div class="flex flex-col gap-2">
+                <h1 class="text-[clamp(38px,4.6vw,56px)] leading-[1.14] font-light tracking-[-.02em]">{{ entry.heading }}</h1>
+                {%- if entry.role %}
+                    <p class="leading-6 text-ink-muted">{{ entry.role }}</p>
+                {%- endif %}
+            </div>
+            {%- if entry.lead %}
+                <p class="font-display text-[clamp(23px,2.4vw,28px)] leading-[1.36]">{{ entry.lead }}</p>
+            {%- endif %}
+            {%- if entry.text %}
+                <div class="prose-plain">{{ entry.text }}</div>
+            {%- endif %}
+            {%- if stats|length %}
+                <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(140px,100%),1fr))] gap-3">
+                    {%- for stat in stats %}
+                        <li class="flex flex-col gap-1 bg-white px-[18px] py-4">
+                            <span class="text-[32px] leading-9 font-light">{{ stat.title }}</span>
+                            {%- if stat.text ?? false %}
+                                <span class="text-[13px] leading-[19px] text-slate">{{ stat.text }}</span>
+                            {%- endif %}
+                        </li>
+                    {%- endfor %}
+                </ul>
+            {%- endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,60 @@
+{# =========================================================================
+   Contact section
+   Grey box: label, heading, text, button plus phone and e-mail (from the
+   footer single) left; white card with a checklist right.
+   Fields: anchor, subtitle, heading, lead, customLink, cardTitle,
+           cardIntro, points (table: text)
+   ========================================================================= #}
+
+{%- set footer = craft.entries.section('footer').one() -%}
+{%- set phone = footer.contactPhone ?? null -%}
+{%- set mail = footer.contactEmail ?? null -%}
+{%- set link = entry.customLink ?? null -%}
+{%- set points = (entry.points ?? [])|filter(row => row.text ?? false) -%}
+
+<section{{ attr({ id: entry.anchor ?: false }) }} class="container-wrap scroll-mt-40 pt-16 pb-8 tablet:pt-24">
+    <div class="flex flex-wrap items-start gap-x-16 gap-y-10 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
+        <div class="flex min-w-0 flex-[1_1_520px] flex-col gap-5">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-section">{{ entry.heading }}</h2>
+            {%- if entry.lead %}
+                <p class="text-[18px] leading-7 font-light">{{ entry.lead }}</p>
+            {%- endif %}
+            <div class="mt-2 flex flex-wrap items-center gap-3">
+                {%- if link and link.url %}
+                    {%- include '_partials/redesign/button' with {
+                        text: link.label,
+                        url: link.url,
+                        target: link.target,
+                        variant: 'navy',
+                        arrow: true,
+                    } only -%}
+                {%- endif %}
+                {%- if phone and phone.url %}
+                    <a href="{{ phone.url }}" class="inline-flex min-h-12 items-center px-2 text-[18px] leading-[26px] font-light text-ink no-underline hover:text-navy hover:underline">{{ phone.label }}</a>
+                {%- endif %}
+                {%- if mail and mail.url %}
+                    <a href="{{ mail.url }}" class="inline-flex min-h-12 items-center px-2 text-[18px] leading-[26px] font-light text-ink [overflow-wrap:anywhere] underline hover:text-navy">{{ mail.label }}</a>
+                {%- endif %}
+            </div>
+        </div>
+
+        {%- if points|length %}
+            <div class="flex min-w-0 flex-[1_1_444px] flex-col gap-3 bg-white p-8">
+                {%- if entry.cardTitle %}
+                    <p class="text-label text-plum">{{ entry.cardTitle }}</p>
+                {%- endif %}
+                {%- if entry.cardIntro %}
+                    <p class="text-[15px] leading-[23px]">{{ entry.cardIntro }}</p>
+                {%- endif %}
+                <ul>
+                    {%- for point in points %}
+                        <li class="py-[10px] leading-6 {{ not loop.last ? 'border-b border-line' }}">{{ point.text }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        {%- endif %}
+    </div>
+</section>

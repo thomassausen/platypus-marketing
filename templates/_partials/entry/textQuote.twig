@@ -1,0 +1,27 @@
+{# =========================================================================
+   Text + quote
+   Label, heading and text left; white quote card with a plum edge right.
+   Fields: subtitle, heading, text, quote, quoteBy
+   ========================================================================= #}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    <div class="flex flex-wrap items-start gap-x-16 gap-y-8">
+        <div class="flex min-w-0 flex-[1_1_440px] flex-col gap-4">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-[clamp(28px,3vw,36px)] leading-[1.22] font-light tracking-[-.01em]">{{ entry.heading }}</h2>
+            {%- if entry.text %}
+                <div class="prose-plain">{{ entry.text }}</div>
+            {%- endif %}
+        </div>
+        {%- if entry.quote %}
+            <blockquote class="flex min-w-0 flex-[1_1_476px] flex-col gap-[14px] border-l-4 border-plum bg-white p-8 tablet:p-9">
+                <p class="font-display text-[22px] leading-8">„{{ entry.quote }}“</p>
+                {%- if entry.quoteBy %}
+                    <footer class="text-label text-ink-muted">{{ entry.quoteBy }}</footer>
+                {%- endif %}
+            </blockquote>
+        {%- endif %}
+    </div>
+</section>

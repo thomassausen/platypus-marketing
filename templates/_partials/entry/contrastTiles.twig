@@ -1,0 +1,44 @@
+{# =========================================================================
+   Contrast tiles
+   Label, heading and text left; 2 × 2 white tiles with a plain first line
+   and a plum serif second line right; optional navy band below.
+   Fields: subtitle, heading, text, tiles (table: title, text), bandLabel,
+           bandText
+   ========================================================================= #}
+
+{%- set tiles = (entry.tiles ?? [])|filter(row => row.title ?? false) -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    <div class="flex flex-wrap items-start gap-x-16 gap-y-12">
+        <div class="flex min-w-0 flex-[1_1_440px] flex-col gap-5">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-section">{{ entry.heading }}</h2>
+            {%- if entry.text %}
+                <div class="prose-plain flex flex-col gap-5 [&_p]:m-0">{{ entry.text }}</div>
+            {%- endif %}
+        </div>
+        {%- if tiles|length %}
+            <ul class="grid min-w-0 flex-[1_1_440px] grid-cols-[repeat(2,minmax(0,1fr))] gap-3">
+                {%- for tile in tiles %}
+                    <li class="flex min-h-[150px] flex-col justify-end gap-[6px] bg-white px-6 py-7">
+                        <span class="text-[18px] leading-[26px] font-light">{{ tile.title }}</span>
+                        {%- if tile.text ?? false %}
+                            <span class="font-display text-[clamp(21px,2.2vw,26px)] leading-[1.23] text-plum">{{ tile.text }}</span>
+                        {%- endif %}
+                    </li>
+                {%- endfor %}
+            </ul>
+        {%- endif %}
+    </div>
+
+    {%- if entry.bandText %}
+        <div class="mt-4 flex flex-wrap items-baseline gap-x-16 gap-y-4 bg-navy px-6 py-8 text-white tablet:px-12 tablet:py-10">
+            {%- if entry.bandLabel %}
+                <p class="flex-[0_1_280px] text-label text-ink-light">{{ entry.bandLabel }}</p>
+            {%- endif %}
+            <p class="min-w-0 flex-[1_1_520px] text-[20px] leading-[30px] font-light">{{ entry.bandText }}</p>
+        </div>
+    {%- endif %}
+</section>

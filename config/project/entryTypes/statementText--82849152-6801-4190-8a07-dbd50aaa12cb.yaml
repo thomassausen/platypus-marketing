@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  5096daba-3829-4036-aafe-fa52c493d615:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3914ae72-3f8d-4d60-adb7-5ca7c61176e9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Groß in der Schmuckschrift.'
+            label: Aussage
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d9546317-07e8-4fda-823f-f0434b97ab9d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: 'Text rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 085517b9-c0b0-426d-a107-2984b4e8f9a5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 06efa1a7-fd26-4382-b5c0-7226fe94ac65
+        userCondition: null
+    thumbFieldKey: null
+handle: statementText
+hasTitleField: false
+icon: comment
+name: 'Aussage mit Text'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

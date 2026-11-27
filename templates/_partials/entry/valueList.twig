@@ -1,0 +1,29 @@
+{# =========================================================================
+   Value list
+   Section head and values in two columns, each with a top rule.
+   Fields: subtitle, heading, items (table: title, text)
+   ========================================================================= #}
+
+{%- set items = (entry.items ?? [])|filter(row => row.title ?? false) -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    <div class="mb-8 flex flex-col gap-4">
+        {%- if entry.subtitle %}
+            <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+        {%- endif %}
+        <h2 class="text-section">{{ entry.heading }}</h2>
+    </div>
+
+    {%- if items|length %}
+        <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-x-12">
+            {%- for item in items %}
+                <li class="flex flex-col gap-2 border-t border-line py-6">
+                    <h3 class="text-[22px] leading-[30px]">{{ item.title }}</h3>
+                    {%- if item.text ?? false %}
+                        <p class="text-[15px] leading-6 text-slate">{{ item.text|nl2br }}</p>
+                    {%- endif %}
+                </li>
+            {%- endfor %}
+        </ul>
+    {%- endif %}
+</section>

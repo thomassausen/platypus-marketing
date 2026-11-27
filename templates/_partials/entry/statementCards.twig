@@ -1,0 +1,43 @@
+{# =========================================================================
+   Statement cards
+   Section head and up to three cards in plum shades (light → dark). A card
+   without a title shows its text as a large serif statement.
+   Fields: subtitle, heading, cards (table: label, title, text)
+   ========================================================================= #}
+
+{%- set cards = (entry.cards ?? [])|filter(row => (row.title ?? false) or (row.text ?? false))|slice(0, 3) -%}
+{%- set styles = [
+    { card: 'bg-plum-mist text-ink', label: 'text-plum-deep' },
+    { card: 'bg-plum-light text-ink', label: 'text-ink' },
+    { card: 'bg-plum text-white', label: 'text-white' },
+] -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    <div class="mb-10 flex max-w-[760px] flex-col gap-4">
+        {%- if entry.subtitle %}
+            <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+        {%- endif %}
+        <h2 class="text-section">{{ entry.heading }}</h2>
+    </div>
+
+    {%- if cards|length %}
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
+            {%- for card in cards %}
+                {%- set style = styles[loop.index0] -%}
+                <article class="flex flex-col gap-[14px] px-8 py-9 {{ style.card }}">
+                    {%- if card.label ?? false %}
+                        <span class="text-label-sm {{ style.label }}">{{ card.label }}</span>
+                    {%- endif %}
+                    {%- if card.title ?? false %}
+                        <h3 class="text-[28px] leading-9 font-light">{{ card.title }}</h3>
+                        {%- if card.text ?? false %}
+                            <p>{{ card.text|nl2br }}</p>
+                        {%- endif %}
+                    {%- else %}
+                        <p class="font-display text-[26px] leading-9">{{ card.text|nl2br }}</p>
+                    {%- endif %}
+                </article>
+            {%- endfor %}
+        </div>
+    {%- endif %}
+</section>

@@ -1,0 +1,19 @@
+{# =========================================================================
+   Statement + text
+   Label and a large serif statement left, text right.
+   Fields: subtitle, heading, text
+   ========================================================================= #}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    <div class="flex flex-wrap items-start gap-x-16 gap-y-8">
+        <div class="flex min-w-0 flex-[1_1_400px] flex-col gap-4">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <p class="font-display text-[clamp(32px,3.8vw,44px)] leading-[1.18]">{{ entry.heading }}</p>
+        </div>
+        {%- if entry.text %}
+            <div class="prose-plain flex min-w-0 flex-[1_1_480px] flex-col gap-4 [&_p]:m-0">{{ entry.text }}</div>
+        {%- endif %}
+    </div>
+</section>

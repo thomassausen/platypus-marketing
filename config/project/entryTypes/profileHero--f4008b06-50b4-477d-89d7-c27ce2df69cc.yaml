@@ -1,0 +1,138 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  f805be5a-44b7-4cc6-9665-b91eea9435b5:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
+            handle: null
+            instructions: null
+            label: Porträt
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6cc0a2ae-be19-4e65-bf49-b07e72004ce2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eefe6df1-a007-458c-8a1c-d89be0346c3b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: 'Name / Überschrift'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b0c4263-7ce9-4da9-8552-9112f74fdb4e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: role
+            instructions: null
+            label: Unterzeile
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66015b4e-6cc8-4cd5-a9fc-5e1f4737dfad
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: 'Große Zeile in der Schmuckschrift.'
+            label: Aussage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: df3182bb-0ccc-4332-9605-a18b2297b6ac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d4b3514-032b-434e-947f-e6e23ba84dba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: stats
+            instructions: 'Bis zu drei. Titel = Wert, Text = Erläuterung.'
+            label: Kennzahlen
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: adda7999-17c6-41a9-a858-102f84bb3883
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 79ae982e-9ad6-4a2e-be15-5474e3d7b51a
+        userCondition: null
+    thumbFieldKey: null
+handle: profileHero
+hasTitleField: false
+icon: id-card
+name: 'Seitenkopf mit Porträt'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

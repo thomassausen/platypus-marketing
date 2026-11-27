@@ -1,4 +1,4 @@
-dateModified: 1795739865
+dateModified: 1795740176
 elementSources:
   craft\elements\Entry:
     -
@@ -402,6 +402,70 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
+  6c6e5e71-06b8-4899-858b-d45ae0b8af82: # Karten mit Label
+    columnSuffix: null
+    handle: labeledCards
+    instructions: null
+    name: 'Karten mit Label'
+    searchable: false
+    settings:
+      addRowLabel: 'Karte hinzufügen'
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Label
+                -
+                  - handle
+                  - label
+                -
+                  - type
+                  - singleline
+                -
+                  - width
+                  - 20%
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Titel
+                -
+                  - handle
+                  - title
+                -
+                  - type
+                  - singleline
+                -
+                  - width
+                  - 25%
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Text
+                -
+                  - handle
+                  - text
+                -
+                  - type
+                  - multiline
+                -
+                  - width
+                  - ''
+      maxRows: null
+      minRows: null
+      staticRows: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
   6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: # Hintergrundfarbe
     columnSuffix: null
     handle: backgroundColor
@@ -1090,6 +1154,62 @@ fields:
             -
               - uid
               - d73a14f1-c22c-4e83-98f4-dce78698c6e0 # Fallbeispiele (Liste)
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - f4008b06-50b4-477d-89d7-c27ce2df69cc # Seitenkopf mit Porträt
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - 539ade79-bf20-4e7f-b291-cef6becd1531 # Text mit Zitat
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - 8d2a39ae-c04b-4fea-970e-1218a9173104 # Drei Karten (Pflaume)
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - b7f32c20-63e5-40b0-9321-ebc98d24796a # Werte-Liste
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - 21062332-acd1-449b-aedb-3b3ab80b02c4 # Gegensätze (Platypus-Prinzip)
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - 82849152-6801-4190-8a07-dbd50aaa12cb # Aussage mit Text
+            -
+              - group
+              - 'Neues Design'
+        -
+          __assoc__:
+            -
+              - uid
+              - 4c55c2ed-8f72-4e5f-89aa-4e7d3447e12f # Kontaktbereich
             -
               - group
               - 'Neues Design'
@@ -3700,6 +3820,7 @@ meta:
     3fba40d2-ce46-4084-8c67-d92d1b8ffa8a: Footer-Logo # Footer-Logo
     4a65fe4d-8c4b-4f67-8c72-fb9f98cf3d52: 'SEO Image' # SEO Image
     4b8b18a3-5bab-4542-9ee5-c8782743e02f: Themenfarbe # Themenfarbe
+    4c55c2ed-8f72-4e5f-89aa-4e7d3447e12f: Kontaktbereich # Kontaktbereich
     04c57400-7a25-4235-8728-fc4d54ce7675: 'Highlight Box / Pullquote' # Highlight Box / Pullquote
     4f89cdcc-edde-40c0-9ff6-2bc3b5602809: 'Zwei Listen' # Zwei Listen
     5a081961-58ed-4f71-951e-b874fc1c0d30: 'Methode mit Grafik' # Methode mit Grafik
@@ -3707,11 +3828,13 @@ meta:
     5e42c44e-5e46-4680-9022-746e1d3b9040: Akzentfarbe # Akzentfarbe
     5f55a925-47a0-4b01-93c1-ec7b71e35521: 'Nummerierung?' # Nummerierung?
     6a632431-a5bc-4810-bb48-e26de2dc4e3c: 'Steps Section' # Steps Section
+    6c6e5e71-06b8-4899-858b-d45ae0b8af82: 'Karten mit Label' # Karten mit Label
     6c9288d8-5d14-4d35-b4be-c9cfe19a18bc: Hintergrundfarbe # Hintergrundfarbe
     6eb230e1-4b05-4189-afed-31ce409f3009: Hero-Variante # Hero-Variante
     7d5cf96b-6d4e-4c4b-b9c4-02591bfa3bbd: FAQ-Items # FAQ-Items
     8bb09a1f-dca2-460e-9595-5fe310bd2c64: FAQ # FAQ
     8c9ea530-6518-4a2f-ad94-c03133f2c96e: Vorteil # Vorteil
+    8d2a39ae-c04b-4fea-970e-1218a9173104: 'Drei Karten (Pflaume)' # Drei Karten (Pflaume)
     8eddde25-59f1-45c5-8584-d471afc0abd9: 'Schlusssatz mit Button' # Schlusssatz mit Button
     14feb754-f8d4-4859-bf18-2a8fd36eb7f7: 'Karten mit Icon' # Karten mit Icon
     15eff4f8-bc5a-43df-84c2-0566b556fe83: News-Übersicht # News-Übersicht
@@ -3733,6 +3856,7 @@ meta:
     176fe785-6697-4da6-be7b-4e8981ee6e8d: 'Features Tabelle' # Features Tabelle
     381f340a-2f22-4412-b9d1-63971c6a5da9: Service-Farbe # Service-Farbe
     513ca6c6-9ef3-4652-92bb-873ce19c55de: Pakete # Pakete
+    539ade79-bf20-4e7f-b291-cef6becd1531: 'Text mit Zitat' # Text mit Zitat
     546a1aba-9733-4f5d-917b-567daf653235: 'Image Divider' # Image Divider
     608cc24c-fdd9-4aa1-82b8-29c4b8793e9f: 'Von Sitemap ausschließen' # Von Sitemap ausschließen
     721f20b4-67cc-43c3-bf0e-21884d1a5930: 'Pakete im Vergleich (Grafik)' # Pakete im Vergleich (Grafik)
@@ -3761,11 +3885,13 @@ meta:
     4111023a-b9d2-4eb9-9d57-5638426d40a4: 'Icon zeigen' # Icon zeigen
     10581733-0aaf-43ac-b04a-9de940b7cf8e: Zitat # Zitat
     14840270-f687-4a46-85c2-27aaf9adadac: Vergleichszeilen # Vergleichszeilen
+    21062332-acd1-449b-aedb-3b3ab80b02c4: 'Gegensätze (Platypus-Prinzip)' # Gegensätze (Platypus-Prinzip)
     23537782-b8b1-45ba-b2d8-7426f9a9da11: Leistung # Leistung
     36519611-89d8-4430-8d93-e485065dfb9a: Vorteile-Sektion # Vorteile-Sektion
     38801779-30a4-4b25-8407-a5cdf191d63d: Einwand # Einwand
     54862845-b8ae-4938-a3a9-5f878696acc5: Link # Link
     59127974-f469-4d6e-b9aa-ed3c3d066358: Container-Breite # Container-Breite
+    82849152-6801-4190-8a07-dbd50aaa12cb: 'Aussage mit Text' # Aussage mit Text
     a00d30b5-921b-4df8-b4cb-4926b61ba371: Kunden # Kunden
     a1a2a3a4-b5b6-4c7d-8e9f-0a1b2c3d4e5f: Facebook # Facebook
     a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7: Blog # Blog
@@ -3784,6 +3910,7 @@ meta:
     b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8: Blog # Blog
     b2eb1c85-7df6-4db0-856e-37beb70d26cd: 'Von Suchmaschinen ausschließen' # Von Suchmaschinen ausschließen
     b4a38998-f0dc-4e32-b676-d099fb9374bc: Themen # Themen
+    b7f32c20-63e5-40b0-9321-ebc98d24796a: Werte-Liste # Werte-Liste
     b8c9d0e1-f2a3-4456-b789-abcdef012345: Footer # Footer
     b188a0a0-18b9-49af-ad2c-b7a79380406c: 'Seitenkopf mit Kennzahlen' # Seitenkopf mit Kennzahlen
     b591db6f-b83f-4160-ad47-bdfe5b2688e1: Buttons # Buttons
@@ -3822,6 +3949,7 @@ meta:
     f33a4e83-1f1c-494a-8868-e03c49695831: Haupt-Navigation # Haupt-Navigation
     f76a2dd2-e718-4293-9d3a-13b3db2e26f8: Team-Mitglied # Team-Mitglied
     f967bf0d-8934-40c7-82ef-29173a4d6e2b: Modell-Karte # Modell-Karte
+    f4008b06-50b4-477d-89d7-c27ce2df69cc: 'Seitenkopf mit Porträt' # Seitenkopf mit Porträt
     f81747ee-8440-434b-9779-936716066903: Text-Layout # Text-Layout
     f961998c-8b66-4b11-a38e-ab6782e44efa: Video # Video
     f4296180-a3a3-470e-a6c5-af1f0185be6c: Button-Stil # Button-Stil

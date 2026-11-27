@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  9a7589b6-7bb0-4882-bf3c-1747e7135e34:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba84221e-eddb-4f48-9215-97b19ea453e6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: null
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6be467e4-c49c-439d-8270-60c7d471cd7f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84eb832c-55b9-43cf-b9c8-3b7d2b9179b4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quote
+            instructions: null
+            label: Zitat
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c100498e-840b-4744-ad0f-4c2dd47b0ec5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: quoteBy
+            instructions: null
+            label: 'Zitat von'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 19edc44a-c9d9-4183-b01a-01c40012811f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 557e4a59-8ffe-4ce0-8a3d-2e832a270067
+        userCondition: null
+    thumbFieldKey: null
+handle: textQuote
+hasTitleField: false
+icon: quote-left
+name: 'Text mit Zitat'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
