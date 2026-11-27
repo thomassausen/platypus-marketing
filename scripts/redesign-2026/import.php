@@ -6,7 +6,9 @@
  * footer texts, home page, packages, cases, "Angebot", "Cases & Referenzen",
  * "Warum Platypus", news topics and the article "Warum eine Positionierung
  * Belege braucht" (two further posts exist only as teasers and are created
- * disabled), and the main navigation (old items are disabled, not deleted).
+ * disabled) and the main navigation. Finally the old pages ("Was wir tun" with
+ * its four sub pages, "Über uns") and the old navigation items are moved to
+ * the trash; their URLs redirect via config/routes.php.
  *
  * The script is idempotent: entries are found by title/slug and updated.
  * Exceptions: content builder blocks and the article's embedded elements

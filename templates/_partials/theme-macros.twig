@@ -89,17 +89,6 @@
     {{- map[width] ?? map.default -}}
 {% endmacro %}
 
-{# Service colour (stored as old hex values) → card classes #}
-{% macro serviceColorClass(color) %}
-    {%- set map = {
-        '#5162aa': 'bg-navy text-white',
-        '#f89c48': 'bg-gold text-ink',
-        '#9d7db5': 'bg-plum text-white',
-        '#3f5e5a': 'bg-petrol text-ink',
-    } -%}
-    {{- map[(color.value ?? color ?? '')|lower] ?? 'bg-navy text-white' -}}
-{% endmacro %}
-
 {# Topic colour → classes. kind: panel (news card), chip (labels), header (article head) #}
 {% macro topicClass(topic, kind) %}
     {%- set color = topic.topicColor.value ?? null -%}
