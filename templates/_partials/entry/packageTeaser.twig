@@ -1,0 +1,41 @@
+{# =========================================================================
+   Package teaser
+   Section head with link and one card per entry of the "packages"
+   structure (in structure order); top edge darkens from card to card.
+   Fields: subtitle, heading, headLink
+   ========================================================================= #}
+
+{%- set packages = craft.entries.section('packages').all() -%}
+{%- set edges = ['border-petrol-light', 'border-petrol', 'border-petrol-deep'] -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    {%- include '_partials/redesign/section-head' with {
+        label: entry.subtitle,
+        heading: entry.heading,
+        link: entry.headLink,
+        maxWidth: 'max-w-[720px]',
+        utilities: 'mb-10',
+    } only -%}
+
+    {%- if packages|length %}
+        <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
+            {%- for package in packages %}
+                <li>
+                    <a href="{{ package.url }}" class="group flex h-full min-h-[300px] flex-col gap-4 border-t-[6px] bg-white p-8 text-ink no-underline hover:text-ink {{ edges[loop.index0 % 3] }}">
+                        {%- if package.subtitle %}
+                            <span class="text-label text-petrol-ink">{{ package.subtitle }}</span>
+                        {%- endif %}
+                        <span class="text-[clamp(36px,4vw,44px)] leading-[48px] font-light tracking-[.04em]">{{ package.title }}</span>
+                        {%- if package.claim %}
+                            <span class="text-[20px] leading-7 font-light">{{ package.claim }}</span>
+                        {%- endif %}
+                        {%- if package.teaser %}
+                            <p class="grow text-[15px] leading-6 text-slate">{{ package.teaser }}</p>
+                        {%- endif %}
+                        <span class="text-label group-hover:underline">Zum Paket ↗</span>
+                    </a>
+                </li>
+            {%- endfor %}
+        </ul>
+    {%- endif %}
+</section>

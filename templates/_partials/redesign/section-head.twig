@@ -1,0 +1,52 @@
+{# =========================================================================
+   Section head
+   Label + h2 of the revised 2026 design, in three layouts:
+   - with link: heading left, text link (↗) bottom right
+   - with text: heading left, text column right (offset downwards)
+   - plain: heading only
+   Props: label, heading (*…* = accent), accent (plum|coral|petrol),
+          text (HTML), link (Link field data), split (wide|even: column
+          widths next to a text), maxWidth (heading width next to a link),
+          headingId, utilities
+   ========================================================================= #}
+
+{%- set accentClasses = {
+    plum: 'text-plum',
+    coral: 'text-coral-deep',
+    petrol: 'text-petrol-ink',
+} -%}
+{%- set accentClass = accentClasses[accent ?? 'plum'] ?? accentClasses.plum -%}
+{%- set hasLink = (link ?? null) and link.url -%}
+{%- set hasText = (text ?? '')|striptags|trim is not empty -%}
+
+{%- set title -%}
+    <div class="flex flex-col {{ (split ?? 'even') == 'wide' and hasText ? 'gap-6' : 'gap-4' }} {{ hasLink ? (maxWidth ?? '') }}">
+        {%- if label ?? false %}
+            <p class="text-label text-ink-muted">{{ label }}</p>
+        {%- endif %}
+        <h2{{ attr({ id: headingId ?? false }) }} class="text-section">
+            {%- include '_partials/redesign/highlight' with { text: heading, utilities: accentClass } only -%}
+        </h2>
+    </div>
+{%- endset -%}
+
+{%- if hasLink %}
+    <div class="flex flex-wrap items-end justify-between gap-6 {{ utilities ?? '' }}">
+        {{ title }}
+        {%- include '_partials/redesign/text-link' with { link: link } only -%}
+    </div>
+{%- elseif hasText %}
+    {%- if (split ?? 'even') == 'wide' %}
+        <div class="flex flex-wrap items-start gap-12 {{ utilities ?? '' }}">
+            <div class="min-w-0 flex-[1_1_520px]">{{ title }}</div>
+            <div class="prose-plain flex min-w-0 flex-[1_1_420px] flex-col gap-4 tablet:pt-10 [&_p]:m-0">{{ text }}</div>
+        </div>
+    {%- else %}
+        <div class="flex flex-wrap gap-x-16 gap-y-6 {{ utilities ?? '' }}">
+            <div class="min-w-0 flex-[1_1_440px]">{{ title }}</div>
+            <div class="prose-plain flex min-w-0 flex-[1_1_440px] flex-col gap-4 tablet:pt-8 [&_p]:m-0">{{ text }}</div>
+        </div>
+    {%- endif %}
+{%- else %}
+    <div class="{{ utilities ?? '' }}">{{ title }}</div>
+{%- endif %}

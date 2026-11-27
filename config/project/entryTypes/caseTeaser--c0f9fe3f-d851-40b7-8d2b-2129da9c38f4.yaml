@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  9962e5b7-992c-4499-a5d9-f1fb3e2d7dc3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'Kleine Zeile über der Überschrift.'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2bf0cc19-c295-46c1-aca6-d89689763f79
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in der Akzentfarbe hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba487e69-d594-403b-82cd-651c85e9bcd5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: headLink
+            instructions: 'z. B. „Alle Fallbeispiele ↗“.'
+            label: 'Link rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46f4e048-0241-4740-8b16-36ef9769184a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 92d8c5d8-6353-44fa-b56b-f7b16e4fe580
+        userCondition: null
+    thumbFieldKey: null
+handle: caseTeaser
+hasTitleField: false
+icon: trophy
+name: Cases-Übersicht
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

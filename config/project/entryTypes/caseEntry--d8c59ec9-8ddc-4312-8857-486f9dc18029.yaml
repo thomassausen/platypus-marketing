@@ -1,0 +1,118 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  ad0ac191-46ba-4d5d-b4ae-83909bd833a5:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 84afb02d-bfd6-4f9d-bd0c-eded38fe67f4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'z. B. „Personalberatung · HSE“'
+            label: Branche
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a8099e1-f67d-43e0-bbbd-8ab6ddacbb4f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: metric
+            instructions: 'z. B. „1 Funktion“ oder „0 → 350“'
+            label: Kennzahl
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15c18a1c-2800-4f87-ad71-570a7bbede35
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: metricCaption
+            instructions: 'z. B. „statt einer ganzen Berufsgruppe“'
+            label: 'Kennzahl: Erläuterung'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 961f38cd-beed-4ff4-b255-5dcd5fecf47d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a3f58272-44c2-4243-ba06-e56a5d5678fd # Kartenfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39466945-8577-430e-8269-da6605ee1cc4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: afd2db10-f98d-4b84-a197-3f327e5c6f64
+        userCondition: null
+    thumbFieldKey: null
+handle: caseEntry
+hasTitleField: true
+icon: trophy
+name: Fallbeispiel
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

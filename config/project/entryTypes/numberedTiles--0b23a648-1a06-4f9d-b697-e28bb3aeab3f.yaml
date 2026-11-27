@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  d966ae4f-9221-49dc-8a49-25510044fe3d:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'Kleine Zeile über der Überschrift.'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7eb3152c-84c9-46b5-8087-923917d8c406
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in der Akzentfarbe hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8008a363-9162-4f6d-ab0b-e2ca20c8280e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5e42c44e-5e46-4680-9022-746e1d3b9040 # Akzentfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3fa4f119-45da-4a14-bc7e-fd8378fbad85
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: 'Text rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9b8ec02c-3a14-45ee-be55-7de7576f6221
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: tiles
+            instructions: null
+            label: Kacheln
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1edc22f6-4f0f-4b2b-999a-ffa173abdaf6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: f4354db1-f6fb-4b7a-aaa1-7f61beb25ca9
+        userCondition: null
+    thumbFieldKey: null
+handle: numberedTiles
+hasTitleField: false
+icon: list-ol
+name: 'Nummerierte Kacheln (Petrol)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

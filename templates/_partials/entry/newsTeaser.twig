@@ -1,0 +1,29 @@
+{# =========================================================================
+   News teaser
+   Section head with link and the three newest blog posts as cards.
+   Fields: subtitle, heading, headLink
+   ========================================================================= #}
+
+{%- set posts = craft.entries.section('blog').orderBy('postDate DESC').limit(3).all() -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    {%- include '_partials/redesign/section-head' with {
+        label: entry.subtitle,
+        heading: entry.heading,
+        link: entry.headLink,
+        utilities: 'mb-10',
+    } only -%}
+
+    {%- if posts|length %}
+        <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-4">
+            {%- for post in posts %}
+                <li>
+                    <a href="{{ post.url }}" class="group flex h-full min-h-[260px] flex-col gap-4 bg-white p-6 text-ink no-underline hover:text-ink">
+                        <h3 class="grow text-[22px] leading-[30px] font-light group-hover:underline">{{ post.title }}</h3>
+                        <time class="text-caption text-ink-muted" datetime="{{ post.postDate|date('Y-m-d') }}">{{ post.postDate|date('d. F Y') }}</time>
+                    </a>
+                </li>
+            {%- endfor %}
+        </ul>
+    {%- endif %}
+</section>

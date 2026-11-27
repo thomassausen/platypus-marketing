@@ -1,0 +1,61 @@
+{# =========================================================================
+   Principle + person
+   Navy card with statement next to a white person card. Directly after
+   "Nummerierte Kacheln" it moves up and reads as one section.
+   Fields: subtitle, kicker, heading, text, image, personName,
+           personRole, personText, customLink
+   Variables: previous (handle of the previous block)
+   ========================================================================= #}
+
+{%- set photo = entry.image.one() ?? null -%}
+{%- set link = entry.customLink ?? null -%}
+
+<section class="container-wrap {{ (previous ?? null) == 'numberedTiles' ? 'pt-4' : 'pt-16 tablet:pt-24' }}">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-4">
+        <div class="flex min-h-[420px] flex-col justify-between gap-10 bg-navy p-8 text-white tablet:p-12">
+            <div class="flex flex-col gap-[14px]">
+                {%- if entry.subtitle %}
+                    <p class="text-label text-ink-light">{{ entry.subtitle }}</p>
+                {%- endif %}
+                {%- if entry.kicker %}
+                    <p class="max-w-[300px] text-[20px] leading-[26px] font-bold tracking-[.08em] text-gold uppercase">{{ entry.kicker }}</p>
+                {%- endif %}
+            </div>
+            <p class="font-display text-[clamp(36px,4vw,48px)] leading-[1.125]">{{ entry.heading }}</p>
+            {%- if entry.text %}
+                <div class="prose-plain [&_p]:m-0">{{ entry.text }}</div>
+            {%- endif %}
+        </div>
+
+        {%- if entry.personName or entry.personText %}
+            <div class="flex flex-col gap-6 bg-white p-8 tablet:p-12">
+                <div class="flex items-center gap-5">
+                    {%- if photo %}
+                        {{ tag('img', {
+                            src: photo.getUrl({ width: 192, height: 192, mode: 'crop', format: 'webp', quality: 82 }),
+                            alt: photo.alt ?? entry.personName,
+                            width: 96,
+                            height: 96,
+                            loading: 'lazy',
+                            class: 'size-24 flex-none rounded-full object-cover object-[center_20%]',
+                        }) }}
+                    {%- endif %}
+                    <div>
+                        {%- if entry.personName %}
+                            <p class="text-[20px] leading-[30px] font-light">{{ entry.personName }}</p>
+                        {%- endif %}
+                        {%- if entry.personRole %}
+                            <p class="text-copy-sm text-ink-muted">{{ entry.personRole }}</p>
+                        {%- endif %}
+                    </div>
+                </div>
+                {%- if entry.personText %}
+                    <div class="prose-plain flex flex-col gap-6 [&_p]:m-0">{{ entry.personText }}</div>
+                {%- endif %}
+                {%- if link and link.url %}
+                    {%- include '_partials/redesign/text-link' with { link: link, utilities: 'mt-auto self-start' } only -%}
+                {%- endif %}
+            </div>
+        {%- endif %}
+    </div>
+</section>

@@ -1,31 +1,37 @@
 {# =========================================================================
    FAQ
-   Accordion with native <details>, styled like the 2026 lists.
-   Fields: subtitle, heading, text, faqItems (question, answer),
-           textAlignment, backgroundColor, containerWidth
+   Heading left, questions right as white <details> cards with a "+"
+   that turns into "×"; the first answer is open.
+   Fields: subtitle, heading, text, faqItems (question, answer)
+   The older fields textAlignment, backgroundColor and containerWidth are
+   no longer used.
    ========================================================================= #}
 
-{%- import '_partials/theme-macros.twig' as theme -%}
-{%- import '_partials/ui-macros.twig' as ui -%}
-
-{%- set vars = theme.getThemeVars(entry.backgroundColor.value ?? entry.backgroundColor ?? 'white')|json_decode -%}
-{%- set container = theme.containerClass(entry.containerWidth.value ?? entry.containerWidth ?? null, 'narrow') -%}
-{%- set alignment = entry.textAlignment.value ?? entry.textAlignment ?? 'left' -%}
 {%- set items = entry.faqItems.all() -%}
 
-<section class="relative section-band {{ vars.backgroundClass }} {{ vars.textColorClass }}">
-    <div class="{{ container }}">
-        {{ ui.sectionHeader(entry.subtitle, entry.heading ?? entry.title, null, entry.text, vars, alignment) }}
+<section id="faq" class="container-wrap scroll-mt-40 pt-16 pb-8 tablet:pt-24">
+    <div class="flex flex-wrap items-start gap-12">
+        <div class="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
+            {%- if entry.subtitle %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h2 class="text-section">
+                {%- include '_partials/redesign/highlight' with { text: entry.heading ?? entry.title, utilities: 'text-plum' } only -%}
+            </h2>
+            {%- if entry.text %}
+                <div class="prose-plain">{{ entry.text }}</div>
+            {%- endif %}
+        </div>
 
         {%- if items|length %}
-            <div class="mt-14 border-b {{ vars.lineClass }}">
+            <div class="flex min-w-0 flex-[2_1_560px] flex-col gap-2">
                 {%- for item in items %}
-                    <details class="group border-t {{ vars.lineClass }}" name="faq-{{ entry.id }}">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[19px] leading-[26px] [&::-webkit-details-marker]:hidden {{ vars.titleColorClass }}">
+                    <details class="group bg-white px-6"{% if loop.first %} open{% endif %}>
+                        <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 text-[20px] leading-[30px] font-light [&::-webkit-details-marker]:hidden">
                             <span>{{ item.question }}</span>
-                            {%- include '_partials/redesign/icon' with { name: 'chevron', utilities: 'size-5 transition-transform duration-200 group-open:rotate-180' } only -%}
+                            <span class="flex-none text-[28px] leading-none font-light transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
                         </summary>
-                        <div class="prose-plain content-styles max-w-[64ch] pb-6 {{ vars.mutedClass }}">{{ item.answer }}</div>
+                        <div class="prose-plain content-styles max-w-[640px] pb-6">{{ item.answer }}</div>
                     </details>
                 {%- endfor %}
             </div>

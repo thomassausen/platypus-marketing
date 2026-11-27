@@ -20,16 +20,19 @@
     --color-ink-muted: #5B6177;
     --color-ink-light: #B8C1E3;
     --color-ink-soft: #E6E9F5;
+    --color-slate: #3D4560;
     --color-petrol: #A3C5CB;
     --color-petrol-light: #D6E5E8;
     --color-petrol-trace: #EEF5F6;
     --color-petrol-deep: #5F9AA4;
+    --color-petrol-ink: #3F7D88;
     --color-stone: #DCCFB9;
     --color-stone-light: #EFE9E0;
     --color-beige: #F0EDE6;
     --color-plum: #8B667C;
     --color-plum-light: #CBBAC4;
     --color-plum-trace: #F1EAEE;
+    --color-plum-mist: #EAE3E7;
     --color-plum-deep: #634558;
     --color-coral: #D48873;
     --color-coral-light: #ECC9C0;
@@ -133,6 +136,13 @@
     font-weight: 400;
     font-size: clamp(26px, 3.2vw, 36px);
     line-height: 1.25;
+}
+
+@utility text-section {
+    font-weight: 300;
+    font-size: clamp(30px, 3.4vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -.01em;
 }
 
 @utility text-h2 {

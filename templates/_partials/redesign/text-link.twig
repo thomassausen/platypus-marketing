@@ -1,0 +1,13 @@
+{# =========================================================================
+   Text link
+   Uppercase label link with trailing ↗, e.g. "Alle Fallbeispiele ↗".
+   Props: link (Link field data) or url + text, utilities
+   ========================================================================= #}
+
+{%- set url = link.url ?? url ?? null -%}
+{%- set text = link.label ?? text ?? null -%}
+{%- set target = link.target ?? null -%}
+
+{%- if url -%}
+<a href="{{ url }}" class="text-label text-ink underline underline-offset-2 hover:text-navy {{ utilities ?? '' }}"{% if target %} target="{{ target }}"{% if target == '_blank' %} rel="noopener noreferrer"{% endif %}{% endif %}>{{ text }} ↗</a>
+{%- endif -%}

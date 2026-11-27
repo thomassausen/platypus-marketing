@@ -1,0 +1,154 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  52f9b91f-e5a9-4067-859d-a54e7791bec9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'Kleine Zeile über der Überschrift.'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c97b91f3-f2bf-45ae-8a85-4dcdbf903a82
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in der Akzentfarbe hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9c17d0a4-7616-4682-b235-1169bc89ac19
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: lead
+            instructions: null
+            label: Einleitung
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 782d9a73-0091-4dda-a08b-47096fd55a31
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: headLink
+            instructions: 'z. B. „So funktioniert CORE.Intelligence!“.'
+            label: 'Link rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b0247fb7-a2f7-4c2a-a60e-13e180993e82
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f961998c-8b66-4b11-a38e-ab6782e44efa # Video
+            handle: null
+            instructions: null
+            label: Video
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a640ee1c-322c-4a1f-a9ed-465b0100a7c8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c1696d61-467a-45b3-8386-ec628a918f32 # Bild
+            handle: null
+            instructions: 'Wird als Vorschaubild des Videos genutzt oder ohne Video als Bild gezeigt.'
+            label: 'Vorschaubild / Bild'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9aee70fc-9711-479c-9244-4a6983664921
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: listTitle
+            instructions: 'z. B. „Danach wissen Sie,“'
+            label: Listen-Überschrift
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0631e338-441e-4501-99d0-d96eb80a63d0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 49f0f201-a75b-4cc8-ad5e-c3d5c33a20a9 # Liste
+            handle: points
+            instructions: null
+            label: Liste
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4cdc13ca-32e9-4633-b6d1-d5a5de5be9ad
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: f8976c03-85ff-42c7-b50a-386af96fcc21
+        userCondition: null
+    thumbFieldKey: null
+handle: methodTeaser
+hasTitleField: false
+icon: video
+name: 'Methode mit Video'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

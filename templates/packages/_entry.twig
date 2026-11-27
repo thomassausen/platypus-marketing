@@ -1,0 +1,21 @@
+{# =========================================================================
+   Detail page (interim)
+   Minimal header until the full detail template is built (part C).
+   ========================================================================= #}
+
+{% extends "_layouts/default" %}
+
+{% block content %}
+    <section class="container-wrap pt-6 tablet:pt-12">
+        <div class="flex flex-col gap-7 bg-mist px-6 py-10 phablet:px-12 phablet:py-14">
+            {%- if entry.subtitle ?? false %}
+                <p class="text-label text-ink-muted">{{ entry.subtitle }}</p>
+            {%- endif %}
+            <h1 class="text-statement">{{ entry.title }}</h1>
+            {%- set lead = entry.claim ?? entry.metricCaption ?? null -%}
+            {%- if lead %}
+                <p class="max-w-[620px] text-[clamp(19px,2vw,22px)] leading-[1.4545] font-light">{{ lead }}</p>
+            {%- endif %}
+        </div>
+    </section>
+{% endblock %}

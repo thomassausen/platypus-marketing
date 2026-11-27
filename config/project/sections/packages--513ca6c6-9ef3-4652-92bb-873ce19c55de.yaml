@@ -1,0 +1,23 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 3e4b9c75-a9d7-4955-915e-b1f45d143e89 # Paket
+handle: packages
+maxAuthors: 1
+name: Pakete
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  c64edb66-a3e5-409b-bbd4-1fb8c2eaf0b5: # Platypus
+    enabledByDefault: true
+    hasUrls: true
+    template: packages/_entry
+    uriFormat: 'angebot/{slug}'
+structure:
+  maxLevels: 1
+  uid: 1186dd29-7408-44e2-80e9-0deab992cad2
+type: structure

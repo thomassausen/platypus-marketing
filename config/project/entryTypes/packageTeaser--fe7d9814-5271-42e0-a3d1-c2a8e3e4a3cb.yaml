@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  67024a2f-085e-4351-8c57-d96a3432d2ff:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'Kleine Zeile über der Überschrift.'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7ba98a0b-c0b3-4eaf-a8e1-0fa11915ba66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in der Akzentfarbe hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a860ad23-3919-44dd-89f9-0408c370494d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46dc81ec-70cb-496a-98e9-65e6ca50b3d5 # Link
+            handle: headLink
+            instructions: 'z. B. „Alle Fallbeispiele ↗“.'
+            label: 'Link rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0520449-111c-47af-b0a6-42800ca658b2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 47d1deed-f734-4695-b1b5-e64420750a8a
+        userCondition: null
+    thumbFieldKey: null
+handle: packageTeaser
+hasTitleField: false
+icon: boxes-stacked
+name: Pakete-Übersicht
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

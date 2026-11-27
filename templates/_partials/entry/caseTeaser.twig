@@ -1,0 +1,45 @@
+{# =========================================================================
+   Case teaser
+   Section head with link and up to four case cards (key figure, caption,
+   title) from the "cases" structure, in structure order.
+   Fields: subtitle, heading, headLink
+   ========================================================================= #}
+
+{%- set cases = craft.entries.section('cases').limit(4).all() -%}
+{%- set styles = {
+    navy: { card: 'bg-navy text-white hover:text-white', label: 'text-ink-light', caption: 'text-ink-light' },
+    coral: { card: 'border-t-[6px] border-coral bg-white text-ink hover:text-ink', label: 'text-coral-deep', caption: 'text-ink-muted' },
+    petrol: { card: 'border-t-[6px] border-petrol bg-white text-ink hover:text-ink', label: 'text-petrol-ink', caption: 'text-ink-muted' },
+    plum: { card: 'border-t-[6px] border-plum-light bg-white text-ink hover:text-ink', label: 'text-plum', caption: 'text-ink-muted' },
+} -%}
+
+<section class="container-wrap pt-16 tablet:pt-24">
+    {%- include '_partials/redesign/section-head' with {
+        label: entry.subtitle,
+        heading: entry.heading,
+        link: entry.headLink,
+        utilities: 'mb-10',
+    } only -%}
+
+    {%- if cases|length %}
+        <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-4">
+            {%- for case in cases %}
+                {%- set style = styles[case.cardColor.value ?? 'petrol'] ?? styles.petrol -%}
+                <li>
+                    <a href="{{ case.url }}" class="group flex h-full min-h-[280px] flex-col gap-[14px] p-7 no-underline {{ style.card }}">
+                        {%- if case.subtitle %}
+                            <span class="text-label-sm {{ style.label }}">{{ case.subtitle }}</span>
+                        {%- endif %}
+                        {%- if case.metric %}
+                            <span class="text-[48px] leading-[52px] font-light tracking-[-.02em]">{{ case.metric }}</span>
+                        {%- endif %}
+                        {%- if case.metricCaption %}
+                            <span class="text-[13px] leading-5 {{ style.caption }}">{{ case.metricCaption }}</span>
+                        {%- endif %}
+                        <span class="mt-auto text-[18px] leading-[26px] font-light group-hover:underline">{{ case.title }}</span>
+                    </a>
+                </li>
+            {%- endfor %}
+        </ul>
+    {%- endif %}
+</section>

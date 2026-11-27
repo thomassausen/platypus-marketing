@@ -1,0 +1,122 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  8dcd711c-8eb2-4eae-b0f2-969533706a63:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'Kleine Zeile über der Überschrift.'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8e89de6b-d34f-4a10-a2d2-d167ea6442ed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: heading
+            instructions: 'Wörter in *Sternchen* werden in der Akzentfarbe hervorgehoben.'
+            label: Überschrift
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67323503-94c6-4d39-8bad-74cc10a00860
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5e42c44e-5e46-4680-9022-746e1d3b9040 # Akzentfarbe
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf28db3c-4cff-4c17-a41d-62231961dc7b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 983f3c7c-a082-4298-bd61-06d175c7cba8 # Text
+            handle: text
+            instructions: null
+            label: 'Text rechts'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2edffb93-b10a-4310-8908-6fd84142b570
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: itemLabel
+            instructions: 'Wird durchnummeriert, z. B. „Prinzip“ → „Prinzip 1“, „Prinzip 2“ …'
+            label: Karten-Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ad39234-62ee-4c3e-870b-388837b5e714
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f07c1789-14fa-4e7a-a2a7-3ba289fa4027 # Liste mit Titel und Text
+            handle: cards
+            instructions: null
+            label: Karten
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 13a29131-0c8d-47a2-8990-9fa1159e64e2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: e71094f3-8b3c-4533-98de-e49da457028f
+        userCondition: null
+    thumbFieldKey: null
+handle: principles
+hasTitleField: false
+icon: grip
+name: 'Prinzipien (Karten mit Label)'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

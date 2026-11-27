@@ -22,7 +22,7 @@
             {% endif %}
 
             <div class="block{{ spacingClass }}">
-                {{ block.render }}
+                {{ block.render({ previous: prevBlock.type.handle ?? null }) }}
             </div>
         {% endfor %}
     </div>

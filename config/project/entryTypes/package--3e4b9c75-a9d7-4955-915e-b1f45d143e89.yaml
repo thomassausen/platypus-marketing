@@ -1,0 +1,102 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  cdee4e3f-4250-46e2-a22b-8a2e701076a2:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e408dbf5-10c9-4abe-a076-a03c1c554c0a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: subtitle
+            instructions: 'z. B. „Paket 1 · Das Fundament“'
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1dc19361-832d-49ce-94fc-c0240c6f7406
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: claim
+            instructions: 'z. B. „Profil entwickeln.“'
+            label: Kurzaussage
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 95e85925-7c48-4446-83c6-d7303a39863a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 394137d7-b17b-4bf5-9bc2-62dcc5d06808 # Plain Text
+            handle: teaser
+            instructions: 'Kurzbeschreibung für die Pakete-Übersicht.'
+            label: Teaser-Text
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e0d1bacb-65e3-4fbf-90f1-2af13b2567c7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 05e5c77b-be43-42ca-ba3d-4b90977afc3b
+        userCondition: null
+    thumbFieldKey: null
+handle: package
+hasTitleField: true
+icon: box
+name: Paket
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
